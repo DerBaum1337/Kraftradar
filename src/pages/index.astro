@@ -1,6 +1,8 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import RadarVisual from '../components/RadarVisual.astro';
+import Vertrauensleiste from '../components/Vertrauensleiste.astro';
+import Artikelkarte from '../components/Artikelkarte.astro';
 ---
 
 <Hauptlayout
@@ -19,13 +21,15 @@ import RadarVisual from '../components/RadarVisual.astro';
 			</p>
 
 			<div class="hero-actions">
-				<a class="button" href="#bereiche">Tests entdecken</a>
+				<a class="button" href="#bereiche">Bereiche entdecken</a>
 				<a class="button button--secondary" href="/mein-weg">Meinen Weg ansehen</a>
 			</div>
 		</div>
 
 		<RadarVisual />
 	</section>
+
+	<Vertrauensleiste />
 
 	<section id="bereiche" class="category-section">
 		<p>Bereiche</p>
@@ -65,6 +69,81 @@ import RadarVisual from '../components/RadarVisual.astro';
 				</p>
 				<span class="card-link">Zubehör entdecken <span aria-hidden="true">→</span></span>
 			</a>
+		</div>
+	</section>
+
+	<section class="section-alternate current-section">
+		<p class="eyebrow">Aktuell bei KraftRadar</p>
+		<h2>Einblicke, Grundlagen und Transparenz</h2>
+		<p class="section-intro">
+			Die ersten Bereiche wachsen Schritt für Schritt. Den Anfang machen die
+			Bewertungsmethode, Trainingsgrundlagen und die persönliche Dokumentation.
+		</p>
+
+		<div class="card-grid">
+			<Artikelkarte
+				href="/testmethode"
+				category="Transparenz"
+				title="So bewertet KraftRadar"
+				description="Feste Kriterien zeigen, wie Supplements und Zubehör später nachvollziehbar bewertet werden."
+				linkLabel="Testmethode ansehen"
+			/>
+			<Artikelkarte
+				href="/training/fortschritt-dokumentieren"
+				category="Training"
+				title="Fortschritt sinnvoll dokumentieren"
+				description="Welche Angaben einen Trainingsverlauf nachvollziehbar machen und warum einzelne Bestwerte wenig erzählen."
+				linkLabel="Artikel lesen"
+			/>
+			<Artikelkarte
+				href="/mein-weg"
+				category="Mein Weg"
+				title="Fortschritt ehrlich dokumentieren"
+				description="Nicht nur Erfolge zählen: Auch Fehler, Rückschritte und neue Erkenntnisse gehören dazu."
+				linkLabel="Meinen Weg ansehen"
+			/>
+		</div>
+	</section>
+
+	<section class="journey-section">
+		<div class="journey-copy">
+			<p class="eyebrow">Mein Weg</p>
+			<h2>Fortschritt ohne Hochglanzfilter.</h2>
+			<p>
+				Ich dokumentiere meinen Weg im Gym mit ehrlichen Zwischenständen. Dazu gehören
+				Fortschritte genauso wie Anfängerfehler und Dinge, die nicht funktioniert
+				haben.
+			</p>
+			<a class="button button--secondary" href="/mein-weg">Zur persönlichen Dokumentation</a>
+		</div>
+
+		<div class="journey-principles" aria-label="Grundsätze der Dokumentation">
+			<div class="mini-stat">
+				<span>01</span>
+				<strong>Regelmäßig festhalten</strong>
+			</div>
+			<div class="mini-stat">
+				<span>02</span>
+				<strong>Fehler offen benennen</strong>
+			</div>
+			<div class="mini-stat">
+				<span>03</span>
+				<strong>Erkenntnisse einordnen</strong>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-teaser section-alternate">
+		<div>
+			<p class="eyebrow">Warum KraftRadar?</p>
+			<h2>Eine unabhängige Orientierung für den Gym-Alltag.</h2>
+		</div>
+		<div>
+			<p>
+				KraftRadar entsteht als persönliches, transparentes Projekt. Herstellertexte
+				werden nicht einfach übernommen, und Werbung soll klar erkennbar bleiben.
+			</p>
+			<a class="text-link" href="/ueber-kraftradar">Mehr über KraftRadar <span aria-hidden="true">→</span></a>
 		</div>
 	</section>
 </Hauptlayout>

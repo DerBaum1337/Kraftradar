@@ -1,0 +1,38 @@
+---
+const points = [
+	{
+		title: 'Eigene Erfahrungen',
+		text: 'Praxis und persönliche Einordnung statt kopierter Herstellertexte.',
+	},
+	{
+		title: 'Klare Vor- und Nachteile',
+		text: 'Stärken und Schwächen werden nachvollziehbar gegenübergestellt.',
+	},
+	{
+		title: 'Preis-Leistung im Blick',
+		text: 'Nicht nur der Preis, sondern der tatsächliche Gegenwert zählt.',
+	},
+	{
+		title: 'Transparent gekennzeichnet',
+		text: 'Werbung und mögliche Kooperationen werden klar erkennbar gemacht.',
+	},
+];
+---
+
+<section class="trust-section" aria-labelledby="trust-heading">
+	<h2 id="trust-heading" class="visually-hidden">Dafür steht KraftRadar</h2>
+
+	<div class="trust-grid">
+		{
+			points.map((point) => (
+				<div class="trust-item">
+					<span class="trust-check" aria-hidden="true">✓</span>
+					<div>
+						<strong>{point.title}</strong>
+						<span>{point.text}</span>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>

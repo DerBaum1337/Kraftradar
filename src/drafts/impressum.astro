@@ -1,0 +1,48 @@
+---
+import Hauptlayout from '../layouts/Hauptlayout.astro';
+import { legalDetails } from '../legal';
+---
+
+<Hauptlayout
+	title="Impressum | KraftRadar"
+	description="Impressum und Anbieterkennzeichnung von KraftRadar."
+	noindex={true}
+>
+	<section class="page-hero page-hero--compact legal-page">
+		<p class="eyebrow">Rechtliches</p>
+		<h1>Impressum</h1>
+
+		{
+			!legalDetails.complete && (
+				<div class="notice notice--warning">
+					<strong>Noch nicht veröffentlichungsbereit</strong>
+					<p>
+						Ergänze vor der Veröffentlichung vollständigen Namen, ladungsfähige
+						Anschrift und eine öffentliche Kontaktadresse über die in
+						<code>.env.example</code> dokumentierten Variablen und lasse die Angaben im
+						Zweifel rechtlich prüfen.
+					</p>
+				</div>
+			)
+		}
+
+		<div class="legal-content">
+			<h2>Angaben gemäß § 5 DDG</h2>
+			<address>
+				{legalDetails.ownerName}<br />
+				{legalDetails.streetAndNumber}<br />
+				{legalDetails.postalCodeAndCity}
+			</address>
+
+			<h2>Kontakt</h2>
+			<p>E-Mail: {legalDetails.email}</p>
+
+			<p class="source-note">
+				Rechtsgrundlage für die Anbieterangaben: <a
+					href="https://www.gesetze-im-internet.de/ddg/__5.html"
+					rel="noreferrer"
+				>§ 5 Digitale-Dienste-Gesetz</a>.
+			</p>
+		</div>
+	</section>
+</Hauptlayout>

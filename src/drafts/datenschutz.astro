@@ -1,0 +1,81 @@
+---
+import Hauptlayout from '../layouts/Hauptlayout.astro';
+import { legalDetails } from '../legal';
+---
+
+<Hauptlayout
+	title="Datenschutz | KraftRadar"
+	description="Informationen zur Verarbeitung personenbezogener Daten bei KraftRadar."
+	noindex={true}
+>
+	<section class="page-hero page-hero--compact legal-page">
+		<p class="eyebrow">Rechtliches</p>
+		<h1>Datenschutz</h1>
+
+		{
+			!legalDetails.complete && (
+				<div class="notice notice--warning">
+					<strong>Entwurf – vor Veröffentlichung prüfen</strong>
+					<p>
+						Die verantwortliche Person und Kontaktangaben fehlen noch. Auch Änderungen
+						bei Hosting, Analyse, Formularen oder eingebetteten Diensten müssen in dieser
+						Erklärung berücksichtigt werden.
+					</p>
+				</div>
+			)
+		}
+
+		<div class="legal-content">
+			<h2>1. Verantwortliche Stelle</h2>
+			<address>
+				{legalDetails.ownerName}<br />
+				{legalDetails.streetAndNumber}<br />
+				{legalDetails.postalCodeAndCity}<br />
+				E-Mail: {legalDetails.email}
+			</address>
+
+			<h2>2. Bereitstellung und Hosting</h2>
+			<p>
+				Diese Website wird über Cloudflare Pages ausgeliefert. Beim Aufruf können
+				technisch erforderliche Verbindungsdaten verarbeitet werden, insbesondere
+				IP-Adresse, Zeitpunkt, aufgerufene Adresse, übertragene Datenmenge,
+				Browserinformationen und Referrer. Die Verarbeitung dient der sicheren und
+				zuverlässigen Bereitstellung der Website.
+			</p>
+			<p>
+				Weitere Informationen stellt Cloudflare in seiner <a
+					href="https://www.cloudflare.com/privacypolicy/"
+					rel="noreferrer"
+				>Datenschutzerklärung</a> bereit.
+			</p>
+
+			<h2>3. Cookies, Analyse und Marketing</h2>
+			<p>
+				KraftRadar setzt derzeit keine eigenen Analyse- oder Marketingdienste und
+				keine nicht notwendigen Cookies ein. Wenn solche Funktionen später ergänzt
+				werden, wird diese Erklärung vor der Aktivierung aktualisiert.
+			</p>
+
+			<h2>4. Deine Rechte</h2>
+			<p>
+				Unter den gesetzlichen Voraussetzungen bestehen insbesondere Rechte auf
+				Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+				Datenübertragbarkeit und Widerspruch. Außerdem besteht ein Beschwerderecht bei
+				einer zuständigen Datenschutzaufsichtsbehörde.
+			</p>
+
+			<h2>5. Stand und Änderungen</h2>
+			<p>
+				Stand: Juli 2026. Diese Erklärung wird angepasst, wenn neue Funktionen oder
+				Dienste hinzukommen.
+			</p>
+
+			<p class="source-note">
+				Die Informationspflichten ergeben sich insbesondere aus <a
+					href="https://eur-lex.europa.eu/eli/reg/2016/679/art_13/oj"
+					rel="noreferrer"
+				>Artikel 13 DSGVO</a>.
+			</p>
+		</div>
+	</section>
+</Hauptlayout>

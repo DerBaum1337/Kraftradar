@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+	<defs>
+		<radialGradient id="background" cx="82%" cy="35%" r="70%">
+			<stop offset="0" stop-color="#173029" />
+			<stop offset="0.5" stop-color="#0e171b" />
+			<stop offset="1" stop-color="#0b0f14" />
+		</radialGradient>
+		<linearGradient id="sweep" x1="0" y1="1" x2="1" y2="0">
+			<stop offset="0" stop-color="#55e6a5" stop-opacity="0" />
+			<stop offset="1" stop-color="#55e6a5" stop-opacity="0.35" />
+		</linearGradient>
+		<filter id="glow">
+			<feGaussianBlur stdDeviation="7" result="blur" />
+			<feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+		</filter>
+	</defs>
+
+	<rect width="1200" height="630" fill="url(#background)" />
+	<rect x="42" y="42" width="1116" height="546" rx="28" fill="none" stroke="#283642" />
+
+	<g transform="translate(905 315)" fill="none" stroke="#55e6a5" stroke-opacity="0.2">
+		<circle r="205" />
+		<circle r="150" />
+		<circle r="95" />
+		<circle r="40" />
+		<path d="M-205 0H205M0-205V205M-145-145 145 145M145-145-145 145" stroke-dasharray="5 10" />
+		<path d="M0 0V-150A150 150 0 0 1 126-81Z" fill="url(#sweep)" stroke="none" />
+		<path d="M0 0 126-81" stroke-opacity="0.8" stroke-width="2" />
+		<circle cx="92" cy="-72" r="8" fill="#55e6a5" stroke="none" filter="url(#glow)" />
+		<circle cx="-74" cy="54" r="6" fill="#55e6a5" stroke="none" filter="url(#glow)" />
+		<circle cx="54" cy="116" r="5" fill="#55e6a5" stroke="none" filter="url(#glow)" />
+	</g>
+
+	<g font-family="Inter, Arial, sans-serif">
+		<text x="95" y="145" fill="#55e6a5" font-size="26" font-weight="800" letter-spacing="4">KRAFTRADAR</text>
+		<text x="95" y="255" fill="#f5f7fa" font-size="68" font-weight="800">Was sich im Gym</text>
+		<text x="95" y="335" fill="#f5f7fa" font-size="68" font-weight="800">wirklich lohnt.</text>
+		<text x="95" y="415" fill="#aeb8c5" font-size="26">Ehrliche Tests · klare Vergleiche · persönliche Erfahrungen</text>
+		<text x="95" y="515" fill="#55e6a5" font-size="25" font-weight="700">kraftradar.de</text>
+	</g>
+</svg>

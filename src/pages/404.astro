@@ -1,0 +1,19 @@
+---
+import Hauptlayout from '../layouts/Hauptlayout.astro';
+---
+
+<Hauptlayout
+	title="Seite nicht gefunden | KraftRadar"
+	description="Die angeforderte Seite wurde nicht gefunden."
+	noindex={true}
+>
+	<section class="not-found">
+		<p class="error-code">404</p>
+		<h1>Hier erfasst das Radar nichts.</h1>
+		<p>
+			Die gesuchte Seite existiert nicht oder wurde verschoben. Über die Startseite
+			findest du zurück zu allen Bereichen.
+		</p>
+		<a class="button" href="/">Zur Startseite</a>
+	</section>
+</Hauptlayout>

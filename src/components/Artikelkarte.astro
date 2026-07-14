@@ -1,0 +1,24 @@
+---
+interface Props {
+	href: string;
+	category: string;
+	title: string;
+	description: string;
+	linkLabel?: string;
+}
+
+const {
+	href,
+	category,
+	title,
+	description,
+	linkLabel = 'Weiterlesen',
+} = Astro.props;
+---
+
+<a class="article-card content-card" href={href}>
+	<span class="badge">{category}</span>
+	<h3>{title}</h3>
+	<p>{description}</p>
+	<span class="card-link">{linkLabel} <span aria-hidden="true">→</span></span>
+</a>
