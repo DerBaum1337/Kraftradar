@@ -1,6 +1,52 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
+import Themenkarte from '../components/Themenkarte.astro';
+
+const themen = [
+	{
+		bereich: 'Schuhe',
+		symbol: 'SH',
+		status: 'In Vorbereitung',
+		titel: 'Trainingsschuhe',
+		beschreibung: 'Halt, Komfort und Alltagstauglichkeit für verschiedene Arten von Training.',
+	},
+	{
+		bereich: 'Technik',
+		symbol: 'FU',
+		status: 'In Vorbereitung',
+		titel: 'Fitnessuhren',
+		beschreibung: 'Tracking-Funktionen und praktische Nutzung im Gym statt bloßer Datenblätter.',
+	},
+	{
+		bereich: 'Audio',
+		symbol: 'KH',
+		status: 'In Vorbereitung',
+		titel: 'Kopfhörer',
+		beschreibung: 'Sitz, Haltbarkeit und Bedienung unter echten Trainingsbedingungen.',
+	},
+	{
+		bereich: 'Organisation',
+		symbol: 'TS',
+		status: 'In Vorbereitung',
+		titel: 'Taschen und Rucksäcke',
+		beschreibung: 'Stauraum, Verarbeitung und sinnvolle Details für den Weg zum Training.',
+	},
+	{
+		bereich: 'Alltag',
+		symbol: 'ST',
+		status: 'In Vorbereitung',
+		titel: 'Shaker und Trinkflaschen',
+		beschreibung: 'Dichtigkeit, Reinigung und Nutzen im täglichen Einsatz.',
+	},
+	{
+		bereich: 'Griffkraft',
+		symbol: 'GH',
+		status: 'In Vorbereitung',
+		titel: 'Griffe und Zughilfen',
+		beschreibung: 'Komfort, Material und der tatsächliche Mehrwert bei Zugübungen.',
+	},
+];
 ---
 
 <Hauptlayout
@@ -12,4 +58,17 @@ import Seitenkopf from '../components/Seitenkopf.astro';
 		title="Ausrüstung für den Praxiseinsatz."
 		description="Schuhe, Taschen, Griffe und Technik werden danach eingeordnet, wie gut sie sich im Trainingsalltag wirklich bewähren."
 	/>
+
+	<section class="section-alternate">
+		<p class="eyebrow">Themenübersicht</p>
+		<h2>Zubehör, das im Alltag bestehen muss.</h2>
+		<p class="section-intro">
+			Im Mittelpunkt stehen Verarbeitung, Komfort, Haltbarkeit und Preis-Leistung – nicht
+			nur Herstellerangaben.
+		</p>
+
+		<div class="card-grid">
+			{themen.map((thema) => <Themenkarte {...thema} />)}
+		</div>
+	</section>
 </Hauptlayout>

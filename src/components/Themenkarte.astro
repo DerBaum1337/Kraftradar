@@ -1,0 +1,32 @@
+---
+interface Props {
+	bereich: string;
+	titel: string;
+	beschreibung: string;
+	symbol?: string;
+	status?: string;
+	href?: string;
+	linkText?: string;
+}
+
+const {
+	bereich,
+	titel,
+	beschreibung,
+	symbol,
+	status,
+	href,
+	linkText = 'Mehr erfahren',
+} = Astro.props;
+---
+
+<article class="card topic-card">
+	<div class="topic-card-header">
+		{symbol && <span class="topic-card-symbol" aria-hidden="true">{symbol}</span>}
+		<span class="badge">{bereich}</span>
+	</div>
+	<h3>{titel}</h3>
+	<p>{beschreibung}</p>
+	{status && <span class="topic-card-status">{status}</span>}
+	{href && <a class="card-link" href={href}>{linkText} <span aria-hidden="true">→</span></a>}
+</article>
