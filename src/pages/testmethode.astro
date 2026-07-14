@@ -1,19 +1,17 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
 ---
 
 <Hauptlayout
 	title="Testmethode | KraftRadar"
 	description="So bewertet KraftRadar Supplements und Gym-Zubehör nachvollziehbar und transparent."
 >
-	<section class="page-hero page-hero--compact">
-		<p class="eyebrow">Transparenz</p>
-		<h1>So testet KraftRadar.</h1>
-		<p>
-			Bewertungen sollen nachvollziehbar sein. Deshalb werden Kriterien, Testzeitraum
-			und mögliche Einschränkungen bei jedem Test offengelegt.
-		</p>
-	</section>
+	<Seitenkopf
+		eyebrow="Transparenz"
+		title="So testet KraftRadar."
+		description="Bewertungen sollen nachvollziehbar sein. Deshalb werden Kriterien, Testzeitraum und mögliche Einschränkungen bei jedem Test offengelegt."
+	/>
 
 	<section class="section-alternate">
 		<p class="eyebrow">Bewertung</p>

@@ -1,20 +1,17 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
 ---
 
 <Hauptlayout
 	title="Über das Projekt | KraftRadar"
 	description="Warum KraftRadar existiert und wie Training, Supplements und Gym-Zubehör eingeordnet werden."
 >
-	<section class="page-hero page-hero--compact">
-		<p class="eyebrow">Über KraftRadar</p>
-		<h1>Praxis statt Werbeversprechen.</h1>
-		<p>
-			KraftRadar soll verständlich zeigen, was im Gym einen echten Nutzen hat – mit
-			persönlichen Erfahrungen, nachvollziehbaren Kriterien und einem Blick auf
-			Preis-Leistung.
-		</p>
-	</section>
+	<Seitenkopf
+		eyebrow="Über KraftRadar"
+		title="Praxis statt Werbeversprechen."
+		description="KraftRadar soll verständlich zeigen, was im Gym einen echten Nutzen hat – mit persönlichen Erfahrungen, nachvollziehbaren Kriterien und einem Blick auf Preis-Leistung."
+	/>
 
 	<section class="prose-section section-alternate">
 		<div class="prose-content">

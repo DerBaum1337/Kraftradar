@@ -48,6 +48,7 @@ const structuredData = {
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#111720" />
 
 		<title>{pageTitle}</title>
 		<meta name="description" content={description} />
@@ -73,13 +74,13 @@ const structuredData = {
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" sizes="any" />
 	</head>
 
 	<body>
+		<a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
 		<Header />
 
-		<main>
+		<main id="hauptinhalt" tabindex="-1">
 			<slot />
 		</main>
 

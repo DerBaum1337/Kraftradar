@@ -1,16 +1,15 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
 ---
 
 <Hauptlayout
 	title="Gym-Zubehör | KraftRadar"
 	description="Sinnvolles Gym-Zubehör auf Preis-Leistung und Praxisnutzen geprüft."
 >
-	<section>
-		<h1>Gym-Zubehör</h1>
-		<p>
-			Ehrliche Empfehlungen für Ausrüstung, die im Gym wirklich einen Unterschied
-			macht.
-		</p>
-	</section>
+	<Seitenkopf
+		eyebrow="Gym-Zubehör"
+		title="Ausrüstung für den Praxiseinsatz."
+		description="Schuhe, Taschen, Griffe und Technik werden danach eingeordnet, wie gut sie sich im Trainingsalltag wirklich bewähren."
+	/>
 </Hauptlayout>

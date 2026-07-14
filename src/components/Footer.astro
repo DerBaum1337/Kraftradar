@@ -1,11 +1,15 @@
 ---
+import Markenlogo from './Markenlogo.astro';
+
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
 	<div class="footer-inner">
 		<div>
-			<a class="footer-brand" href="/">KraftRadar</a>
+			<a class="footer-brand" href="/" aria-label="KraftRadar Startseite">
+				<Markenlogo compact={true} />
+			</a>
 			<p>Ehrliche Erfahrungen rund um Training, Supplements und Gym-Zubehör.</p>
 		</div>
 

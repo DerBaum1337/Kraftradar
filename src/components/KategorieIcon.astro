@@ -1,0 +1,33 @@
+---
+interface Props {
+	type: 'training' | 'supplements' | 'zubehoer';
+}
+
+const { type } = Astro.props;
+---
+
+<span class="category-icon" aria-hidden="true">
+	{
+		type === 'training' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M8 19v10M13 15v18M35 15v18M40 19v10M13 24h22" />
+			</svg>
+		)
+	}
+	{
+		type === 'supplements' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M15 15h18l2 6v16H13V21l2-6Z" />
+				<path d="M17 10h14v5H17zM13 24h22M20 30h8" />
+			</svg>
+		)
+	}
+	{
+		type === 'zubehoer' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M9 19h30v19H9zM17 19v-4c0-3 2-5 5-5h4c3 0 5 2 5 5v4" />
+				<path d="M9 27h30M21 27v4h6v-4" />
+			</svg>
+		)
+	}
+</span>

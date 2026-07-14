@@ -1,4 +1,6 @@
 ---
+import Markenlogo from './Markenlogo.astro';
+
 const navigation = [
 	{ href: '/', label: 'Start' },
 	{ href: '/training', label: 'Training' },
@@ -15,7 +17,7 @@ const isActive = (href: string) =>
 
 <header class="site-header">
 	<a class="site-logo" href="/" aria-label="KraftRadar Startseite">
-		<strong>KraftRadar</strong>
+		<Markenlogo />
 	</a>
 
 	<nav aria-label="Hauptnavigation">

@@ -1,16 +1,15 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
 ---
 
 <Hauptlayout
 	title="Supplements | KraftRadar"
 	description="Ehrliche Tests zu Whey, Kreatin und Co. – Fokus auf echtes Preis-Leistungs-Verhältnis."
 >
-	<section>
-		<h1>Supplements</h1>
-		<p>
-			Klartext-Bewertungen zu Proteinpulver, Kreatin und Vitaminen. Was ist sinnvoll
-			und was ist überteuerte Geldverschwendung?
-		</p>
-	</section>
+	<Seitenkopf
+		eyebrow="Supplements"
+		title="Produkte nüchtern betrachtet."
+		description="Verständliche Einordnungen zu Proteinpulver, Kreatin und weiteren Supplements – transparent, praxisnah und mit Blick auf Preis-Leistung."
+	/>
 </Hauptlayout>

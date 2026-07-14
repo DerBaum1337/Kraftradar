@@ -1,0 +1,24 @@
+---
+interface Props {
+	compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<span class:list={['brand-logo', { 'brand-logo--compact': compact }] }>
+	<svg
+		class="brand-symbol"
+		viewBox="0 0 48 48"
+		aria-hidden="true"
+		focusable="false"
+	>
+		<circle cx="24" cy="24" r="20"></circle>
+		<circle cx="24" cy="24" r="13"></circle>
+		<path class="brand-sweep" d="M24 24 33.5 9.9A17 17 0 0 1 41 24Z"></path>
+		<path class="brand-line" d="M24 24 36.8 12.8"></path>
+		<circle class="brand-center" cx="24" cy="24" r="2.4"></circle>
+		<circle class="brand-target" cx="34" cy="17" r="2.2"></circle>
+	</svg>
+	<span class="brand-name">KraftRadar<span aria-hidden="true">.</span></span>
+</span>

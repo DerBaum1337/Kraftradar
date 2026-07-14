@@ -84,6 +84,23 @@ button {
 	color: #06130d;
 }
 
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 100;
+	padding: 0.65rem 0.9rem;
+	border-radius: var(--radius-small);
+	background: var(--color-accent);
+	color: #06130d;
+	font-weight: 800;
+	transform: translateY(-160%);
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
 .site-header {
 	position: sticky;
 	top: 0;
@@ -102,14 +119,68 @@ button {
 	flex-shrink: 0;
 }
 
-.site-header strong {
+.site-logo,
+.footer-brand {
+	display: inline-flex;
+}
+
+.brand-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+}
+
+.brand-symbol {
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 auto;
+	fill: none;
+	stroke: rgb(85 230 165 / 45%);
+	stroke-width: 1.5;
+}
+
+.brand-sweep {
+	fill: rgb(85 230 165 / 18%);
+	stroke: none;
+}
+
+.brand-line {
+	stroke: var(--color-accent);
+	stroke-linecap: round;
+	stroke-width: 2;
+}
+
+.brand-center,
+.brand-target {
+	fill: var(--color-accent);
+	stroke: none;
+}
+
+.brand-target {
+	filter: drop-shadow(0 0 4px var(--color-accent));
+}
+
+.brand-name {
 	font-size: 1.45rem;
+	font-weight: 800;
 	letter-spacing: -0.04em;
 }
 
-.site-header strong::after {
+.brand-name > span {
 	color: var(--color-accent);
-	content: ".";
+}
+
+.brand-logo--compact {
+	gap: 0.5rem;
+}
+
+.brand-logo--compact .brand-symbol {
+	width: 1.55rem;
+	height: 1.55rem;
+}
+
+.brand-logo--compact .brand-name {
+	font-size: 1.15rem;
 }
 
 .site-header nav ul {
@@ -413,8 +484,8 @@ button:hover {
 }
 
 .button--secondary {
-	border-color: var(--color-border);
-	background: transparent;
+	border-color: rgb(85 230 165 / 55%);
+	background: rgb(17 23 32 / 65%);
 	color: var(--color-text);
 }
 
@@ -453,9 +524,34 @@ a.article-card:hover {
 	flex-direction: column;
 }
 
-.category-card .badge {
-	align-self: flex-start;
+.category-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
 	margin-bottom: 1.25rem;
+}
+
+.category-icon {
+	display: grid;
+	width: 2.75rem;
+	height: 2.75rem;
+	flex: 0 0 2.75rem;
+	place-items: center;
+	border: 1px solid rgb(85 230 165 / 30%);
+	border-radius: 0.75rem;
+	background: var(--color-accent-soft);
+	color: var(--color-accent);
+}
+
+.category-icon svg {
+	width: 1.6rem;
+	height: 1.6rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
 }
 
 .category-card p {
@@ -565,8 +661,8 @@ tbody tr:last-child td {
 
 .trust-item div > span {
 	color: var(--color-text-muted);
-	font-size: 0.82rem;
-	line-height: 1.45;
+	font-size: 0.9rem;
+	line-height: 1.55;
 }
 
 .trust-check {
@@ -633,11 +729,19 @@ tbody tr:last-child td {
 	gap: 1rem;
 	padding: 1rem 1.15rem;
 	border: 1px solid var(--color-border);
+	border-left: 3px solid rgb(85 230 165 / 65%);
 	border-radius: var(--radius-small);
 	background: linear-gradient(135deg, var(--color-surface-light), var(--color-surface));
 }
 
 .mini-stat span {
+	display: grid;
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 2rem;
+	place-items: center;
+	border-radius: 50%;
+	background: var(--color-accent-soft);
 	color: var(--color-accent);
 	font-size: 0.8rem;
 	font-weight: 900;
@@ -676,7 +780,12 @@ tbody tr:last-child td {
 }
 
 .page-hero--compact h1 {
+	max-width: 780px;
 	font-size: clamp(2.7rem, 6vw, 4.6rem);
+}
+
+.page-hero--compact > p:last-of-type {
+	max-width: 700px;
 }
 
 .prose-section {
@@ -928,9 +1037,10 @@ tbody tr:last-child td {
 }
 
 footer {
-	padding: 2.5rem max(5%, calc((100% - var(--content-width)) / 2));
-	border-top: 1px solid var(--color-border);
-	background: var(--color-surface);
+	padding: 3rem max(5%, calc((100% - var(--content-width)) / 2));
+	border-top: 2px solid rgb(85 230 165 / 22%);
+	background: #101720;
+	box-shadow: 0 -18px 50px rgb(0 0 0 / 18%);
 	color: var(--color-text-muted);
 }
 
@@ -942,11 +1052,8 @@ footer {
 }
 
 .footer-brand {
-	display: inline-block;
 	margin-bottom: 0.4rem;
 	color: var(--color-text);
-	font-size: 1.15rem;
-	font-weight: 800;
 }
 
 .footer-inner p {
@@ -965,6 +1072,11 @@ footer {
 
 .footer-links a:hover {
 	color: var(--color-accent);
+}
+
+.footer-links a {
+	display: inline-block;
+	padding-block: 0.35rem;
 }
 
 .footer-copyright {
@@ -1017,12 +1129,22 @@ footer {
 	}
 
 	.site-header nav a {
-		padding: 0.4rem 0.55rem;
-		font-size: 0.9rem;
+		min-height: 2.65rem;
+		padding: 0.48rem 0.6rem;
+		font-size: 0.95rem;
+	}
+
+	.brand-symbol {
+		width: 1.8rem;
+		height: 1.8rem;
+	}
+
+	.brand-name {
+		font-size: 1.3rem;
 	}
 
 	section {
-		padding: 4rem 0;
+		padding: 3.5rem 0;
 	}
 
 	th,
@@ -1037,6 +1159,19 @@ footer {
 	.trust-grid,
 	.method-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.category-card,
+	.content-card {
+		min-height: 0;
+	}
+
+	.category-card p,
+	.content-card p,
+	.footer-inner p,
+	.footer-links {
+		font-size: 1rem;
+		line-height: 1.65;
 	}
 }
 
@@ -1053,6 +1188,12 @@ footer {
 	.button,
 	button {
 		width: 100%;
+	}
+
+	.card,
+	.product-card,
+	.article-card {
+		padding: 1.2rem;
 	}
 
 	.radar-readout {

@@ -3,6 +3,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 import RadarVisual from '../components/RadarVisual.astro';
 import Vertrauensleiste from '../components/Vertrauensleiste.astro';
 import Artikelkarte from '../components/Artikelkarte.astro';
+import KategorieIcon from '../components/KategorieIcon.astro';
 ---
 
 <Hauptlayout
@@ -41,7 +42,10 @@ import Artikelkarte from '../components/Artikelkarte.astro';
 
 		<div class="card-grid">
 			<a class="card category-card" href="/training">
-				<span class="badge">Training</span>
+				<div class="category-card-header">
+					<KategorieIcon type="training" />
+					<span class="badge">Training</span>
+				</div>
 				<h3>Stärker trainieren</h3>
 				<p>
 					Grundlagen, Erfahrungen und verständliche Trainingsthemen für deinen
@@ -51,7 +55,10 @@ import Artikelkarte from '../components/Artikelkarte.astro';
 			</a>
 
 			<a class="card category-card" href="/supplements">
-				<span class="badge">Supplements</span>
+				<div class="category-card-header">
+					<KategorieIcon type="supplements" />
+					<span class="badge">Supplements</span>
+				</div>
 				<h3>Produkte ehrlich vergleichen</h3>
 				<p>
 					Inhaltsstoffe, Preise und praktische Erfahrungen klar und nachvollziehbar
@@ -61,7 +68,10 @@ import Artikelkarte from '../components/Artikelkarte.astro';
 			</a>
 
 			<a class="card category-card" href="/gym-zubehoer">
-				<span class="badge">Gym-Zubehör</span>
+				<div class="category-card-header">
+					<KategorieIcon type="zubehoer" />
+					<span class="badge">Gym-Zubehör</span>
+				</div>
 				<h3>Ausrüstung im Praxiseinsatz</h3>
 				<p>
 					Schuhe, Zubehör und Technik mit Blick auf Nutzen, Qualität und
