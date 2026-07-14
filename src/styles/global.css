@@ -375,9 +375,10 @@ h1 + p {
 	border-radius: 999px;
 	background: rgb(11 15 20 / 78%);
 	color: var(--color-text-muted);
-	font-size: clamp(0.68rem, 1.3vw, 0.78rem);
+	font-size: 0.85rem;
 	font-weight: 700;
 	letter-spacing: 0.04em;
+	line-height: 1.4;
 	backdrop-filter: blur(8px);
 }
 
@@ -415,14 +416,16 @@ h1 + p {
 
 .radar-readout span {
 	color: var(--color-accent);
-	font-size: 0.72rem;
+	font-size: 0.85rem;
 	font-weight: 800;
 	letter-spacing: 0.08em;
+	line-height: 1.4;
 	text-transform: uppercase;
 }
 
 .radar-readout strong {
-	font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+	font-size: 0.85rem;
+	line-height: 1.4;
 	text-align: right;
 }
 
@@ -484,7 +487,7 @@ button:hover {
 }
 
 .button--secondary {
-	border-color: rgb(85 230 165 / 55%);
+	border-color: rgb(85 230 165 / 75%);
 	background: rgb(17 23 32 / 65%);
 	color: var(--color-text);
 }
@@ -556,6 +559,8 @@ a.article-card:hover {
 
 .category-card p {
 	color: var(--color-text-muted);
+	font-size: 1rem;
+	line-height: 1.65;
 }
 
 .card-link {
@@ -565,6 +570,7 @@ a.article-card:hover {
 	margin-top: auto;
 	padding-top: 1rem;
 	color: var(--color-accent);
+	font-size: 1rem;
 	font-weight: 800;
 }
 
@@ -697,6 +703,8 @@ tbody tr:last-child td {
 
 .content-card p {
 	color: var(--color-text-muted);
+	font-size: 1rem;
+	line-height: 1.65;
 }
 
 .journey-section {
@@ -1129,7 +1137,7 @@ footer {
 	}
 
 	.site-header nav a {
-		min-height: 2.65rem;
+		min-height: 2.75rem;
 		padding: 0.48rem 0.6rem;
 		font-size: 0.95rem;
 	}
