@@ -173,7 +173,7 @@ h1 {
 	max-width: 850px;
 	margin-bottom: 1.25rem;
 	font-size: clamp(2.5rem, 7vw, 5rem);
-	letter-spacing: -0.055em;
+	letter-spacing: -0.04em;
 }
 
 h2 {
@@ -198,11 +198,180 @@ h1 + p {
 	line-height: 1.75;
 }
 
+.hero {
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+	align-items: center;
+	gap: clamp(3rem, 7vw, 6rem);
+}
+
+.hero-copy {
+	min-width: 0;
+}
+
+.hero h1 {
+	max-width: 680px;
+	font-size: clamp(3rem, 6vw, 4.8rem);
+}
+
 .hero-actions {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.85rem;
 	margin-top: 2rem;
+}
+
+.radar-visual {
+	position: relative;
+	isolation: isolate;
+	width: min(100%, 440px);
+	margin-inline: auto;
+	border: 1px solid rgb(85 230 165 / 18%);
+	border-radius: 50%;
+	background: radial-gradient(circle, rgb(85 230 165 / 8%), transparent 68%);
+	box-shadow:
+		0 0 0 1.25rem rgb(85 230 165 / 2%),
+		0 30px 80px rgb(0 0 0 / 35%);
+}
+
+.radar-visual::before {
+	position: absolute;
+	inset: 8%;
+	z-index: -1;
+	border-radius: 50%;
+	background: var(--color-accent);
+	content: "";
+	filter: blur(80px);
+	opacity: 0.08;
+}
+
+.radar-visual svg {
+	width: 100%;
+	height: auto;
+}
+
+.radar-grid circle,
+.radar-grid line {
+	fill: none;
+	stroke: rgb(85 230 165 / 18%);
+	stroke-width: 1;
+	vector-effect: non-scaling-stroke;
+}
+
+.radar-grid line {
+	stroke-dasharray: 3 7;
+}
+
+.radar-scan {
+	transform-origin: 210px 210px;
+	animation: radar-rotation 12s linear infinite;
+}
+
+.radar-beam {
+	stroke: rgb(85 230 165 / 80%);
+	stroke-width: 1.5;
+	vector-effect: non-scaling-stroke;
+}
+
+.radar-center,
+.radar-dot {
+	fill: var(--color-accent);
+}
+
+.radar-center {
+	filter: drop-shadow(0 0 8px var(--color-accent));
+}
+
+.radar-dot {
+	filter: drop-shadow(0 0 7px var(--color-accent));
+	animation: radar-pulse 2.4s ease-in-out infinite;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
+.radar-dot--two {
+	animation-delay: -0.8s;
+}
+
+.radar-dot--three {
+	animation-delay: -1.6s;
+}
+
+.radar-label {
+	position: absolute;
+	padding: 0.3rem 0.6rem;
+	border: 1px solid rgb(85 230 165 / 24%);
+	border-radius: 999px;
+	background: rgb(11 15 20 / 78%);
+	color: var(--color-text-muted);
+	font-size: clamp(0.68rem, 1.3vw, 0.78rem);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	backdrop-filter: blur(8px);
+}
+
+.radar-label--training {
+	top: 21%;
+	right: 3%;
+}
+
+.radar-label--supplements {
+	top: 56%;
+	left: -2%;
+}
+
+.radar-label--gear {
+	right: 12%;
+	bottom: 18%;
+}
+
+.radar-readout {
+	position: absolute;
+	right: 11%;
+	bottom: 4%;
+	left: 11%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	padding: 0.75rem 0.9rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+	background: rgb(11 15 20 / 88%);
+	box-shadow: 0 12px 30px rgb(0 0 0 / 28%);
+	backdrop-filter: blur(10px);
+}
+
+.radar-readout span {
+	color: var(--color-accent);
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.radar-readout strong {
+	font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+	text-align: right;
+}
+
+@keyframes radar-rotation {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes radar-pulse {
+	0%,
+	100% {
+		opacity: 0.45;
+		transform: scale(0.8);
+	}
+
+	50% {
+		opacity: 1;
+		transform: scale(1.25);
+	}
 }
 
 .category-section {
@@ -406,6 +575,21 @@ footer {
 	font-size: 0.9rem;
 }
 
+@media (max-width: 900px) {
+	.hero {
+		grid-template-columns: 1fr;
+		gap: 3.5rem;
+	}
+
+	.hero-copy {
+		max-width: 720px;
+	}
+
+	.radar-visual {
+		width: min(100%, 400px);
+	}
+}
+
 @media (max-width: 750px) {
 	.site-header {
 		position: static;
@@ -457,6 +641,15 @@ footer {
 	button {
 		width: 100%;
 	}
+
+	.radar-readout {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.radar-readout strong {
+		text-align: left;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -468,5 +661,10 @@ footer {
 	*::before,
 	*::after {
 		transition-duration: 0.01ms !important;
+	}
+
+	.radar-scan,
+	.radar-dot {
+		animation: none;
 	}
 }

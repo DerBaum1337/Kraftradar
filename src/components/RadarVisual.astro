@@ -1,0 +1,47 @@
+<div class="radar-visual" aria-hidden="true">
+	<svg viewBox="0 0 420 420" role="presentation" focusable="false">
+		<defs>
+			<radialGradient id="radar-background" cx="50%" cy="50%" r="50%">
+				<stop offset="0%" stop-color="#182b27" />
+				<stop offset="68%" stop-color="#101a1d" />
+				<stop offset="100%" stop-color="#0b0f14" />
+			</radialGradient>
+			<linearGradient id="radar-sweep" x1="0%" y1="100%" x2="100%" y2="0%">
+				<stop offset="0%" stop-color="#55e6a5" stop-opacity="0" />
+				<stop offset="100%" stop-color="#55e6a5" stop-opacity="0.3" />
+			</linearGradient>
+		</defs>
+
+		<circle cx="210" cy="210" r="190" fill="url(#radar-background)" />
+
+		<g class="radar-grid">
+			<circle cx="210" cy="210" r="52" />
+			<circle cx="210" cy="210" r="103" />
+			<circle cx="210" cy="210" r="154" />
+			<circle cx="210" cy="210" r="190" />
+			<line x1="20" y1="210" x2="400" y2="210" />
+			<line x1="210" y1="20" x2="210" y2="400" />
+			<line x1="76" y1="76" x2="344" y2="344" />
+			<line x1="344" y1="76" x2="76" y2="344" />
+		</g>
+
+		<g class="radar-scan">
+			<path d="M210 210 L210 56 A154 154 0 0 1 339 126 Z" fill="url(#radar-sweep)" />
+			<line class="radar-beam" x1="210" y1="210" x2="339" y2="126" />
+		</g>
+
+		<circle class="radar-center" cx="210" cy="210" r="5" />
+		<circle class="radar-dot radar-dot--one" cx="292" cy="136" r="6" />
+		<circle class="radar-dot radar-dot--two" cx="138" cy="246" r="5" />
+		<circle class="radar-dot radar-dot--three" cx="270" cy="300" r="4" />
+	</svg>
+
+	<span class="radar-label radar-label--training">Training</span>
+	<span class="radar-label radar-label--supplements">Supplements</span>
+	<span class="radar-label radar-label--gear">Gear</span>
+
+	<div class="radar-readout">
+		<span>Scan aktiv</span>
+		<strong>Praxis · Preis · Fortschritt</strong>
+	</div>
+</div>

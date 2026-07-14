@@ -1,24 +1,30 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
+import RadarVisual from '../components/RadarVisual.astro';
 ---
 
 <Hauptlayout
 	title="KraftRadar"
-	description="KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt."
+	description="Ehrliche Tests, verständliche Vergleiche und persönliche Erfahrungen zu Training, Supplements und Gym-Zubehör."
 >
 	<section class="hero">
-		<p>KraftRadar</p>
+		<div class="hero-copy">
+			<p class="eyebrow">KraftRadar</p>
 
-		<h1>Training, Supplements und Gym-Zubehör im Blick.</h1>
+			<h1>Was sich im Gym wirklich lohnt.</h1>
 
-		<p>
-			Ehrliche Erfahrungen, klare Vergleiche und mein persönlicher Weg im Gym.
-		</p>
+			<p>
+				Ehrliche Tests, verständliche Vergleiche und persönliche Erfahrungen zu
+				Training, Supplements und Gym-Zubehör.
+			</p>
 
-		<div class="hero-actions">
-			<a class="button" href="#bereiche">Tests entdecken</a>
-			<a class="button button--secondary" href="/mein-weg">Meinen Weg ansehen</a>
+			<div class="hero-actions">
+				<a class="button" href="#bereiche">Tests entdecken</a>
+				<a class="button button--secondary" href="/mein-weg">Meinen Weg ansehen</a>
+			</div>
 		</div>
+
+		<RadarVisual />
 	</section>
 
 	<section id="bereiche" class="category-section">
