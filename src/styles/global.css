@@ -990,6 +990,23 @@ tbody tr:last-child td {
 	font-size: 0.95rem;
 }
 
+.privacy-content h3 {
+	margin-top: 2.15rem;
+	font-size: 1.15rem;
+}
+
+.privacy-content ul {
+	display: grid;
+	gap: 0.55rem;
+	margin: 1rem 0 1.5rem;
+	padding-left: 1.25rem;
+	color: var(--color-text-muted);
+}
+
+.privacy-content li {
+	padding-left: 0.2rem;
+}
+
 .legal-content address {
 	font-style: normal;
 }
