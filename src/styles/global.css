@@ -1379,12 +1379,22 @@ footer {
 	}
 
 	.radar-readout {
+		right: 12%;
+		bottom: 3%;
+		left: 12%;
 		align-items: flex-start;
 		flex-direction: column;
+		gap: 0.35rem;
+		padding: 0.65rem 0.75rem;
 	}
 
 	.radar-readout strong {
 		text-align: left;
+	}
+
+	.radar-label--gear {
+		right: 5%;
+		bottom: 34%;
 	}
 
 	.data-example dl > div {
