@@ -20,7 +20,18 @@ const isActive = (href: string) =>
 		<Markenlogo />
 	</a>
 
-	<nav aria-label="Hauptnavigation">
+	<button
+		class="menu-toggle"
+		type="button"
+		aria-label="Hauptnavigation öffnen"
+		aria-controls="hauptnavigation"
+		aria-expanded="false"
+	>
+		<span class="menu-toggle-lines" aria-hidden="true"></span>
+		<span>Menü</span>
+	</button>
+
+	<nav id="hauptnavigation" aria-label="Hauptnavigation">
 		<ul>
 			{
 				navigation.map((item) => (
@@ -37,3 +48,17 @@ const isActive = (href: string) =>
 		</ul>
 	</nav>
 </header>
+
+<script>
+	const header = document.querySelector<HTMLElement>('.site-header');
+	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+
+	toggle?.addEventListener('click', () => {
+		const isOpen = header?.classList.toggle('site-header--menu-open') ?? false;
+		toggle.setAttribute('aria-expanded', String(isOpen));
+		toggle.setAttribute(
+			'aria-label',
+			isOpen ? 'Hauptnavigation schließen' : 'Hauptnavigation öffnen',
+		);
+	});
+</script>
