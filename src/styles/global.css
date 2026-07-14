@@ -1188,6 +1188,10 @@ footer {
 	}
 
 	.menu-toggle {
+		display: none;
+	}
+
+	html.js .menu-toggle {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -1238,12 +1242,15 @@ footer {
 	}
 
 	.site-header nav {
-		display: none;
 		grid-column: 1 / -1;
 		width: 100%;
 	}
 
-	.site-header--menu-open nav {
+	html.js .site-header nav {
+		display: none;
+	}
+
+	html.js .site-header--menu-open nav {
 		display: block;
 	}
 
