@@ -957,6 +957,39 @@ tbody tr:last-child td {
 	margin-top: 1.5rem;
 }
 
+.legal-lead {
+	margin: 0;
+	color: var(--color-accent);
+	font-size: 0.9rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.legal-card {
+	padding: clamp(1.25rem, 4vw, 2rem);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: var(--color-surface);
+	box-shadow: var(--shadow-card);
+}
+
+.legal-card h2 {
+	margin-top: 2.4rem;
+	font-size: clamp(1.35rem, 3vw, 1.7rem);
+}
+
+.legal-card hr {
+	margin: 2rem 0;
+	border: 0;
+	border-top: 1px solid var(--color-border);
+}
+
+.legal-note {
+	margin-bottom: 0;
+	font-size: 0.95rem;
+}
+
 .legal-content address {
 	font-style: normal;
 }
