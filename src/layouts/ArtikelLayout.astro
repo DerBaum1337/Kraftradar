@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Hauptlayout from './Hauptlayout.astro';
+
+interface Props {
+	entry: CollectionEntry<'artikel'>;
+}
+
+const { entry } = Astro.props;
+const { data, id } = entry;
+const publishedAt = data.publishedAt.toISOString();
+const updatedAt = data.updatedAt?.toISOString();
+const articleURL = new URL(`/${data.category}/${id}/`, Astro.site ?? Astro.url);
+const articleStructuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: data.title,
+	description: data.description,
+	datePublished: publishedAt,
+	...(updatedAt ? { dateModified: updatedAt } : {}),
+	author: {
+		'@type': 'Person',
+		name: data.author,
+	},
+	mainEntityOfPage: articleURL.href,
+	inLanguage: 'de-DE',
+};
+---
+
+<Hauptlayout
+	title={`${data.title} | KraftRadar`}
+	description={data.description}
+	structuredData={articleStructuredData}
+>
+	<article class="article-page">
+		<header class="article-header">
+			<p class="eyebrow">{data.categoryLabel}</p>
+			<h1>{data.title}</h1>
+			<p>{data.description}</p>
+			<div class="article-meta">
+				<time datetime={publishedAt}>Veröffentlicht: {data.publishedAt.toLocaleDateString('de-DE')}</time>
+				{data.updatedAt && <time datetime={updatedAt}>Aktualisiert: {data.updatedAt.toLocaleDateString('de-DE')}</time>}
+				<span>{data.estimatedReadingMinutes} Min. Lesezeit</span>
+				<span>Von {data.author}</span>
+			</div>
+		</header>
+
+		<div class="article-body">
+			<slot />
+		</div>
+	</article>
+</Hauptlayout>

@@ -8,6 +8,7 @@ interface Props {
 	description?: string;
 	image?: string;
 	noindex?: boolean;
+	structuredData?: Record<string, unknown>;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
 	description = 'KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt.',
 	image = '/og-kraftradar.png',
 	noindex = false,
+	structuredData,
 } = Astro.props;
 
 const pageTitle =
@@ -27,7 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteURL);
 const imageURL = new URL(image, siteURL);
 const robots = noindex ? 'noindex, nofollow' : 'index, follow';
 
-const structuredData = {
+const defaultStructuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'WebPage',
 	name: pageTitle,
@@ -40,6 +42,8 @@ const structuredData = {
 		url: siteURL.href,
 	},
 };
+
+const pageStructuredData = structuredData ?? defaultStructuredData;
 ---
 
 <!doctype html>
@@ -71,7 +75,7 @@ const structuredData = {
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageURL} />
 
-		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+		<script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>

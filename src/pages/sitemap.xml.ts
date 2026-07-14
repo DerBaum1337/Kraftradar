@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 
 const routes = [
 	'',
 	'training/',
-	'training/fortschritt-dokumentieren/',
 	'supplements/',
 	'gym-zubehoer/',
 	'mein-weg/',
@@ -11,10 +11,23 @@ const routes = [
 	'testmethode/',
 ];
 
-export const GET: APIRoute = ({ site }) => {
+export const GET: APIRoute = async ({ site }) => {
 	const baseURL = site ?? new URL('https://kraftradar.de');
-	const urls = routes
-		.map((route) => `\t<url><loc>${new URL(route, baseURL).href}</loc></url>`)
+	const articles = await getCollection('artikel', ({ data }) => !data.draft);
+	const articleRoutes = articles.map((article) => ({
+		route: `${article.data.category}/${article.id}/`,
+		lastModified: article.data.updatedAt ?? article.data.publishedAt,
+	}));
+	const urls = [
+		...routes.map((route) => ({ route })),
+		...articleRoutes,
+	]
+		.map(({ route, lastModified }) => {
+			const lastmod = lastModified
+				? `<lastmod>${lastModified.toISOString().slice(0, 10)}</lastmod>`
+				: '';
+			return `\t<url><loc>${new URL(route, baseURL).href}</loc>${lastmod}</url>`;
+		})
 		.join('\n');
 
 	const body = `<?xml version="1.0" encoding="UTF-8"?>

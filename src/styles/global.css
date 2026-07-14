@@ -821,7 +821,7 @@ tbody tr:last-child td {
 }
 
 .text-link,
-.prose-content a,
+.prose-content a:not(.button),
 .legal-content a {
 	color: var(--color-accent);
 	font-weight: 750;
