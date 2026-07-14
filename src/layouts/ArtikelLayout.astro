@@ -1,6 +1,11 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Bewertungsbox from '../components/Bewertungsbox.astro';
 import Hauptlayout from './Hauptlayout.astro';
+import Produktdaten from '../components/Produktdaten.astro';
+import Transparenzhinweis from '../components/Transparenzhinweis.astro';
+import VorNachteile from '../components/VorNachteile.astro';
 
 interface Props {
 	entry: CollectionEntry<'artikel'>;
@@ -8,31 +13,64 @@ interface Props {
 
 const { entry } = Astro.props;
 const { data, id } = entry;
+const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const articleURL = new URL(`/${data.category}/${id}/`, siteURL);
+const categoryURL = new URL(`/${data.category}/`, siteURL);
 const publishedAt = data.publishedAt.toISOString();
 const updatedAt = data.updatedAt?.toISOString();
-const articleURL = new URL(`/${data.category}/${id}/`, Astro.site ?? Astro.url);
+const socialImage = data.ogImage ?? data.image;
+
 const articleStructuredData = {
 	'@context': 'https://schema.org',
-	'@type': 'Article',
-	headline: data.title,
-	description: data.description,
-	datePublished: publishedAt,
-	...(updatedAt ? { dateModified: updatedAt } : {}),
-	author: {
-		'@type': 'Person',
-		name: data.author,
-	},
-	mainEntityOfPage: articleURL.href,
-	inLanguage: 'de-DE',
+	'@graph': [
+		{
+			'@type': 'Article',
+			headline: data.title,
+			description: data.description,
+			datePublished: publishedAt,
+			...(updatedAt ? { dateModified: updatedAt } : {}),
+			author: {
+				'@type': 'Person',
+				name: data.author,
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: 'KraftRadar',
+				url: siteURL.href,
+			},
+			...(socialImage ? { image: new URL(socialImage, siteURL).href } : {}),
+			mainEntityOfPage: articleURL.href,
+			inLanguage: 'de-DE',
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Start', item: siteURL.href },
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: data.categoryLabel.split(' · ')[0],
+					item: categoryURL.href,
+				},
+				{ '@type': 'ListItem', position: 3, name: data.title, item: articleURL.href },
+			],
+		},
+	],
 };
 ---
 
 <Hauptlayout
 	title={`${data.title} | KraftRadar`}
 	description={data.description}
+	image={socialImage}
+	imageAlt={data.imageAlt}
 	structuredData={articleStructuredData}
+	ogType="article"
+	articlePublishedTime={publishedAt}
+	articleModifiedTime={updatedAt}
 >
 	<article class="article-page">
+		<Breadcrumbs category={data.category} categoryLabel={data.categoryLabel} title={data.title} />
 		<header class="article-header">
 			<p class="eyebrow">{data.categoryLabel}</p>
 			<h1>{data.title}</h1>
@@ -46,6 +84,11 @@ const articleStructuredData = {
 		</header>
 
 		<div class="article-body">
+			{data.image && <img class="article-hero-image" src={data.image} alt={data.imageAlt ?? ''} />}
+			{data.transparency && <Transparenzhinweis {...data.transparency} />}
+			{data.productData && <Produktdaten items={data.productData} />}
+			{data.pros && data.cons && <VorNachteile vorteile={data.pros} nachteile={data.cons} />}
+			{data.ratings && data.overallScore !== undefined && <Bewertungsbox ratings={data.ratings} overallScore={data.overallScore} />}
 			<slot />
 		</div>
 	</article>

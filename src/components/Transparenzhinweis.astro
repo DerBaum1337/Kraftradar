@@ -1,0 +1,22 @@
+---
+interface Props {
+	acquisition: string;
+	testPeriod: string;
+	priceDate: string;
+	affiliate?: boolean;
+	cooperation?: boolean;
+}
+
+const { acquisition, testPeriod, priceDate, affiliate = false, cooperation = false } = Astro.props;
+---
+
+<aside class="transparency-note" aria-label="Transparenzhinweis">
+	<strong>Transparenz</strong>
+	<dl>
+		<div><dt>Produkt</dt><dd>{acquisition}</dd></div>
+		<div><dt>Testzeitraum</dt><dd>{testPeriod}</dd></div>
+		<div><dt>Preisstand</dt><dd>{priceDate}</dd></div>
+		<div><dt>Affiliate-Link</dt><dd>{affiliate ? 'Ja, klar gekennzeichnet' : 'Nein'}</dd></div>
+		<div><dt>Kooperation</dt><dd>{cooperation ? 'Ja, klar gekennzeichnet' : 'Nein'}</dd></div>
+	</dl>
+</aside>

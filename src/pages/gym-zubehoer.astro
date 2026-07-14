@@ -2,6 +2,7 @@
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
+import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 
 const themen = [
 	{
@@ -71,4 +72,6 @@ const themen = [
 			{themen.map((thema) => <Themenkarte {...thema} />)}
 		</div>
 	</section>
+
+	<Bereichsbeitraege category="gym-zubehoer" heading="Neu bei Gym-Zubehör" />
 </Hauptlayout>

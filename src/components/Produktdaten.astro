@@ -1,0 +1,14 @@
+---
+interface Props {
+	items: Array<{ label: string; value: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<section class="product-data" aria-labelledby="produktdaten-titel">
+	<h2 id="produktdaten-titel">Produktdaten</h2>
+	<dl>
+		{items.map((item) => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
+	</dl>
+</section>

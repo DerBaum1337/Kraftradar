@@ -1,0 +1,19 @@
+---
+interface Props {
+	vorteile: string[];
+	nachteile: string[];
+}
+
+const { vorteile, nachteile } = Astro.props;
+---
+
+<section class="pros-cons" aria-label="Vorteile und Nachteile">
+	<div>
+		<h2>Vorteile</h2>
+		<ul>{vorteile.map((vorteil) => <li>{vorteil}</li>)}</ul>
+	</div>
+	<div>
+		<h2>Nachteile</h2>
+		<ul>{nachteile.map((nachteil) => <li>{nachteil}</li>)}</ul>
+	</div>
+</section>

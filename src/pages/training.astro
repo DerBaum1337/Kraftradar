@@ -2,8 +2,7 @@
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
-import Artikelkarte from '../components/Artikelkarte.astro';
-import { getCollection } from 'astro:content';
+import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 
 const themen = [
 	{
@@ -51,10 +50,6 @@ const themen = [
 	},
 ];
 
-const beitraege = (await getCollection(
-	'artikel',
-	({ data }) => data.category === 'training' && !data.draft,
-)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 ---
 
 <Hauptlayout
@@ -80,23 +75,5 @@ const beitraege = (await getCollection(
 		</div>
 	</section>
 
-	{
-		beitraege.length > 0 && (
-			<section>
-				<p class="eyebrow">Aktuelle Beiträge</p>
-				<h2>Neu bei Training</h2>
-				<div class="card-grid">
-					{beitraege.map((beitrag) => (
-						<Artikelkarte
-							href={`/${beitrag.data.category}/${beitrag.id}`}
-							category={beitrag.data.categoryLabel}
-							title={beitrag.data.title}
-							description={beitrag.data.description}
-							linkLabel="Artikel lesen"
-						/>
-					))}
-				</div>
-			</section>
-		)
-	}
+	<Bereichsbeitraege category="training" heading="Neu bei Training" />
 </Hauptlayout>

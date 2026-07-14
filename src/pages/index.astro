@@ -4,6 +4,9 @@ import RadarVisual from '../components/RadarVisual.astro';
 import Vertrauensleiste from '../components/Vertrauensleiste.astro';
 import Artikelkarte from '../components/Artikelkarte.astro';
 import KategorieIcon from '../components/KategorieIcon.astro';
+import { getLatestArticles } from '../lib/artikel';
+
+const neuesteInhalte = await getLatestArticles(3);
 ---
 
 <Hauptlayout
@@ -82,38 +85,32 @@ import KategorieIcon from '../components/KategorieIcon.astro';
 		</div>
 	</section>
 
-	<section class="section-alternate current-section">
-		<p class="eyebrow">Aktuell bei KraftRadar</p>
-		<h2>Einblicke, Grundlagen und Transparenz</h2>
-		<p class="section-intro">
-			Die ersten Bereiche wachsen Schritt für Schritt. Den Anfang machen die
-			Bewertungsmethode, Trainingsgrundlagen und die persönliche Dokumentation.
-		</p>
+	{
+		neuesteInhalte.length > 0 && (
+			<section class="section-alternate current-section">
+				<p class="eyebrow">Aktuell bei KraftRadar</p>
+				<h2>Die neuesten Inhalte</h2>
+				<p class="section-intro">
+					Neue veröffentlichte Artikel erscheinen hier automatisch – unabhängig davon,
+					ob sie sich um Training, Supplements, Gym-Zubehör oder meinen Weg drehen.
+				</p>
 
-		<div class="card-grid">
-			<Artikelkarte
-				href="/testmethode"
-				category="Transparenz"
-				title="So bewertet KraftRadar"
-				description="Feste Kriterien zeigen, wie Supplements und Zubehör später nachvollziehbar bewertet werden."
-				linkLabel="Testmethode ansehen"
-			/>
-			<Artikelkarte
-				href="/training/fortschritt-dokumentieren"
-				category="Training"
-				title="Fortschritt sinnvoll dokumentieren"
-				description="Welche Angaben einen Trainingsverlauf nachvollziehbar machen und warum einzelne Bestwerte wenig erzählen."
-				linkLabel="Artikel lesen"
-			/>
-			<Artikelkarte
-				href="/mein-weg"
-				category="Mein Weg"
-				title="Fortschritt ehrlich dokumentieren"
-				description="Nicht nur Erfolge zählen: Auch Fehler, Rückschritte und neue Erkenntnisse gehören dazu."
-				linkLabel="Meinen Weg ansehen"
-			/>
-		</div>
-	</section>
+				<div class="card-grid">
+					{neuesteInhalte.map((inhalt) => (
+						<Artikelkarte
+							href={`/${inhalt.data.category}/${inhalt.id}`}
+							category={inhalt.data.categoryLabel}
+							title={inhalt.data.title}
+							description={inhalt.data.description}
+							image={inhalt.data.image}
+							imageAlt={inhalt.data.imageAlt}
+							linkLabel="Artikel lesen"
+						/>
+					))}
+				</div>
+			</section>
+		)
+	}
 
 	<section class="journey-section">
 		<div class="journey-copy">

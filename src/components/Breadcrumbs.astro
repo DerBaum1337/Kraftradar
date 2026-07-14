@@ -1,0 +1,17 @@
+---
+interface Props {
+	category: string;
+	categoryLabel: string;
+	title: string;
+}
+
+const { category, categoryLabel, title } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Start</a></li>
+		<li><a href={`/${category}`}>{categoryLabel.split(' · ')[0]}</a></li>
+		<li aria-current="page">{title}</li>
+	</ol>
+</nav>

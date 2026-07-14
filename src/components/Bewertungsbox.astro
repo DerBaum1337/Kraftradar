@@ -1,0 +1,35 @@
+---
+interface Rating {
+	label: string;
+	score: number;
+	weight: number;
+}
+
+interface Props {
+	ratings: Rating[];
+	overallScore: number;
+}
+
+const { ratings, overallScore } = Astro.props;
+---
+
+<section class="rating-box" aria-labelledby="bewertung-titel">
+	<div class="rating-box-header">
+		<div>
+			<p class="eyebrow">Bewertung</p>
+			<h2 id="bewertung-titel">Ergebnis im Überblick</h2>
+		</div>
+		<strong aria-label={`Gesamtbewertung ${overallScore} von 10`}>{overallScore.toFixed(1)}<span>/10</span></strong>
+	</div>
+	<div class="rating-list">
+		{ratings.map((rating) => (
+			<div>
+				<span>{rating.label} <small>({rating.weight} %)</small></span>
+				<div class="rating-meter" aria-label={`${rating.label}: ${rating.score} von 10`}>
+					<span style={`width: ${Math.min(Math.max(rating.score, 0), 10) * 10}%`}></span>
+				</div>
+				<strong>{rating.score.toFixed(1)}</strong>
+			</div>
+		))}
+	</div>
+</section>

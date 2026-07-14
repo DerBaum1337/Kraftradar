@@ -710,6 +710,15 @@ tbody tr:last-child td {
 	margin-bottom: 1.25rem;
 }
 
+.article-card-image {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	margin: -0.25rem 0 1.25rem;
+	border: 1px solid var(--color-border);
+	border-radius: calc(var(--radius-medium) - 0.25rem);
+	object-fit: cover;
+}
+
 .content-card p {
 	color: var(--color-text-muted);
 	font-size: 1rem;
@@ -1057,6 +1066,32 @@ tbody tr:last-child td {
 	padding-block: clamp(4.5rem, 9vw, 7rem);
 }
 
+.breadcrumbs {
+	width: min(100%, 780px);
+	margin: 0 auto 1.5rem;
+	color: var(--color-text-muted);
+	font-size: 0.9rem;
+}
+
+.breadcrumbs ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+	margin-left: 0.35rem;
+	color: var(--color-accent);
+	content: "/";
+}
+
+.breadcrumbs a:hover {
+	color: var(--color-accent);
+}
+
 .article-header,
 .article-body {
 	width: min(100%, 780px);
@@ -1097,6 +1132,15 @@ tbody tr:last-child td {
 	padding-top: 2.5rem;
 }
 
+.article-hero-image {
+	width: 100%;
+	max-height: 480px;
+	margin: 0 0 2.5rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	object-fit: cover;
+}
+
 .article-body h2 {
 	margin-top: 3rem;
 	font-size: clamp(1.7rem, 4vw, 2.25rem);
@@ -1110,6 +1154,177 @@ tbody tr:last-child td {
 	color: var(--color-text-muted);
 	font-size: 1.05rem;
 	line-height: 1.85;
+}
+
+.article-body > ul,
+.article-body > ol {
+	color: var(--color-text-muted);
+	line-height: 1.8;
+}
+
+.transparency-note,
+.product-data,
+.rating-box {
+	margin: 2.5rem 0;
+	padding: clamp(1.25rem, 3vw, 1.75rem);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: var(--color-surface);
+}
+
+.transparency-note {
+	border-left: 3px solid var(--color-accent);
+}
+
+.transparency-note > strong {
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--color-accent);
+	font-size: 1.1rem;
+}
+
+.transparency-note dl,
+.product-data dl {
+	display: grid;
+	gap: 0;
+	margin: 0;
+}
+
+.transparency-note dl > div,
+.product-data dl > div {
+	display: grid;
+	grid-template-columns: minmax(140px, 0.45fr) 1fr;
+	gap: 1rem;
+	padding: 0.75rem 0;
+	border-top: 1px solid var(--color-border);
+}
+
+.transparency-note dt,
+.product-data dt {
+	color: var(--color-text-muted);
+}
+
+.transparency-note dd,
+.product-data dd {
+	margin: 0;
+	color: var(--color-text);
+	font-weight: 650;
+}
+
+.product-data h2,
+.rating-box h2 {
+	margin-bottom: 1.25rem;
+	font-size: clamp(1.35rem, 3vw, 1.7rem);
+}
+
+.pros-cons {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.25rem;
+	margin: 2.5rem 0;
+}
+
+.pros-cons > div {
+	padding: 1.4rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: var(--color-surface);
+}
+
+.pros-cons h2 {
+	margin-bottom: 1rem;
+	font-size: 1.3rem;
+}
+
+.pros-cons ul {
+	display: grid;
+	gap: 0.7rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pros-cons li {
+	position: relative;
+	padding-left: 1.4rem;
+	color: var(--color-text-muted);
+}
+
+.pros-cons > div:first-child li::before,
+.pros-cons > div:last-child li::before {
+	position: absolute;
+	left: 0;
+	font-weight: 900;
+}
+
+.pros-cons > div:first-child li::before {
+	color: var(--color-accent);
+	content: "✓";
+}
+
+.pros-cons > div:last-child li::before {
+	color: var(--color-danger);
+	content: "–";
+}
+
+.rating-box-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.rating-box-header .eyebrow {
+	margin-bottom: 0.35rem;
+}
+
+.rating-box-header > strong {
+	color: var(--color-accent);
+	font-size: clamp(2.3rem, 8vw, 3.4rem);
+	line-height: 1;
+}
+
+.rating-box-header > strong span {
+	color: var(--color-text-muted);
+	font-size: 1rem;
+}
+
+.rating-list {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.rating-list > div {
+	display: grid;
+	grid-template-columns: minmax(130px, 0.55fr) minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 0.8rem;
+}
+
+.rating-list > div > span {
+	color: var(--color-text);
+	font-weight: 650;
+}
+
+.rating-list small {
+	color: var(--color-text-muted);
+	font-size: 0.85em;
+	font-weight: 400;
+}
+
+.rating-meter {
+	height: 0.6rem;
+	overflow: hidden;
+	border-radius: 999px;
+	background: var(--color-surface-light);
+}
+
+.rating-meter span {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: var(--color-accent);
 }
 
 .data-example {
@@ -1352,6 +1567,10 @@ footer {
 		min-height: 0;
 	}
 
+	.pros-cons {
+		grid-template-columns: 1fr;
+	}
+
 	.category-card p,
 	.content-card p,
 	.topic-card p,
@@ -1395,6 +1614,18 @@ footer {
 	.radar-label--gear {
 		right: 5%;
 		bottom: 34%;
+	}
+
+	.transparency-note dl > div,
+	.product-data dl > div,
+	.rating-list > div {
+		grid-template-columns: 1fr;
+		gap: 0.35rem;
+	}
+
+	.rating-box-header {
+		align-items: flex-start;
+		flex-direction: column;
 	}
 
 	.data-example dl > div {

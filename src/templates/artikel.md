@@ -7,6 +7,9 @@ publishedAt: YYYY-MM-DD
 author: Sebastian Trost
 estimatedReadingMinutes: 5
 kind: artikel
+image: /bilder/dein-bild.webp
+imageAlt: Kurze, konkrete Bildbeschreibung
+ogImage: /bilder/social/dein-artikel.webp
 draft: true
 ---
 

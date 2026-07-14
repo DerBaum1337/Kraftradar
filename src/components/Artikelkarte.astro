@@ -5,6 +5,8 @@ interface Props {
 	title: string;
 	description: string;
 	linkLabel?: string;
+	image?: string;
+	imageAlt?: string;
 }
 
 const {
@@ -13,10 +15,13 @@ const {
 	title,
 	description,
 	linkLabel = 'Weiterlesen',
+	image,
+	imageAlt = '',
 } = Astro.props;
 ---
 
 <a class="article-card content-card" href={href}>
+	{image && <img class="article-card-image" src={image} alt={imageAlt} loading="lazy" />}
 	<span class="badge">{category}</span>
 	<h3>{title}</h3>
 	<p>{description}</p>

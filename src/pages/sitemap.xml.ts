@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
+import { getPublishedArticles } from '../lib/artikel';
 
 const routes = [
 	'',
@@ -13,7 +13,7 @@ const routes = [
 
 export const GET: APIRoute = async ({ site }) => {
 	const baseURL = site ?? new URL('https://kraftradar.de');
-	const articles = await getCollection('artikel', ({ data }) => !data.draft);
+	const articles = await getPublishedArticles();
 	const articleRoutes = articles.map((article) => ({
 		route: `${article.data.category}/${article.id}/`,
 		lastModified: article.data.updatedAt ?? article.data.publishedAt,

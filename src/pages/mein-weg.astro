@@ -2,6 +2,7 @@
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
+import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 
 const themen = [
 	{
@@ -79,4 +80,6 @@ const themen = [
 			</p>
 		</div>
 	</section>
+
+	<Bereichsbeitraege category="mein-weg" heading="Neu bei meinem Weg" />
 </Hauptlayout>

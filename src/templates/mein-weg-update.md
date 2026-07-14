@@ -7,6 +7,9 @@ publishedAt: YYYY-MM-DD
 author: Sebastian Trost
 estimatedReadingMinutes: 4
 kind: mein-weg-update
+image: /bilder/mein-weg-update.webp
+imageAlt: Kurze, datensparsame Bildbeschreibung
+ogImage: /bilder/social/mein-weg-update.webp
 draft: true
 ---
 

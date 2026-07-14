@@ -1,0 +1,34 @@
+---
+import Artikelkarte from './Artikelkarte.astro';
+import { getArticlesByCategory, type ArtikelKategorie } from '../lib/artikel';
+
+interface Props {
+	category: ArtikelKategorie;
+	heading: string;
+}
+
+const { category, heading } = Astro.props;
+const beitraege = await getArticlesByCategory(category);
+---
+
+{
+	beitraege.length > 0 && (
+		<section>
+			<p class="eyebrow">Aktuelle Beiträge</p>
+			<h2>{heading}</h2>
+			<div class="card-grid">
+				{beitraege.map((beitrag) => (
+					<Artikelkarte
+						href={`/${beitrag.data.category}/${beitrag.id}`}
+						category={beitrag.data.categoryLabel}
+						title={beitrag.data.title}
+						description={beitrag.data.description}
+						image={beitrag.data.image}
+						imageAlt={beitrag.data.imageAlt}
+						linkLabel="Artikel lesen"
+					/>
+				))}
+			</div>
+		</section>
+	)
+}
