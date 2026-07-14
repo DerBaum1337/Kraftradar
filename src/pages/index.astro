@@ -1,21 +1,18 @@
 ---
+import Hauptlayout from '../layouts/Hauptlayout.astro';
 ---
 
-<html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+<Hauptlayout
+	title="KraftRadar"
+	description="KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt."
+>
+	<section>
+		<p>KraftRadar</p>
 
-		<title>KraftRadar</title>
-		<meta
-			name="description"
-			content="KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt."
-		/>
-	</head>
+		<h1>Training, Supplements und Gym-Zubehör im Blick.</h1>
 
-	<body>
-		<h1>KraftRadar</h1>
-		<p>Training, Supplements und Gym-Zubehör im Blick.</p>
-	</body>
-</html>
+		<p>
+			Ehrliche Erfahrungen, klare Vergleiche und mein persönlicher Weg im Gym.
+		</p>
+	</section>
+</Hauptlayout>
