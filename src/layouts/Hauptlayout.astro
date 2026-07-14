@@ -13,7 +13,10 @@ const {
 	description = 'KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt.',
 } = Astro.props;
 
-const pageTitle = title === 'KraftRadar' ? title : `${title} | KraftRadar`;
+const pageTitle =
+	title === 'KraftRadar' || title.endsWith(' | KraftRadar')
+		? title
+		: `${title} | KraftRadar`;
 ---
 
 <!doctype html>

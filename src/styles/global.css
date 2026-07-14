@@ -198,6 +198,24 @@ h1 + p {
 	line-height: 1.75;
 }
 
+.hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.85rem;
+	margin-top: 2rem;
+}
+
+.category-section {
+	scroll-margin-top: 5rem;
+}
+
+.section-intro {
+	max-width: 680px;
+	margin-bottom: 2rem;
+	color: var(--color-text-muted);
+	font-size: 1.05rem;
+}
+
 .text-muted {
 	color: var(--color-text-muted);
 }
@@ -258,6 +276,39 @@ a.product-card:hover,
 a.article-card:hover {
 	border-color: var(--color-accent-dark);
 	transform: translateY(-4px);
+}
+
+.category-card {
+	display: flex;
+	min-height: 245px;
+	flex-direction: column;
+}
+
+.category-card .badge {
+	align-self: flex-start;
+	margin-bottom: 1.25rem;
+}
+
+.category-card p {
+	color: var(--color-text-muted);
+}
+
+.card-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-top: auto;
+	padding-top: 1rem;
+	color: var(--color-accent);
+	font-weight: 800;
+}
+
+.card-link span {
+	transition: transform var(--transition);
+}
+
+.category-card:hover .card-link span {
+	transform: translateX(0.25rem);
 }
 
 .badge {

@@ -6,7 +6,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 	title="KraftRadar"
 	description="KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt."
 >
-	<section>
+	<section class="hero">
 		<p>KraftRadar</p>
 
 		<h1>Training, Supplements und Gym-Zubehör im Blick.</h1>
@@ -14,5 +14,51 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 		<p>
 			Ehrliche Erfahrungen, klare Vergleiche und mein persönlicher Weg im Gym.
 		</p>
+
+		<div class="hero-actions">
+			<a class="button" href="#bereiche">Tests entdecken</a>
+			<a class="button button--secondary" href="/mein-weg">Meinen Weg ansehen</a>
+		</div>
+	</section>
+
+	<section id="bereiche" class="category-section">
+		<p>Bereiche</p>
+		<h2>Was dich bei KraftRadar erwartet</h2>
+		<p class="section-intro">
+			Praxisnahe Inhalte, verständliche Vergleiche und persönliche Erfahrungen –
+			ohne unnötigen Hype.
+		</p>
+
+		<div class="card-grid">
+			<a class="card category-card" href="/training">
+				<span class="badge">Training</span>
+				<h3>Stärker trainieren</h3>
+				<p>
+					Grundlagen, Erfahrungen und verständliche Trainingsthemen für deinen
+					Fortschritt.
+				</p>
+				<span class="card-link">Training entdecken <span aria-hidden="true">→</span></span>
+			</a>
+
+			<a class="card category-card" href="/supplements">
+				<span class="badge">Supplements</span>
+				<h3>Produkte ehrlich vergleichen</h3>
+				<p>
+					Inhaltsstoffe, Preise und praktische Erfahrungen klar und nachvollziehbar
+					bewertet.
+				</p>
+				<span class="card-link">Supplements ansehen <span aria-hidden="true">→</span></span>
+			</a>
+
+			<a class="card category-card" href="/gym-zubehoer">
+				<span class="badge">Gym-Zubehör</span>
+				<h3>Ausrüstung im Praxiseinsatz</h3>
+				<p>
+					Schuhe, Zubehör und Technik mit Blick auf Nutzen, Qualität und
+					Preis-Leistung.
+				</p>
+				<span class="card-link">Zubehör entdecken <span aria-hidden="true">→</span></span>
+			</a>
+		</div>
 	</section>
 </Hauptlayout>
