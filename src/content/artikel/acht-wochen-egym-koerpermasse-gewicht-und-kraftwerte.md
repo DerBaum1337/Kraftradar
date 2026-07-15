@@ -3,7 +3,7 @@ title: "Acht Wochen EGYM: Meine Körpermaße, Gewicht und Kraftwerte"
 description: "Nach den ersten Wochen mit EGYM dokumentiere ich Körpermaße, Gewicht, Körperanalyse und Trainingsfortschritte – mit einer ehrlichen Einordnung der Grenzen dieser Daten."
 category: mein-weg
 categoryLabel: "Mein Weg"
-publishedAt: 2026-07-15
+publishedAt: 2026-07-15T09:00:00+02:00
 author: Basti
 estimatedReadingMinutes: 10
 kind: mein-weg-update

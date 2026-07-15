@@ -528,6 +528,24 @@ h1 + p {
 	white-space: nowrap;
 }
 
+.article-overview-meta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.65rem;
+}
+
+.article-overview-draft {
+	border: 1px solid var(--color-border);
+	border-radius: 999px;
+	padding: 0.2rem 0.5rem;
+	color: var(--color-text-muted);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
 .text-muted {
 	color: var(--color-text-muted);
 }
@@ -1261,6 +1279,54 @@ tbody tr:last-child td {
 	line-height: 1.8;
 }
 
+.training-screenshot-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.training-screenshot-grid figure,
+.training-screenshot-single {
+	margin: 0;
+	overflow: hidden;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: var(--color-surface);
+}
+
+.training-screenshot-grid a,
+.training-screenshot-single a {
+	display: block;
+	background: #f7f7f7;
+}
+
+.training-screenshot-grid img,
+.training-screenshot-single img {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: transform var(--transition);
+}
+
+.training-screenshot-grid a:hover img,
+.training-screenshot-single a:hover img {
+	transform: scale(1.015);
+}
+
+.training-screenshot-grid figcaption,
+.training-screenshot-single figcaption {
+	padding: 0.8rem 0.9rem;
+	color: var(--color-text-muted);
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+
+.training-screenshot-single {
+	max-width: 520px;
+	margin: 2rem auto;
+}
+
 /* Markdown-Tabellen haben keinen zusätzlichen Wrapper. Auf schmalen Bildschirmen
    bleiben sie deshalb horizontal scrollbar, statt Spalten zu quetschen oder abzuschneiden. */
 .article-body > table {
@@ -1568,6 +1634,10 @@ footer {
 		justify-self: start;
 	}
 
+	.article-overview-meta {
+		justify-content: flex-start;
+	}
+
 	.site-header {
 		position: static;
 		display: grid;
@@ -1760,6 +1830,12 @@ footer {
 
 	.article-meta span::before {
 		display: none;
+	}
+
+	.training-screenshot-grid {
+		grid-template-columns: 1fr;
+		max-width: 430px;
+		margin-inline: auto;
 	}
 }
 

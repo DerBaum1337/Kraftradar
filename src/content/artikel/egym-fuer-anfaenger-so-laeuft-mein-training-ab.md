@@ -3,9 +3,9 @@ title: "EGYM für Anfänger: So läuft mein Training ab"
 description: "Mein Einstieg mit EGYM: Einweisung, Armband, automatische Geräteeinstellungen und was das System als Anfänger für mich übernimmt."
 category: training
 categoryLabel: "Training"
-publishedAt: 2026-07-15
+publishedAt: 2026-07-15T10:00:00+02:00
 author: Basti
-estimatedReadingMinutes: 13
+estimatedReadingMinutes: 11
 kind: artikel
 draft: false
 ---
@@ -116,15 +116,11 @@ Wie viel davon allein durch Flex kommt und welchen Anteil das Krafttraining und 
 
 ## Warum sich die Trainingsmethode verändert
 
-Mein Trainingsprogramm bleibt nicht dauerhaft gleich. In meinem aktuellen Plan wechselt EGYM die Trainingsphase, nachdem ich ein Gerät an sechs Trainingstagen genutzt habe. Dadurch trainiere ich nicht immer mit derselben Methode.
+Nach mehreren Trainingseinheiten wechselt mein Trainingsprogramm zwischen verschiedenen Methoden wie Negativ beziehungsweise Exzentrisch, Adaptiv und Isokinetisch.
 
-Je nach Phase stellt sich das Gerät bei mir zum Beispiel auf Negativ, Adaptiv oder Isokinetisch um.
+Dadurch können sich auch die angezeigten Gewichte deutlich verändern. Eine niedrigere Zahl bedeutet deshalb nicht automatisch, dass ich plötzlich schwächer geworden bin.
 
-Beim Negativtraining ist der Widerstand in der nachgebenden Bewegung höher. Beim adaptiven Training verändert sich die Belastung während des Satzes. Beim isokinetischen Training wird eine Bewegungsgeschwindigkeit vorgegeben und der Widerstand reagiert auf meinen Krafteinsatz.
-
-Für mich waren diese Wechsel am Anfang ungewohnt. Besonders wichtig war für mich die Erkenntnis, dass sich die angezeigten Gewichte zwischen den Methoden deutlich unterscheiden können. Wenn bei einer Methode plötzlich weniger Gewicht angezeigt wird, bedeutet das nicht automatisch, dass ich schwächer geworden bin.
-
-Die Zahlen lassen sich nur sinnvoll vergleichen, wenn auch die verwendete Trainingsmethode berücksichtigt wird. Die einzelnen Methoden und die Unterschiede bei den Gewichtsangaben werde ich später noch ausführlicher in einem eigenen Artikel erklären.
+Warum sich die Werte zwischen den Methoden unterscheiden und weshalb sich EGYM-Gewichte nicht direkt mit klassischen Fitnessgeräten oder freien Gewichten vergleichen lassen, erkläre ich später in einem eigenen Artikel.
 
 ## Was EGYM mir nicht abnimmt
 
@@ -137,10 +133,6 @@ Auch meine Leistung ist nicht an jedem Tag gleich. Bei sehr warmem Wetter merke 
 Das System kann nicht wissen, wie ich mich an einem bestimmten Tag fühle. Es erkennt nicht zuverlässig, ob ich schlecht geschlafen habe, erschöpft bin oder während einer Bewegung Schmerzen bekomme. Diese Einschätzung bleibt meine Aufgabe.
 
 Auch bei neuen Trainingsmethoden brauche ich manchmal weiterhin Hilfe. Als sich einige Geräte bei mir zum ersten Mal auf Isokinetisch umstellten, kam ich mit dem Ablauf zunächst nicht zurecht. Ich fragte deshalb einen Trainer und ließ mir die Methode erklären.
-
-Fortschrittsanzeigen und Gewichtsangaben betrachte ich ebenfalls nicht als absolute Wahrheit. Die Widerstandswerte der EGYM-Geräte lassen sich nicht einfach mit Hanteln oder klassischen Gewichtsstapeln vergleichen. 80 Kilogramm am EGYM-Latzug sind für mich nicht automatisch dasselbe wie 80 Kilogramm an einer normalen Latzugmaschine.
-
-Zusätzlich verändert sich die Belastung je nach Trainingsmethode. Wenn ich bei einer Methode deutlich mehr oder weniger Gewicht schaffe als bei einer anderen, lasse ich mich davon deshalb nicht mehr sofort verunsichern. Für mich ist wichtiger, wie sauber ich die Übung ausführen kann und wie sich meine Leistung innerhalb derselben Methode entwickelt.
 
 Eine automatische Geräteeinstellung bedeutet außerdem nicht, dass sie immer sofort perfekt passt. Bei mir waren anfangs einzelne Einstellungen wie Sitzhöhe oder Griffposition noch nicht richtig. Dadurch setzte ich bei einer Übung das Gewicht am unteren Ende der Bewegung jedes Mal vollständig ab.
 
@@ -165,7 +157,7 @@ Gerade mit ADHS macht das für mich einen großen Unterschied.
 
 Mit EGYM war der Einstieg wesentlich einfacher. Nach der Einweisung konnte ich meinen Plan starten, zum angezeigten Gerät gehen, mein Armband anhalten und loslegen.
 
-Ganz ohne Nachteile ist das System für mich trotzdem nicht. Die angezeigten Gewichte sind teilweise verwirrend, weil man sie schnell wie normale Kilogrammangaben betrachtet. Dazu kommen die unterschiedlichen Trainingsmethoden, bei denen sich die Werte teilweise deutlich verändern.
+Ganz ohne Nachteile ist das System für mich trotzdem nicht. Die wechselnden Trainingsmethoden und Gewichtsangaben waren für mich am Anfang allerdings teilweise verwirrend.
 
 Etwas unpraktisch finde ich außerdem, dass mir die App gelegentlich manuelle Dehnungs- oder Mattenübungen vorschlägt. Ich würde diese gern vollständig aus meinem Plan entfernen können. Da mein Fitnessstudio sowohl EGYM Smart Strength als auch EGYM Flex anbietet, möchte ich mein Training möglichst vollständig mit diesen Geräten durchführen.
 

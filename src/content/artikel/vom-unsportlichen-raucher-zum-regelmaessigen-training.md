@@ -3,7 +3,7 @@ title: "Vom unsportlichen Raucher zum regelmäßigen Training"
 description: "Nach 13 Jahren Rauchen und drei Jahren Vapen habe ich bei null mit Sport angefangen. Hier erzähle ich, warum ich mich für EGYM entschieden habe und was sich seitdem verändert hat."
 category: mein-weg
 categoryLabel: "Mein Weg"
-publishedAt: 2026-07-14
+publishedAt: 2026-07-14T12:00:00+02:00
 author: Basti
 estimatedReadingMinutes: 7
 kind: mein-weg-update

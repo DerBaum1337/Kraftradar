@@ -3,7 +3,7 @@ title: Trainingsfortschritt sinnvoll dokumentieren
 description: Eine einfache und nachvollziehbare Methode, um Gewichte, Wiederholungen, Geräteeinstellungen und Trainingseindrücke festzuhalten.
 category: training
 categoryLabel: Training · Grundlagen
-publishedAt: 2026-07-14
+publishedAt: 2026-07-14T09:00:00+02:00
 author: Basti
 estimatedReadingMinutes: 5
 kind: artikel

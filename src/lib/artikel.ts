@@ -6,9 +6,13 @@ export type Artikel = CollectionEntry<'artikel'>;
 export async function getPublishedArticles(): Promise<Artikel[]> {
 	const includeDrafts = import.meta.env.DEV;
 
-	return (await getCollection('artikel', ({ data }) => !data.draft || includeDrafts)).sort(
-		(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
-	);
+	return (await getCollection('artikel', ({ data }) => !data.draft || includeDrafts)).sort((a, b) => {
+		const zeitunterschied = b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+
+		// Falls zwei Beiträge versehentlich exakt denselben Zeitstempel erhalten,
+		// bleibt die Reihenfolge wenigstens reproduzierbar.
+		return zeitunterschied || b.id.localeCompare(a.id, 'de');
+	});
 }
 
 export async function getArticlesByCategory(category: ArtikelKategorie): Promise<Artikel[]> {
