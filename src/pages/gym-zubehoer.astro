@@ -4,6 +4,10 @@ import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
+import { getArticlesByCategory } from '../lib/artikel';
+
+const beitraege = await getArticlesByCategory('gym-zubehoer');
+const zeigtVollstaendigeUebersicht = beitraege.length >= 7;
 
 const themen = [
 	{
@@ -61,11 +65,16 @@ const themen = [
 		description="Schuhe, Taschen, Griffe und Technik werden danach eingeordnet, wie gut sie sich im Trainingsalltag wirklich bewähren."
 	/>
 
-	<Beitragsuebersicht
-		category="gym-zubehoer"
-		heading="Alle Beiträge zu Gym-Zubehör"
-		description="Alle veröffentlichten Praxistests und Erfahrungen in einer kompakten Übersicht."
-	/>
+	{
+		!zeigtVollstaendigeUebersicht && (
+			<Bereichsbeitraege category="gym-zubehoer" heading="Beiträge zu Gym-Zubehör" />
+		)
+	}
+	{
+		zeigtVollstaendigeUebersicht && (
+			<Bereichsbeitraege category="gym-zubehoer" heading="Neu bei Gym-Zubehör" limit={3} />
+		)
+	}
 
 	<section class="section-alternate">
 		<p class="eyebrow">Themenübersicht</p>
@@ -75,10 +84,18 @@ const themen = [
 			nur Herstellerangaben.
 		</p>
 
-		<div class="card-grid">
+		<div class="card-grid topic-grid">
 			{themen.map((thema) => <Themenkarte {...thema} />)}
 		</div>
 	</section>
 
-	<Bereichsbeitraege category="gym-zubehoer" heading="Neu bei Gym-Zubehör" />
+	{
+		zeigtVollstaendigeUebersicht && (
+			<Beitragsuebersicht
+				category="gym-zubehoer"
+				heading="Alle Beiträge zu Gym-Zubehör"
+				description="Alle veröffentlichten Praxistests und Erfahrungen in einer kompakten Übersicht."
+			/>
+		)
+	}
 </Hauptlayout>

@@ -104,6 +104,8 @@ const neuesteInhalte = await getLatestArticles(3);
 							description={inhalt.data.description}
 							image={inhalt.data.image}
 							imageAlt={inhalt.data.imageAlt}
+							publishedAt={inhalt.data.publishedAt}
+							estimatedReadingMinutes={inhalt.data.estimatedReadingMinutes}
 							linkLabel="Artikel lesen"
 						/>
 					))}

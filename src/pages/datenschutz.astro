@@ -13,8 +13,33 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 			<h1>Datenschutzerklärung</h1>
 			<p class="legal-lead">Stand: 14. Juli 2026</p>
 
+			<details class="legal-toc">
+				<summary>Inhaltsverzeichnis</summary>
+				<ol>
+					<li><a href="#datenschutz-auf-einen-blick">Datenschutz auf einen Blick</a></li>
+					<li><a href="#verantwortliche-stelle">Verantwortliche Stelle</a></li>
+					<li><a href="#cloudflare">Hosting und Sicherheit durch Cloudflare</a></li>
+					<li><a href="#usa">Datenübermittlung in die USA</a></li>
+					<li><a href="#server-protokolle">Server-Protokolldaten</a></li>
+					<li><a href="#tls">SSL- beziehungsweise TLS-Verschlüsselung</a></li>
+					<li><a href="#cookies">Cookies und ähnliche Technologien</a></li>
+					<li><a href="#kontakt-email">Kontaktaufnahme per E-Mail</a></li>
+					<li><a href="#online-impressum">E-Mail- und Kontaktservice</a></li>
+					<li><a href="#keine-dienste">Keine Analyse- oder Werbedienste</a></li>
+					<li><a href="#empfaenger">Empfänger personenbezogener Daten</a></li>
+					<li><a href="#rechtsgrundlagen">Rechtsgrundlagen</a></li>
+					<li><a href="#speicherdauer">Speicherdauer</a></li>
+					<li><a href="#rechte">Rechte betroffener Personen</a></li>
+					<li><a href="#beschwerde">Beschwerderecht</a></li>
+					<li><a href="#werbe-emails">Widerspruch gegen Werbe-E-Mails</a></li>
+					<li><a href="#bereitstellung">Bereitstellung personenbezogener Daten</a></li>
+					<li><a href="#automatisierung">Keine automatisierte Entscheidungsfindung</a></li>
+					<li><a href="#aktualisierung">Aktualisierung dieser Datenschutzerklärung</a></li>
+				</ol>
+			</details>
+
 			<article class="legal-content legal-card privacy-content">
-				<h2>1. Datenschutz auf einen Blick</h2>
+				<h2 id="datenschutz-auf-einen-blick">1. Datenschutz auf einen Blick</h2>
 				<h3>Allgemeine Hinweise</h3>
 				<p>
 					Diese Datenschutzerklärung informiert darüber, welche personenbezogenen Daten beim
@@ -62,7 +87,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					Verhalten von Besuchern zu Werbe- oder Profilbildungszwecken ausgewertet wird.
 				</p>
 
-				<h2>2. Verantwortliche Stelle</h2>
+				<h2 id="verantwortliche-stelle">2. Verantwortliche Stelle</h2>
 				<p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
 				<address>
 					KraftRadar – Sebastian Trost<br />
@@ -82,7 +107,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 				</p>
 				<p>Ein betrieblicher Datenschutzbeauftragter ist nicht bestellt.</p>
 
-				<h2>3. Hosting, Auslieferung und Sicherheit durch Cloudflare</h2>
+				<h2 id="cloudflare">3. Hosting, Auslieferung und Sicherheit durch Cloudflare</h2>
 				<p>
 					Diese Website wird über Cloudflare Pages bereitgestellt. Zusätzlich werden Dienste
 					von Cloudflare zur Auslieferung über ein Content-Delivery-Network, zur
@@ -122,7 +147,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					<li><a href="https://www.cloudflare.com/cloudflare-customer-dpa/">Cloudflare Data Processing Addendum</a></li>
 				</ul>
 
-				<h2>4. Datenübermittlung in die USA</h2>
+				<h2 id="usa">4. Datenübermittlung in die USA</h2>
 				<p>
 					Cloudflare ist ein Unternehmen mit Sitz in den USA. Eine Verarbeitung von Daten in
 					den USA oder anderen Staaten außerhalb der Europäischen Union beziehungsweise des
@@ -140,7 +165,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					nicht mehr auf das Data Privacy Framework gestützt werden kann.
 				</p>
 
-				<h2>5. Server-Protokolldaten</h2>
+				<h2 id="server-protokolle">5. Server-Protokolldaten</h2>
 				<p>
 					Zur sicheren und fehlerfreien Bereitstellung der Website können technische
 					Zugriffsdaten in Server- oder Sicherheitsprotokollen verarbeitet werden.
@@ -163,7 +188,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					unterschiedlich sein.
 				</p>
 
-				<h2>6. SSL- beziehungsweise TLS-Verschlüsselung</h2>
+				<h2 id="tls">6. SSL- beziehungsweise TLS-Verschlüsselung</h2>
 				<p>
 					Diese Website nutzt eine SSL- beziehungsweise TLS-Verschlüsselung. Dadurch werden
 					Daten, die zwischen dem Browser und der Website übertragen werden, vor dem
@@ -174,7 +199,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					Adresszeile des Browsers erkennbar.
 				</p>
 
-				<h2>7. Cookies und ähnliche Technologien</h2>
+				<h2 id="cookies">7. Cookies und ähnliche Technologien</h2>
 				<p>
 					KraftRadar setzt nach dem aktuellen technischen Stand keine eigenen Analyse-,
 					Marketing- oder Personalisierungs-Cookies ein. Es wird derzeit kein
@@ -194,7 +219,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 				</p>
 				<p>Nicht notwendige Cookies werden derzeit nicht eingesetzt.</p>
 
-				<h2>8. Kontaktaufnahme per E-Mail</h2>
+				<h2 id="kontakt-email">8. Kontaktaufnahme per E-Mail</h2>
 				<p>
 					Bei einer Kontaktaufnahme per E-Mail werden die übermittelten Daten verarbeitet.
 					Dazu können insbesondere Name, E-Mail-Adresse, Inhalt der Nachricht, Zeitangaben
@@ -211,7 +236,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					eine weitere Speicherung bestehen.
 				</p>
 
-				<h2>9. E-Mail- und Kontaktservice über Online-Impressum.de</h2>
+				<h2 id="online-impressum">9. E-Mail- und Kontaktservice über Online-Impressum.de</h2>
 				<p>
 					Die öffentliche Kontakt-E-Mail-Adresse sowie ein zusätzlicher Kontaktweg werden
 					über den Dienst Online-Impressum.de, einen Service der Clear-Media UG
@@ -254,7 +279,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					>.
 				</p>
 
-				<h2>10. Keine Analyse-, Werbe- oder Social-Media-Dienste</h2>
+				<h2 id="keine-dienste">10. Keine Analyse-, Werbe- oder Social-Media-Dienste</h2>
 				<p>Aktuell werden auf KraftRadar insbesondere nicht eingesetzt:</p>
 				<ul>
 					<li>Google Analytics oder Google Tag Manager,</li>
@@ -280,7 +305,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					aktualisiert.
 				</p>
 
-				<h2>11. Empfänger personenbezogener Daten</h2>
+				<h2 id="empfaenger">11. Empfänger personenbezogener Daten</h2>
 				<p>Personenbezogene Daten können im erforderlichen Umfang insbesondere an folgende Empfänger übermittelt werden:</p>
 				<ul>
 					<li>Cloudflare als Hosting-, CDN-, DNS- und Sicherheitsdienstleister,</li>
@@ -294,7 +319,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					vorliegt oder eine wirksame Einwilligung erteilt wurde.
 				</p>
 
-				<h2>12. Rechtsgrundlagen</h2>
+				<h2 id="rechtsgrundlagen">12. Rechtsgrundlagen</h2>
 				<p>Personenbezogene Daten werden insbesondere auf folgenden Rechtsgrundlagen verarbeitet:</p>
 				<ul>
 					<li>Art. 6 Abs. 1 lit. a DSGVO – Einwilligung, sofern eine Einwilligung eingeholt wird,</li>
@@ -308,7 +333,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen werden.
 				</p>
 
-				<h2>13. Speicherdauer</h2>
+				<h2 id="speicherdauer">13. Speicherdauer</h2>
 				<p>
 					Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen
 					Zweck erforderlich ist.
@@ -325,7 +350,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					werden die Daten gelöscht oder anonymisiert.
 				</p>
 
-				<h2>14. Rechte betroffener Personen</h2>
+				<h2 id="rechte">14. Rechte betroffener Personen</h2>
 				<p>Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen insbesondere folgende Rechte:</p>
 				<ul>
 					<li>Auskunft nach Art. 15 DSGVO,</li>
@@ -355,7 +380,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
 				</p>
 
-				<h2>15. Beschwerderecht bei der Aufsichtsbehörde</h2>
+				<h2 id="beschwerde">15. Beschwerderecht bei der Aufsichtsbehörde</h2>
 				<p>Betroffene Personen können sich bei einer Datenschutzaufsichtsbehörde beschweren.</p>
 				<p>Für den Betreiber von KraftRadar ist insbesondere folgende Behörde zuständig:</p>
 				<address>
@@ -371,14 +396,14 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					gerichtlichen Rechtsbehelfen.
 				</p>
 
-				<h2>16. Widerspruch gegen Werbe-E-Mails</h2>
+				<h2 id="werbe-emails">16. Widerspruch gegen Werbe-E-Mails</h2>
 				<p>
 					Der Nutzung der im Impressum oder in dieser Datenschutzerklärung veröffentlichten
 					Kontaktdaten zur Übersendung nicht ausdrücklich angeforderter Werbung wird
 					widersprochen.
 				</p>
 
-				<h2>17. Bereitstellung personenbezogener Daten</h2>
+				<h2 id="bereitstellung">17. Bereitstellung personenbezogener Daten</h2>
 				<p>
 					Die Bereitstellung technischer Verbindungsdaten ist erforderlich, damit die Website
 					aufgerufen und sicher ausgeliefert werden kann. Ohne diese Daten ist die Nutzung der
@@ -390,13 +415,13 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 					beantwortet werden.
 				</p>
 
-				<h2>18. Keine automatisierte Entscheidungsfindung</h2>
+				<h2 id="automatisierung">18. Keine automatisierte Entscheidungsfindung</h2>
 				<p>
 					Eine ausschließlich automatisierte Entscheidungsfindung einschließlich Profiling im
 					Sinne von Art. 22 DSGVO findet nicht statt.
 				</p>
 
-				<h2>19. Aktualisierung dieser Datenschutzerklärung</h2>
+				<h2 id="aktualisierung">19. Aktualisierung dieser Datenschutzerklärung</h2>
 				<p>
 					Diese Datenschutzerklärung wird angepasst, wenn sich die Website, die eingesetzten
 					Dienste oder die rechtlichen Anforderungen ändern.

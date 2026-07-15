@@ -7,6 +7,8 @@ interface Props {
 	linkLabel?: string;
 	image?: string;
 	imageAlt?: string;
+	publishedAt?: Date;
+	estimatedReadingMinutes?: number;
 }
 
 const {
@@ -17,7 +19,14 @@ const {
 	linkLabel = 'Weiterlesen',
 	image,
 	imageAlt = '',
+	publishedAt,
+	estimatedReadingMinutes,
 } = Astro.props;
+
+const meta = [
+	publishedAt?.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' }),
+	estimatedReadingMinutes && `${estimatedReadingMinutes} Min. Lesezeit`,
+].filter(Boolean);
 ---
 
 <a class="article-card content-card" href={href}>
@@ -25,5 +34,6 @@ const {
 	<span class="badge">{category}</span>
 	<h3>{title}</h3>
 	<p>{description}</p>
+	{meta.length > 0 && <span class="article-card-meta">{meta.join(' · ')}</span>}
 	<span class="card-link">{linkLabel} <span aria-hidden="true">→</span></span>
 </a>

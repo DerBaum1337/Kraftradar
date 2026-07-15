@@ -4,6 +4,10 @@ import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
+import { getArticlesByCategory } from '../lib/artikel';
+
+const beitraege = await getArticlesByCategory('mein-weg');
+const zeigtVollstaendigeUebersicht = beitraege.length >= 7;
 
 const themen = [
 	{
@@ -61,13 +65,16 @@ const themen = [
 		description="Ausgangslage, Ziele, Kraftwerte und Erkenntnisse – einschließlich der Fehler und Rückschritte, die zu einem echten Trainingsweg dazugehören."
 	/>
 
-	<Beitragsuebersicht
-		category="mein-weg"
-		heading="Alle Beiträge zu meinem Weg"
-		description="Direkt zu meinen veröffentlichten Erfahrungsberichten, Fortschrittsdaten und späteren Updates."
-	/>
-
-	<Bereichsbeitraege category="mein-weg" heading="Neu bei meinem Weg" limit={2} />
+	{
+		!zeigtVollstaendigeUebersicht && (
+			<Bereichsbeitraege category="mein-weg" heading="Beiträge zu meinem Weg" />
+		)
+	}
+	{
+		zeigtVollstaendigeUebersicht && (
+			<Bereichsbeitraege category="mein-weg" heading="Neu bei meinem Weg" limit={3} />
+		)
+	}
 
 	<section class="section-alternate">
 		<p class="eyebrow">Persönliche Dokumentation</p>
@@ -77,7 +84,7 @@ const themen = [
 			hier geht es um meine Erfahrungen, Fortschritte und Lernmomente.
 		</p>
 
-		<div class="card-grid">
+		<div class="card-grid topic-grid">
 			{themen.map((thema) => <Themenkarte {...thema} />)}
 		</div>
 
@@ -90,4 +97,14 @@ const themen = [
 			</p>
 		</div>
 	</section>
+
+	{
+		zeigtVollstaendigeUebersicht && (
+			<Beitragsuebersicht
+				category="mein-weg"
+				heading="Alle Beiträge zu meinem Weg"
+				description="Direkt zu meinen veröffentlichten Erfahrungsberichten, Fortschrittsdaten und späteren Updates."
+			/>
+		)
+	}
 </Hauptlayout>

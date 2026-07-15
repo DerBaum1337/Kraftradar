@@ -27,6 +27,8 @@ const angezeigteBeitraege = limit ? beitraege.slice(0, limit) : beitraege;
 						description={beitrag.data.description}
 						image={beitrag.data.image}
 						imageAlt={beitrag.data.imageAlt}
+						publishedAt={beitrag.data.publishedAt}
+						estimatedReadingMinutes={beitrag.data.estimatedReadingMinutes}
 						linkLabel="Artikel lesen"
 					/>
 				))}
