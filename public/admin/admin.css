@@ -130,6 +130,17 @@ body,
 	font-size: 0.9rem;
 }
 
+/* Der gleiche Decap-Commit speichert Entwürfe, Prüfungen und veröffentlichte
+ * Artikel. Die Beschriftung erklärt den tatsächlichen redaktionellen Schritt. */
+#nc-root [data-kr-publish-action="true"] {
+	font-size: 0 !important;
+}
+
+#nc-root [data-kr-publish-action="true"]::after {
+	content: attr(data-kr-publish-label);
+	font-size: 0.9rem;
+}
+
 #nc-root [class*="EditorControlBar"],
 #nc-root [class*="StyledToolbarButton"] {
 	background: #0d141d !important;
