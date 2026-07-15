@@ -100,37 +100,6 @@ function startCms(attempt = 0) {
 	window.CMS.init();
 }
 
-/* Decaps deutsche Standardübersetzung ist hier unnötig umständlich.
- * React verwaltet den sichtbaren Text selbst; deshalb nie textContent ersetzen. */
-function applyKraftRadarLabels() {
-	for (const element of document.querySelectorAll('a, button, [role="button"]')) {
-		if (element.textContent?.trim() === 'Neue(r/s) Artikel') {
-			element.dataset.krNewArticle = 'true';
-			element.setAttribute('aria-label', 'Neuer Artikel');
-		}
-	}
-
-	const statusSelect = [...document.querySelectorAll('select')].find((select) => {
-		const values = [...select.options].map((option) => option.value);
-		return ['draft', 'review', 'ready', 'published'].every((status) => values.includes(status));
-	});
-	const labels = {
-		draft: 'Entwurf speichern',
-		review: 'Zur Überprüfung speichern',
-		ready: 'Zur Veröffentlichung speichern',
-		published: 'Veröffentlichen',
-	};
-	const label = labels[statusSelect?.value] || 'Entwurf speichern';
-
-	for (const element of document.querySelectorAll('button, [role="button"]')) {
-		if (element.textContent?.trim() === 'Veröffentlichen' || element.dataset.krPublishAction) {
-			element.dataset.krPublishAction = 'true';
-			element.dataset.krPublishLabel = label;
-			element.setAttribute('aria-label', label);
-		}
-	}
-}
-
 /* Einige mobile Browser melden bei aktivierter Desktopansicht eine große
  * Viewportbreite. screen.width bleibt dagegen die echte Gerätebreite. */
 if (Math.min(window.screen.width, window.screen.height) <= 820) {
@@ -138,6 +107,3 @@ if (Math.min(window.screen.width, window.screen.height) <= 820) {
 }
 
 startCms();
-applyKraftRadarLabels();
-new MutationObserver(applyKraftRadarLabels).observe(document.body, { childList: true, subtree: true });
-document.addEventListener('change', applyKraftRadarLabels);

@@ -120,24 +120,25 @@ body,
 	border-radius: 8px !important;
 }
 
-/* Beschriftung ohne den von React verwalteten Button-Inhalt zu verändern. */
-#nc-root [data-kr-new-article="true"] {
+/* Stabile Beschriftungen über die von Decap dokumentierten Komponentenklassen.
+ * Kein JavaScript verändert den von React verwalteten DOM-Inhalt. */
+#nc-root [class*="CollectionTopNewButton"] {
 	font-size: 0 !important;
 }
 
-#nc-root [data-kr-new-article="true"]::after {
+#nc-root [class*="CollectionTopNewButton"]::after {
 	content: "Neuer Artikel";
 	font-size: 0.9rem;
 }
 
-/* Der gleiche Decap-Commit speichert Entwürfe, Prüfungen und veröffentlichte
- * Artikel. Die Beschriftung erklärt den tatsächlichen redaktionellen Schritt. */
-#nc-root [data-kr-publish-action="true"] {
+/* Der gleiche Decap-Commit speichert Entwürfe und veröffentlichte Änderungen.
+ * Der Status entscheidet, ob der gespeicherte Artikel öffentlich erscheint. */
+#nc-root [class*="PublishButton"] {
 	font-size: 0 !important;
 }
 
-#nc-root [data-kr-publish-action="true"]::after {
-	content: attr(data-kr-publish-label);
+#nc-root [class*="PublishButton"]::after {
+	content: "Speichern";
 	font-size: 0.9rem;
 }
 
