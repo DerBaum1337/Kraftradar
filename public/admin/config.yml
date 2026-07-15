@@ -28,23 +28,26 @@ collections:
       preview: true
     fields:
       - { label: Titel, name: title, widget: string }
-      - { label: Slug, name: slug, widget: string, hint: "Kleinbuchstaben und Bindestriche; bestehende Slugs nicht ohne Weiterleitung ändern.", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Nur Kleinbuchstaben, Zahlen und Bindestriche."] }
+      - { label: Interner Slug, name: slug, widget: hidden, default: "" }
       - { label: Kategorie, name: category, widget: select, options: [{ label: Training, value: training }, { label: Supplements, value: supplements }, { label: Gym-Zubehör, value: gym-zubehoer }, { label: Mein Weg, value: mein-weg }] }
-      - { label: Kategoriebezeichnung, name: categoryLabel, widget: string, default: Training, hint: "Bezeichnung, die Leser auf der Website sehen, zum Beispiel Training oder Mein Weg." }
+      - { label: Sichtbarer Kategoriename, name: categoryLabel, widget: hidden, default: Training }
       - { label: Artikeltyp, name: articleType, widget: select, options: [{ label: Ratgeber, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Fortschrittsbericht, value: progress }, { label: Produkttest, value: product-test }, { label: Produktvergleich, value: comparison }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
-      - { label: Veröffentlichungsstatus, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }], hint: "Entwurf, Prüfung und Bereit zur Veröffentlichung bleiben privat. Nur Veröffentlicht erscheint auf der Website." }
+      - { label: Status, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }], hint: "Nur Veröffentlicht erscheint auf der Website." }
       - { label: Kurzbeschreibung, name: description, widget: text, hint: "Kurze Einleitung für die Artikelseite und Google. Am besten ein bis zwei klare Sätze." }
-      - { label: Auszug für Artikelkarten, name: excerpt, widget: text, hint: "Kurzer Teaser für Startseite und Kategorieübersichten." }
+      - { label: Text auf Übersichtsseiten, name: excerpt, widget: text, hint: "Kurzer Teaser für Startseite und Kategorieübersichten." }
+      - { label: Artikelinhalt, name: body, widget: markdown, hint: "Kein H1 verwenden. Tabellen können als Markdown eingefügt werden; keine Skripte oder eigenes HTML einfügen." }
       - { label: Veröffentlichungsdatum, name: publishedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
       - { label: Aktualisierungsdatum, name: updatedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
       - { label: Autor, name: author, widget: relation, collection: authors, search_fields: [name, slug], value_field: slug, display_fields: [name], default: basti }
-      - { label: Hervorgehoben, name: featured, widget: boolean, default: false, required: false }
-      - { label: Suchmaschinen ausschließen, name: noindex, widget: boolean, default: false, required: false }
+      - { label: Auf der Startseite hervorheben, name: featured, widget: boolean, default: false, required: false }
+      - { label: Nicht bei Google anzeigen, name: noindex, widget: boolean, default: false, required: false }
       - { label: Inhaltsverzeichnis anzeigen, name: toc, widget: boolean, default: true, required: false }
       - label: Artikelbild
         name: heroImage
         widget: object
         required: false
+        collapsed: true
+        summary: '{{fields.src}}'
         fields:
           - { label: Datei, name: src, widget: image, required: false, media_library: { config: { multiple: false } } }
           - { label: Alternativtext, name: alt, widget: string, required: false, hint: "Für inhaltliche Bilder erforderlich; bei dekorativen Bildern leer lassen." }
@@ -54,16 +57,21 @@ collections:
       - label: SEO-Einstellungen
         name: seo
         widget: object
+        collapsed: true
+        summary: '{{fields.title}}'
         fields:
-          - { label: Google-Titel (SEO), name: title, widget: string, hint: "Optional. Überschreibt den normalen Titel nur für Suchmaschinen und Linkvorschauen." }
-          - { label: Google-Beschreibung (SEO), name: description, widget: text, hint: "Idealerweise maximal etwa 160 Zeichen. Sie kann bei Google erscheinen." }
+          - { label: Google-Titel (SEO), name: title, widget: string, required: false, hint: "Optional. Ohne Eingabe wird der Artikeltitel verwendet." }
+          - { label: Google-Beschreibung (SEO), name: description, widget: text, required: false, hint: "Optional. Ohne Eingabe wird die Kurzbeschreibung verwendet. Ideal sind maximal etwa 160 Zeichen." }
           - { label: Canonical-URL, name: canonical, widget: string, required: false, hint: "In der Regel leer lassen. Nur bei bewusst identischem Inhalt auf einer anderen Haupt-URL verwenden." }
           - { label: Open-Graph-Bild, name: ogImage, widget: image, required: false }
-      - { label: Verwandte Artikel, name: relatedArticles, widget: list, required: false, hint: "Nur Artikel eintragen, die Lesern wirklich beim nächsten Schritt helfen. Den Slug ohne Kategorie eingeben.", field: { label: Artikel-Slug, name: slug, widget: string } }
+      - { label: Verwandte Artikel, name: relatedArticles, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Verwandten Artikel hinzufügen", hint: "Nur Artikel eintragen, die Lesern wirklich beim nächsten Schritt helfen. Den Slug ohne Kategorie eingeben.", field: { label: Artikel-Slug, name: slug, widget: string } }
       - label: Quellen
         name: sources
         widget: list
         required: false
+        collapsed: true
+        minimize_collapsed: true
+        label_singular: "Quelle hinzufügen"
         fields:
           - { label: Titel, name: title, widget: string }
           - { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] }
@@ -72,6 +80,8 @@ collections:
       - label: Transparenz
         name: transparency
         widget: object
+        collapsed: true
+        summary: 'Eigene Erfahrung: {{fields.personalExperience}}'
         fields:
           - { label: Eigene Erfahrung, name: personalExperience, widget: boolean, default: false }
           - { label: Selbst gekauft, name: selfPurchased, widget: boolean, default: false, required: false, hint: "Nur aktivieren, wenn ein Produkt selbst gekauft wurde." }
@@ -82,6 +92,8 @@ collections:
         name: product
         widget: object
         required: false
+        collapsed: true
+        summary: '{{fields.brand}} {{fields.name}}'
         fields:
           - { label: Produktname, name: name, widget: string, required: false }
           - { label: Marke, name: brand, widget: string, required: false }
@@ -96,15 +108,14 @@ collections:
           - { label: Test beendet am, name: testEndedAt, widget: date, required: false, format: "YYYY-MM-DD" }
           - { label: Anzahl Nutzungen, name: usageCount, widget: number, required: false, value_type: int }
           - { label: Teststatus, name: testStatus, widget: select, options: [{ label: Geplant, value: planned }, { label: Läuft, value: ongoing }, { label: Abgeschlossen, value: completed }], required: false }
-      - { label: Vorteile, name: pros, widget: list, required: false, field: { label: Vorteil, name: item, widget: string } }
-      - { label: Nachteile, name: cons, widget: list, required: false, field: { label: Nachteil, name: item, widget: string } }
-      - { label: Geeignet für, name: bestFor, widget: list, required: false, field: { label: Zielgruppe, name: item, widget: string } }
-      - { label: Weniger geeignet für, name: lessSuitableFor, widget: list, required: false, field: { label: Zielgruppe, name: item, widget: string } }
+      - { label: Vorteile, name: pros, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Vorteil hinzufügen", field: { label: Vorteil, name: item, widget: string } }
+      - { label: Nachteile, name: cons, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Nachteil hinzufügen", field: { label: Nachteil, name: item, widget: string } }
+      - { label: Geeignet für, name: bestFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Zielgruppe hinzufügen", field: { label: Zielgruppe, name: item, widget: string } }
+      - { label: Weniger geeignet für, name: lessSuitableFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Zielgruppe hinzufügen", field: { label: Zielgruppe, name: item, widget: string } }
       - { label: Kurzfazit, name: shortConclusion, widget: text, required: false }
       - { label: Preis-Leistungs-Einschätzung, name: valueAssessment, widget: text, required: false }
       - { label: Zwischenfazit, name: interimConclusion, widget: text, required: false }
       - { label: Langzeitupdate, name: longTermUpdate, widget: text, required: false }
-      - { label: Artikelinhalt, name: body, widget: markdown, hint: "Kein H1 verwenden. Tabellen können als Markdown eingefügt werden; keine Skripte oder eigenes HTML einfügen." }
 
   - name: authors
     label: Autoren
