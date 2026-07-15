@@ -100,11 +100,12 @@ function startCms(attempt = 0) {
 	window.CMS.init();
 }
 
-/* Decaps deutsche Standardübersetzung ist hier unnötig umständlich. */
+/* Decaps deutsche Standardübersetzung ist hier unnötig umständlich.
+ * React verwaltet den sichtbaren Text selbst; deshalb nie textContent ersetzen. */
 function applyKraftRadarLabels() {
 	for (const element of document.querySelectorAll('a, button, [role="button"]')) {
 		if (element.textContent?.trim() === 'Neue(r/s) Artikel') {
-			element.textContent = 'Neuer Artikel';
+			element.dataset.krNewArticle = 'true';
 			element.setAttribute('aria-label', 'Neuer Artikel');
 		}
 	}

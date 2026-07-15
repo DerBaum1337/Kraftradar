@@ -120,6 +120,16 @@ body,
 	border-radius: 8px !important;
 }
 
+/* Beschriftung ohne den von React verwalteten Button-Inhalt zu verändern. */
+#nc-root [data-kr-new-article="true"] {
+	font-size: 0 !important;
+}
+
+#nc-root [data-kr-new-article="true"]::after {
+	content: "Neuer Artikel";
+	font-size: 0.9rem;
+}
+
 #nc-root [class*="EditorControlBar"],
 #nc-root [class*="StyledToolbarButton"] {
 	background: #0d141d !important;
