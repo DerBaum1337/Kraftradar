@@ -4,7 +4,9 @@ export type ArtikelKategorie = CollectionEntry<'artikel'>['data']['category'];
 export type Artikel = CollectionEntry<'artikel'>;
 
 export async function getPublishedArticles(): Promise<Artikel[]> {
-	return (await getCollection('artikel', ({ data }) => !data.draft)).sort(
+	const includeDrafts = import.meta.env.DEV;
+
+	return (await getCollection('artikel', ({ data }) => !data.draft || includeDrafts)).sort(
 		(a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 	);
 }

@@ -3,15 +3,21 @@ import type { CollectionEntry } from 'astro:content';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Bewertungsbox from '../components/Bewertungsbox.astro';
 import Hauptlayout from './Hauptlayout.astro';
+import Inhaltsverzeichnis from '../components/Inhaltsverzeichnis.astro';
 import Produktdaten from '../components/Produktdaten.astro';
 import Transparenzhinweis from '../components/Transparenzhinweis.astro';
 import VorNachteile from '../components/VorNachteile.astro';
 
 interface Props {
 	entry: CollectionEntry<'artikel'>;
+	headings: Array<{
+		depth: number;
+		slug: string;
+		text: string;
+	}>;
 }
 
-const { entry } = Astro.props;
+const { entry, headings } = Astro.props;
 const { data, id } = entry;
 const siteURL = Astro.site ?? new URL('https://kraftradar.de');
 const articleURL = new URL(`/${data.category}/${id}/`, siteURL);
@@ -82,6 +88,8 @@ const articleStructuredData = {
 				<span>Von {data.author}</span>
 			</div>
 		</header>
+
+		<Inhaltsverzeichnis headings={headings} />
 
 		<div class="article-body">
 			{data.image && <img class="article-hero-image" src={data.image} alt={data.imageAlt ?? ''} />}

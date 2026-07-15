@@ -1,0 +1,27 @@
+---
+interface Heading {
+	depth: number;
+	slug: string;
+	text: string;
+}
+
+interface Props {
+	headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const sections = headings.filter((heading) => heading.depth === 2);
+---
+
+{
+	sections.length >= 2 && (
+		<nav class="article-toc" aria-label="Inhaltsverzeichnis">
+			<p class="eyebrow">In diesem Artikel</p>
+			<ol>
+				{sections.map((section) => (
+					<li><a href={`#${section.slug}`}>{section.text}</a></li>
+				))}
+			</ol>
+		</nav>
+	)
+}

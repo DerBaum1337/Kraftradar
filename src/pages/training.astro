@@ -3,6 +3,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
+import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 
 const themen = [
 	{
@@ -60,6 +61,12 @@ const themen = [
 		eyebrow="Training"
 		title="Training verständlich aufbauen."
 		description="Grundlagen, Geräteerfahrungen und nachvollziehbare Trainingsmethoden – mit Fokus auf saubere Fortschritte statt kurzfristigen Hype."
+	/>
+
+	<Beitragsuebersicht
+		category="training"
+		heading="Alle Beiträge zu Training"
+		description="Alle veröffentlichten Ratgeber und Erfahrungen aus dem Trainingsbereich in einer kompakten Übersicht."
 	/>
 
 	<section class="section-alternate">

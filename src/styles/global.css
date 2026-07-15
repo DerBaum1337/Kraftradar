@@ -1188,6 +1188,45 @@ tbody tr:last-child td {
 	content: "•";
 }
 
+.article-toc {
+	width: min(100%, 780px);
+	margin: 2rem auto 0;
+	padding: clamp(1.05rem, 2.7vw, 1.35rem);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: var(--color-surface);
+}
+
+.article-toc .eyebrow {
+	margin-bottom: 0.65rem;
+}
+
+.article-toc ol {
+	display: grid;
+	gap: 0.3rem;
+	margin: 0;
+	padding-left: 1.35rem;
+}
+
+.article-toc li::marker {
+	color: var(--color-accent);
+	font-weight: 700;
+}
+
+.article-toc a {
+	display: inline-block;
+	padding: 0.1rem 0.25rem;
+	border-radius: 0.25rem;
+	color: var(--color-text-muted);
+	line-height: 1.5;
+	transition: color var(--transition), background-color var(--transition);
+}
+
+.article-toc a:hover {
+	color: var(--color-accent);
+	background: var(--color-accent-soft);
+}
+
 .article-body {
 	padding-top: 2.5rem;
 }

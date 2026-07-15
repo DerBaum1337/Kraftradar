@@ -3,6 +3,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
+import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 
 const themen = [
 	{
@@ -58,6 +59,12 @@ const themen = [
 		eyebrow="Supplements"
 		title="Produkte nüchtern betrachtet."
 		description="Verständliche Einordnungen zu Proteinpulver, Kreatin und weiteren Supplements – transparent, praxisnah und mit Blick auf Preis-Leistung."
+	/>
+
+	<Beitragsuebersicht
+		category="supplements"
+		heading="Alle Beiträge zu Supplements"
+		description="Alle veröffentlichten Tests, Erfahrungen und Vergleiche in einer kompakten Übersicht."
 	/>
 
 	<section class="section-alternate">

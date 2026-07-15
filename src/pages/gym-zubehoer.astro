@@ -3,6 +3,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
+import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 
 const themen = [
 	{
@@ -58,6 +59,12 @@ const themen = [
 		eyebrow="Gym-Zubehör"
 		title="Ausrüstung für den Praxiseinsatz."
 		description="Schuhe, Taschen, Griffe und Technik werden danach eingeordnet, wie gut sie sich im Trainingsalltag wirklich bewähren."
+	/>
+
+	<Beitragsuebersicht
+		category="gym-zubehoer"
+		heading="Alle Beiträge zu Gym-Zubehör"
+		description="Alle veröffentlichten Praxistests und Erfahrungen in einer kompakten Übersicht."
 	/>
 
 	<section class="section-alternate">

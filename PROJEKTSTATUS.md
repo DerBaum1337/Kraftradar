@@ -21,6 +21,19 @@ Die Marke steht für:
 
 KraftRadar ist kein Supplement-Shop und soll nicht wie eine aggressive Bodybuilding- oder Affiliate-Seite wirken. Affiliate-Links, Werbung und Tracking sind derzeit **nicht** aktiv.
 
+## Inhaltsleitlinie
+
+Neue Inhalte folgen diesen verbindlichen Regeln:
+
+- persönliche Ich-Perspektive und konkrete eigene Erfahrungen statt Werbesprache;
+- sachlich, verständlich und ruhig schreiben – ohne erfundene Eindrücke oder Superlative;
+- persönliche Details nur nennen, wenn sie für den Artikel wirklich erforderlich sind;
+- medizinische Themen nicht unnötig ausbreiten;
+- eigene Erfahrungen klar von allgemeinen Fakten trennen und Fakten zu EGYM, Supplements oder Training mit Quellen belegen;
+- keine Artikel nur für Suchmaschinen schreiben.
+
+Die geplante Veröffentlichungsreihenfolge lautet: EGYM für Anfänger, EGYM-Gewichte verstehen, Whey- oder Kreatin-Erfahrungsbericht, Gym-Zubehör, nächster Fortschrittsbericht.
+
 ## 2. Aktuelle Designrichtung
 
 Die visuelle Richtung heißt intern **„Dark Performance + Radar“**:
