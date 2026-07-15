@@ -30,11 +30,11 @@ collections:
       - { label: Titel, name: title, widget: string }
       - { label: Slug, name: slug, widget: string, hint: "Kleinbuchstaben und Bindestriche; bestehende Slugs nicht ohne Weiterleitung ändern.", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Nur Kleinbuchstaben, Zahlen und Bindestriche."] }
       - { label: Kategorie, name: category, widget: select, options: [{ label: Training, value: training }, { label: Supplements, value: supplements }, { label: Gym-Zubehör, value: gym-zubehoer }, { label: Mein Weg, value: mein-weg }] }
-      - { label: Kategoriebezeichnung, name: categoryLabel, widget: string, default: Training }
+      - { label: Kategoriebezeichnung, name: categoryLabel, widget: string, default: Training, hint: "Bezeichnung, die Leser auf der Website sehen, zum Beispiel Training oder Mein Weg." }
       - { label: Artikeltyp, name: articleType, widget: select, options: [{ label: Ratgeber, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Fortschrittsbericht, value: progress }, { label: Produkttest, value: product-test }, { label: Produktvergleich, value: comparison }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
-      - { label: Veröffentlichungsstatus, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }] }
-      - { label: Kurzbeschreibung, name: description, widget: text }
-      - { label: Auszug für Artikelkarten, name: excerpt, widget: text }
+      - { label: Veröffentlichungsstatus, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }], hint: "Entwurf, Prüfung und Bereit zur Veröffentlichung bleiben privat. Nur Veröffentlicht erscheint auf der Website." }
+      - { label: Kurzbeschreibung, name: description, widget: text, hint: "Kurze Einleitung für die Artikelseite und Google. Am besten ein bis zwei klare Sätze." }
+      - { label: Auszug für Artikelkarten, name: excerpt, widget: text, hint: "Kurzer Teaser für Startseite und Kategorieübersichten." }
       - { label: Veröffentlichungsdatum, name: publishedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
       - { label: Aktualisierungsdatum, name: updatedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
       - { label: Autor, name: author, widget: relation, collection: authors, search_fields: [name, slug], value_field: slug, display_fields: [name], default: basti }
@@ -55,11 +55,11 @@ collections:
         name: seo
         widget: object
         fields:
-          - { label: SEO-Titel, name: title, widget: string }
-          - { label: SEO-Beschreibung, name: description, widget: text }
-          - { label: Canonical-URL, name: canonical, widget: string, required: false }
+          - { label: Google-Titel (SEO), name: title, widget: string, hint: "Optional. Überschreibt den normalen Titel nur für Suchmaschinen und Linkvorschauen." }
+          - { label: Google-Beschreibung (SEO), name: description, widget: text, hint: "Idealerweise maximal etwa 160 Zeichen. Sie kann bei Google erscheinen." }
+          - { label: Canonical-URL, name: canonical, widget: string, required: false, hint: "In der Regel leer lassen. Nur bei bewusst identischem Inhalt auf einer anderen Haupt-URL verwenden." }
           - { label: Open-Graph-Bild, name: ogImage, widget: image, required: false }
-      - { label: Verwandte Artikel, name: relatedArticles, widget: list, required: false, field: { label: Artikel-Slug, name: slug, widget: string } }
+      - { label: Verwandte Artikel, name: relatedArticles, widget: list, required: false, hint: "Nur Artikel eintragen, die Lesern wirklich beim nächsten Schritt helfen. Den Slug ohne Kategorie eingeben.", field: { label: Artikel-Slug, name: slug, widget: string } }
       - label: Quellen
         name: sources
         widget: list
