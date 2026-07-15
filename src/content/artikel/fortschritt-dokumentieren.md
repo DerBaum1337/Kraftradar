@@ -4,7 +4,7 @@ description: Eine einfache und nachvollziehbare Methode, um Gewichte, Wiederholu
 category: training
 categoryLabel: Training · Grundlagen
 publishedAt: 2026-07-14
-author: Sebastian Trost
+author: Basti
 estimatedReadingMinutes: 5
 kind: artikel
 draft: false

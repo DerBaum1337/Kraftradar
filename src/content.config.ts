@@ -11,7 +11,7 @@ const artikel = defineCollection({
 		categoryLabel: z.string(),
 		publishedAt: z.coerce.date(),
 		updatedAt: z.coerce.date().optional(),
-		author: z.string().default('Sebastian Trost'),
+		author: z.string().default('Basti'),
 		estimatedReadingMinutes: z.number().int().positive().default(5),
 		kind: z.enum(['artikel', 'supplement-test', 'zubehoer-test', 'mein-weg-update']),
 		image: z.string().optional(),

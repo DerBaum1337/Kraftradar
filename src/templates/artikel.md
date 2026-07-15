@@ -4,7 +4,7 @@ description: Eine kurze, konkrete Zusammenfassung für Suchmaschinen und Artikel
 category: training
 categoryLabel: Training · Grundlagen
 publishedAt: YYYY-MM-DD
-author: Sebastian Trost
+author: Basti
 estimatedReadingMinutes: 5
 kind: artikel
 image: /bilder/dein-bild.webp

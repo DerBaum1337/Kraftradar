@@ -307,7 +307,7 @@ Nur persönliche Entwicklung:
 - Fehler und Rückschläge;
 - regelmäßige Updates.
 
-Keine medizinischen Diagnosen, Medikamentendaten, fremden Daten oder unnötig privaten Körperdaten veröffentlichen.
+Keine Medikamentendaten, fremden Daten oder unnötig privaten Körperdaten veröffentlichen. Persönliche Gesundheitsinformationen wie ADHS oder ARFID erscheinen nur, wenn Sebastian sie bewusst, knapp und im eigenen Kontext freigegeben hat.
 
 ## 9. Nächste Entwicklungsprioritäten
 

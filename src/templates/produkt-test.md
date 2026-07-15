@@ -4,7 +4,7 @@ description: Worum es beim Produkt geht und was dieser Test konkret prüft.
 category: supplements
 categoryLabel: Supplements · Produkttest
 publishedAt: YYYY-MM-DD
-author: Sebastian Trost
+author: Basti
 estimatedReadingMinutes: 8
 kind: supplement-test
 image: /bilder/produktname.webp

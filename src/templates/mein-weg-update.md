@@ -4,7 +4,7 @@ description: Ehrliche Einordnung meines Trainingsmonats mit Fortschritten, Rück
 category: mein-weg
 categoryLabel: Mein Weg · Update
 publishedAt: YYYY-MM-DD
-author: Sebastian Trost
+author: Basti
 estimatedReadingMinutes: 4
 kind: mein-weg-update
 image: /bilder/mein-weg-update.webp
