@@ -9,6 +9,11 @@
 /_astro/*
   Cache-Control: public, max-age=31556952, immutable
 
+/admin
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: blob:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://unpkg.com; connect-src 'self' https://api.github.com https://auth.kraftradar.de http://localhost:8081; worker-src 'self' blob:; upgrade-insecure-requests
+
 /admin/*
   Cache-Control: no-store
   X-Robots-Tag: noindex, nofollow
