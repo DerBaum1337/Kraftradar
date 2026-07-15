@@ -110,6 +110,12 @@ function applyKraftRadarLabels() {
 	}
 }
 
+/* Einige mobile Browser melden bei aktivierter Desktopansicht eine große
+ * Viewportbreite. screen.width bleibt dagegen die echte Gerätebreite. */
+if (Math.min(window.screen.width, window.screen.height) <= 820) {
+	document.documentElement.classList.add('kr-mobile-device');
+}
+
 startCms();
 applyKraftRadarLabels();
 new MutationObserver(applyKraftRadarLabels).observe(document.body, { childList: true, subtree: true });

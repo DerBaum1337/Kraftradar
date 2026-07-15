@@ -182,6 +182,24 @@ body,
 	#nc-root [class*="ControlPaneContainer"] { padding-inline: 0.75rem !important; }
 }
 
+/* Gleiche Regel für die Desktopansicht auf einem physischen Smartphone. */
+html.kr-mobile-device #nc-root .SplitPane.vertical > .Pane2 {
+	display: none !important;
+	flex: 0 0 0 !important;
+	width: 0 !important;
+}
+
+html.kr-mobile-device #nc-root .SplitPane.vertical > .Pane1 {
+	flex: 1 1 100% !important;
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: 100% !important;
+}
+
+html.kr-mobile-device #nc-root .SplitPane.vertical > .Resizer {
+	display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	#nc-root * { transition: none !important; }
 }
