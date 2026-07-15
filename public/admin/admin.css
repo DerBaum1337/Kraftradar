@@ -154,6 +154,12 @@ body,
 #nc-root [class*="PreviewPane"],
 #nc-root iframe { background: var(--kr-surface) !important; }
 
+/* Während eines geöffneten Eintrags ist die globale Inhalts-/Medienleiste
+ * redundant. Der Editor hat seine eigene Speichern- und Veröffentlichungsleiste. */
+#nc-root:has(.SplitPane) [class*="AppHeader"] {
+	display: none !important;
+}
+
 /* The media view is rendered in a portal outside #nc-root. */
 .ReactModal__Overlay,
 .ReactModalPortal [role="dialog"] {
@@ -208,6 +214,12 @@ html.kr-mobile-device #nc-root .SplitPane.vertical > .Pane1 {
 
 html.kr-mobile-device #nc-root .SplitPane.vertical > .Resizer {
 	display: none !important;
+}
+
+html.kr-mobile-device #nc-root [class*="ToolbarContainer"],
+html.kr-mobile-device #nc-root [class*="EditorContainer"] {
+	min-width: 0 !important;
+	max-width: 100% !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
