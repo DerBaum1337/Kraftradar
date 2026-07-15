@@ -3,6 +3,7 @@ import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
 import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
+import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 
 const themen = [
 	{
@@ -60,9 +61,17 @@ const themen = [
 		description="Ausgangslage, Ziele, Kraftwerte und Erkenntnisse – einschließlich der Fehler und Rückschritte, die zu einem echten Trainingsweg dazugehören."
 	/>
 
+	<Beitragsuebersicht
+		category="mein-weg"
+		heading="Alle Beiträge zu meinem Weg"
+		description="Direkt zu meinen veröffentlichten Erfahrungsberichten, Fortschrittsdaten und späteren Updates."
+	/>
+
+	<Bereichsbeitraege category="mein-weg" heading="Neu bei meinem Weg" limit={2} />
+
 	<section class="section-alternate">
 		<p class="eyebrow">Persönliche Dokumentation</p>
-		<h2>Ein Weg mit Kontext statt Hochglanzwerten.</h2>
+		<h2>Was ich hier dokumentiere.</h2>
 		<p class="section-intro">
 			Dieser Bereich bleibt persönlich. Allgemeine Trainingsratgeber gehören zu Training;
 			hier geht es um meine Erfahrungen, Fortschritte und Lernmomente.
@@ -81,6 +90,4 @@ const themen = [
 			</p>
 		</div>
 	</section>
-
-	<Bereichsbeitraege category="mein-weg" heading="Neu bei meinem Weg" />
 </Hauptlayout>

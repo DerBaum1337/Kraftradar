@@ -1,0 +1,42 @@
+---
+import { getArticlesByCategory, type ArtikelKategorie } from '../lib/artikel';
+
+interface Props {
+	category: ArtikelKategorie;
+	heading: string;
+	description?: string;
+}
+
+const { category, heading, description } = Astro.props;
+const beitraege = await getArticlesByCategory(category);
+---
+
+{
+	beitraege.length > 0 && (
+		<section class="article-overview" aria-labelledby={`uebersicht-${category}`}>
+			<p class="eyebrow">Artikelübersicht</p>
+			<h2 id={`uebersicht-${category}`}>{heading}</h2>
+			{description && <p class="section-intro">{description}</p>}
+			<p class="article-overview-count">
+				{beitraege.length} veröffentlichte{beitraege.length === 1 ? 'r Beitrag' : ' Beiträge'}
+			</p>
+			<ul class="article-overview-list">
+				{beitraege.map((beitrag) => (
+					<li>
+						<a href={`/${beitrag.data.category}/${beitrag.id}`}>
+							<span class="article-overview-date">
+								{beitrag.data.publishedAt.toLocaleDateString('de-DE', {
+									day: '2-digit',
+									month: '2-digit',
+									year: 'numeric',
+								})}
+							</span>
+							<span class="article-overview-title">{beitrag.data.title}</span>
+							<span class="article-overview-action">Öffnen <span aria-hidden="true">→</span></span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}
