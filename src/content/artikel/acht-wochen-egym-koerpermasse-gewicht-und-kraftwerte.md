@@ -20,7 +20,7 @@ Wichtig ist mir dabei eine ehrliche Einordnung: Keine einzelne Zahl beschreibt m
 
 Ich bin 1,92 Meter groß, hatte vor dem Trainingsstart aber kaum Sporterfahrung und wenig Kondition. Mit EGYM begann ich als kompletter Anfänger.
 
-Für diesen ersten Zwischenstand verwende ich Messwerte aus dem Zeitraum vom 13. April bis zum 10. Juni 2026. Spätere Trainings- und Fortschrittsdaten sind bewusst noch nicht Teil dieser Auswertung. Die Werte zeigen eine erste Entwicklung, sind aber keine medizinische Untersuchung und keine perfekte wissenschaftliche Vergleichsreihe.
+Für diesen ersten Zwischenstand verwende ich Messwerte aus dem Zeitraum vom 13. April bis zum 10. Juni 2026. Spätere Trainings- und Fortschrittsdaten sind bewusst noch nicht Teil dieser Auswertung. Nur der Gewichtswert vom 15. Juni wird weiter unten ausdrücklich als späterer Zusatzwert gezeigt. Die Werte zeigen eine erste Entwicklung, sind aber keine medizinische Untersuchung und keine perfekte wissenschaftliche Vergleichsreihe.
 
 ## Wie ich meinen Fortschritt messe
 
@@ -44,9 +44,11 @@ Die folgenden Maße wurden mit einem Maßband erfasst. Bei solchen Messungen kö
 | Hüfte | 105 cm | 103 cm | −2 cm |
 | Brust | 96 cm | 98 cm | +2 cm |
 | Bizeps, angespannt | 29 cm | 30 cm | +1 cm |
-| Rechter Oberschenkel | 53,5 cm | 53 cm | ungefähr stabil |
-| Linker Oberschenkel | kein Startwert | 51 cm | kein Vergleich möglich |
+| Rechter Oberschenkel | 53,5 cm | 53 cm | nahezu stabil |
+| Linker Oberschenkel | — | 51 cm | kein Vergleich |
 | Handgelenk | 17 cm | 17 cm | unverändert |
+
+Für den linken Oberschenkel liegt kein Ausgangswert vor. Die Veränderung ist deshalb bewusst nicht berechnet.
 
 Eine einzelne Brustmessung von 102 Zentimetern verwende ich bewusst nicht als Vergleichswert, weil offenbar an einer anderen Stelle gemessen wurde. Ein Wert ist nur dann hilfreich, wenn die Messung möglichst gleich durchgeführt wurde.
 
@@ -61,9 +63,9 @@ Beim Gewicht liegen mehrere Werte vor:
 | Früherer Ausgangswert | ungefähr 85,6 kg |
 | 13. April 2026 | 83,0 kg |
 | 14. April 2026 | 84,4 kg |
-| 15. Juni 2026 | 87,1 kg |
+| 15. Juni 2026 (Zusatzwert) | 87,1 kg |
 
-Die Messungen stammen teilweise von unterschiedlichen Waagen und unter unterschiedlichen Bedingungen. Deshalb wäre die Aussage, ich hätte exakt 4,1 Kilogramm zugenommen, nicht sauber.
+Der Wert vom 15. Juni liegt außerhalb des betrachteten Acht-Wochen-Zeitraums. Ich führe ihn nur als späteren Zusatzwert auf und rechne ihn nicht als regulären Endwert dieser Auswertung. Die Messungen stammen außerdem teilweise von unterschiedlichen Waagen und unter unterschiedlichen Bedingungen. Deshalb wäre die Aussage, ich hätte exakt 4,1 Kilogramm zugenommen, nicht sauber.
 
 Aussagekräftiger ist die Kombination: Das Gewicht schwankte beziehungsweise stieg, während der Bauchumfang gleichzeitig sank und sich meine Trainingsleistungen verbesserten. Gewicht allein kann nicht zeigen, wie sich Fettmasse, Wasser, Mageninhalt und fettfreie Masse zusammensetzen.
 
@@ -73,13 +75,15 @@ Die früheren Referenzwerte und die Messung vom 3. Juni stammen teilweise aus un
 
 | Messwert | Frühere Referenz | 3. Juni 2026 |
 | --- | ---: | ---: |
-| Körperfettanteil | ca. 21,0–21,2 % bei früheren RENPHO-Messungen | 18,6 % |
+| Körperfettanteil | ca. 21,0–21,2 % | 18,6 % |
 | Körperfettmasse | 17,2 kg | 16,2 kg |
 | Rumpf-Fettmasse | 10,5 kg | 9,7 kg |
 | Fettfreie Masse | 66,5 kg | 70,9 kg |
 | Körperwasser | 46,0 l | 48,7 l |
 | Phasenwinkel | 7,1° | 7,2° |
 | Viszerales Fett | 5 | 5 |
+
+Die frühere Referenz für den Körperfettanteil stammt aus RENPHO-Messungen.
 
 Eine BIA-Messung schätzt die Körperzusammensetzung über den elektrischen Widerstand des Körpers. Sie kann als Verlaufshinweis hilfreich sein, ist aber keine exakte Messung der tatsächlich aufgebauten Muskulatur.
 
@@ -98,6 +102,8 @@ Zusätzlich können die angezeigten Trainingsgewichte je nach Methode deutlich s
 Auch die von EGYM angezeigten Kraftwerte sind keine normalen Trainingssätze. Sie dienen innerhalb des Systems dazu, die persönliche Leistung einzuordnen und die künftige Belastung festzulegen. Für meinen Fortschritt vergleiche ich deshalb möglichst nur dasselbe Gerät, dieselbe Trainingsmethode, eine ähnliche Wiederholungszahl, denselben Bewegungsbereich und eine vergleichbare Ausführung.
 
 Die Werte eignen sich gut, um meine eigene Entwicklung innerhalb von EGYM zu verfolgen. Sie sind aber nicht als direkter Vergleich mit anderen Geräten, Studios oder freien Gewichten gedacht.
+
+Die Unterschiede zwischen Krafttest, Trainingsgewicht und den einzelnen Methoden erkläre ich ausführlicher im Artikel [„EGYM-Gewichte verstehen: Warum die Zahlen nicht direkt vergleichbar sind“](/training/egym-gewichte-verstehen/).
 
 ## Entwicklung der in der EGYM-App dokumentierten Kraftwerte
 

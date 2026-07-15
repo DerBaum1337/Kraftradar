@@ -18,6 +18,25 @@ Bei EGYM war der Einstieg für mich deutlich einfacher. In meinem Fitnessstudio 
 
 In diesem Artikel zeige ich, wie mein Einstieg ablief, wie mein heutiges Training aufgebaut ist und welche Aufgaben mir EGYM abnimmt. Gleichzeitig gibt es auch Punkte, bei denen ich weiterhin selbst mitdenken und auf meinen Körper achten muss.
 
+<div class="article-summary" aria-label="Kurzübersicht: Was EGYM übernimmt und was nicht">
+  <div>
+    <strong>EGYM übernimmt für mich</strong>
+    <ul>
+      <li>gespeicherte Geräteeinstellungen</li>
+      <li>Trainingsreihenfolge und Gewichtsvorschläge</li>
+      <li>Anzeige von Bewegungstempo und Bewegungsweg</li>
+    </ul>
+  </div>
+  <div>
+    <strong>EGYM übernimmt nicht</strong>
+    <ul>
+      <li>Bewertung von Schmerzen und Tagesform</li>
+      <li>vollständige Kontrolle der Technik</li>
+      <li>persönliche Betreuung durch einen Trainer</li>
+    </ul>
+  </div>
+</div>
+
 ## Anmeldung am Gerät und automatische Einstellungen
 
 Mein erster Kontakt mit dem System begann am EGYM Hub. Dort wurden zunächst meine Körpergröße und mein Gewicht erfasst.
@@ -120,7 +139,7 @@ Nach mehreren Trainingseinheiten wechselt mein Trainingsprogramm zwischen versch
 
 Dadurch können sich auch die angezeigten Gewichte deutlich verändern. Eine niedrigere Zahl bedeutet deshalb nicht automatisch, dass ich plötzlich schwächer geworden bin.
 
-Warum sich die Werte zwischen den Methoden unterscheiden und weshalb sich EGYM-Gewichte nicht direkt mit klassischen Fitnessgeräten oder freien Gewichten vergleichen lassen, erkläre ich später in einem eigenen Artikel.
+Warum sich die Werte zwischen den Methoden unterscheiden und weshalb sich EGYM-Gewichte nicht direkt mit klassischen Fitnessgeräten oder freien Gewichten vergleichen lassen, erkläre ich im Artikel [„EGYM-Gewichte verstehen: Warum die Zahlen nicht direkt vergleichbar sind“](/training/egym-gewichte-verstehen/).
 
 ## Was EGYM mir nicht abnimmt
 
@@ -162,6 +181,8 @@ Ganz ohne Nachteile ist das System für mich trotzdem nicht. Die wechselnden Tra
 Etwas unpraktisch finde ich außerdem, dass mir die App gelegentlich manuelle Dehnungs- oder Mattenübungen vorschlägt. Ich würde diese gern vollständig aus meinem Plan entfernen können. Da mein Fitnessstudio sowohl EGYM Smart Strength als auch EGYM Flex anbietet, möchte ich mein Training möglichst vollständig mit diesen Geräten durchführen.
 
 Ein weiterer Punkt ist der Preis. Studios mit EGYM sind in meiner Umgebung teilweise deutlich teurer als klassische Fitnessketten. Je nach Angebot kann der Monatsbeitrag ungefähr doppelt so hoch sein. Das liegt allerdings nicht nur an EGYM. Auch die Betreuung, die übrige Ausstattung und weitere enthaltene Leistungen unterscheiden sich zwischen den Studios.
+
+Diese Einordnung bezieht sich auf Angebote aus meiner Region, Stand Juli 2026. Sie ist kein allgemeiner Preisvergleich für alle EGYM-Studios.
 
 Für mich lohnt sich der höhere Beitrag bisher, weil mir das System dabei hilft, regelmäßig zu trainieren. Ein günstigeres Fitnessstudio bringt mir wenig, wenn ich nach wenigen Besuchen nicht mehr hingehe.
 

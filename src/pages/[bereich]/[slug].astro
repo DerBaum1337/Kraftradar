@@ -1,7 +1,7 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import ArtikelLayout from '../../layouts/ArtikelLayout.astro';
-import { getPublishedArticles } from '../../lib/artikel';
+import { getArticlesByCategory, getPublishedArticles } from '../../lib/artikel';
 
 export async function getStaticPaths() {
 	const entries = await getPublishedArticles();
@@ -21,8 +21,11 @@ interface Props {
 
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
+const relatedArticles = (await getArticlesByCategory(entry.data.category))
+	.filter((article) => article.id !== entry.id)
+	.slice(0, 2);
 ---
 
-<ArtikelLayout entry={entry} headings={headings}>
+<ArtikelLayout entry={entry} headings={headings} relatedArticles={relatedArticles}>
 	<Content />
 </ArtikelLayout>

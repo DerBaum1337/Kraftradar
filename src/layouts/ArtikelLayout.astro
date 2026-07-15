@@ -1,5 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { Artikel } from '../lib/artikel';
+import Artikelkarte from '../components/Artikelkarte.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Bewertungsbox from '../components/Bewertungsbox.astro';
 import Hauptlayout from './Hauptlayout.astro';
@@ -10,6 +12,7 @@ import VorNachteile from '../components/VorNachteile.astro';
 
 interface Props {
 	entry: CollectionEntry<'artikel'>;
+	relatedArticles?: Artikel[];
 	headings: Array<{
 		depth: number;
 		slug: string;
@@ -17,7 +20,7 @@ interface Props {
 	}>;
 }
 
-const { entry, headings } = Astro.props;
+const { entry, headings, relatedArticles = [] } = Astro.props;
 const { data, id } = entry;
 const siteURL = Astro.site ?? new URL('https://kraftradar.de');
 const articleURL = new URL(`/${data.category}/${id}/`, siteURL);
@@ -25,6 +28,12 @@ const categoryURL = new URL(`/${data.category}/`, siteURL);
 const publishedAt = data.publishedAt.toISOString();
 const updatedAt = data.updatedAt?.toISOString();
 const socialImage = data.ogImage ?? data.image;
+const categoryLinkLabels: Record<string, string> = {
+	training: 'Alle Beiträge zu Training ansehen',
+	supplements: 'Alle Beiträge zu Supplements ansehen',
+	'gym-zubehoer': 'Alle Beiträge zu Gym-Zubehör ansehen',
+	'mein-weg': 'Alle Beiträge zu meinem Weg ansehen',
+};
 
 const articleStructuredData = {
 	'@context': 'https://schema.org',
@@ -38,6 +47,7 @@ const articleStructuredData = {
 			author: {
 				'@type': 'Person',
 				name: data.author,
+				url: new URL('/ueber-kraftradar/', siteURL).href,
 			},
 			publisher: {
 				'@type': 'Organization',
@@ -85,7 +95,7 @@ const articleStructuredData = {
 				<time datetime={publishedAt}>Veröffentlicht: {data.publishedAt.toLocaleDateString('de-DE')}</time>
 				{data.updatedAt && <time datetime={updatedAt}>Aktualisiert: {data.updatedAt.toLocaleDateString('de-DE')}</time>}
 				<span>{data.estimatedReadingMinutes} Min. Lesezeit</span>
-				<span>Von {data.author}</span>
+				<span>Von <a class="article-author" href="/ueber-kraftradar/">{data.author}</a></span>
 			</div>
 		</header>
 
@@ -99,5 +109,31 @@ const articleStructuredData = {
 			{data.ratings && data.overallScore !== undefined && <Bewertungsbox ratings={data.ratings} overallScore={data.overallScore} />}
 			<slot />
 		</div>
+
+		{
+			relatedArticles.length > 0 && (
+				<section class="article-related" aria-label="Passende Beiträge">
+					<p class="eyebrow">Weiterlesen</p>
+					<h2>Passende Beiträge</h2>
+					<div class="article-related-grid">
+						{relatedArticles.map((article) => (
+							<Artikelkarte
+								href={`/${article.data.category}/${article.id}`}
+								category={article.data.categoryLabel}
+								title={article.data.title}
+								description={article.data.description}
+								publishedAt={article.data.publishedAt}
+								estimatedReadingMinutes={article.data.estimatedReadingMinutes}
+								linkLabel="Artikel lesen"
+							/>
+						))}
+					</div>
+					<div class="article-related-actions">
+						<a class="article-related-link" href={`/${data.category}/`}>{categoryLinkLabels[data.category]}</a>
+						<a class="article-related-link article-related-link--muted" href="/impressum/">Fehler oder veraltete Information melden</a>
+					</div>
+				</section>
+			)
+		}
 	</article>
 </Hauptlayout>

@@ -24,7 +24,7 @@ const {
 } = Astro.props;
 
 const meta = [
-	publishedAt?.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' }),
+	publishedAt?.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' }),
 	estimatedReadingMinutes && `${estimatedReadingMinutes} Min. Lesezeit`,
 ].filter(Boolean);
 ---

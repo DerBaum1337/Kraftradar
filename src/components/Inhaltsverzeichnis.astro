@@ -10,7 +10,9 @@ interface Props {
 }
 
 const { headings } = Astro.props;
-const sections = headings.filter((heading) => heading.depth === 2);
+const sections = headings.filter(
+	(heading) => heading.depth === 2 && !heading.text.trim().toLocaleLowerCase('de-DE').startsWith('quellen'),
+);
 ---
 
 {

@@ -1,11 +1,9 @@
 import type { APIRoute } from 'astro';
 import { getPublishedArticles } from '../lib/artikel';
 
-const routes = [
+const fixedRoutes = [
 	'',
 	'training/',
-	'supplements/',
-	'gym-zubehoer/',
 	'mein-weg/',
 	'ueber-kraftradar/',
 	'testmethode/',
@@ -14,6 +12,11 @@ const routes = [
 export const GET: APIRoute = async ({ site }) => {
 	const baseURL = site ?? new URL('https://kraftradar.de');
 	const articles = await getPublishedArticles();
+	const categoryRoutes = [
+		articles.some((article) => article.data.category === 'supplements') ? 'supplements/' : null,
+		articles.some((article) => article.data.category === 'gym-zubehoer') ? 'gym-zubehoer/' : null,
+	].filter((route): route is string => Boolean(route));
+	const routes = [...fixedRoutes, ...categoryRoutes];
 	const articleRoutes = articles.map((article) => ({
 		route: `${article.data.category}/${article.id}/`,
 		lastModified: article.data.updatedAt ?? article.data.publishedAt,

@@ -60,7 +60,7 @@ Dadurch muss ich nicht bei jeder Trainingseinheit alles neu planen. Ich kann mic
 
 Diese klare Struktur ist für mich einer der wichtigsten Gründe, weshalb ich tatsächlich am Training dranbleibe.
 
-Wie EGYM genau funktioniert und welche Vorteile die Trainingssteuerung für mich mit ADHS hat, möchte ich später in einem eigenen Beitrag ausführlicher erklären.
+Wie mein EGYM-Einstieg und die Trainingssteuerung für mich funktionieren, beschreibe ich ausführlicher im Artikel [„EGYM für Anfänger: So läuft mein Training ab“](/training/egym-fuer-anfaenger-so-laeuft-mein-training-ab/).
 
 ## Auch meine Ernährung verändert sich
 
@@ -102,7 +102,7 @@ Deshalb bewerte ich meinen Fortschritt nicht nur anhand meines Gewichts.
 
 Ich achte zusätzlich auf meine Körpermaße, meine Kraftwerte, meine Kondition, meine Kleidung und mein allgemeines Körpergefühl.
 
-Die vollständigen Messwerte, Körperanalysen und Ergebnisse meiner Krafttests möchte ich getrennt in ausführlichen Fortschrittsberichten veröffentlichen.
+Die vollständigen Messwerte, Körperanalysen und Ergebnisse meiner Krafttests dokumentiere ich getrennt im Fortschrittsbericht [„Acht Wochen EGYM: Meine Körpermaße, Gewicht und Kraftwerte“](/mein-weg/acht-wochen-egym-koerpermasse-gewicht-und-kraftwerte/).
 
 ## Fortschritt selbst zu erkennen ist schwierig
 

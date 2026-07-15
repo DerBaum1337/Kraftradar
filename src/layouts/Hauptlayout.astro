@@ -28,14 +28,14 @@ const {
 } = Astro.props;
 
 const pageTitle =
-	title === 'KraftRadar' || title.endsWith(' | KraftRadar')
+	title === 'KraftRadar' || title.startsWith('KraftRadar –') || title.endsWith(' | KraftRadar')
 		? title
 		: `${title} | KraftRadar`;
 
 const siteURL = Astro.site ?? new URL('https://kraftradar.de');
 const canonicalURL = new URL(Astro.url.pathname, siteURL);
 const imageURL = new URL(image, siteURL);
-const robots = noindex ? 'noindex, nofollow' : 'index, follow';
+const robots = noindex ? 'noindex, follow' : 'index, follow';
 
 const defaultStructuredData = {
 	'@context': 'https://schema.org',

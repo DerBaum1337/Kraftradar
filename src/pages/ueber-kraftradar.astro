@@ -1,35 +1,92 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
+
+const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const pageURL = new URL('/ueber-kraftradar/', siteURL);
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'AboutPage',
+			name: 'Über KraftRadar und Basti',
+			url: pageURL.href,
+			inLanguage: 'de-DE',
+		},
+		{
+			'@type': 'Person',
+			name: 'Basti',
+			url: pageURL.href,
+			description: 'Betreiber und Autor von KraftRadar aus der Perspektive eines Trainingsanfängers.',
+			knowsAbout: ['EGYM', 'Krafttraining für Anfänger', 'Trainingsdokumentation'],
+		},
+	],
+};
 ---
 
 <Hauptlayout
-	title="Über das Projekt | KraftRadar"
-	description="Warum KraftRadar existiert und wie Training, Supplements und Gym-Zubehör eingeordnet werden."
+	title="Über KraftRadar und Basti"
+	description="Wer hinter KraftRadar steht, welche Erfahrungen einfließen und wie Inhalte, Quellen und Korrekturen behandelt werden."
+	structuredData={structuredData}
 >
 	<Seitenkopf
 		eyebrow="Über KraftRadar"
 		title="Praxis statt Werbeversprechen."
-		description="KraftRadar soll verständlich zeigen, was im Gym einen echten Nutzen hat – mit persönlichen Erfahrungen, nachvollziehbaren Kriterien und einem Blick auf Preis-Leistung."
+		description="KraftRadar zeigt den Einstieg ins Training aus einer echten Anfängerperspektive – mit persönlichen Erfahrungen, nachvollziehbaren Daten und transparenten Grenzen."
 	/>
 
 	<section class="prose-section section-alternate">
 		<div class="prose-content">
 			<h2>Warum diese Seite entsteht</h2>
 			<p>
-				Zwischen Herstellerwerbung, Trends und widersprüchlichen Empfehlungen ist es
-				oft schwer, sinnvolle Informationen zu finden. KraftRadar bündelt Erfahrungen
-				und Vergleiche in einer klaren, ruhigen Form.
+				KraftRadar ist aus meinem eigenen Einstieg ins regelmäßige Training entstanden.
+				Nach vielen Jahren ohne Sport habe ich im April 2026 mit EGYM begonnen. Dabei
+				sind genau die Fragen aufgetaucht, die auf vielen Fitnessseiten aus Sicht eines
+				langjährigen Sportlers beantwortet werden – aber selten aus Sicht eines echten Anfängers.
+			</p>
+
+			<h2>Wer hinter KraftRadar steht</h2>
+			<p>
+				Ich veröffentliche auf KraftRadar unter dem Namen Basti. Ich bin kein Trainer,
+				Arzt oder Ernährungsberater. Meine Stärke ist die nachvollziehbare persönliche
+				Dokumentation: Was hat mir beim Einstieg geholfen, was war verwirrend, welche
+				Fehler habe ich gemacht und welche Werte lassen sich wirklich vergleichen?
+			</p>
+			<p>
+				Persönliche Themen nenne ich nur, wenn sie für den jeweiligen Artikel wichtig
+				sind. Unnötig private Daten, genaue Routinen oder identifizierende Informationen
+				gehören nicht in die Veröffentlichung.
 			</p>
 
 			<h2>Was du erwarten kannst</h2>
 			<ul class="check-list">
+				<li>eigene Erfahrungen klar getrennt von allgemeinen Fakten</li>
 				<li>verständliche Einordnungen ohne unnötigen Fachjargon</li>
-				<li>erkennbare Vor- und Nachteile</li>
+				<li>offizielle und unabhängige Quellen, wenn technische oder fachliche Aussagen erklärt werden</li>
 				<li>Preis-Leistung als fester Bestandteil der Bewertung</li>
 				<li>klare Kennzeichnung von Werbung und Kooperationen</li>
 				<li>offene Korrekturen, wenn sich Informationen verändern</li>
 			</ul>
+
+			<h2>Finanzierung und Transparenz</h2>
+			<p>
+				KraftRadar wird aktuell privat finanziert. Derzeit werden keine bezahlten
+				Kooperationen oder Affiliate-Links eingesetzt. Falls später Produkte kostenlos
+				bereitgestellt, Affiliate-Links verwendet oder Kooperationen vereinbart werden,
+				wird das im betroffenen Beitrag sichtbar offengelegt.
+			</p>
+			<p>
+				Herstellerangaben werden nicht als eigene Erfahrung dargestellt. Bei Produkttests
+				werden Bezugsquelle, Preisstand, Testzeitraum und die Art der Bereitstellung genannt.
+			</p>
+
+			<h2>Fehler und Korrekturen</h2>
+			<p>
+				Informationen, Preise und Produktdetails können sich verändern. Hinweise auf
+				Fehler oder veraltete Angaben können über die im Impressum genannten Kontaktwege
+				gesendet werden. Wesentliche inhaltliche Änderungen erhalten künftig ein sichtbares
+				Aktualisierungsdatum.
+			</p>
 
 			<div class="notice">
 				<strong>Wichtiger Hinweis</strong>
@@ -39,7 +96,10 @@ import Seitenkopf from '../components/Seitenkopf.astro';
 				</p>
 			</div>
 
-			<a class="button" href="/testmethode">Testmethode ansehen</a>
+			<div class="hero-actions">
+				<a class="button" href="/mein-weg/">Meinen Weg ansehen</a>
+				<a class="button button--secondary" href="/testmethode/">Testmethode ansehen</a>
+			</div>
 		</div>
 	</section>
 </Hauptlayout>

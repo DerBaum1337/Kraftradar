@@ -24,7 +24,13 @@ Besonders deutlich wurde mir das an der Beinpresse. In verschiedenen Einheiten z
 
 Diese drei Zahlen sehen aus, als könnte man sie einfach miteinander vergleichen. Tatsächlich beschreiben sie aber drei unterschiedlich gesteuerte Belastungen.
 
-In diesem Artikel erkläre ich, wie ich die EGYM-Gewichte inzwischen einordne, was die verschiedenen Trainingsmethoden verändern und worauf ich bei meinem Fortschritt achte.
+In diesem Artikel erkläre ich, wie ich die EGYM-Gewichte inzwischen einordne, was die verschiedenen Trainingsmethoden verändern und worauf ich bei meinem Fortschritt achte. Wie meine Einweisung und mein normaler Trainingsablauf aussehen, beschreibe ich im Artikel [„EGYM für Anfänger: So läuft mein Training ab“](/training/egym-fuer-anfaenger-so-laeuft-mein-training-ab/).
+
+| Methode | Beispielwert | Was verändert sich? | Direkt vergleichbar? |
+| --- | ---: | --- | --- |
+| Exzentrisch | 90 kg | höhere Belastung in der nachgebenden Phase | Nein |
+| Adaptiv | 100 kg | Widerstand reagiert auf die Ermüdung im Satz | Nein |
+| Isokinetisch | 163 kg | Widerstand reagiert auf den Krafteinsatz bei vorgegebenem Tempo | Nein |
 
 ## Warum mich die Gewichtsangaben zunächst verwirrt haben
 
@@ -119,19 +125,19 @@ Die drei Beispiele stammen aus unterschiedlichen Trainingseinheiten. Sie sind ke
     <a href="/images/artikel/egym-gewichte/beinpresse-exzentrisch-90.jpg" target="_blank" rel="noopener noreferrer">
       <img src="/images/artikel/egym-gewichte/beinpresse-exzentrisch-90.jpg" width="1060" height="1280" loading="lazy" alt="EGYM-Beinpresse mit exzentrischer Trainingsmethode, drei Sätze mit 90 Kilogramm" />
     </a>
-    <figcaption>Exzentrisch: 90 kg, 10 / 10 / 8 Wiederholungen</figcaption>
+    <figcaption><strong>Exzentrisch – 90 kg</strong><span>10 / 10 / 8 Wiederholungen · Bild öffnen ↗</span></figcaption>
   </figure>
   <figure>
     <a href="/images/artikel/egym-gewichte/beinpresse-adaptiv-100.jpg" target="_blank" rel="noopener noreferrer">
       <img src="/images/artikel/egym-gewichte/beinpresse-adaptiv-100.jpg" width="1096" height="1280" loading="lazy" alt="EGYM-Beinpresse mit adaptiver Trainingsmethode, drei Sätze mit 100 Kilogramm" />
     </a>
-    <figcaption>Adaptiv: 100 kg, 10 / 10 / 10 Wiederholungen</figcaption>
+    <figcaption><strong>Adaptiv – 100 kg</strong><span>10 / 10 / 10 Wiederholungen · Bild öffnen ↗</span></figcaption>
   </figure>
   <figure>
     <a href="/images/artikel/egym-gewichte/beinpresse-isokinetisch-163.jpg" target="_blank" rel="noopener noreferrer">
       <img src="/images/artikel/egym-gewichte/beinpresse-isokinetisch-163.jpg" width="1204" height="1280" loading="lazy" alt="EGYM-Beinpresse mit isokinetischer Trainingsmethode, zwei Sätze mit 163 Kilogramm" />
     </a>
-    <figcaption>Isokinetisch: 163 kg, 18 / 18 Wiederholungen</figcaption>
+    <figcaption><strong>Isokinetisch – 163 kg</strong><span>18 / 18 Wiederholungen · Bild öffnen ↗</span></figcaption>
   </figure>
 </div>
 
@@ -168,7 +174,7 @@ Bei einer anderen adaptiven Einheit startete der erste Satz kurzfristig mit 152 
   <a href="/images/artikel/egym-gewichte/beinpresse-adaptiv-152-125-110.jpg" target="_blank" rel="noopener noreferrer">
     <img src="/images/artikel/egym-gewichte/beinpresse-adaptiv-152-125-110.jpg" width="1112" height="1280" loading="lazy" alt="EGYM-Beinpresse mit adaptiver Trainingsmethode: zwei Wiederholungen mit 152 Kilogramm, danach reduzierte Sätze mit 125 und 110 Kilogramm" />
   </a>
-  <figcaption>Adaptiv: hoher Startwert, danach auf 125 und 110 kg reduziert</figcaption>
+  <figcaption>Adaptiv: hoher Startwert, danach auf 125 und 110 kg reduziert · Bild öffnen ↗</figcaption>
 </figure>
 
 Dass eine automatisch berechnete Belastung nicht immer blind übernommen werden sollte, habe ich ebenfalls an der Beinpresse gelernt. Als mein Programm auf die negative beziehungsweise exzentrische Methode wechselte, war mir die vorgeschlagene Belastung zu hoch. Während des Trainings begann mein linkes Knie zu schmerzen.
