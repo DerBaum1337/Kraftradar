@@ -40,7 +40,8 @@ wrangler secret put ALLOWED_ORIGIN
 ## Cloudflare Access
 
 1. Zero Trust -> Access -> Applications -> Add application -> Self-hosted.
-2. Domain: `kraftradar.de`, Pfad: `/admin/*`.
+2. Domain: `kraftradar.de`, Pfad: `/admin`.
+   Ein Wildcard-Pfad wie `/admin/*` schützt den übergeordneten Pfad `/admin` selbst nicht zuverlässig. Der Pfad ohne Wildcard deckt den Admin-Einstieg ab; falls die Access-Oberfläche eine getrennte Unterpfadregel verlangt, diese zusätzlich gezielt ergänzen.
 3. Policy: **Allow**, Include: die konkrete Adresse `<DEINE_ERLAUBTE_EMAIL>`.
 4. Session-Dauer kurz und angemessen setzen; keine offene Registrierungsregel anlegen.
 5. `/callback` auf `auth.kraftradar.de` nicht pauschal unter diese Access-Regel legen. Falls er geschützt wird, muss nur diese Callback-Route gezielt ausgenommen werden, da GitHub den OAuth-Callback sonst nicht zustellen kann.
