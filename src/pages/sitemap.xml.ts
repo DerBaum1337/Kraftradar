@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
-import { getPublishedArticles } from '../lib/artikel';
+import { getCollection } from 'astro:content';
+import { getIndexableArticles } from '../lib/artikel';
 
 const fixedRoutes = [
 	'',
@@ -11,36 +12,34 @@ const fixedRoutes = [
 
 export const GET: APIRoute = async ({ site }) => {
 	const baseURL = site ?? new URL('https://kraftradar.de');
-	const articles = await getPublishedArticles();
+	const articles = await getIndexableArticles();
+	const authors = await getCollection('authors');
 	const categoryRoutes = [
 		articles.some((article) => article.data.category === 'supplements') ? 'supplements/' : null,
 		articles.some((article) => article.data.category === 'gym-zubehoer') ? 'gym-zubehoer/' : null,
 	].filter((route): route is string => Boolean(route));
-	const routes = [...fixedRoutes, ...categoryRoutes];
 	const articleRoutes = articles.map((article) => ({
-		route: `${article.data.category}/${article.id}/`,
+		route: `${article.data.category}/${article.data.slug}/`,
 		lastModified: article.data.updatedAt ?? article.data.publishedAt,
 	}));
-	const urls = [
-		...routes.map((route) => ({ route })),
+	const authorRoutes = authors.map((author) => ({ route: `autoren/${author.data.slug}/` }));
+	const routes: Array<{ route: string; lastModified?: Date }> = [
+		...fixedRoutes.map((route) => ({ route })),
+		...categoryRoutes.map((route) => ({ route })),
+		...authorRoutes,
 		...articleRoutes,
-	]
+	];
+	const urls = routes
 		.map(({ route, lastModified }) => {
-			const lastmod = lastModified
-				? `<lastmod>${lastModified.toISOString().slice(0, 10)}</lastmod>`
-				: '';
+			const lastmod = lastModified ? `<lastmod>${lastModified.toISOString().slice(0, 10)}</lastmod>` : '';
 			return `\t<url><loc>${new URL(route, baseURL).href}</loc>${lastmod}</url>`;
 		})
 		.join('\n');
 
-	const body = `<?xml version="1.0" encoding="UTF-8"?>
+	return new Response(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
-</urlset>`;
-
-	return new Response(body, {
-		headers: {
-			'Content-Type': 'application/xml; charset=utf-8',
-		},
+</urlset>`, {
+		headers: { 'Content-Type': 'application/xml; charset=utf-8' },
 	});
 };

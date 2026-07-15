@@ -1,43 +1,50 @@
-# Astro Starter Kit: Minimal
+# KraftRadar
 
-```sh
-npm create astro@latest -- --template minimal
+KraftRadar ist eine statische Astro-Website für persönliche Trainingserfahrungen, nachvollziehbare EGYM-Erklärungen und spätere Produktbewertungen. Öffentliche Inhalte werden aus versionierten Markdown-Dateien erzeugt.
+
+## Technik
+
+- Astro 7 mit statischem Produktionsbuild
+- Astro Content Collections mit Zod-Validierung
+- Markdown für Artikel, Autoren und editierbare Seitendaten
+- Decap CMS unter `/admin/` (nicht in Navigation oder Sitemap)
+- GitHub als Inhaltsversionsspeicher
+- Cloudflare Pages für die öffentliche Auslieferung
+- vorbereiteter Cloudflare Worker für den GitHub-OAuth-Callback
+
+## Voraussetzungen
+
+- Node.js 22.12 oder neuer
+- npm
+
+## Lokale Befehle
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run typecheck
+npm run validate:content
+npm run test
+npm run test:routes
+npm run check:links
+npm run check:secrets
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Für den lokalen Decap-Editor in einem zweiten Terminal:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run cms:local
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Danach `http://localhost:4321/admin/` öffnen. Der lokale Decap-Proxy arbeitet nur lokal; er veröffentlicht nichts bei GitHub. Der redaktionelle Workflow mit Pull Requests ist dabei laut Decap nicht verfügbar.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Inhalt
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Artikel: `src/content/articles/<kategorie>/<slug>.md`
+- Autoren: `src/content/authors/`
+- editierbare Seitentitel und SEO-Daten: `src/content/pages/`
+- öffentliche Bilder: `public/uploads/articles/`
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Weitere Informationen stehen in [ARCHITECTURE.md](ARCHITECTURE.md), [ADMIN.md](ADMIN.md), [DEPLOYMENT.md](DEPLOYMENT.md) und [MIGRATION.md](MIGRATION.md).

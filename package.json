@@ -9,9 +9,21 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "typecheck": "astro check",
+    "validate:content": "node scripts/validate-content.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "test:routes": "node scripts/check-routes.mjs",
+    "test": "node --test tests/content-validation.test.mjs",
+    "cms:local": "npx decap-server"
   },
   "dependencies": {
     "astro": "^7.0.9"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "decap-server": "3.9.1",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,0 +1,31 @@
+---
+interface Source {
+	title: string;
+	url: string;
+	publisher: string;
+	accessedAt?: string;
+}
+
+interface Props {
+	sources: Source[];
+}
+
+const { sources } = Astro.props;
+---
+
+{
+	sources.length > 0 && (
+		<section class="article-sources" aria-labelledby="quellen-und-weiterfuehrende-informationen">
+			<h2 id="quellen-und-weiterfuehrende-informationen">Quellen und weiterführende Informationen</h2>
+			<ul>
+				{sources.map((source) => (
+					<li>
+						<a href={source.url} rel="noopener noreferrer external" target="_blank">{source.title}</a>
+						{source.publisher && ` · ${source.publisher}`}
+						{source.accessedAt && ` · abgerufen am ${source.accessedAt}`}
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}

@@ -1,0 +1,151 @@
+locale: de
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: public/uploads/articles
+public_folder: /uploads/articles
+
+backend:
+  name: github
+  repo: DerBaum1337/Kraftradar
+  branch: main
+  base_url: https://auth.kraftradar.de
+  auth_endpoint: auth
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: articles
+    label: Artikel
+    label_singular: Artikel
+    folder: src/content/articles
+    create: true
+    path: "{{category}}/{{slug}}"
+    slug: "{{slug}}"
+    summary: "{{title}} – {{status}}"
+    editor:
+      preview: true
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "Kleinbuchstaben und Bindestriche; bestehende Slugs nicht ohne Weiterleitung ändern.", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Nur Kleinbuchstaben, Zahlen und Bindestriche."] }
+      - { label: Kategorie, name: category, widget: select, options: [{ label: Training, value: training }, { label: Supplements, value: supplements }, { label: Gym-Zubehör, value: gym-zubehoer }, { label: Mein Weg, value: mein-weg }] }
+      - { label: Kategoriebezeichnung, name: categoryLabel, widget: string, default: Training }
+      - { label: Artikeltyp, name: articleType, widget: select, options: [{ label: Ratgeber, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Fortschrittsbericht, value: progress }, { label: Produkttest, value: product-test }, { label: Produktvergleich, value: comparison }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
+      - { label: Veröffentlichungsstatus, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }] }
+      - { label: Kurzbeschreibung, name: description, widget: text }
+      - { label: Auszug für Artikelkarten, name: excerpt, widget: text }
+      - { label: Veröffentlichungsdatum, name: publishedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - { label: Aktualisierungsdatum, name: updatedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - { label: Autor, name: author, widget: relation, collection: authors, search_fields: [name, slug], value_field: slug, display_fields: [name], default: basti }
+      - { label: Hervorgehoben, name: featured, widget: boolean, default: false, required: false }
+      - { label: Suchmaschinen ausschließen, name: noindex, widget: boolean, default: false, required: false }
+      - { label: Inhaltsverzeichnis anzeigen, name: toc, widget: boolean, default: true, required: false }
+      - label: Artikelbild
+        name: heroImage
+        widget: object
+        required: false
+        fields:
+          - { label: Datei, name: src, widget: image, required: false, media_library: { config: { multiple: false } } }
+          - { label: Alternativtext, name: alt, widget: string, required: false, hint: "Für inhaltliche Bilder erforderlich; bei dekorativen Bildern leer lassen." }
+          - { label: Bildunterschrift, name: caption, widget: string, required: false }
+          - { label: Urheber oder Quelle, name: credit, widget: string, required: false }
+          - { label: Quellenlink, name: creditUrl, widget: string, required: false, pattern: ["^$|^https?://", "Leer lassen oder vollständige https-URL eingeben."] }
+      - label: SEO-Einstellungen
+        name: seo
+        widget: object
+        fields:
+          - { label: SEO-Titel, name: title, widget: string }
+          - { label: SEO-Beschreibung, name: description, widget: text }
+          - { label: Canonical-URL, name: canonical, widget: string, required: false }
+          - { label: Open-Graph-Bild, name: ogImage, widget: image, required: false }
+      - { label: Verwandte Artikel, name: relatedArticles, widget: list, required: false, field: { label: Artikel-Slug, name: slug, widget: string } }
+      - label: Quellen
+        name: sources
+        widget: list
+        required: false
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] }
+          - { label: Herausgeber, name: publisher, widget: string, required: false }
+          - { label: Abgerufen am, name: accessedAt, widget: date, required: false, format: "YYYY-MM-DD" }
+      - label: Transparenz
+        name: transparency
+        widget: object
+        fields:
+          - { label: Eigene Erfahrung, name: personalExperience, widget: boolean, default: false }
+          - { label: Selbst gekauft, name: selfPurchased, widget: boolean, default: false, required: false, hint: "Nur aktivieren, wenn ein Produkt selbst gekauft wurde." }
+          - { label: Gesponsert, name: sponsored, widget: boolean, default: false }
+          - { label: Affiliate-Links, name: affiliateLinks, widget: boolean, default: false }
+          - { label: Hinweis, name: note, widget: text, required: false }
+      - label: Produkttest und Vergleich (nur falls passend)
+        name: product
+        widget: object
+        required: false
+        fields:
+          - { label: Produktname, name: name, widget: string, required: false }
+          - { label: Marke, name: brand, widget: string, required: false }
+          - { label: Modell, name: model, widget: string, required: false }
+          - { label: Variante, name: variant, widget: string, required: false }
+          - { label: Hersteller-URL, name: manufacturerUrl, widget: string, required: false }
+          - { label: Kaufdatum, name: purchaseDate, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Kaufpreis in EUR, name: purchasePrice, widget: number, required: false, value_type: float }
+          - { label: Referenzpreis in EUR, name: currentReferencePrice, widget: number, required: false, value_type: float }
+          - { label: Preis geprüft am, name: priceCheckedAt, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Test gestartet am, name: testStartedAt, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Test beendet am, name: testEndedAt, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Anzahl Nutzungen, name: usageCount, widget: number, required: false, value_type: int }
+          - { label: Teststatus, name: testStatus, widget: select, options: [{ label: Geplant, value: planned }, { label: Läuft, value: ongoing }, { label: Abgeschlossen, value: completed }], required: false }
+      - { label: Vorteile, name: pros, widget: list, required: false, field: { label: Vorteil, name: item, widget: string } }
+      - { label: Nachteile, name: cons, widget: list, required: false, field: { label: Nachteil, name: item, widget: string } }
+      - { label: Geeignet für, name: bestFor, widget: list, required: false, field: { label: Zielgruppe, name: item, widget: string } }
+      - { label: Weniger geeignet für, name: lessSuitableFor, widget: list, required: false, field: { label: Zielgruppe, name: item, widget: string } }
+      - { label: Kurzfazit, name: shortConclusion, widget: text, required: false }
+      - { label: Preis-Leistungs-Einschätzung, name: valueAssessment, widget: text, required: false }
+      - { label: Zwischenfazit, name: interimConclusion, widget: text, required: false }
+      - { label: Langzeitupdate, name: longTermUpdate, widget: text, required: false }
+      - { label: Artikelinhalt, name: body, widget: markdown, hint: "Kein H1 verwenden. Tabellen können als Markdown eingefügt werden; keine Skripte oder eigenes HTML einfügen." }
+
+  - name: authors
+    label: Autoren
+    folder: src/content/authors
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Rolle, name: role, widget: string }
+      - { label: Kurzbiografie, name: bio, widget: text }
+      - { label: Trainingsstart, name: startedTrainingAt, widget: date, required: false, format: "YYYY-MM-DD" }
+      - label: Profilbild
+        name: image
+        widget: object
+        required: false
+        fields:
+          - { label: Datei, name: src, widget: image, required: false }
+          - { label: Alternativtext, name: alt, widget: string, required: false }
+          - { label: Bildunterschrift, name: caption, widget: string, required: false }
+          - { label: Urheber oder Quelle, name: credit, widget: string, required: false }
+      - { label: Weiterführende Profile, name: sameAs, widget: list, required: false, field: { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] } }
+      - { label: Profilinhalt, name: body, widget: markdown, required: false }
+
+  - name: pages
+    label: Seiteninhalte
+    files:
+      - label: Startseite
+        name: startseite
+        file: src/content/pages/index.md
+        fields: &page_fields
+          - { label: Seitentitel, name: title, widget: string }
+          - { label: Beschreibung, name: description, widget: text }
+          - { label: SEO-Titel, name: seoTitle, widget: string }
+          - { label: SEO-Beschreibung, name: seoDescription, widget: text }
+          - { label: Suchmaschinen ausschließen, name: noindex, widget: boolean, default: false, required: false }
+          - { label: Inhaltshinweis, name: body, widget: markdown, required: false }
+      - { label: Training, name: training, file: src/content/pages/training.md, fields: *page_fields }
+      - { label: Supplements, name: supplements, file: src/content/pages/supplements.md, fields: *page_fields }
+      - { label: Gym-Zubehör, name: gym_zubehoer, file: src/content/pages/gym-zubehoer.md, fields: *page_fields }
+      - { label: Mein Weg, name: mein_weg, file: src/content/pages/mein-weg.md, fields: *page_fields }
+      - { label: Über KraftRadar, name: ueber, file: src/content/pages/ueber-kraftradar.md, fields: *page_fields }
+      - { label: Testmethode, name: testmethode, file: src/content/pages/testmethode.md, fields: *page_fields }

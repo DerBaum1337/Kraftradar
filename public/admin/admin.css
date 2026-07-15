@@ -1,0 +1,4 @@
+:root { color-scheme: dark; }
+body { margin: 0; background: #0b0f14; color: #f5f7fa; font-family: system-ui, sans-serif; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid #55e6a5; outline-offset: 2px; }
+@media (max-width: 640px) { body { min-width: 320px; } }

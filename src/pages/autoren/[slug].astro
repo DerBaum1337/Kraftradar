@@ -1,0 +1,68 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Hauptlayout from '../../layouts/Hauptlayout.astro';
+import Artikelkarte from '../../components/Artikelkarte.astro';
+import { getPublishedArticles } from '../../lib/artikel';
+import { lesezeitInMinuten } from '../../lib/lesezeit';
+
+export async function getStaticPaths() {
+	const authors = await getCollection('authors');
+	return authors.map((author) => ({ params: { slug: author.data.slug }, props: { author } }));
+}
+
+interface Props {
+	author: CollectionEntry<'authors'>;
+}
+
+const { author } = Astro.props;
+const articles = (await getPublishedArticles()).filter((article) => article.data.author === author.data.slug);
+const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: author.data.name,
+	url: new URL(`/autoren/${author.data.slug}/`, siteURL).href,
+	description: author.data.bio,
+	jobTitle: author.data.role,
+	...(author.data.sameAs.length > 0 ? { sameAs: author.data.sameAs } : {}),
+};
+---
+
+<Hauptlayout
+	title={`${author.data.name} | KraftRadar`}
+	description={author.data.bio}
+	structuredData={structuredData}
+>
+	<section class="page-section author-page">
+		<p class="eyebrow">Autor</p>
+		<h1>{author.data.name}</h1>
+		<p class="section-intro">{author.data.role}</p>
+		<div class="author-page-copy">
+			<p>{author.data.bio}</p>
+			<p>Die Artikel dokumentieren persönliche Erfahrungen und nachvollziehbare Recherchen. Sie ersetzen keine medizinische, therapeutische oder professionelle Trainingsberatung.</p>
+			<p>Fehler oder veraltete Angaben können über das <a href="/impressum/">Impressum</a> gemeldet werden.</p>
+		</div>
+	</section>
+
+	{
+		articles.length > 0 && (
+			<section class="section-alternate">
+				<p class="eyebrow">Veröffentlichte Beiträge</p>
+				<h2>Artikel von {author.data.name}</h2>
+				<div class="card-grid">
+					{articles.map((article) => (
+						<Artikelkarte
+							href={`/${article.data.category}/${article.data.slug}`}
+							category={article.data.categoryLabel}
+							title={article.data.title}
+							description={article.data.excerpt}
+							publishedAt={article.data.publishedAt}
+							estimatedReadingMinutes={lesezeitInMinuten(article.body ?? '')}
+							linkLabel="Artikel lesen"
+						/>
+					))}
+				</div>
+			</section>
+		)
+	}
+</Hauptlayout>

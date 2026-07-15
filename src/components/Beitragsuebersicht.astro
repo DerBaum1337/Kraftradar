@@ -9,8 +9,7 @@ interface Props {
 
 const { category, heading, description } = Astro.props;
 const beitraege = await getArticlesByCategory(category);
-const anzahlVeroeffentlicht = beitraege.filter((beitrag) => !beitrag.data.draft).length;
-const anzahlEntwuerfe = beitraege.length - anzahlVeroeffentlicht;
+const anzahlVeroeffentlicht = beitraege.length;
 ---
 
 {
@@ -21,14 +20,13 @@ const anzahlEntwuerfe = beitraege.length - anzahlVeroeffentlicht;
 			{description && <p class="section-intro">{description}</p>}
 			<p class="article-overview-count">
 				{anzahlVeroeffentlicht} veröffentlichte{anzahlVeroeffentlicht === 1 ? 'r Beitrag' : ' Beiträge'}
-				{anzahlEntwuerfe > 0 && ` · ${anzahlEntwuerfe} ${anzahlEntwuerfe === 1 ? 'Entwurf' : 'Entwürfe'} lokal sichtbar`}
 			</p>
 			<ul class="article-overview-list">
 				{beitraege.map((beitrag) => (
 					<li>
-						<a href={`/${beitrag.data.category}/${beitrag.id}`}>
+						<a href={`/${beitrag.data.category}/${beitrag.data.slug}`}>
 							<span class="article-overview-date">
-								{beitrag.data.publishedAt.toLocaleDateString('de-DE', {
+								{beitrag.data.publishedAt!.toLocaleDateString('de-DE', {
 									day: '2-digit',
 									month: '2-digit',
 									year: 'numeric',
@@ -36,7 +34,6 @@ const anzahlEntwuerfe = beitraege.length - anzahlVeroeffentlicht;
 							</span>
 							<span class="article-overview-title">{beitrag.data.title}</span>
 							<span class="article-overview-meta">
-								{beitrag.data.draft && <span class="article-overview-draft">Entwurf</span>}
 								<span class="article-overview-action">Öffnen <span aria-hidden="true">→</span></span>
 							</span>
 						</a>

@@ -2,12 +2,14 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { getEntry } from 'astro:content';
 
 interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
 	imageAlt?: string;
+	canonical?: string;
 	noindex?: boolean;
 	structuredData?: Record<string, unknown>;
 	ogType?: 'website' | 'article';
@@ -20,6 +22,7 @@ const {
 	description = 'KraftRadar – ehrliche Inhalte über Gym, Training, Supplements, Zubehör und persönlichen Fortschritt.',
 	image = '/og-kraftradar.png',
 	imageAlt = 'KraftRadar – ehrliche Tests und Vergleiche rund ums Gym',
+	canonical,
 	noindex = false,
 	structuredData,
 	ogType = 'website',
@@ -32,11 +35,30 @@ const pageTitle =
 		? title
 		: `${title} | KraftRadar`;
 
-const siteURL = Astro.site ?? new URL('https://kraftradar.de');
-const canonicalURL = new URL(Astro.url.pathname, siteURL);
-const imageURL = new URL(image, siteURL);
-const robots = noindex ? 'noindex, follow' : 'index, follow';
+// Redaktionsdaten für die öffentlichen Übersichtsseiten kommen aus der Collection.
+// Rechtsseiten werden absichtlich nicht automatisiert überschrieben.
+const pageContentIds: Record<string, string> = {
+	'/': 'index',
+	'/training/': 'training',
+	'/supplements/': 'supplements',
+	'/gym-zubehoer/': 'gym-zubehoer',
+	'/mein-weg/': 'mein-weg',
+	'/ueber-kraftradar/': 'ueber-kraftradar',
+	'/testmethode/': 'testmethode',
+};
+const pageContentId = pageContentIds[Astro.url.pathname];
+const pageContent = pageContentId ? await getEntry('pages', pageContentId) : undefined;
+const resolvedTitle = pageContent?.data.seoTitle || title;
+const resolvedDescription = pageContent?.data.seoDescription || description;
+const resolvedNoindex = pageContent?.data.noindex ?? noindex;
+const resolvedPageTitle =
+	resolvedTitle === 'KraftRadar' || resolvedTitle.endsWith(' | KraftRadar')
+		? resolvedTitle
+		: `${resolvedTitle} | KraftRadar`;
 
+const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const canonicalURL = canonical ? new URL(canonical, siteURL) : new URL(Astro.url.pathname, siteURL);
+const imageURL = new URL(image, siteURL);
 const defaultStructuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'WebPage',
@@ -62,16 +84,16 @@ const pageStructuredData = structuredData ?? defaultStructuredData;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#111720" />
 
-		<title>{pageTitle}</title>
-		<meta name="description" content={description} />
-		<meta name="robots" content={robots} />
+		<title>{resolvedPageTitle}</title>
+		<meta name="description" content={resolvedDescription} />
+		<meta name="robots" content={resolvedNoindex ? 'noindex, follow' : 'index, follow'} />
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:type" content={ogType} />
 		<meta property="og:locale" content="de_DE" />
 		<meta property="og:site_name" content="KraftRadar" />
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={description} />
+		<meta property="og:title" content={resolvedPageTitle} />
+		<meta property="og:description" content={resolvedDescription} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content={imageURL} />
 		<meta property="og:image:width" content="1200" />
@@ -81,11 +103,11 @@ const pageStructuredData = structuredData ?? defaultStructuredData;
 		<meta property="og:image:alt" content={imageAlt} />
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={pageTitle} />
-		<meta name="twitter:description" content={description} />
+		<meta name="twitter:title" content={resolvedPageTitle} />
+		<meta name="twitter:description" content={resolvedDescription} />
 		<meta name="twitter:image" content={imageURL} />
 
-		<script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>

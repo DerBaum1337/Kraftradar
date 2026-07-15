@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-07-15",
+  "baselineCommit": "870ca6d",
+  "source": "dist/ after the last known-good production build",
+  "publicUrls": [
+    "/",
+    "/training/",
+    "/supplements/",
+    "/gym-zubehoer/",
+    "/mein-weg/",
+    "/ueber-kraftradar/",
+    "/testmethode/",
+    "/impressum/",
+    "/datenschutz/",
+    "/training/fortschritt-dokumentieren/",
+    "/training/egym-fuer-anfaenger-so-laeuft-mein-training-ab/",
+    "/training/egym-gewichte-verstehen/",
+    "/mein-weg/vom-unsportlichen-raucher-zum-regelmaessigen-training/",
+    "/mein-weg/acht-wochen-egym-koerpermasse-gewicht-und-kraftwerte/"
+  ],
+  "publicMedia": [
+    "/images/artikel/egym-gewichte/beinpresse-adaptiv-100.jpg",
+    "/images/artikel/egym-gewichte/beinpresse-adaptiv-152-125-110.jpg",
+    "/images/artikel/egym-gewichte/beinpresse-exzentrisch-90.jpg",
+    "/images/artikel/egym-gewichte/beinpresse-isokinetisch-163.jpg",
+    "/og-kraftradar.png",
+    "/og-kraftradar.svg"
+  ]
+}

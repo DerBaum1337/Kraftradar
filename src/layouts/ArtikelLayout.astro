@@ -1,17 +1,15 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 import type { Artikel } from '../lib/artikel';
 import Artikelkarte from '../components/Artikelkarte.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import Bewertungsbox from '../components/Bewertungsbox.astro';
 import Hauptlayout from './Hauptlayout.astro';
 import Inhaltsverzeichnis from '../components/Inhaltsverzeichnis.astro';
-import Produktdaten from '../components/Produktdaten.astro';
-import Transparenzhinweis from '../components/Transparenzhinweis.astro';
-import VorNachteile from '../components/VorNachteile.astro';
+import Quellenliste from '../components/Quellenliste.astro';
+import { lesezeitInMinuten } from '../lib/lesezeit';
 
 interface Props {
-	entry: CollectionEntry<'artikel'>;
+	entry: CollectionEntry<'articles'>;
 	relatedArticles?: Artikel[];
 	headings: Array<{
 		depth: number;
@@ -21,13 +19,16 @@ interface Props {
 }
 
 const { entry, headings, relatedArticles = [] } = Astro.props;
-const { data, id } = entry;
+const { data } = entry;
+const author = await getEntry('authors', data.author);
+const authorName = author?.data.name ?? data.author;
 const siteURL = Astro.site ?? new URL('https://kraftradar.de');
-const articleURL = new URL(`/${data.category}/${id}/`, siteURL);
+const articleURL = new URL(`/${data.category}/${data.slug}/`, siteURL);
 const categoryURL = new URL(`/${data.category}/`, siteURL);
-const publishedAt = data.publishedAt.toISOString();
+const publishedAt = data.publishedAt?.toISOString();
 const updatedAt = data.updatedAt?.toISOString();
-const socialImage = data.ogImage ?? data.image;
+const socialImage = data.seo.ogImage || data.heroImage?.src;
+const readingMinutes = lesezeitInMinuten(entry.body ?? '');
 const categoryLinkLabels: Record<string, string> = {
 	training: 'Alle Beiträge zu Training ansehen',
 	supplements: 'Alle Beiträge zu Supplements ansehen',
@@ -42,12 +43,12 @@ const articleStructuredData = {
 			'@type': 'Article',
 			headline: data.title,
 			description: data.description,
-			datePublished: publishedAt,
+			...(publishedAt ? { datePublished: publishedAt } : {}),
 			...(updatedAt ? { dateModified: updatedAt } : {}),
 			author: {
 				'@type': 'Person',
-				name: data.author,
-				url: new URL('/ueber-kraftradar/', siteURL).href,
+				name: authorName,
+				url: new URL(`/autoren/${data.author}/`, siteURL).href,
 			},
 			publisher: {
 				'@type': 'Organization',
@@ -76,10 +77,12 @@ const articleStructuredData = {
 ---
 
 <Hauptlayout
-	title={`${data.title} | KraftRadar`}
-	description={data.description}
+	title={data.seo.title}
+	description={data.seo.description}
 	image={socialImage}
-	imageAlt={data.imageAlt}
+	imageAlt={data.heroImage?.alt}
+	canonical={data.seo.canonical || undefined}
+	noindex={data.noindex}
 	structuredData={articleStructuredData}
 	ogType="article"
 	articlePublishedTime={publishedAt}
@@ -92,22 +95,31 @@ const articleStructuredData = {
 			<h1>{data.title}</h1>
 			<p>{data.description}</p>
 			<div class="article-meta">
-				<time datetime={publishedAt}>Veröffentlicht: {data.publishedAt.toLocaleDateString('de-DE')}</time>
+				{data.publishedAt && <time datetime={publishedAt}>Veröffentlicht: {data.publishedAt.toLocaleDateString('de-DE')}</time>}
 				{data.updatedAt && <time datetime={updatedAt}>Aktualisiert: {data.updatedAt.toLocaleDateString('de-DE')}</time>}
-				<span>{data.estimatedReadingMinutes} Min. Lesezeit</span>
-				<span>Von <a class="article-author" href="/ueber-kraftradar/">{data.author}</a></span>
+				<span>{readingMinutes} Min. Lesezeit</span>
+				<span>Von <a class="article-author" href={`/autoren/${data.author}/`}>{authorName}</a></span>
 			</div>
 		</header>
 
-		<Inhaltsverzeichnis headings={headings} />
+		{data.toc && <Inhaltsverzeichnis headings={headings} />}
 
 		<div class="article-body">
-			{data.image && <img class="article-hero-image" src={data.image} alt={data.imageAlt ?? ''} />}
-			{data.transparency && <Transparenzhinweis {...data.transparency} />}
-			{data.productData && <Produktdaten items={data.productData} />}
-			{data.pros && data.cons && <VorNachteile vorteile={data.pros} nachteile={data.cons} />}
-			{data.ratings && data.overallScore !== undefined && <Bewertungsbox ratings={data.ratings} overallScore={data.overallScore} />}
+			{
+				data.heroImage && (
+					<figure class="article-hero-figure">
+						<img class="article-hero-image" src={data.heroImage.src} alt={data.heroImage.alt} width="1600" height="900" />
+						{(data.heroImage.caption || data.heroImage.credit) && (
+							<figcaption>
+								{data.heroImage.caption}
+								{data.heroImage.credit && ` · ${data.heroImage.credit}`}
+							</figcaption>
+						)}
+					</figure>
+				)
+			}
 			<slot />
+			<Quellenliste sources={data.sources} />
 		</div>
 
 		{
@@ -118,12 +130,12 @@ const articleStructuredData = {
 					<div class="article-related-grid">
 						{relatedArticles.map((article) => (
 							<Artikelkarte
-								href={`/${article.data.category}/${article.id}`}
+								href={`/${article.data.category}/${article.data.slug}`}
 								category={article.data.categoryLabel}
 								title={article.data.title}
-								description={article.data.description}
+								description={article.data.excerpt}
 								publishedAt={article.data.publishedAt}
-								estimatedReadingMinutes={article.data.estimatedReadingMinutes}
+								estimatedReadingMinutes={lesezeitInMinuten(article.body ?? '')}
 								linkLabel="Artikel lesen"
 							/>
 						))}

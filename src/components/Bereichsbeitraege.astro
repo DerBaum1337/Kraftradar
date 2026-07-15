@@ -1,6 +1,7 @@
 ---
 import Artikelkarte from './Artikelkarte.astro';
 import { getArticlesByCategory, type ArtikelKategorie } from '../lib/artikel';
+import { lesezeitInMinuten } from '../lib/lesezeit';
 
 interface Props {
 	category: ArtikelKategorie;
@@ -21,14 +22,14 @@ const angezeigteBeitraege = limit ? beitraege.slice(0, limit) : beitraege;
 			<div class="card-grid">
 				{angezeigteBeitraege.map((beitrag) => (
 					<Artikelkarte
-						href={`/${beitrag.data.category}/${beitrag.id}`}
+						href={`/${beitrag.data.category}/${beitrag.data.slug}`}
 						category={beitrag.data.categoryLabel}
 						title={beitrag.data.title}
-						description={beitrag.data.description}
-						image={beitrag.data.image}
-						imageAlt={beitrag.data.imageAlt}
+						description={beitrag.data.excerpt}
+						image={beitrag.data.heroImage?.src}
+						imageAlt={beitrag.data.heroImage?.alt}
 						publishedAt={beitrag.data.publishedAt}
-						estimatedReadingMinutes={beitrag.data.estimatedReadingMinutes}
+						estimatedReadingMinutes={lesezeitInMinuten(beitrag.body ?? '')}
 						linkLabel="Artikel lesen"
 					/>
 				))}

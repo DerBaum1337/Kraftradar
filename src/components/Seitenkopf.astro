@@ -1,4 +1,6 @@
 ---
+import { getEntry } from 'astro:content';
+
 interface Props {
 	eyebrow: string;
 	title: string;
@@ -6,11 +8,23 @@ interface Props {
 }
 
 const { eyebrow, title, description } = Astro.props;
+const pageContentIds: Record<string, string> = {
+	'/training/': 'training',
+	'/supplements/': 'supplements',
+	'/gym-zubehoer/': 'gym-zubehoer',
+	'/mein-weg/': 'mein-weg',
+	'/ueber-kraftradar/': 'ueber-kraftradar',
+	'/testmethode/': 'testmethode',
+};
+const pageContentId = pageContentIds[Astro.url.pathname];
+const pageContent = pageContentId ? await getEntry('pages', pageContentId) : undefined;
+const resolvedTitle = pageContent?.data.title || title;
+const resolvedDescription = pageContent?.data.description || description;
 ---
 
 <section class="page-hero page-hero--compact">
 	<p class="eyebrow">{eyebrow}</p>
-	<h1>{title}</h1>
-	<p>{description}</p>
+	<h1>{resolvedTitle}</h1>
+	<p>{resolvedDescription}</p>
 	<slot />
 </section>

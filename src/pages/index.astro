@@ -5,6 +5,7 @@ import Vertrauensleiste from '../components/Vertrauensleiste.astro';
 import Artikelkarte from '../components/Artikelkarte.astro';
 import KategorieIcon from '../components/KategorieIcon.astro';
 import { getLatestArticles } from '../lib/artikel';
+import { lesezeitInMinuten } from '../lib/lesezeit';
 
 const neuesteInhalte = await getLatestArticles(3);
 ---
@@ -98,14 +99,14 @@ const neuesteInhalte = await getLatestArticles(3);
 				<div class="card-grid">
 					{neuesteInhalte.map((inhalt) => (
 						<Artikelkarte
-							href={`/${inhalt.data.category}/${inhalt.id}`}
+							href={`/${inhalt.data.category}/${inhalt.data.slug}`}
 							category={inhalt.data.categoryLabel}
 							title={inhalt.data.title}
 							description={inhalt.data.description}
-							image={inhalt.data.image}
-							imageAlt={inhalt.data.imageAlt}
+							image={inhalt.data.heroImage?.src}
+							imageAlt={inhalt.data.heroImage?.alt}
 							publishedAt={inhalt.data.publishedAt}
-							estimatedReadingMinutes={inhalt.data.estimatedReadingMinutes}
+							estimatedReadingMinutes={lesezeitInMinuten(inhalt.body ?? '')}
 							linkLabel="Artikel lesen"
 						/>
 					))}
