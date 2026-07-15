@@ -1,13 +1,15 @@
-/* Decap lädt die Konfiguration selbst. Diese Datei hält die lokale Vorschau bewusst minimal. */
-window.CMS_MANUAL_INIT = false;
-window.CMS?.registerPreviewStyle('/admin/preview.css');
+/*
+ * Decap wird in index.astro bewusst erst nach der Preview-Registrierung
+ * initialisiert. Sonst kann Decap bereits die eingebaute Rohdaten-Vorschau
+ * rendern, bevor die KraftRadar-Vorlage verfügbar ist.
+ */
 
 function previewValue(entry, field, fallback = '') {
 	return entry.getIn(['data', field], fallback);
 }
 
-function createArticlePreview() {
-	if (!window.CMS || !window.createClass || !window.h) return;
+function registerArticlePreview() {
+	if (!window.CMS || !window.createClass || !window.h) return false;
 
 	const h = window.h;
 	const ArticlePreview = window.createClass({
@@ -32,9 +34,19 @@ function createArticlePreview() {
 	});
 
 	window.CMS.registerPreviewTemplate('articles', ArticlePreview);
+	return true;
 }
 
-createArticlePreview();
+function startCms(attempt = 0) {
+	if (!window.CMS || !window.createClass || !window.h) {
+		if (attempt < 40) window.setTimeout(() => startCms(attempt + 1), 50);
+		return;
+	}
+
+	window.CMS.registerPreviewStyle('/admin/preview.css');
+	registerArticlePreview();
+	window.CMS.init();
+}
 
 /* Decaps deutsche Standardübersetzung ist hier unnötig umständlich. */
 function applyKraftRadarLabels() {
@@ -46,5 +58,6 @@ function applyKraftRadarLabels() {
 	}
 }
 
+startCms();
 applyKraftRadarLabels();
 new MutationObserver(applyKraftRadarLabels).observe(document.body, { childList: true, subtree: true });
