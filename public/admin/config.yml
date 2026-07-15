@@ -24,7 +24,7 @@ collections:
     create: true
     path: "{{category}}/{{slug}}"
     slug: "{{slug}}"
-    summary: "{{title}} – {{status}}"
+    summary: "{{title}}"
     editor:
       preview: true
     fields:
