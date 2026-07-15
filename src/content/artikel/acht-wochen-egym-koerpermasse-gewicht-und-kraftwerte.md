@@ -18,7 +18,7 @@ Wichtig ist mir dabei eine ehrliche Einordnung: Keine einzelne Zahl beschreibt m
 
 ## Ausgangslage und Messzeitraum
 
-Ich bin 1,88 Meter groß, hatte vor dem Trainingsstart aber kaum Sporterfahrung und wenig Kondition. Mit EGYM begann ich als kompletter Anfänger.
+Ich bin 1,92 Meter groß, hatte vor dem Trainingsstart aber kaum Sporterfahrung und wenig Kondition. Mit EGYM begann ich als kompletter Anfänger.
 
 Für diesen ersten Zwischenstand verwende ich Messwerte aus dem Zeitraum vom 13. April bis zum 10. Juni 2026. Spätere Trainings- und Fortschrittsdaten sind bewusst noch nicht Teil dieser Auswertung. Die Werte zeigen eine erste Entwicklung, sind aber keine medizinische Untersuchung und keine perfekte wissenschaftliche Vergleichsreihe.
 
