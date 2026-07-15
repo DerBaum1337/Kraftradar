@@ -109,6 +109,29 @@ body,
 	border-color: var(--kr-line) !important;
 }
 
+/* react-select renders its own div-based controls. Style them explicitly so
+ * category, article type and author do not fall back to a bright widget. */
+#nc-root [class*="SelectControl"] > div,
+#nc-root [class*="SelectControl"] [class*="-control"],
+#nc-root [class*="SelectControl"] [class*="-menu"],
+#nc-root [class*="SelectControl"] [class*="-option"] {
+	background: #0d141d !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root [class*="SelectControl"] [class*="-singleValue"],
+#nc-root [class*="SelectControl"] [class*="-placeholder"],
+#nc-root [class*="SelectControl"] [class*="-indicator"] {
+	color: var(--kr-text) !important;
+}
+
+#nc-root [class*="SelectControl"] [class*="-option"]:hover,
+#nc-root [class*="SelectControl"] [class*="-option"][aria-selected="true"] {
+	background: var(--kr-green-dark) !important;
+	color: var(--kr-green) !important;
+}
+
 /* Preserve Decap's button hierarchy, but use KraftRadar's accent for key actions. */
 #nc-root [class*="CollectionTopNewButton"],
 #nc-root [class*="QuickNewButton"],
@@ -191,6 +214,34 @@ body,
 	color: var(--kr-text) !important;
 }
 
+.ReactModalPortal input,
+.ReactModalPortal textarea,
+.ReactModalPortal select {
+	background: #0d141d !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 8px !important;
+	box-shadow: none !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal button {
+	background: #162334 !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 8px !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal button:hover {
+	background: #1c2d41 !important;
+	border-color: #426078 !important;
+}
+
+.ReactModalPortal button:focus-visible,
+.ReactModalPortal input:focus-visible {
+	outline: 3px solid var(--kr-green) !important;
+	outline-offset: 2px !important;
+}
+
 #nc-root a:focus-visible,
 #nc-root button:focus-visible,
 #nc-root input:focus-visible,
@@ -232,6 +283,25 @@ html.kr-mobile-device #nc-root [class*="ToolbarContainer"],
 html.kr-mobile-device #nc-root [class*="EditorContainer"] {
 	min-width: 0 !important;
 	max-width: 100% !important;
+}
+
+/* The built-in media library is also a desktop-sized portal by default.
+ * On a phone it needs to behave like its own full-screen panel. */
+html.kr-mobile-device .ReactModalPortal > div > div,
+html.kr-mobile-device .ReactModal__Content {
+	inset: 0.75rem !important;
+	box-sizing: border-box !important;
+	width: auto !important;
+	height: calc(100dvh - 1.5rem) !important;
+	max-width: none !important;
+	max-height: none !important;
+	margin: 0 !important;
+	overflow: auto !important;
+	border-radius: 12px !important;
+}
+
+html.kr-mobile-device .ReactModalPortal [role="dialog"] {
+	min-width: 0 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
