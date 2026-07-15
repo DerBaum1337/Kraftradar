@@ -25,7 +25,10 @@ collections:
     slug: "{{slug}}"
     summary: "{{title}}"
     editor:
-      preview: true
+      # The built-in split preview caused a React removeChild error on both
+      # mobile and desktop. Keep editing reliable; the public preview can be
+      # opened after saving the draft.
+      preview: false
     fields:
       - { label: Titel, name: title, widget: string }
       - { label: Interner Slug, name: slug, widget: hidden, default: "" }
