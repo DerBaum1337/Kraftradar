@@ -123,7 +123,20 @@ export default {
 			const token = await tokenResponse.json() as { access_token?: string };
 			if (!tokenResponse.ok || !token.access_token) return html('GitHub-Token konnte nicht abgerufen werden.', 502, { 'Set-Cookie': clearCookie });
 			const payloadForDecap = JSON.stringify({ token: token.access_token, provider: 'github' });
-			const script = `window.opener&&window.opener.postMessage(${JSON.stringify(`authorization:github:success:${payloadForDecap}`)},${JSON.stringify(env.ALLOWED_ORIGIN)});window.close();`;
+			const script = `
+				(() => {
+					const allowedOrigin = ${JSON.stringify(env.ALLOWED_ORIGIN)};
+					const result = ${JSON.stringify(`authorization:github:success:${payloadForDecap}`)};
+					function completeAuthorization(event) {
+						if (event.origin !== allowedOrigin || event.source !== window.opener) return;
+						window.opener.postMessage(result, event.origin);
+						window.removeEventListener('message', completeAuthorization);
+						window.close();
+					}
+					window.addEventListener('message', completeAuthorization);
+					if (window.opener) window.opener.postMessage('authorizing:github', allowedOrigin);
+				})();
+			`;
 			return html(`<p>Anmeldung erfolgreich. Dieses Fenster schließt sich.</p><script>${script}</script>`, 200, { 'Set-Cookie': clearCookie });
 		}
 

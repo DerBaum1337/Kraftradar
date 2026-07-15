@@ -3,6 +3,10 @@ main = "src/index.ts"
 compatibility_date = "2026-07-15"
 workers_dev = false
 
+routes = [
+  { pattern = "auth.kraftradar.de", custom_domain = true }
+]
+
 # Die Custom Domain auth.kraftradar.de wird erst nach der manuellen Cloudflare-Konfiguration gesetzt.
 # Secrets niemals hier eintragen: GITHUB_OAUTH_CLIENT_ID, GITHUB_OAUTH_CLIENT_SECRET,
 # OAUTH_STATE_SECRET und ALLOWED_ORIGIN werden als Cloudflare Worker Secrets hinterlegt.
