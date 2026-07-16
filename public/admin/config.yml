@@ -1,9 +1,9 @@
-locale: de
 media_folder: public/uploads/articles
 public_folder: /uploads/articles
-# "Entwurf speichern" legt einen eigenen Git-Branch mit Pull Request an.
-# Erst "Veröffentlichen" führt die Änderung nach main.
-publish_mode: editorial_workflow
+output:
+  # Leere optionale Werte dürfen nicht als ungültige leere Frontmatter-Felder
+  # gespeichert werden.
+  omit_empty_optional_fields: true
 
 backend:
   name: github
@@ -75,7 +75,7 @@ collections:
           - { label: Titel, name: title, widget: string }
           - { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] }
           - { label: Herausgeber, name: publisher, widget: string, required: false }
-          - { label: Abgerufen am, name: accessedAt, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Abgerufen am, name: accessedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
       - &article_related
         label: Verwandte Artikel
         name: relatedArticles
@@ -90,6 +90,7 @@ collections:
         label: SEO-Einstellungen
         name: seo
         widget: object
+        required: false
         collapsed: true
         summary: '{{fields.title}}'
         fields:
@@ -151,12 +152,12 @@ collections:
           - { label: Modell, name: model, widget: string, required: false }
           - { label: Variante, name: variant, widget: string, required: false }
           - { label: Hersteller-URL, name: manufacturerUrl, widget: string, required: false }
-          - { label: Kaufdatum, name: purchaseDate, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Kaufdatum, name: purchaseDate, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
           - { label: Kaufpreis in EUR, name: purchasePrice, widget: number, required: false, value_type: float }
           - { label: Referenzpreis in EUR, name: currentReferencePrice, widget: number, required: false, value_type: float }
-          - { label: Preis geprüft am, name: priceCheckedAt, widget: date, required: false, format: "YYYY-MM-DD" }
-          - { label: Test gestartet am, name: testStartedAt, widget: date, required: false, format: "YYYY-MM-DD" }
-          - { label: Test beendet am, name: testEndedAt, widget: date, required: false, format: "YYYY-MM-DD" }
+          - { label: Preis geprüft am, name: priceCheckedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - { label: Test gestartet am, name: testStartedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - { label: Test beendet am, name: testEndedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
           - { label: Anzahl Nutzungen, name: usageCount, widget: number, required: false, value_type: int }
           - { label: Teststatus, name: testStatus, widget: select, options: [{ label: Geplant, value: planned }, { label: Läuft, value: ongoing }, { label: Abgeschlossen, value: completed }], required: false }
       - &product_pros { label: Vorteile, name: pros, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Vorteil, field: { label: Vorteil, name: item, widget: string } }
@@ -246,7 +247,7 @@ collections:
       - { label: Slug, name: slug, widget: string }
       - { label: Rolle, name: role, widget: string }
       - { label: Kurzbiografie, name: bio, widget: text }
-      - { label: Trainingsstart, name: startedTrainingAt, widget: date, required: false, format: "YYYY-MM-DD" }
+      - { label: Trainingsstart, name: startedTrainingAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
       - label: Profilbild
         name: image
         widget: object

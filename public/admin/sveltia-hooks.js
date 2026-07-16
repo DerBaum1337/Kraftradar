@@ -1,6 +1,6 @@
 /*
- * Isolierte Sveltia-POC-Hooks. Sie starten oder mounten das CMS nicht,
- * sondern ergänzen ausschließlich Daten direkt vor dem Speichern.
+ * Sveltia-Hooks ergänzen ausschließlich Artikeldaten direkt vor dem
+ * Speichern. Sie starten oder mounten das CMS nicht erneut.
  */
 
 const SVELTIA_ARTICLE_COLLECTIONS = new Set([
@@ -63,8 +63,6 @@ function normalizeArticle({ entry }) {
 		data = data.delete('heroImage');
 	} else {
 		for (const field of ['caption', 'credit', 'creditUrl']) data = removeEmpty(data, ['heroImage', field]);
-		// alt bleibt bewusst erhalten: Das Astro-Schema verlangt für ein Artikelbild
-		// einen String, auch wenn das Bild dekorativ ist.
 		if (data.getIn(['heroImage', 'alt']) == null) data = data.setIn(['heroImage', 'alt'], '');
 	}
 
@@ -72,7 +70,7 @@ function normalizeArticle({ entry }) {
 }
 
 if (!window.CMS) {
-	throw new Error('Sveltia CMS wurde vor den POC-Hooks nicht geladen.');
+	throw new Error('Sveltia CMS wurde vor den Admin-Hooks nicht geladen.');
 }
 
 window.CMS.registerEventListener({ name: 'preSave', handler: normalizeArticle });
