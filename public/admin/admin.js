@@ -1,11 +1,9 @@
 /*
- * Decap is initialized manually after its script has loaded. The documented
- * initCMS() entry point avoids a second initialization in the same DOM tree.
- * The built-in split preview remains disabled for now: it was the unstable
- * part on smaller viewports and could trigger React's removeChild error.
+ * Decap starts itself from the CDN script in index.html. This file deliberately
+ * does not call initCMS(): a manual second mount caused React's removeChild
+ * error in the live administration area. It only registers safe editorial
+ * defaults after the public CMS API becomes available.
  */
-
-let cmsStarted = false;
 
 function toSlug(value) {
 	return String(value || '')
@@ -58,20 +56,13 @@ function registerEditorialDefaults() {
 	});
 }
 
-function startCms(attempt = 0) {
-	if (cmsStarted) return;
-
-	if (!window.CMS || typeof window.initCMS !== 'function') {
-		if (attempt < 40) window.setTimeout(() => startCms(attempt + 1), 50);
+function registerWhenReady(attempt = 0) {
+	if (!window.CMS) {
+		if (attempt < 40) window.setTimeout(() => registerWhenReady(attempt + 1), 50);
 		return;
 	}
 
-	cmsStarted = true;
 	registerEditorialDefaults();
-	/* The preview is currently disabled in config.yml. Registering its style here
-	 * keeps a future reactivation inside the same single initialization path. */
-	window.CMS.registerPreviewStyle('/admin/preview.css?v=20260716-4');
-	window.initCMS();
 }
 
 /* Some mobile browsers report a desktop viewport in desktop-site mode.
@@ -80,4 +71,4 @@ if (Math.min(window.screen.width, window.screen.height) <= 820) {
 	document.documentElement.classList.add('kr-mobile-device');
 }
 
-startCms();
+registerWhenReady();

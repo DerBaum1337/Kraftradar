@@ -133,6 +133,16 @@ body,
 	border-color: var(--kr-line-strong) !important;
 }
 
+/* Some Decap views use generated "Card" component names without the GridCard
+ * fragment. Their default fallback thumbnail is a white gradient; suppress
+ * that fallback while leaving real <img> thumbnails untouched. */
+#nc-root [class*="Card"]:not(img),
+#nc-root [class*="Card"]:not(img)::before,
+#nc-root [class*="Card"]:not(img)::after,
+#nc-root [class*="Card"]:not(img) :not(img) {
+	background-image: none !important;
+}
+
 #nc-root [class*="SidebarNavLink"]:is(:hover, .sidebar-active),
 #nc-root [aria-current="page"] {
 	background-color: var(--kr-accent-soft) !important;
@@ -164,6 +174,32 @@ body,
 	border: 1px solid var(--kr-line) !important;
 	border-radius: var(--kr-radius) !important;
 	box-shadow: none !important;
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
+}
+
+/* Decap's select, date, boolean and collapsed-object widgets are styled by
+ * generated Emotion classes. Their names change between releases, but all
+ * use the css-* prefix. Give the generated widget surface the KraftRadar
+ * dark base; the rules above keep editable controls slightly darker. */
+#nc-root [class^="css-"],
+#nc-root [class*=" css-"] {
+	background-color: var(--kr-surface) !important;
+	background-image: none !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root [class^="css-"] :is(input, textarea, select, [role="combobox"], [contenteditable="true"]),
+#nc-root [class*=" css-"] :is(input, textarea, select, [role="combobox"], [contenteditable="true"]) {
+	background-color: var(--kr-control) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
+}
+
+#nc-root [class^="css-"] :is(label, legend, span, p, small),
+#nc-root [class*=" css-"] :is(label, legend, span, p, small) {
 	color: var(--kr-text) !important;
 	-webkit-text-fill-color: var(--kr-text) !important;
 }
