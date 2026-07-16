@@ -5,6 +5,10 @@
 locale: de
 media_folder: public/uploads/articles
 public_folder: /uploads/articles
+output:
+  # Sveltia schreibt sonst auch leere optionale Werte. Astro erwartet bei
+  # Entwürfen beispielsweise kein leeres publishedAt-Feld.
+  omit_empty_optional_fields: true
 # publish_mode wird absichtlich nicht gesetzt: Sveltia-Editorial-Workflow ist
 # kein Bestandteil dieses isolierten Tests.
 
@@ -95,6 +99,7 @@ collections:
         label: SEO-Einstellungen
         name: seo
         widget: object
+        required: false
         collapsed: true
         summary: '{{fields.title}}'
         fields:
