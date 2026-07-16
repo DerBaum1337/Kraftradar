@@ -300,6 +300,14 @@ body,
 	background-color: var(--kr-accent) !important;
 	border-color: var(--kr-accent) !important;
 	color: #07120e !important;
+	-webkit-text-fill-color: #07120e !important;
+}
+
+/* Decap wraps the quick-create label in generated elements. Keep those
+ * descendants dark as well, matching the other green primary buttons. */
+#nc-root :is([class*="CollectionTopNewButton"], [class*="QuickNewButton"], [class*="PublishButton"], [class*="SaveButton"]) :is(span, strong, svg) {
+	color: #07120e !important;
+	-webkit-text-fill-color: #07120e !important;
 }
 
 #nc-root :is([class*="Toolbar"], [class*="EditorControlBar"]) button {
