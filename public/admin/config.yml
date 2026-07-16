@@ -70,7 +70,7 @@ collections:
         required: false
         collapsed: true
         minimize_collapsed: true
-        label_singular: "Quelle hinzufügen"
+        label_singular: "Quelle"
         fields:
           - { label: Titel, name: title, widget: string }
           - { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] }
@@ -83,7 +83,7 @@ collections:
         required: false
         collapsed: true
         minimize_collapsed: true
-        label_singular: "Verwandten Artikel hinzufügen"
+        label_singular: "Verwandter Artikel"
         hint: "Nur den Slug ohne Kategorie eintragen."
         field: { label: Artikel-Slug, name: slug, widget: string }
       - &article_seo
@@ -159,10 +159,10 @@ collections:
           - { label: Test beendet am, name: testEndedAt, widget: date, required: false, format: "YYYY-MM-DD" }
           - { label: Anzahl Nutzungen, name: usageCount, widget: number, required: false, value_type: int }
           - { label: Teststatus, name: testStatus, widget: select, options: [{ label: Geplant, value: planned }, { label: Läuft, value: ongoing }, { label: Abgeschlossen, value: completed }], required: false }
-      - &product_pros { label: Vorteile, name: pros, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Vorteil hinzufügen", field: { label: Vorteil, name: item, widget: string } }
-      - &product_cons { label: Nachteile, name: cons, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Nachteil hinzufügen", field: { label: Nachteil, name: item, widget: string } }
-      - &product_best_for { label: Geeignet für, name: bestFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Zielgruppe hinzufügen", field: { label: Zielgruppe, name: item, widget: string } }
-      - &product_less_suitable { label: Weniger geeignet für, name: lessSuitableFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: "Zielgruppe hinzufügen", field: { label: Zielgruppe, name: item, widget: string } }
+      - &product_pros { label: Vorteile, name: pros, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Vorteil, field: { label: Vorteil, name: item, widget: string } }
+      - &product_cons { label: Nachteile, name: cons, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Nachteil, field: { label: Nachteil, name: item, widget: string } }
+      - &product_best_for { label: Geeignet für, name: bestFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Zielgruppe, field: { label: Zielgruppe, name: item, widget: string } }
+      - &product_less_suitable { label: Weniger geeignet für, name: lessSuitableFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Zielgruppe, field: { label: Zielgruppe, name: item, widget: string } }
       - &product_conclusion { label: Kurzfazit, name: shortConclusion, widget: text, required: false }
       - &product_value { label: Preis-Leistungs-Einschätzung, name: valueAssessment, widget: text, required: false }
       - { label: Kategorie, name: category, widget: hidden, default: supplements }

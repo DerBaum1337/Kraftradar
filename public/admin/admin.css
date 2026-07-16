@@ -48,7 +48,6 @@ body,
 }
 
 /* 1. App frame and typography ------------------------------------------------ */
-#nc-root :is(main, header, nav, section, aside, article),
 #nc-root [class*="AppMain"],
 #nc-root [class*="CollectionContainer"],
 #nc-root [class*="EditorContainer"],
@@ -114,18 +113,22 @@ body,
 	border-radius: 0.75rem !important;
 }
 
-/* Decap's grid cards ship a light thumbnail gradient. Keep the card and all
- * generated overlays dark instead of disabling every generated CSS class. */
+/* Decap's grid cards ship a light fallback thumbnail gradient. These three
+ * named card parts are the only surfaces involved; do not recolor images or
+ * every descendant of a card. */
 #nc-root [class*="GridCard"],
-#nc-root [class*="GridCard"] *,
-#nc-root [class*="GridCard"]::before,
-#nc-root [class*="GridCard"]::after {
+#nc-root [class*="GridCardLink"],
+#nc-root [class*="GridCard"] [class*="CardBody"] {
+	background-color: var(--kr-surface) !important;
 	background-image: none !important;
+	border-color: var(--kr-line) !important;
+	box-shadow: none !important;
 }
 
-#nc-root [class*="GridCard"] :is(div, figure, header, footer) {
-	background-color: var(--kr-surface) !important;
-	border-color: var(--kr-line) !important;
+#nc-root [class*="GridCard"] [class*="CardBody"]::before,
+#nc-root [class*="GridCard"] [class*="CardBody"]::after {
+	background-image: none !important;
+	box-shadow: none !important;
 }
 
 /* The fallback thumbnail is drawn as an inset shadow on CardBody::after,
@@ -344,8 +347,34 @@ body,
 	color: var(--kr-text) !important;
 }
 
-#nc-root :is([class*="Object"], [class*="List"], [class*="File"], [class*="Image"]) :is(header, section, div) {
-	border-color: var(--kr-line) !important;
+/* Collapsed object and list widgets share Decap's named top bar. Keeping this
+ * rule at the widget boundary avoids recoloring nested image previews. */
+#nc-root :is([class*="Object"], [class*="List"]) [class*="TopBarContainer"] {
+	min-height: 3.25rem !important;
+	padding: 0.375rem 0.5rem !important;
+	background-color: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: var(--kr-radius) !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root :is([class*="Object"], [class*="List"]) [class*="ExpandButton"] button {
+	min-width: 2.25rem !important;
+	min-height: 2.25rem !important;
+	padding: 0.25rem !important;
+}
+
+#nc-root :is([class*="Object"], [class*="List"]) [class*="AddButton"] {
+	min-height: 2.25rem !important;
+	margin-left: auto !important;
+	background-color: var(--kr-surface-raised) !important;
+	border-color: var(--kr-line-strong) !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root :is([class*="Object"], [class*="List"]) [class*="TopBarContainer"]:hover {
+	background-color: var(--kr-control-hover) !important;
+	border-color: var(--kr-line-strong) !important;
 }
 
 /* 4. Buttons: normal actions, primary actions and compact editor controls ---- */
@@ -390,6 +419,37 @@ body,
 #nc-root :is([class*="Toolbar"], [class*="EditorControlBar"]) {
 	background-color: var(--kr-surface) !important;
 	border-color: var(--kr-line) !important;
+}
+
+/* A datetime control consists of the date input plus Decap's existing
+ * secondary actions. Treat it as a compact, aligned row without renaming
+ * Decap's built-in actions in JavaScript. */
+#nc-root [aria-label="datetime field"] [class*="DateTimeControl"] {
+	display: flex !important;
+	align-items: center !important;
+	gap: 0.5rem !important;
+	min-height: 3.25rem !important;
+	padding: 0.375rem !important;
+	background-color: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: var(--kr-radius) !important;
+}
+
+#nc-root [aria-label="datetime field"] [class*="DateTimeControl"] input {
+	min-width: 13rem !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+#nc-root [aria-label="datetime field"] [class*="Buttons"] {
+	display: flex !important;
+	gap: 0.375rem !important;
+}
+
+#nc-root [aria-label="datetime field"] [data-testid="clear-button"] {
+	background-color: transparent !important;
+	border-color: var(--kr-line-strong) !important;
+	color: var(--kr-muted) !important;
 }
 
 /* 5. Menus, date pickers, notifications and media modals -------------------- */
