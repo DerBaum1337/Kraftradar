@@ -37,6 +37,8 @@ function normaliseProductionUrl(value) {
 			|| url.hash
 			|| path === '/admin'
 			|| path.startsWith('/admin/')
+			|| path === '/admin-v2'
+			|| path.startsWith('/admin-v2/')
 			|| /(^|\/)(draft|preview)(\/|$)/.test(path)
 		) {
 			return null;

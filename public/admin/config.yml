@@ -1,5 +1,9 @@
 media_folder: public/uploads/articles
 public_folder: /uploads/articles
+app_title: KraftRadar Administration
+logo:
+  src: /favicon.svg
+  show_in_header: true
 output:
   # Leere optionale Werte dürfen nicht als ungültige leere Frontmatter-Felder
   # gespeichert werden.
@@ -24,6 +28,7 @@ collections:
   - name: training
     label: Training
     label_singular: Trainingsartikel
+    icon: fitness_center
     folder: src/content/articles/training
     create: true
     slug: "{{slug}}"
@@ -104,6 +109,7 @@ collections:
   - name: supplements
     label: Supplements
     label_singular: Supplement-Artikel
+    icon: medication
     folder: src/content/articles/supplements
     create: true
     slug: "{{slug}}"
@@ -172,6 +178,7 @@ collections:
   - name: gym_zubehoer
     label: Gym-Zubehör
     label_singular: Zubehörartikel
+    icon: sports_gymnastics
     folder: src/content/articles/gym-zubehoer
     create: true
     slug: "{{slug}}"
@@ -209,6 +216,7 @@ collections:
   - name: mein_weg
     label: Mein Weg
     label_singular: Mein-Weg-Beitrag
+    icon: timeline
     folder: src/content/articles/mein-weg
     create: true
     slug: "{{slug}}"
@@ -237,8 +245,11 @@ collections:
       - { label: Kategorie, name: category, widget: hidden, default: mein-weg }
       - { label: Sichtbarer Kategoriename, name: categoryLabel, widget: hidden, default: Mein Weg }
 
+  - divider: true
+
   - name: authors
     label: Autoren
+    icon: person
     folder: src/content/authors
     create: true
     slug: "{{slug}}"
@@ -260,8 +271,11 @@ collections:
       - { label: Weiterführende Profile, name: sameAs, widget: list, required: false, field: { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] } }
       - { label: Profilinhalt, name: body, widget: markdown, required: false }
 
+  - divider: true
+
   - name: pages
     label: Seiteninhalte
+    icon: description
     files:
       - label: Startseite
         name: startseite
