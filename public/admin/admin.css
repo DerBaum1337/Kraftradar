@@ -128,6 +128,13 @@ body,
 	border-color: var(--kr-line) !important;
 }
 
+/* The fallback thumbnail is drawn as an inset shadow on CardBody::after,
+ * not as a background image. Remove that layer for entries without a cover
+ * image so the grid is as calm and dark as the list view. */
+#nc-root [class*="GridCard"] [class*="CardBody"]::after {
+	box-shadow: none !important;
+}
+
 #nc-root :is([class*="ListCard"], [class*="GridCard"]):hover {
 	background-color: var(--kr-surface-raised) !important;
 	border-color: var(--kr-line-strong) !important;
@@ -366,6 +373,15 @@ body :is([role="option"], [role="menuitem"], [class*="-option" i]):is(:hover, [a
 	max-width: 62rem !important;
 	margin-inline: auto !important;
 	padding: 1.5rem !important;
+}
+
+/* Decap keeps the control pane at 80% width after the preview was hidden.
+ * Use the whole editor card instead, while preserving the readable maximum
+ * width provided by NoPreviewContainer above. */
+#nc-root [class*="NoPreviewContainer"] [class*="ControlPaneContainer"] {
+	width: 100% !important;
+	max-width: none !important;
+	margin-inline: 0 !important;
 }
 
 #nc-root :focus-visible,
