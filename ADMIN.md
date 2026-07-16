@@ -7,15 +7,17 @@ Der produktive Login funktioniert erst nach den manuellen GitHub-, Cloudflare-Wo
 ## Artikel erstellen
 
 1. `/admin/` öffnen und anmelden.
-2. **Artikel** und **Neuer Artikel** wählen.
-3. Titel, Slug, Kategorie, Artikeltyp, Kurzbeschreibung, Auszug, Autor und Status ausfüllen.
-4. Bei `Veröffentlicht` ein Veröffentlichungsdatum setzen.
-5. Inhalt ohne zusätzliche H1 schreiben. Zwischenüberschriften beginnen mit H2.
-6. Für inhaltliche Bilder einen Alternativtext eintragen.
-7. Quellen und verwandte Artikel als Slugs ergänzen.
+2. Den passenden Bereich wählen: **Training**, **Supplements**, **Gym-Zubehör** oder **Mein Weg**.
+3. **Neuer Trainingsartikel**, **Neuer Supplement-Artikel**, **Neuer Zubehörartikel** oder **Neuer Mein-Weg-Beitrag** wählen.
+4. Titel, Artikeltyp, Status, Kurzbeschreibung und Text auf Übersichtsseiten ausfüllen. Kategorie und Autor werden automatisch gesetzt.
+5. Den Artikelinhalt ohne zusätzliche H1 schreiben. Zwischenüberschriften beginnen mit H2.
+6. Bei `Veröffentlicht` ein Veröffentlichungsdatum setzen. Das Aktualisierungsdatum wird beim späteren Veröffentlichen automatisch gepflegt.
+7. Artikelbild, Quellen, verwandte Artikel und SEO-Einstellungen bei Bedarf in den eingeklappten Bereichen ergänzen.
 8. Zunächst als **Entwurf** oder **In Überprüfung** speichern.
 9. Die Vorschau-Deployment-URL prüfen. Unveröffentlichte persönliche Inhalte dürfen erst nach dem Access-Schutz für Vorschauen geprüft werden.
 10. Erst nach Prüfung Status auf **Veröffentlicht** setzen und den Git-Änderungsvorschlag zusammenführen.
+
+Bei **Supplements** und **Gym-Zubehör** erscheinen zusätzlich die Bereiche für Transparenz, Produktdaten, Vor- und Nachteile, Zielgruppen und Preis-Leistung. Bei **Mein Weg** stehen stattdessen Zwischenfazit und Langzeitupdate bereit.
 
 ## Bestehenden Artikel bearbeiten
 

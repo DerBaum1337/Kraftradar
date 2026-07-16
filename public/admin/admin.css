@@ -223,10 +223,18 @@ body,
 	resize: vertical;
 }
 
-/* The outer editor has the surface; only text nodes remain transparent. */
-#nc-root :is(.DraftEditor-root, .DraftEditor-editorContainer, .public-DraftEditor-content, [contenteditable="true"]) {
-	min-height: 11rem;
-	padding: 0.75rem !important;
+/* The article editor is the primary workspace. Its nested Draft wrappers stay
+ * neutral so they do not create a second empty box below the editable area. */
+#nc-root :is(.DraftEditor-root, .DraftEditor-editorContainer) {
+	min-height: 0 !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border: 0 !important;
+}
+
+#nc-root :is(.public-DraftEditor-content, [data-slate-editor="true"], [contenteditable="true"]) {
+	min-height: max(32rem, 50vh) !important;
+	padding: 0.875rem !important;
 }
 
 #nc-root :is(.public-DraftEditor-content *, [contenteditable="true"] *) {
@@ -369,8 +377,8 @@ body :is([role="option"], [role="menuitem"], [class*="-option" i]):is(:hover, [a
 }
 
 #nc-root [class*="NoPreviewContainer"] {
-	width: min(100%, 62rem) !important;
-	max-width: 62rem !important;
+	width: min(100%, 72rem) !important;
+	max-width: 72rem !important;
 	margin-inline: auto !important;
 	padding: 1.5rem !important;
 }

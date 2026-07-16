@@ -22,20 +22,28 @@ function registerEditorialDefaults() {
 		'gym-zubehoer': 'Gym-Zubehör',
 		'mein-weg': 'Mein Weg',
 	};
+	const collectionCategories = {
+		training: 'training',
+		supplements: 'supplements',
+		gym_zubehoer: 'gym-zubehoer',
+		mein_weg: 'mein-weg',
+	};
 
 	window.CMS.registerEventListener({
 		name: 'preSave',
 		handler: ({ entry }) => {
-			if (entry.get('collection') !== 'articles') return entry.get('data');
+			const collection = String(entry.get('collection') || '');
+			const fixedCategory = collectionCategories[collection];
+			if (!fixedCategory) return entry.get('data');
 
 			let data = entry.get('data');
 			const title = String(data.get('title') || '').trim();
-			const category = String(data.get('category') || 'training');
+			const category = fixedCategory;
 			const status = String(data.get('status') || 'draft');
 			const description = String(data.get('description') || '').trim();
 
 			if (!String(data.get('slug') || '').trim() && title) data = data.set('slug', toSlug(title));
-			data = data.set('categoryLabel', categoryLabels[category] || 'Training');
+			data = data.set('category', category).set('categoryLabel', categoryLabels[category] || 'Training');
 
 			const seo = data.get('seo');
 			if (seo?.get) {
