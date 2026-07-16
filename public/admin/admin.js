@@ -68,6 +68,9 @@ function startCms(attempt = 0) {
 
 	cmsStarted = true;
 	registerEditorialDefaults();
+	/* The preview is currently disabled in config.yml. Registering its style here
+	 * keeps a future reactivation inside the same single initialization path. */
+	window.CMS.registerPreviewStyle('/admin/preview.css?v=20260716-4');
 	window.initCMS();
 }
 

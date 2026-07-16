@@ -7,15 +7,27 @@
 		<meta name="robots" content="noindex,nofollow,noarchive" />
 		<meta name="referrer" content="no-referrer" />
 		<title>KraftRadar Administration</title>
+		<!-- Load the visual foundation before Decap renders its application. -->
+		<style>
+			html,
+			body {
+				margin: 0;
+				min-height: 100%;
+				background: #0b0f14;
+				color: #f5f7fa;
+			}
+		</style>
+		<script>
+			/* admin.js is the single, deliberate Decap start point. */
+			window.CMS_MANUAL_INIT = true;
+		</script>
 	</head>
 	<body class="notranslate" translate="no">
-		<!-- Official Decap CMS startup: no custom React mount or second initialization. -->
+		<!-- Decap is started exactly once by admin.js after its defaults are registered. -->
 		<script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
-		<script>
-			/* Kept separate from the editor theme: Decap renders previews in an iframe. */
-			CMS.registerPreviewStyle('/admin/preview.css?v=20260716-3');
-		</script>
-		<!-- Loaded after Decap so the KraftRadar theme also wins against injected CMS styles. -->
-		<link rel="stylesheet" href="/admin/admin.css?v=20260716-3" />
+		<!-- Decap injects its own stylesheet while loading. Load the KraftRadar
+		     theme immediately afterwards so it wins without selector escalation. -->
+		<link rel="stylesheet" href="/admin/admin.css?v=20260716-5" />
+		<script src="/admin/admin.js?v=20260716-5"></script>
 	</body>
 </html>
