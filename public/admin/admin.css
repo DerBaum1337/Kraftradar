@@ -563,3 +563,89 @@ html.kr-mobile-device .ReactModalPortal button {
 	background: var(--kr-button-hover) !important;
 	border-color: var(--kr-line-strong) !important;
 }
+
+/* Final form polish: Decap renders select menus in a portal outside the
+ * editor root. Use semantic roles here instead of generated css-* classes. */
+#nc-root [class*="NoPreviewContainer"] {
+	width: min(100%, 46rem) !important;
+	max-width: 46rem !important;
+	margin-inline: auto !important;
+	padding: 1.25rem !important;
+}
+
+#nc-root [role="combobox"],
+#nc-root [class*="SelectControl"] [class*="control"],
+#nc-root [class*="SelectControl"] [class*="Control"] {
+	background: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 8px !important;
+	color: var(--kr-text) !important;
+	box-shadow: none !important;
+}
+
+#nc-root [role="combobox"]:focus-within,
+#nc-root [class*="SelectControl"] [class*="control"]:focus-within {
+	border-color: var(--kr-green) !important;
+	box-shadow: 0 0 0 3px rgb(85 230 165 / 18%) !important;
+}
+
+/* Dropdowns are portalled directly below body, so they cannot be scoped to
+ * #nc-root. This page contains only Decap CMS and has no public-site menus. */
+body [role="listbox"],
+body [class*="-menu"],
+body [class*="menu-portal"] {
+	background: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 8px !important;
+	box-shadow: 0 14px 30px rgb(0 0 0 / 32%) !important;
+	color: var(--kr-text) !important;
+}
+
+body [role="option"],
+body [class*="-option"] {
+	background: var(--kr-control) !important;
+	color: var(--kr-text) !important;
+}
+
+body [role="option"]:hover,
+body [role="option"][aria-selected="true"],
+body [class*="-option"]:hover,
+body [class*="-option"][aria-selected="true"] {
+	background: var(--kr-green-dark) !important;
+	color: var(--kr-green) !important;
+}
+
+#nc-root select option {
+	background: var(--kr-control);
+	color: var(--kr-text);
+}
+
+#nc-root input:-webkit-autofill,
+#nc-root input:-webkit-autofill:hover,
+#nc-root input:-webkit-autofill:focus {
+	-webkit-text-fill-color: var(--kr-text) !important;
+	-webkit-box-shadow: 0 0 0 1000px var(--kr-control) inset !important;
+}
+
+#nc-root [class*="FieldLabel"],
+#nc-root .Pane1 label,
+#nc-root .Pane1 legend {
+	color: #d7dfeb !important;
+	font-size: 0.875rem !important;
+	font-weight: 700 !important;
+}
+
+#nc-root [class*="Hint"],
+#nc-root [class*="hint"],
+#nc-root small {
+	color: var(--kr-muted) !important;
+	font-size: 0.875rem !important;
+	line-height: 1.5 !important;
+}
+
+@media (max-width: 820px) {
+	#nc-root [class*="NoPreviewContainer"] {
+		width: 100% !important;
+		padding: 0.875rem !important;
+	}
+}
