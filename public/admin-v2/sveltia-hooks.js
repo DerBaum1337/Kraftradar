@@ -12,6 +12,13 @@ const SVELTIA_ARTICLE_COLLECTIONS = new Set([
 
 const VALID_STATUSES = new Set(['draft', 'review', 'ready', 'published']);
 
+const COLLECTION_CATEGORIES = {
+	training: { category: 'training', categoryLabel: 'Training' },
+	supplements: { category: 'supplements', categoryLabel: 'Supplements' },
+	gym_zubehoer: { category: 'gym-zubehoer', categoryLabel: 'Gym-Zubehör' },
+	mein_weg: { category: 'mein-weg', categoryLabel: 'Mein Weg' },
+};
+
 function slugFromPath(path) {
 	const filename = String(path || '').replace(/\\/g, '/').split('/').pop() || '';
 	return filename.replace(/\.[^.]+$/, '');
@@ -22,7 +29,8 @@ function removeEmpty(data, path) {
 }
 
 function normalizeArticle({ entry }) {
-	if (!SVELTIA_ARTICLE_COLLECTIONS.has(String(entry.get('collection') || ''))) return entry;
+	const collection = String(entry.get('collection') || '');
+	if (!SVELTIA_ARTICLE_COLLECTIONS.has(collection)) return entry;
 
 	let data = entry.get('data');
 	const title = String(data.get('title') || '').trim();
@@ -31,7 +39,12 @@ function normalizeArticle({ entry }) {
 	const selectedStatus = String(data.get('status') || 'draft');
 	const status = VALID_STATUSES.has(selectedStatus) ? selectedStatus : 'draft';
 
-	data = data.set('slug', entrySlug).set('status', status);
+	const category = COLLECTION_CATEGORIES[collection];
+	data = data
+		.set('slug', entrySlug)
+		.set('status', status)
+		.set('category', category.category)
+		.set('categoryLabel', category.categoryLabel);
 	data = data.setIn(['seo', 'title'], String(data.getIn(['seo', 'title']) || '').trim() || title);
 	data = data.setIn(['seo', 'description'], String(data.getIn(['seo', 'description']) || '').trim() || description);
 	data = removeEmpty(data, ['seo', 'canonical']);

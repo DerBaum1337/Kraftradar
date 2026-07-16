@@ -1,5 +1,5 @@
 ---
-title: Sveltia Funktionstest
+title: 'Titel: Sveltia Funktionstest'
 slug: titel-sveltia-funktionstest
 articleType: guide
 status: draft
