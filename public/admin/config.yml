@@ -32,7 +32,7 @@ collections:
     fields:
       - &article_title { label: Titel, name: title, widget: string }
       - &article_slug { label: Interner Slug, name: slug, widget: hidden, default: "" }
-      - &article_type { label: Artikeltyp, name: articleType, widget: select, options: [{ label: Ratgeber, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Fortschrittsbericht, value: progress }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
+      - &article_type { label: Artikeltyp, name: articleType, widget: select, default: guide, options: [{ label: Artikel, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Fortschrittsbericht, value: progress }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
       - &article_status { label: Status, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }], hint: "Nur Veröffentlicht erscheint auf der Website." }
       - &article_description { label: Kurzbeschreibung, name: description, widget: text, hint: "Kurze Einleitung für die Artikelseite und Google. Am besten ein bis zwei klare Sätze." }
       - &article_excerpt { label: Text auf Übersichtsseiten, name: excerpt, widget: text, hint: "Kurzer Teaser für Startseite und Kategorieübersichten." }
@@ -111,7 +111,7 @@ collections:
     fields:
       - *article_title
       - *article_slug
-      - &product_article_type { label: Artikeltyp, name: articleType, widget: select, options: [{ label: Ratgeber, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Produkttest, value: product-test }, { label: Produktvergleich, value: comparison }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
+      - &product_article_type { label: Artikeltyp, name: articleType, widget: select, default: product-test, options: [{ label: Artikel, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Produkttest, value: product-test }, { label: Produktvergleich, value: comparison }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
       - *article_status
       - *article_description
       - *article_excerpt

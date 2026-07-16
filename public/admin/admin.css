@@ -166,12 +166,21 @@ body,
 /* 3. Forms and all widgets --------------------------------------------------- */
 #nc-root :is(label, legend, [class*="FieldLabel"], [class*="ControlLabel"]) {
 	display: block;
-	margin-bottom: 0.375rem;
+	margin-bottom: 0.5rem;
 	background: transparent !important;
 	color: var(--kr-text) !important;
-	font-size: 0.875rem !important;
-	font-weight: 700 !important;
-	letter-spacing: 0.015em;
+	font-size: 0.9375rem !important;
+	font-weight: 650 !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+}
+
+/* Decap adds decorative pseudo-elements to a few field-label variants. They
+ * look like a cursor after the label in a dark interface, so keep labels plain. */
+#nc-root :is(label, legend, [class*="FieldLabel"], [class*="ControlLabel"])::before,
+#nc-root :is(label, legend, [class*="FieldLabel"], [class*="ControlLabel"])::after {
+	content: none !important;
+	display: none !important;
 }
 
 #nc-root :is(input:not([type="checkbox"]):not([type="radio"]), textarea, select, [role="combobox"]),
@@ -223,6 +232,13 @@ body,
 	resize: vertical;
 }
 
+/* Summary fields are deliberately compact; the article editor below is the
+ * large writing surface. */
+#nc-root textarea[name="description"],
+#nc-root textarea[name="excerpt"] {
+	min-height: 6.25rem !important;
+}
+
 /* The article editor is the primary workspace. Its nested Draft wrappers stay
  * neutral so they do not create a second empty box below the editable area. */
 #nc-root :is(.DraftEditor-root, .DraftEditor-editorContainer) {
@@ -235,6 +251,19 @@ body,
 #nc-root :is(.public-DraftEditor-content, [data-slate-editor="true"], [contenteditable="true"]) {
 	min-height: max(32rem, 50vh) !important;
 	padding: 0.875rem !important;
+}
+
+/* Toolbar and editor read as one connected writing block. */
+#nc-root :is([class*="Toolbar"], [class*="EditorControlBar"]) {
+	margin-bottom: 0 !important;
+	padding: 0.5rem !important;
+	border: 1px solid var(--kr-line) !important;
+	border-bottom: 0 !important;
+	border-radius: var(--kr-radius) var(--kr-radius) 0 0 !important;
+}
+
+#nc-root :is(.public-DraftEditor-content, [data-slate-editor="true"]) {
+	border-radius: 0 0 var(--kr-radius) var(--kr-radius) !important;
 }
 
 #nc-root :is(.public-DraftEditor-content *, [contenteditable="true"] *) {
@@ -264,6 +293,14 @@ body,
 
 #nc-root :is(input[type="checkbox"], input[type="radio"]) {
 	accent-color: var(--kr-accent);
+}
+
+#nc-root [class*="BooleanControl"] {
+	min-height: 3rem !important;
+	padding: 0.5rem 0.75rem !important;
+	background-color: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: var(--kr-radius) !important;
 }
 
 /* Objects, lists, images and relation fields. */
