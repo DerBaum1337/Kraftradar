@@ -8,11 +8,11 @@
 :root {
 	color-scheme: dark;
 	--kr-bg: #0b0f14;
-	--kr-surface: #141c27;
-	--kr-surface-raised: #1a2533;
-	--kr-control: #182330;
-	--kr-control-hover: #213043;
-	--kr-line: #344255;
+	--kr-surface: #111720;
+	--kr-surface-raised: #18212c;
+	--kr-control: #0d141d;
+	--kr-control-hover: #141f2c;
+	--kr-line: #2b3542;
 	--kr-line-strong: #53667b;
 	--kr-text: #f5f7fa;
 	--kr-muted: #aeb8c5;
@@ -48,6 +48,7 @@ body,
 }
 
 /* 1. App frame and typography ------------------------------------------------ */
+#nc-root :is(main, header, nav, section, aside, article),
 #nc-root [class*="AppMain"],
 #nc-root [class*="CollectionContainer"],
 #nc-root [class*="EditorContainer"],
@@ -113,22 +114,18 @@ body,
 	border-radius: 0.75rem !important;
 }
 
-/* Decap's grid cards ship a light fallback thumbnail gradient. These three
- * named card parts are the only surfaces involved; do not recolor images or
- * every descendant of a card. */
+/* Decap's grid cards ship a light thumbnail gradient. Keep the card and all
+ * generated overlays dark instead of disabling every generated CSS class. */
 #nc-root [class*="GridCard"],
-#nc-root [class*="GridCardLink"],
-#nc-root [class*="GridCard"] [class*="CardBody"] {
-	background-color: var(--kr-surface) !important;
+#nc-root [class*="GridCard"] *,
+#nc-root [class*="GridCard"]::before,
+#nc-root [class*="GridCard"]::after {
 	background-image: none !important;
-	border-color: var(--kr-line) !important;
-	box-shadow: none !important;
 }
 
-#nc-root [class*="GridCard"] [class*="CardBody"]::before,
-#nc-root [class*="GridCard"] [class*="CardBody"]::after {
-	background-image: none !important;
-	box-shadow: none !important;
+#nc-root [class*="GridCard"] :is(div, figure, header, footer) {
+	background-color: var(--kr-surface) !important;
+	border-color: var(--kr-line) !important;
 }
 
 /* The fallback thumbnail is drawn as an inset shadow on CardBody::after,
@@ -141,6 +138,16 @@ body,
 #nc-root :is([class*="ListCard"], [class*="GridCard"]):hover {
 	background-color: var(--kr-surface-raised) !important;
 	border-color: var(--kr-line-strong) !important;
+}
+
+/* Some Decap views use generated "Card" component names without the GridCard
+ * fragment. Their default fallback thumbnail is a white gradient; suppress
+ * that fallback while leaving real <img> thumbnails untouched. */
+#nc-root [class*="Card"]:not(img),
+#nc-root [class*="Card"]:not(img)::before,
+#nc-root [class*="Card"]:not(img)::after,
+#nc-root [class*="Card"]:not(img) :not(img) {
+	background-image: none !important;
 }
 
 #nc-root [class*="SidebarNavLink"]:is(:hover, .sidebar-active),
@@ -183,6 +190,32 @@ body,
 	border: 1px solid var(--kr-line) !important;
 	border-radius: var(--kr-radius) !important;
 	box-shadow: none !important;
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
+}
+
+/* Decap's select, date, boolean and collapsed-object widgets are styled by
+ * generated Emotion classes. Their names change between releases, but all
+ * use the css-* prefix. Give the generated widget surface the KraftRadar
+ * dark base; the rules above keep editable controls slightly darker. */
+#nc-root [class^="css-"],
+#nc-root [class*=" css-"] {
+	background-color: var(--kr-surface) !important;
+	background-image: none !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root [class^="css-"] :is(input, textarea, select, [role="combobox"], [contenteditable="true"]),
+#nc-root [class*=" css-"] :is(input, textarea, select, [role="combobox"], [contenteditable="true"]) {
+	background-color: var(--kr-control) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
+}
+
+#nc-root [class^="css-"] :is(label, legend, span, p, small),
+#nc-root [class*=" css-"] :is(label, legend, span, p, small) {
 	color: var(--kr-text) !important;
 	-webkit-text-fill-color: var(--kr-text) !important;
 }
@@ -262,77 +295,9 @@ body,
 	accent-color: var(--kr-accent);
 }
 
-/* React Select: value, search field and indicator intentionally get their
- * own rules. Styling every generated Emotion class made selected values and
- * indicator icons disappear in closed selects. */
-#nc-root div:has(> div > [role="combobox"]) {
-	background-color: var(--kr-control) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: var(--kr-radius) !important;
-}
-
-#nc-root div:has(> div > [role="combobox"]) :is([class*="singleValue"], [class*="placeholder"], [role="combobox"], [class*="indicator"]) {
-	color: var(--kr-text) !important;
-	-webkit-text-fill-color: var(--kr-text) !important;
-	opacity: 1 !important;
-}
-
-#nc-root [role="combobox"] {
-	background: transparent !important;
-	border: 0 !important;
-	box-shadow: none !important;
-}
-
-/* Decap boolean widgets expose an accessible switch and aria-checked. Keep
- * the visual track and thumb tied to that real state, without replacement JS. */
-#nc-root button[role="switch"][aria-checked] {
-	position: relative;
-	width: 2.875rem !important;
-	min-width: 2.875rem !important;
-	height: 1.75rem !important;
-	min-height: 1.75rem !important;
-	padding: 0 !important;
-	background: transparent !important;
-	border: 0 !important;
-}
-
-#nc-root button[role="switch"][aria-checked] [class*="ToggleBackground"] {
-	position: absolute !important;
-	inset: 0 !important;
-	background-color: #344255 !important;
-	border: 1px solid var(--kr-line-strong) !important;
-	border-radius: 999px !important;
-}
-
-#nc-root button[role="switch"][aria-checked="true"] [class*="ToggleBackground"] {
-	background-color: var(--kr-accent-soft) !important;
-	border-color: var(--kr-accent) !important;
-}
-
-#nc-root button[role="switch"][aria-checked] [class*="ToggleHandle"] {
-	position: absolute !important;
-	top: 0.25rem !important;
-	left: 0.25rem !important;
-	width: 1.125rem !important;
-	height: 1.125rem !important;
-	margin: 0 !important;
-	background-color: var(--kr-text) !important;
-	border: 0 !important;
-	border-radius: 999px !important;
-	transform: none !important;
-	transition: transform 150ms ease !important;
-}
-
-#nc-root button[role="switch"][aria-checked="true"] [class*="ToggleHandle"] {
-	transform: translateX(1.125rem) !important;
-}
-
-#nc-root [class*="BooleanControl"]:has(button[role="switch"][aria-checked]) {
-	display: flex !important;
-	align-items: center !important;
-	justify-content: flex-end !important;
-	min-height: 3.25rem !important;
-	padding: 0.75rem !important;
+#nc-root [class*="BooleanControl"] {
+	min-height: 3rem !important;
+	padding: 0.5rem 0.75rem !important;
 	background-color: var(--kr-control) !important;
 	border: 1px solid var(--kr-line) !important;
 	border-radius: var(--kr-radius) !important;
@@ -347,38 +312,12 @@ body,
 	color: var(--kr-text) !important;
 }
 
-/* Collapsed object and list widgets share Decap's named top bar. Keeping this
- * rule at the widget boundary avoids recoloring nested image previews. */
-#nc-root :is([class*="Object"], [class*="List"]) [class*="TopBarContainer"] {
-	min-height: 3.25rem !important;
-	padding: 0.375rem 0.5rem !important;
-	background-color: var(--kr-control) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: var(--kr-radius) !important;
-	color: var(--kr-text) !important;
-}
-
-#nc-root :is([class*="Object"], [class*="List"]) [class*="ExpandButton"] button {
-	min-width: 2.25rem !important;
-	min-height: 2.25rem !important;
-	padding: 0.25rem !important;
-}
-
-#nc-root :is([class*="Object"], [class*="List"]) [class*="AddButton"] {
-	min-height: 2.25rem !important;
-	margin-left: auto !important;
-	background-color: var(--kr-surface-raised) !important;
-	border-color: var(--kr-line-strong) !important;
-	color: var(--kr-text) !important;
-}
-
-#nc-root :is([class*="Object"], [class*="List"]) [class*="TopBarContainer"]:hover {
-	background-color: var(--kr-control-hover) !important;
-	border-color: var(--kr-line-strong) !important;
+#nc-root :is([class*="Object"], [class*="List"], [class*="File"], [class*="Image"]) :is(header, section, div) {
+	border-color: var(--kr-line) !important;
 }
 
 /* 4. Buttons: normal actions, primary actions and compact editor controls ---- */
-#nc-root :is([class*="Button"], [class*="button"]) {
+#nc-root button {
 	min-height: 2.5rem;
 	padding: 0.5rem 0.75rem;
 	background-color: #162334 !important;
@@ -389,7 +328,7 @@ body,
 	font-weight: 700 !important;
 }
 
-#nc-root :is([class*="Button"], [class*="button"]):hover {
+#nc-root button:hover {
 	background-color: var(--kr-control-hover) !important;
 	border-color: var(--kr-line-strong) !important;
 }
@@ -421,37 +360,6 @@ body,
 	border-color: var(--kr-line) !important;
 }
 
-/* A datetime control consists of the date input plus Decap's existing
- * secondary actions. Treat it as a compact, aligned row without renaming
- * Decap's built-in actions in JavaScript. */
-#nc-root [aria-label="datetime field"] [class*="DateTimeControl"] {
-	display: flex !important;
-	align-items: center !important;
-	gap: 0.5rem !important;
-	min-height: 3.25rem !important;
-	padding: 0.375rem !important;
-	background-color: var(--kr-control) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: var(--kr-radius) !important;
-}
-
-#nc-root [aria-label="datetime field"] [class*="DateTimeControl"] input {
-	min-width: 13rem !important;
-	border: 0 !important;
-	box-shadow: none !important;
-}
-
-#nc-root [aria-label="datetime field"] [class*="Buttons"] {
-	display: flex !important;
-	gap: 0.375rem !important;
-}
-
-#nc-root [aria-label="datetime field"] [data-testid="clear-button"] {
-	background-color: transparent !important;
-	border-color: var(--kr-line-strong) !important;
-	color: var(--kr-muted) !important;
-}
-
 /* 5. Menus, date pickers, notifications and media modals -------------------- */
 body :is([role="listbox"], [role="menu"], [role="dialog"], [role="alert"], [class*="menu-portal" i], [class*="Toast"], [class*="Tooltip"], [class*="DatePicker"], [class*="Calendar"]) {
 	background-color: var(--kr-surface) !important;
@@ -473,22 +381,14 @@ body :is([role="option"], [role="menuitem"], [class*="-option" i]):is(:hover, [a
 	color: var(--kr-accent) !important;
 }
 
-/* React Modal is used by the media library and confirmation dialogs. Target
- * dialog surfaces only: coloring every nested div hid media previews and
- * created white fallback layers. */
+/* React Modal is used by the media library and confirmation dialogs. */
 .ReactModal__Overlay {
 	background: rgb(3 7 11 / 78%) !important;
 }
 
-.ReactModalPortal :is(.ReactModal__Content, [role="dialog"]) {
+.ReactModalPortal :is(.ReactModal__Content, [role="dialog"], header, footer, section, aside, main, form, fieldset, ul, li, div) {
 	background-color: var(--kr-surface) !important;
 	background-image: none !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-}
-
-.ReactModalPortal :is([role="dialog"] header, [role="dialog"] footer, [role="dialog"] [class*="Media"], [role="dialog"] [class*="media"]) {
-	background-color: var(--kr-surface) !important;
 	border-color: var(--kr-line) !important;
 	color: var(--kr-text) !important;
 }
