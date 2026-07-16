@@ -1,0 +1,290 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# Isolierter Sveltia-Proof-of-Concept: keine Editorial-Workflow-Branches.
+# Der Remote-Branch cms-sandbox muss vor einem Remote-Speichertest bewusst
+# angelegt werden. Lokale Dateisystemtests ändern weder main noch /admin.
+locale: de
+media_folder: public/uploads/articles
+public_folder: /uploads/articles
+output:
+  # Sveltia schreibt sonst auch leere optionale Werte. Astro erwartet bei
+  # Entwürfen beispielsweise kein leeres publishedAt-Feld.
+  omit_empty_optional_fields: true
+# publish_mode wird absichtlich nicht gesetzt: Sveltia-Editorial-Workflow ist
+# kein Bestandteil dieses isolierten Tests.
+
+backend:
+  name: github
+  repo: DerBaum1337/Kraftradar
+  branch: cms-sandbox
+  squash_merges: true
+  base_url: https://auth.kraftradar.de
+  auth_endpoint: auth
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # Die vier Bereiche verwenden die vorhandenen Ordner. Die gemeinsamen
+  # Feldnamen bleiben flach, damit Frontmatter, URLs und Astro unverändert bleiben.
+  - name: training
+    label: Training
+    label_singular: Trainingsartikel
+    folder: src/content/articles/training
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    editor: { preview: false }
+    fields:
+      - &article_title { label: Titel, name: title, widget: string }
+      - &article_slug { label: Interner Slug, name: slug, widget: hidden, default: "" }
+      - &article_type { label: Artikeltyp, name: articleType, widget: select, default: guide, options: [{ label: Artikel, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Fortschrittsbericht, value: progress }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
+      - &article_status { label: Sichtbarkeit auf der Website, name: status, widget: select, default: draft, options: [{ label: Entwurf, value: draft }, { label: In Überprüfung, value: review }, { label: Bereit zur Veröffentlichung, value: ready }, { label: Veröffentlicht, value: published }], hint: "Dieses Feld steuert, ob der Artikel im Produktions-Build erscheint. Arbeitsablauf verwaltet den Entwurf und die Veröffentlichung in GitHub." }
+      - &article_description { label: Kurzbeschreibung, name: description, widget: text, hint: "Kurze Einleitung für die Artikelseite und Google. Am besten ein bis zwei klare Sätze." }
+      - &article_excerpt { label: Text auf Übersichtsseiten, name: excerpt, widget: text, hint: "Kurzer Teaser für Startseite und Kategorieübersichten." }
+      - &article_body
+        label: Artikelinhalt
+        name: body
+        widget: markdown
+        hint: "Kein H1 verwenden. Tabellen können als Markdown eingefügt werden; keine Skripte oder eigenes HTML einfügen."
+        modes: [rich_text, raw]
+        buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
+        editor_components: [image]
+      - &article_published_at { label: Veröffentlichungsdatum, name: publishedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - &article_updated_at { label: Aktualisierungsdatum, name: updatedAt, widget: hidden, required: false }
+      - &article_author { label: Autor, name: author, widget: hidden, default: basti }
+      - &article_featured { label: Auf der Startseite hervorheben, name: featured, widget: boolean, default: false, required: false }
+      - &article_noindex { label: Nicht bei Google anzeigen, name: noindex, widget: boolean, default: false, required: false }
+      - &article_toc { label: Inhaltsverzeichnis anzeigen, name: toc, widget: hidden, default: true }
+      - &article_hero_image
+        label: Artikelbild
+        name: heroImage
+        widget: object
+        required: false
+        collapsed: true
+        summary: '{{fields.src}}'
+        fields:
+          - { label: Datei, name: src, widget: image, required: false, media_library: { config: { multiple: false } } }
+          - { label: Alternativtext, name: alt, widget: string, required: false, hint: "Für inhaltliche Bilder erforderlich; bei dekorativen Bildern leer lassen." }
+          - { label: Bildunterschrift, name: caption, widget: string, required: false }
+          - { label: Urheber oder Quelle, name: credit, widget: string, required: false }
+          - { label: Quellenlink, name: creditUrl, widget: string, required: false, pattern: ["^$|^https?://", "Leer lassen oder vollständige https-URL eingeben."] }
+      - &article_sources
+        label: Quellen
+        name: sources
+        widget: list
+        required: false
+        collapsed: true
+        minimize_collapsed: true
+        label_singular: "Quelle"
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] }
+          - { label: Herausgeber, name: publisher, widget: string, required: false }
+          # Sveltia ersetzt das ältere Decap-Widget `date` durch `datetime`
+          # mit type: date. Der gespeicherte Feldname und Wert bleiben gleich.
+          - { label: Abgerufen am, name: accessedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+      - &article_related
+        label: Verwandte Artikel
+        name: relatedArticles
+        widget: list
+        required: false
+        collapsed: true
+        minimize_collapsed: true
+        label_singular: "Verwandter Artikel"
+        hint: "Nur den Slug ohne Kategorie eintragen."
+        field: { label: Artikel-Slug, name: slug, widget: string }
+      - &article_seo
+        label: SEO-Einstellungen
+        name: seo
+        widget: object
+        required: false
+        collapsed: true
+        summary: '{{fields.title}}'
+        fields:
+          - { label: Google-Titel (SEO), name: title, widget: string, required: false, hint: "Ohne Eingabe wird der Artikeltitel verwendet." }
+          - { label: Google-Beschreibung (SEO), name: description, widget: text, required: false, hint: "Ohne Eingabe wird die Kurzbeschreibung verwendet. Ideal sind maximal etwa 160 Zeichen." }
+          - { label: Canonical-URL, name: canonical, widget: string, required: false, hint: "In der Regel leer lassen." }
+          - { label: Vorschaubild beim Teilen, name: ogImage, widget: image, required: false }
+      - { label: Kategorie, name: category, widget: hidden, default: training }
+      - { label: Sichtbarer Kategoriename, name: categoryLabel, widget: hidden, default: Training }
+
+  - name: supplements
+    label: Supplements
+    label_singular: Supplement-Artikel
+    folder: src/content/articles/supplements
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    editor: { preview: false }
+    fields:
+      - *article_title
+      - *article_slug
+      - &product_article_type { label: Artikeltyp, name: articleType, widget: select, default: product-test, options: [{ label: Artikel, value: guide }, { label: Erfahrungsbericht, value: experience }, { label: Produkttest, value: product-test }, { label: Produktvergleich, value: comparison }, { label: Grundlagenartikel, value: fundamentals }, { label: Nachricht oder Update, value: update }] }
+      - *article_status
+      - *article_description
+      - *article_excerpt
+      - *article_body
+      - *article_published_at
+      - *article_updated_at
+      - *article_author
+      - *article_featured
+      - *article_noindex
+      - *article_toc
+      - *article_hero_image
+      - *article_sources
+      - *article_related
+      - *article_seo
+      - &product_transparency
+        label: Transparenz
+        name: transparency
+        widget: object
+        collapsed: true
+        summary: 'Eigene Erfahrung: {{fields.personalExperience}}'
+        fields:
+          - { label: Eigene Erfahrung, name: personalExperience, widget: boolean, default: false }
+          - { label: Selbst gekauft, name: selfPurchased, widget: boolean, default: false, required: false }
+          - { label: Gesponsert, name: sponsored, widget: boolean, default: false }
+          - { label: Affiliate-Links, name: affiliateLinks, widget: boolean, default: false }
+          - { label: Hinweis, name: note, widget: text, required: false }
+      - &product_details
+        label: Produktdaten
+        name: product
+        widget: object
+        required: false
+        collapsed: true
+        summary: '{{fields.brand}} {{fields.name}}'
+        fields:
+          - { label: Produktname, name: name, widget: string, required: false }
+          - { label: Marke, name: brand, widget: string, required: false }
+          - { label: Modell, name: model, widget: string, required: false }
+          - { label: Variante, name: variant, widget: string, required: false }
+          - { label: Hersteller-URL, name: manufacturerUrl, widget: string, required: false }
+          - { label: Kaufdatum, name: purchaseDate, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - { label: Kaufpreis in EUR, name: purchasePrice, widget: number, required: false, value_type: float }
+          - { label: Referenzpreis in EUR, name: currentReferencePrice, widget: number, required: false, value_type: float }
+          - { label: Preis geprüft am, name: priceCheckedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - { label: Test gestartet am, name: testStartedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - { label: Test beendet am, name: testEndedAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - { label: Anzahl Nutzungen, name: usageCount, widget: number, required: false, value_type: int }
+          - { label: Teststatus, name: testStatus, widget: select, options: [{ label: Geplant, value: planned }, { label: Läuft, value: ongoing }, { label: Abgeschlossen, value: completed }], required: false }
+      - &product_pros { label: Vorteile, name: pros, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Vorteil, field: { label: Vorteil, name: item, widget: string } }
+      - &product_cons { label: Nachteile, name: cons, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Nachteil, field: { label: Nachteil, name: item, widget: string } }
+      - &product_best_for { label: Geeignet für, name: bestFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Zielgruppe, field: { label: Zielgruppe, name: item, widget: string } }
+      - &product_less_suitable { label: Weniger geeignet für, name: lessSuitableFor, widget: list, required: false, collapsed: true, minimize_collapsed: true, label_singular: Zielgruppe, field: { label: Zielgruppe, name: item, widget: string } }
+      - &product_conclusion { label: Kurzfazit, name: shortConclusion, widget: text, required: false }
+      - &product_value { label: Preis-Leistungs-Einschätzung, name: valueAssessment, widget: text, required: false }
+      - { label: Kategorie, name: category, widget: hidden, default: supplements }
+      - { label: Sichtbarer Kategoriename, name: categoryLabel, widget: hidden, default: Supplements }
+
+  - name: gym_zubehoer
+    label: Gym-Zubehör
+    label_singular: Zubehörartikel
+    folder: src/content/articles/gym-zubehoer
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    editor: { preview: false }
+    fields:
+      - *article_title
+      - *article_slug
+      - *product_article_type
+      - *article_status
+      - *article_description
+      - *article_excerpt
+      - *article_body
+      - *article_published_at
+      - *article_updated_at
+      - *article_author
+      - *article_featured
+      - *article_noindex
+      - *article_toc
+      - *article_hero_image
+      - *article_sources
+      - *article_related
+      - *article_seo
+      - *product_transparency
+      - *product_details
+      - *product_pros
+      - *product_cons
+      - *product_best_for
+      - *product_less_suitable
+      - *product_conclusion
+      - *product_value
+      - { label: Kategorie, name: category, widget: hidden, default: gym-zubehoer }
+      - { label: Sichtbarer Kategoriename, name: categoryLabel, widget: hidden, default: Gym-Zubehör }
+
+  - name: mein_weg
+    label: Mein Weg
+    label_singular: Mein-Weg-Beitrag
+    folder: src/content/articles/mein-weg
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    editor: { preview: false }
+    fields:
+      - *article_title
+      - *article_slug
+      - *article_type
+      - *article_status
+      - *article_description
+      - *article_excerpt
+      - *article_body
+      - *article_published_at
+      - *article_updated_at
+      - *article_author
+      - *article_featured
+      - *article_noindex
+      - *article_toc
+      - *article_hero_image
+      - *article_sources
+      - *article_related
+      - *article_seo
+      - { label: Zwischenfazit, name: interimConclusion, widget: text, required: false }
+      - { label: Langzeitupdate, name: longTermUpdate, widget: text, required: false }
+      - { label: Kategorie, name: category, widget: hidden, default: mein-weg }
+      - { label: Sichtbarer Kategoriename, name: categoryLabel, widget: hidden, default: Mein Weg }
+
+  - name: authors
+    label: Autoren
+    folder: src/content/authors
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Rolle, name: role, widget: string }
+      - { label: Kurzbiografie, name: bio, widget: text }
+      - { label: Trainingsstart, name: startedTrainingAt, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
+      - label: Profilbild
+        name: image
+        widget: object
+        required: false
+        fields:
+          - { label: Datei, name: src, widget: image, required: false }
+          - { label: Alternativtext, name: alt, widget: string, required: false }
+          - { label: Bildunterschrift, name: caption, widget: string, required: false }
+          - { label: Urheber oder Quelle, name: credit, widget: string, required: false }
+      - { label: Weiterführende Profile, name: sameAs, widget: list, required: false, field: { label: URL, name: url, widget: string, pattern: ["^https://", "Bitte eine vollständige https-URL eintragen."] } }
+      - { label: Profilinhalt, name: body, widget: markdown, required: false }
+
+  - name: pages
+    label: Seiteninhalte
+    files:
+      - label: Startseite
+        name: startseite
+        file: src/content/pages/index.md
+        fields: &page_fields
+          - { label: Seitentitel, name: title, widget: string }
+          - { label: Beschreibung, name: description, widget: text }
+          - { label: SEO-Titel, name: seoTitle, widget: string }
+          - { label: SEO-Beschreibung, name: seoDescription, widget: text }
+          - { label: Suchmaschinen ausschließen, name: noindex, widget: boolean, default: false, required: false }
+          - { label: Inhaltshinweis, name: body, widget: markdown, required: false }
+      - { label: Training, name: training, file: src/content/pages/training.md, fields: *page_fields }
+      - { label: Supplements, name: supplements, file: src/content/pages/supplements.md, fields: *page_fields }
+      - { label: Gym-Zubehör, name: gym_zubehoer, file: src/content/pages/gym-zubehoer.md, fields: *page_fields }
+      - { label: Mein Weg, name: mein_weg, file: src/content/pages/mein-weg.md, fields: *page_fields }
+      - { label: Über KraftRadar, name: ueber, file: src/content/pages/ueber-kraftradar.md, fields: *page_fields }
+      - { label: Testmethode, name: testmethode, file: src/content/pages/testmethode.md, fields: *page_fields }
