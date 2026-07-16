@@ -1,18 +1,24 @@
-/* KraftRadar Admin – Dark-Mode-Anpassungen für Decap CMS */
+/* KraftRadar Administration
+ *
+ * Decap CMS exposes only a small stable styling API. This theme therefore
+ * keeps the overrides deliberately shallow: one dark palette, ordinary
+ * semantic controls and a few component-name selectors for cards and panes.
+ * It must not depend on Decap's generated css-* hashes.
+ */
 :root {
 	color-scheme: dark;
 	--kr-bg: #0b0f14;
-	--kr-surface: #111923;
-	--kr-surface-raised: #152131;
+	--kr-surface: #111720;
+	--kr-surface-raised: #18212c;
 	--kr-control: #0d141d;
-	--kr-button: #162334;
-	--kr-button-hover: #1c2d41;
-	--kr-line: #2a3a4d;
-	--kr-line-strong: #426078;
-	--kr-text: #f4f7fb;
-	--kr-muted: #b5bdc9;
-	--kr-green: #55e6a5;
-	--kr-green-dark: #123e34;
+	--kr-control-hover: #141f2c;
+	--kr-line: #2b3542;
+	--kr-line-strong: #53667b;
+	--kr-text: #f5f7fa;
+	--kr-muted: #aeb8c5;
+	--kr-accent: #55e6a5;
+	--kr-accent-soft: #123e34;
+	--kr-danger: #ff9b9b;
 }
 
 html,
@@ -22,31 +28,38 @@ body,
 	margin: 0;
 	background: var(--kr-bg);
 	color: var(--kr-text);
-	font-family:
-		Inter,
-		ui-sans-serif,
-		system-ui,
-		-apple-system,
-		BlinkMacSystemFont,
-		"Segoe UI",
-		sans-serif;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	font-size: 16px;
 	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 }
 
 #nc-root,
-#nc-root * {
+#nc-root *,
+#nc-root *::before,
+#nc-root *::after {
 	box-sizing: border-box;
+	border-color: var(--kr-line);
 }
 
-/* Grundfläche, Navigation und Editor */
+/* Decap's standard light gradients are the source of the white bars in the
+ * card view. Remove only backgrounds and restore surfaces below. */
+#nc-root [class^="css-"],
+#nc-root [class*=" css-"],
+#nc-root [class*="GridCard"],
+#nc-root [class*="GridCard"]::before,
+#nc-root [class*="GridCard"]::after {
+	background-image: none !important;
+}
+
 #nc-root [class*="AppHeader"],
-#nc-root [class*="AppMainContainer"],
+#nc-root [class*="AppMain"],
 #nc-root [class*="CollectionContainer"],
 #nc-root [class*="EditorContainer"],
-#nc-root [class*="ToolbarContainer"],
-#nc-root [class*="ControlPaneContainer"] {
-	background: var(--kr-bg) !important;
+#nc-root [class*="ControlPaneContainer"],
+#nc-root [class*="NoPreviewContainer"],
+#nc-root main {
+	background-color: var(--kr-bg) !important;
 	color: var(--kr-text) !important;
 }
 
@@ -55,569 +68,142 @@ body,
 	box-shadow: none !important;
 }
 
-#nc-root [class*="SidebarContainer"],
-#nc-root [class*="CollectionTopContainer"],
+/* Navigation, collection views, workflow panels and cards. */
+#nc-root [class*="Sidebar"],
+#nc-root [class*="CollectionTop"],
 #nc-root [class*="ListCard"],
+#nc-root [class*="GridCard"],
+#nc-root [class*="CardGrid"],
+#nc-root [class*="CardsGrid"],
+#nc-root [class*="Workflow"],
+#nc-root [class*="Toolbar"],
+#nc-root [class*="TopBar"],
 #nc-root [class*="StyledSplitPane"] {
-	background: var(--kr-surface) !important;
+	background-color: var(--kr-surface) !important;
+	background-image: none !important;
 	border-color: var(--kr-line) !important;
-	border-radius: 12px !important;
 	box-shadow: none !important;
-}
-
-#nc-root [class*="ListCard"]:hover {
-	background: var(--kr-surface-raised) !important;
-	border-color: var(--kr-line-strong) !important;
-	transform: translateY(-1px);
-}
-
-#nc-root a,
-#nc-root h1,
-#nc-root h2,
-#nc-root h3 {
 	color: var(--kr-text) !important;
 }
 
-#nc-root [class*="SidebarNavLink"].sidebar-active,
-#nc-root [class*="AppHeaderNavLink"].header-link-active,
-#nc-root [class*="SidebarNavLink"]:hover {
-	background: var(--kr-green-dark) !important;
-	color: var(--kr-green) !important;
+#nc-root [class*="Sidebar"],
+#nc-root [class*="CollectionTop"],
+#nc-root [class*="ListCard"],
+#nc-root [class*="GridCard"],
+#nc-root [class*="Workflow"] {
+	border-radius: 0.75rem !important;
 }
 
-/* Feldtitel */
-#nc-root [class*="ControlContainer"],
-#nc-root [class*="ControlTopbar"],
-#nc-root [class*="FieldLabel"] {
-	background: transparent !important;
-	color: var(--kr-muted) !important;
-}
-
-#nc-root [class*="FieldLabel"] {
-	padding: 0 !important;
-	font-size: 0.8125rem !important;
-	font-weight: 700 !important;
-	letter-spacing: 0.045em !important;
-	line-height: 1.35 !important;
-}
-
-/* Normale Eingabefelder */
-#nc-root input:not([type="checkbox"]):not([type="radio"]),
-#nc-root textarea,
-#nc-root select,
-#nc-root [contenteditable="true"] {
-	background: var(--kr-control) !important;
-	color: var(--kr-text) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: 8px !important;
-	box-shadow: none !important;
-	caret-color: var(--kr-text);
-}
-
-#nc-root input::placeholder,
-#nc-root textarea::placeholder {
-	color: var(--kr-muted) !important;
-	opacity: 0.8;
-}
-
-#nc-root [class*="ControlContainer"] input:not([type="checkbox"]):not([type="radio"]),
-#nc-root [class*="ControlContainer"] select {
-	min-height: 2.75rem !important;
-}
-
-#nc-root [class*="ControlContainer"] textarea {
-	min-height: 7.5rem !important;
-	line-height: 1.55 !important;
-	resize: vertical;
-}
-
-#nc-root input:focus,
-#nc-root textarea:focus,
-#nc-root select:focus,
-#nc-root [contenteditable="true"]:focus {
-	border-color: var(--kr-green) !important;
-	box-shadow: 0 0 0 3px rgb(85 230 165 / 18%) !important;
-	outline: 0 !important;
-}
-
-/* React-Select: Kategorie, Artikeltyp, Status und Autor */
-#nc-root .Pane1 [class$="-control"],
-#nc-root .Pane1 [class*="-control "],
-#nc-root .Pane1 [class$="-menu"],
-#nc-root .Pane1 [class*="-menu "],
-#nc-root .Pane1 [class$="-menu-list"],
-#nc-root .Pane1 [class*="-menu-list "],
-#nc-root .Pane1 [class$="-option"],
-#nc-root .Pane1 [class*="-option "],
-#nc-root [class*="SelectControl"] > div,
-#nc-root [class*="SelectControl"] [class*="-control"],
-#nc-root [class*="SelectControl"] [class*="-menu"],
-#nc-root [class*="SelectControl"] [class*="-menu-list"],
-#nc-root [class*="SelectControl"] [class*="-option"] {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-#nc-root .Pane1 [class*="-singleValue"],
-#nc-root .Pane1 [class*="-placeholder"],
-#nc-root .Pane1 [class*="-Input"],
-#nc-root .Pane1 [class*="-input"],
-#nc-root .Pane1 [class*="-indicator"],
-#nc-root [class*="SelectControl"] [class*="-singleValue"],
-#nc-root [class*="SelectControl"] [class*="-placeholder"],
-#nc-root [class*="SelectControl"] [class*="-indicator"] {
-	color: var(--kr-text) !important;
-}
-
-#nc-root .Pane1 [class$="-option"]:hover,
-#nc-root .Pane1 [class*="-option "]:hover,
-#nc-root .Pane1 [class$="-option"][aria-selected="true"],
-#nc-root .Pane1 [class*="-option "][aria-selected="true"],
-#nc-root [class*="SelectControl"] [class*="-option"]:hover,
-#nc-root [class*="SelectControl"] [class*="-option"][aria-selected="true"] {
-	background: var(--kr-green-dark) !important;
-	color: var(--kr-green) !important;
-}
-
-/* Rich-Text- und Markdown-Editor */
-#nc-root [class*="EditorControlBar"],
-#nc-root [class*="StyledToolbarButton"],
-#nc-root .DraftEditor-root,
-#nc-root .DraftEditor-editorContainer,
-#nc-root .public-DraftEditor-content,
-#nc-root [data-slate-editor="true"],
-#nc-root div:has(> [contenteditable="true"]),
-#nc-root div:has(> .DraftEditor-root) {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-#nc-root .public-DraftEditor-content,
-#nc-root [data-slate-editor="true"],
-#nc-root [contenteditable="true"] {
-	min-height: 10rem;
-}
-
-/* Datumsfelder */
-#nc-root .Pane1 [class*="DateControl"],
-#nc-root .Pane1 [class*="DateTimeControl"],
-#nc-root .Pane1 div:has(> input[type="date"]),
-#nc-root .Pane1 div:has(> input[type="time"]),
-#nc-root .Pane1 div:has(input[type="date"]),
-#nc-root .Pane1 div:has(input[type="time"]) {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Checkboxen und Schalter */
-#nc-root .Pane1 input[type="checkbox"],
-#nc-root .Pane1 input[type="radio"] {
-	accent-color: var(--kr-green);
-}
-
-#nc-root .Pane1 [class*="BooleanControl"],
-#nc-root .Pane1 div:has(> input[type="checkbox"]),
-#nc-root .Pane1 div:has(> label > input[type="checkbox"]),
-#nc-root .Pane1 label:has(input[type="checkbox"]) {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Datei-, Bild-, Objekt- und Listenfelder */
-#nc-root .Pane1 fieldset,
-#nc-root .Pane1 [class*="FileWidget"],
-#nc-root .Pane1 [class*="ImageWidget"],
-#nc-root .Pane1 [class*="ObjectControl"],
-#nc-root .Pane1 [class*="ListControl"],
-#nc-root .Pane1 [class*="ObjectWidget"],
-#nc-root .Pane1 [class*="ListWidget"] {
-	background: var(--kr-surface) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-#nc-root .Pane1 [class*="FileWidget"] > div,
-#nc-root .Pane1 [class*="ImageWidget"] > div,
-#nc-root .Pane1 [class*="ObjectControl"] > div,
-#nc-root .Pane1 [class*="ListControl"] > div,
-#nc-root .Pane1 [class*="ObjectWidget"] > div,
-#nc-root .Pane1 [class*="ListWidget"] > div {
-	background-color: transparent !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-}
-
-/* Eingeklappte Objekt- und Listenzeilen */
-#nc-root .Pane1 [class*="ObjectControl"] button,
-#nc-root .Pane1 [class*="ListControl"] button,
-#nc-root .Pane1 [class*="ObjectWidget"] button,
-#nc-root .Pane1 [class*="ListWidget"] button,
-#nc-root .Pane1 button[aria-expanded] {
-	background: var(--kr-button) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Allgemeine Editor-Schaltflächen */
-#nc-root .Pane1 button {
-	background: var(--kr-button) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	border-radius: 7px !important;
-}
-
-#nc-root .Pane1 button:hover {
-	background: var(--kr-button-hover) !important;
+#nc-root [class*="ListCard"]:hover,
+#nc-root [class*="GridCard"]:hover {
+	background-color: var(--kr-surface-raised) !important;
 	border-color: var(--kr-line-strong) !important;
 }
 
-/* Hauptaktionen */
-#nc-root [class*="CollectionTopNewButton"],
-#nc-root [class*="QuickNewButton"],
-#nc-root [class*="PublishButton"] {
-	background: var(--kr-green) !important;
-	border-color: var(--kr-green) !important;
-	color: #07120e !important;
-	font-weight: 750 !important;
-	border-radius: 8px !important;
+/* No generic white workflow header or pastel status column. */
+#nc-root [class*="Workflow"] * {
+	background-image: none !important;
 }
 
-#nc-root .Pane1 label,
-#nc-root .Pane1 legend {
-	background: transparent !important;
-	color: var(--kr-muted) !important;
-}
-
-/* Vorschau */
-#nc-root [class*="PreviewPane"],
-#nc-root iframe {
-	background: var(--kr-surface) !important;
-}
-
-#nc-root [class*="PreviewPane"] {
-	color: var(--kr-text) !important;
-}
-
-/* Während eines geöffneten Eintrags ist die globale Inhalts-/Medienleiste
- * redundant. Der Editor hat seine eigene Speichern- und Veröffentlichungsleiste. */
-#nc-root:has(.SplitPane) [class*="AppHeader"] {
-	display: none !important;
-}
-
-/* Medienbibliothek und Dialoge werden außerhalb von #nc-root gerendert. */
-.ReactModal__Overlay,
-.ReactModalPortal [role="dialog"] {
-	background: rgb(3 7 11 / 78%) !important;
-	color: var(--kr-text) !important;
-}
-
-.ReactModal__Content,
-.ReactModalPortal > div > div {
-	background: var(--kr-surface) !important;
-	border: 1px solid var(--kr-line) !important;
-	color: var(--kr-text) !important;
-}
-
-.ReactModalPortal input,
-.ReactModalPortal textarea,
-.ReactModalPortal select {
-	background: var(--kr-control) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: 8px !important;
-	box-shadow: none !important;
-	color: var(--kr-text) !important;
-}
-
-.ReactModalPortal button {
-	background: var(--kr-button) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: 8px !important;
-	color: var(--kr-text) !important;
-}
-
-.ReactModalPortal input,
-.ReactModalPortal button {
-	min-height: 2.75rem !important;
-}
-
-.ReactModalPortal button:hover {
-	background: var(--kr-button-hover) !important;
-	border-color: var(--kr-line-strong) !important;
-}
-
-/* Fokus */
-.ReactModalPortal button:focus-visible,
-.ReactModalPortal input:focus-visible,
-#nc-root a:focus-visible,
-#nc-root button:focus-visible,
-#nc-root input:focus-visible,
-#nc-root textarea:focus-visible,
-#nc-root select:focus-visible {
-	outline: 3px solid var(--kr-green) !important;
-	outline-offset: 2px !important;
-}
-
-/* Mobile Ansicht */
-@media (max-width: 820px), (hover: none), (pointer: coarse) {
-	#nc-root [class*="AppHeaderContent"] {
-		padding-inline: 0.75rem !important;
-	}
-
-	#nc-root [class*="SidebarContainer"] {
-		border-radius: 0 !important;
-		border-inline: 0 !important;
-	}
-
-	#nc-root .SplitPane.vertical > .Pane2 {
-		display: none !important;
-	}
-
-	#nc-root .SplitPane.vertical > .Pane1 {
-		width: 100% !important;
-		min-width: 0 !important;
-	}
-
-	#nc-root [class*="ControlPaneContainer"] {
-		padding-inline: 0.75rem !important;
-	}
-}
-
-/* Gleiche Regel für die Desktopansicht auf einem physischen Smartphone. */
-html.kr-mobile-device #nc-root .SplitPane.vertical > .Pane2 {
-	display: none !important;
-	flex: 0 0 0 !important;
-	width: 0 !important;
-}
-
-html.kr-mobile-device #nc-root .SplitPane.vertical > .Pane1 {
-	flex: 1 1 100% !important;
-	width: 100% !important;
-	min-width: 0 !important;
-	max-width: 100% !important;
-}
-
-html.kr-mobile-device #nc-root .SplitPane.vertical > .Resizer {
-	display: none !important;
-}
-
-html.kr-mobile-device #nc-root [class*="ToolbarContainer"],
-html.kr-mobile-device #nc-root [class*="EditorContainer"] {
-	min-width: 0 !important;
-	max-width: 100% !important;
-}
-
-/* Medienbibliothek auf Smartphones als Vollbild-Panel. */
-html.kr-mobile-device .ReactModalPortal > div > div,
-html.kr-mobile-device .ReactModal__Content {
-	inset: 0.75rem !important;
-	box-sizing: border-box !important;
-	width: auto !important;
-	height: calc(100dvh - 1.5rem) !important;
-	max-width: none !important;
-	max-height: none !important;
-	margin: 0 !important;
-	overflow: auto !important;
-	border-radius: 12px !important;
-}
-
-html.kr-mobile-device .ReactModalPortal [role="dialog"] {
-	min-width: 0 !important;
-}
-
-html.kr-mobile-device .ReactModalPortal button {
-	min-height: 2.9rem !important;
-	padding-inline: 0.85rem !important;
-}
-
-/* Bewegungen reduzieren */
-@media (prefers-reduced-motion: reduce) {
-	#nc-root * {
-		transition: none !important;
-	}
-}
-
-
-/* =========================================================
-   Decap CMS 3.14.1 – gezielte Korrektur der hellen Editorfelder
-   Die Klassen wurden direkt im laufenden KraftRadar-Admin ausgelesen.
-   ========================================================= */
-
-/* Gesamter Formularbereich ohne Vorschau */
-#nc-root [class*="NoPreviewContainer"] {
-	background: var(--kr-bg) !important;
-	color: var(--kr-text) !important;
-}
-
-/* Auswahlfelder: Kategorie, Artikeltyp, Status, Autor */
-#nc-root .css-a8jran-container {
-	background: transparent !important;
-	color: var(--kr-text) !important;
-}
-
-#nc-root .css-ttryuq-control,
-#nc-root .css-ttryuq-control:hover,
-#nc-root .css-ttryuq-control:focus-within {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Datumsfelder */
-#nc-root .css-ys2s0e-DateTimeControl,
-#nc-root .css-ys2s0e-DateTimeControl > div {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Helle Feldrahmen bei Schaltern, Bildern und einzelnen Widgets */
-#nc-root .css-83wr9v {
-	background: var(--kr-surface) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Eingeklappte Objekte, Listen und deren Kopfzeilen */
-#nc-root .css-5hiu9n,
-#nc-root .css-1265b6l-TopBarContainer,
-#nc-root .css-1es1p1t {
-	background: var(--kr-surface) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-/* Bild-Schaltflächen */
-#nc-root [class*="FileWidgetButton"] {
-	background: var(--kr-button) !important;
-	border: 1px solid var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	box-shadow: none !important;
-}
-
-#nc-root [class*="FileWidgetButton"]:hover {
-	background: var(--kr-button-hover) !important;
-	border-color: var(--kr-line-strong) !important;
-}
-
-/* Schalter: dunkle Leiste, heller Griff */
-#nc-root [class*="ToggleBackground"] {
-	background: #263548 !important;
-	border-color: var(--kr-line) !important;
-}
-
-#nc-root [class*="ToggleBackground"][aria-checked="true"],
-#nc-root [class*="ToggleBackground"]:has(+ input:checked) {
-	background: var(--kr-green-dark) !important;
-}
-
-#nc-root [class*="ToggleHandle"] {
-	background: var(--kr-text) !important;
-	border-color: var(--kr-line) !important;
-}
-
-/* Medienbibliothek: dynamisch gerenderter Dialog */
-.ReactModalPortal [role="dialog"],
-.ReactModalPortal [role="dialog"] > div,
-.ReactModalPortal [role="dialog"] section,
-.ReactModalPortal [role="dialog"] aside,
-.ReactModalPortal [role="dialog"] header,
-.ReactModalPortal [role="dialog"] footer,
-.ReactModalPortal [role="dialog"] form,
-.ReactModalPortal [role="dialog"] fieldset,
-.ReactModalPortal [role="dialog"] ul,
-.ReactModalPortal [role="dialog"] li {
+#nc-root [class*="Workflow"] [class*="Column"],
+#nc-root [class*="Workflow"] [class*="Card"] {
 	background-color: var(--kr-surface) !important;
 	border-color: var(--kr-line) !important;
 	color: var(--kr-text) !important;
 }
 
-.ReactModalPortal [role="dialog"] input,
-.ReactModalPortal [role="dialog"] textarea,
-.ReactModalPortal [role="dialog"] select {
-	background: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
+#nc-root a,
+#nc-root h1,
+#nc-root h2,
+#nc-root h3,
+#nc-root h4,
+#nc-root p,
+#nc-root li {
+	color: inherit !important;
 }
 
-.ReactModalPortal [role="dialog"] button {
-	background: var(--kr-button) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
+#nc-root [class*="SidebarNavLink"]:hover,
+#nc-root [class*="SidebarNavLink"].sidebar-active,
+#nc-root [aria-current="page"] {
+	background-color: var(--kr-accent-soft) !important;
+	color: var(--kr-accent) !important;
 }
 
-.ReactModalPortal [role="dialog"] button:hover {
-	background: var(--kr-button-hover) !important;
-	border-color: var(--kr-line-strong) !important;
+/* Forms and rich-text editor. */
+#nc-root label,
+#nc-root legend,
+#nc-root [class*="FieldLabel"],
+#nc-root [class*="ControlLabel"],
+#nc-root [class*="Hint"],
+#nc-root small {
+	background: transparent !important;
+	color: var(--kr-muted) !important;
+	font-size: 0.8125rem !important;
+	font-weight: 650 !important;
+	letter-spacing: 0.025em;
 }
 
-/* Final form polish: Decap renders select menus in a portal outside the
- * editor root. Use semantic roles here instead of generated css-* classes. */
-#nc-root [class*="NoPreviewContainer"] {
-	width: min(100%, 46rem) !important;
-	max-width: 46rem !important;
-	margin-inline: auto !important;
-	padding: 1.25rem !important;
-}
-
+#nc-root input:not([type="checkbox"]):not([type="radio"]),
+#nc-root textarea,
+#nc-root select,
 #nc-root [role="combobox"],
-#nc-root [class*="SelectControl"] [class*="control"],
-#nc-root [class*="SelectControl"] [class*="Control"] {
-	background: var(--kr-control) !important;
+#nc-root [contenteditable="true"],
+#nc-root .DraftEditor-root,
+#nc-root .DraftEditor-editorContainer,
+#nc-root .public-DraftEditor-content {
+	background-color: var(--kr-control) !important;
+	background-image: none !important;
 	border: 1px solid var(--kr-line) !important;
-	border-radius: 8px !important;
-	color: var(--kr-text) !important;
+	border-radius: 0.5rem !important;
 	box-shadow: none !important;
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
 }
 
+#nc-root input:not([type="checkbox"]):not([type="radio"]),
+#nc-root select,
+#nc-root [role="combobox"] {
+	min-height: 2.75rem !important;
+}
+
+#nc-root textarea {
+	min-height: 7rem !important;
+	line-height: 1.55 !important;
+	resize: vertical;
+}
+
+#nc-root [contenteditable="true"],
+#nc-root [contenteditable="true"] *,
+#nc-root .DraftEditor-root,
+#nc-root .DraftEditor-root *,
+#nc-root .DraftEditor-editorContainer,
+#nc-root .DraftEditor-editorContainer *,
+#nc-root .public-DraftEditor-content,
+#nc-root .public-DraftEditor-content * {
+	background-color: transparent !important;
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
+}
+
+#nc-root [contenteditable="true"],
+#nc-root .public-DraftEditor-content {
+	min-height: 11rem;
+}
+
+#nc-root input::placeholder,
+#nc-root textarea::placeholder {
+	color: var(--kr-muted) !important;
+	opacity: 0.85;
+}
+
+#nc-root input:focus,
+#nc-root textarea:focus,
+#nc-root select:focus,
 #nc-root [role="combobox"]:focus-within,
-#nc-root [class*="SelectControl"] [class*="control"]:focus-within {
-	border-color: var(--kr-green) !important;
+#nc-root [contenteditable="true"]:focus {
+	border-color: var(--kr-accent) !important;
 	box-shadow: 0 0 0 3px rgb(85 230 165 / 18%) !important;
-}
-
-/* Dropdowns are portalled directly below body, so they cannot be scoped to
- * #nc-root. This page contains only Decap CMS and has no public-site menus. */
-body [role="listbox"],
-body [class*="-menu"],
-body [class*="menu-portal"] {
-	background: var(--kr-control) !important;
-	border: 1px solid var(--kr-line) !important;
-	border-radius: 8px !important;
-	box-shadow: 0 14px 30px rgb(0 0 0 / 32%) !important;
-	color: var(--kr-text) !important;
-}
-
-body [role="option"],
-body [class*="-option"] {
-	background: var(--kr-control) !important;
-	color: var(--kr-text) !important;
-}
-
-body [role="option"]:hover,
-body [role="option"][aria-selected="true"],
-body [class*="-option"]:hover,
-body [class*="-option"][aria-selected="true"] {
-	background: var(--kr-green-dark) !important;
-	color: var(--kr-green) !important;
-}
-
-#nc-root select option {
-	background: var(--kr-control);
-	color: var(--kr-text);
+	outline: 0 !important;
 }
 
 #nc-root input:-webkit-autofill,
@@ -627,231 +213,168 @@ body [class*="-option"][aria-selected="true"] {
 	-webkit-box-shadow: 0 0 0 1000px var(--kr-control) inset !important;
 }
 
-#nc-root [class*="FieldLabel"],
-#nc-root .Pane1 label,
-#nc-root .Pane1 legend {
-	color: #d7dfeb !important;
-	font-size: 0.875rem !important;
+#nc-root input[type="checkbox"],
+#nc-root input[type="radio"] {
+	accent-color: var(--kr-accent);
+}
+
+/* Buttons and expandable object/list widgets. */
+#nc-root button,
+#nc-root [role="button"],
+#nc-root button[aria-expanded] {
+	min-height: 2.5rem;
+	background-color: #162334 !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 0.5rem !important;
+	box-shadow: none !important;
+	color: var(--kr-text) !important;
 	font-weight: 700 !important;
 }
 
-#nc-root [class*="Hint"],
-#nc-root [class*="hint"],
-#nc-root small {
-	color: var(--kr-muted) !important;
-	font-size: 0.875rem !important;
-	line-height: 1.5 !important;
+#nc-root button:hover,
+#nc-root [role="button"]:hover {
+	background-color: var(--kr-control-hover) !important;
+	border-color: var(--kr-line-strong) !important;
 }
 
-@media (max-width: 820px) {
-	#nc-root [class*="NoPreviewContainer"] {
-		width: 100% !important;
-		padding: 0.875rem !important;
-	}
+#nc-root [class*="CollectionTopNewButton"],
+#nc-root [class*="QuickNewButton"],
+#nc-root [class*="PublishButton"] {
+	background-color: var(--kr-accent) !important;
+	border-color: var(--kr-accent) !important;
+	color: #07120e !important;
 }
 
-/* -------------------------------------------------------------------------
-   Decap final surface overrides
-   These deliberately use stable roles plus broad generated-class fallbacks.
-   Decap injects its own Emotion stylesheet at runtime; this stylesheet is
-   loaded after the CMS in index.html so selected controls and overlay menus
-   cannot fall back to Decap's light default palette.
-   ------------------------------------------------------------------------- */
-html,
-body {
-	background: var(--kr-bg) !important;
-	color: var(--kr-text) !important;
-}
-
-body > #nc-root,
-#nc-root {
-	background: var(--kr-bg) !important;
-	color: var(--kr-text) !important;
-}
-
-/* React Select renders a different generated class while a control is open.
-   Cover the normal, focused and selected variants without relying on hashes. */
-#nc-root [class*="SelectControl"],
-#nc-root [class*="SelectControl"] > div,
-#nc-root [class*="SelectControl"] > div > div,
-#nc-root [class*="select-control" i],
-#nc-root [class*="select-control" i] > div,
-#nc-root [class*="-control" i],
-#nc-root [class*="-control" i] > div,
-#nc-root [role="combobox"],
-#nc-root [role="combobox"] > div {
-	background-color: var(--kr-control) !important;
-	color: var(--kr-text) !important;
-	border-color: var(--kr-line) !important;
-	box-shadow: none !important;
-}
-
-#nc-root [class*="SelectControl"]:focus-within,
-#nc-root [class*="select-control" i]:focus-within,
-#nc-root [class*="-control" i]:focus-within,
-#nc-root [role="combobox"]:focus-within {
-	border-color: var(--kr-green) !important;
-	box-shadow: 0 0 0 3px rgb(85 230 165 / 18%) !important;
-}
-
-/* Popup dropdowns, the "Sortieren nach" menu and selected rows. */
+/* React Select and Decap menus are mounted directly below body. */
 body [role="listbox"],
-body [role="listbox"] *,
 body [role="menu"],
-body [role="menu"] *,
 body [class*="menu-portal" i],
-body [class*="menu-portal" i] *,
-body [class*="-menu" i],
-body [class*="-menu" i] *,
+body [class*="-menu" i] {
+	background-color: var(--kr-control) !important;
+	background-image: none !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 0.5rem !important;
+	box-shadow: 0 14px 30px rgb(0 0 0 / 35%) !important;
+	color: var(--kr-text) !important;
+}
+
+body [role="option"],
+body [role="menuitem"],
 body [class*="-option" i] {
 	background-color: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
+	background-image: none !important;
 	color: var(--kr-text) !important;
 }
 
 body [role="option"]:hover,
 body [role="option"][aria-selected="true"],
 body [role="menuitem"]:hover,
-body [role="menuitem"][aria-current="true"],
 body [class*="-option" i]:hover,
 body [class*="-option" i][aria-selected="true"] {
-	background-color: var(--kr-green-dark) !important;
-	color: var(--kr-green) !important;
+	background-color: var(--kr-accent-soft) !important;
+	color: var(--kr-accent) !important;
 }
 
-/* Grid cards use different components from the working list view. */
-#nc-root [class*="CardsGrid" i],
-#nc-root [class*="CardsGrid" i] > *,
-#nc-root [class*="GridCard" i],
-#nc-root [class*="GridCard" i] > *,
-#nc-root [class*="CardGrid" i],
-#nc-root [class*="CardGrid" i] > * {
-	background-color: var(--kr-surface) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
+#nc-root select option {
+	background-color: var(--kr-control);
+	color: var(--kr-text);
 }
 
-#nc-root [class*="CardsGrid" i] a,
-#nc-root [class*="GridCard" i] a,
-#nc-root [class*="CardGrid" i] a {
-	color: var(--kr-text) !important;
+/* The editor is intentionally single-pane. A hidden preview must not retain
+ * half of the available width. */
+#nc-root .SplitPane.vertical > .Pane1 {
+	flex: 1 1 100% !important;
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: 100% !important;
 }
 
-/* The media library is rendered in a React portal, outside #nc-root. */
+#nc-root .SplitPane.vertical > .Pane2,
+#nc-root .SplitPane.vertical > .Resizer {
+	display: none !important;
+}
+
+#nc-root [class*="NoPreviewContainer"] {
+	width: min(100%, 62rem) !important;
+	max-width: 62rem !important;
+	margin-inline: auto !important;
+	padding: 1.5rem !important;
+}
+
+/* Media library and dialogs live outside #nc-root. */
+.ReactModal__Overlay {
+	background: rgb(3 7 11 / 78%) !important;
+}
+
 .ReactModalPortal,
-.ReactModalPortal > *,
 .ReactModalPortal .ReactModal__Content,
-.ReactModalPortal [role="dialog"],
-.ReactModalPortal [role="dialog"] * {
+.ReactModalPortal [role="dialog"] {
 	background-color: var(--kr-surface) !important;
+	background-image: none !important;
 	border-color: var(--kr-line) !important;
 	color: var(--kr-text) !important;
 }
 
-.ReactModalPortal [role="dialog"] input,
-.ReactModalPortal [role="dialog"] textarea,
-.ReactModalPortal [role="dialog"] select,
-.ReactModalPortal [role="dialog"] [role="textbox"] {
+.ReactModalPortal [role="dialog"] :is(header, footer, section, aside, form, fieldset, ul, li) {
+	background-color: transparent !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal input,
+.ReactModalPortal textarea,
+.ReactModalPortal select,
+.ReactModalPortal [role="textbox"] {
 	background-color: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 0.5rem !important;
+	box-shadow: none !important;
 	color: var(--kr-text) !important;
-	border-color: var(--kr-line) !important;
 }
 
-.ReactModalPortal [role="dialog"] button {
-	background-color: var(--kr-button) !important;
+.ReactModalPortal button {
+	min-height: 2.5rem;
+	background-color: #162334 !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: 0.5rem !important;
 	color: var(--kr-text) !important;
-	border-color: var(--kr-line) !important;
 }
 
-/* Do not colour actual uploaded previews; only their surrounding card changes. */
 .ReactModalPortal img,
 .ReactModalPortal svg,
 .ReactModalPortal canvas {
-	background-color: transparent !important;
-}
-
-/* -------------------------------------------------------------------------
-   Readability and Decap's grid view
-   ------------------------------------------------------------------------- */
-
-/* Decap's rich-text editor assigns its own muted colour to nested spans.
-   It is too dark on KraftRadar's dark surface, so all editable text gets
-   the same high-contrast foreground as ordinary form inputs. */
-#nc-root input,
-#nc-root textarea,
-#nc-root select,
-#nc-root option,
-#nc-root [contenteditable="true"],
-#nc-root [contenteditable="true"] *,
-#nc-root .DraftEditor-root,
-#nc-root .DraftEditor-root *,
-#nc-root .DraftEditor-editorContainer,
-#nc-root .DraftEditor-editorContainer *,
-#nc-root .public-DraftEditor-content,
-#nc-root .public-DraftEditor-content * {
-	color: #f4f7fb !important;
-	-webkit-text-fill-color: #f4f7fb !important;
-	text-shadow: none !important;
-}
-
-#nc-root [contenteditable="true"]::selection,
-#nc-root input::selection,
-#nc-root textarea::selection {
-	background: rgb(85 230 165 / 35%) !important;
-	color: #fff !important;
-}
-
-/* Decap displays labels as small chips in a few editor widgets. They must
-   stay transparent rather than inheriting a light widget background. */
-#nc-root [class*="FieldLabel"],
-#nc-root [class*="FieldLabel"] *,
-#nc-root [class*="ControlLabel"],
-#nc-root [class*="ControlLabel"] *,
-#nc-root .Pane1 label,
-#nc-root .Pane1 legend {
 	background: transparent !important;
-	background-image: none !important;
-	color: #d7dfeb !important;
 }
 
-/* A selected React Select control uses a new Emotion class at runtime. */
-#nc-root [class*="SelectControl"],
-#nc-root [class*="SelectControl"] *,
-#nc-root [class*="select-control" i],
-#nc-root [class*="select-control" i] *,
-#nc-root [role="combobox"],
-#nc-root [role="combobox"] * {
-	background-color: var(--kr-control) !important;
-	background-image: none !important;
-	border-color: var(--kr-line) !important;
-	color: #f4f7fb !important;
-	-webkit-text-fill-color: #f4f7fb !important;
+#nc-root :focus-visible,
+.ReactModalPortal :focus-visible {
+	outline: 3px solid var(--kr-accent) !important;
+	outline-offset: 2px !important;
 }
 
-/* The grid view uses a thumbnail overlay with a default white gradient.
-   KraftRadar has no thumbnails in this CMS view, so use a quiet card face. */
-#nc-root [class*="CardsGrid" i] [class*="GridCard" i],
-#nc-root [class*="CardsGrid" i] [class*="GridCard" i] *,
-#nc-root [class*="GridCard" i] [class*="CardBody" i],
-#nc-root [class*="GridCard" i] [class*="CardHeading" i],
-#nc-root [class*="GridCard" i] [class*="GridCardLink" i] {
-	background-color: var(--kr-surface) !important;
-	background-image: none !important;
-	border-color: var(--kr-line) !important;
-	color: #f4f7fb !important;
+@media (max-width: 820px), (hover: none), (pointer: coarse) {
+	#nc-root [class*="ControlPaneContainer"],
+	#nc-root [class*="NoPreviewContainer"] {
+		width: 100% !important;
+		max-width: none !important;
+		padding: 1rem !important;
+	}
+
+	.ReactModalPortal .ReactModal__Content,
+	.ReactModalPortal [role="dialog"] {
+		inset: 0.75rem !important;
+		width: auto !important;
+		height: calc(100dvh - 1.5rem) !important;
+		max-width: none !important;
+		max-height: none !important;
+		margin: 0 !important;
+		overflow: auto !important;
+	}
 }
 
-#nc-root [class*="GridCard" i]:hover,
-#nc-root [class*="GridCard" i]:hover * {
-	background-color: var(--kr-surface-raised) !important;
-	border-color: var(--kr-line-strong) !important;
-}
-
-/* Keep optional in-editor previews dark if Decap opens an iframe or pane. */
-#nc-root [class*="PreviewPane" i],
-#nc-root [class*="PreviewPane" i] *,
-#nc-root iframe {
-	background: var(--kr-bg) !important;
-	color: #f4f7fb !important;
-	border-color: var(--kr-line) !important;
+@media (prefers-reduced-motion: reduce) {
+	#nc-root *,
+	.ReactModalPortal * {
+		transition: none !important;
+	}
 }

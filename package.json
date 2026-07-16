@@ -15,6 +15,7 @@
     "check:links": "node scripts/check-links.mjs",
     "check:secrets": "node scripts/check-secrets.mjs",
     "test:routes": "node scripts/check-routes.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs",
     "test": "node --test tests/content-validation.test.mjs",
     "cms:local": "npx decap-server"
   },
