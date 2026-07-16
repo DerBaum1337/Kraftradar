@@ -649,3 +649,123 @@ body [class*="-option"][aria-selected="true"] {
 		padding: 0.875rem !important;
 	}
 }
+
+/* -------------------------------------------------------------------------
+   Decap final surface overrides
+   These deliberately use stable roles plus broad generated-class fallbacks.
+   Decap injects its own Emotion stylesheet at runtime; this stylesheet is
+   loaded after the CMS in index.html so selected controls and overlay menus
+   cannot fall back to Decap's light default palette.
+   ------------------------------------------------------------------------- */
+html,
+body {
+	background: var(--kr-bg) !important;
+	color: var(--kr-text) !important;
+}
+
+body > #nc-root,
+#nc-root {
+	background: var(--kr-bg) !important;
+	color: var(--kr-text) !important;
+}
+
+/* React Select renders a different generated class while a control is open.
+   Cover the normal, focused and selected variants without relying on hashes. */
+#nc-root [class*="SelectControl"],
+#nc-root [class*="SelectControl"] > div,
+#nc-root [class*="SelectControl"] > div > div,
+#nc-root [class*="select-control" i],
+#nc-root [class*="select-control" i] > div,
+#nc-root [class*="-control" i],
+#nc-root [class*="-control" i] > div,
+#nc-root [role="combobox"],
+#nc-root [role="combobox"] > div {
+	background-color: var(--kr-control) !important;
+	color: var(--kr-text) !important;
+	border-color: var(--kr-line) !important;
+	box-shadow: none !important;
+}
+
+#nc-root [class*="SelectControl"]:focus-within,
+#nc-root [class*="select-control" i]:focus-within,
+#nc-root [class*="-control" i]:focus-within,
+#nc-root [role="combobox"]:focus-within {
+	border-color: var(--kr-green) !important;
+	box-shadow: 0 0 0 3px rgb(85 230 165 / 18%) !important;
+}
+
+/* Popup dropdowns, the "Sortieren nach" menu and selected rows. */
+body [role="listbox"],
+body [role="listbox"] *,
+body [role="menu"],
+body [role="menu"] *,
+body [class*="menu-portal" i],
+body [class*="menu-portal" i] *,
+body [class*="-menu" i],
+body [class*="-menu" i] *,
+body [class*="-option" i] {
+	background-color: var(--kr-control) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+body [role="option"]:hover,
+body [role="option"][aria-selected="true"],
+body [role="menuitem"]:hover,
+body [role="menuitem"][aria-current="true"],
+body [class*="-option" i]:hover,
+body [class*="-option" i][aria-selected="true"] {
+	background-color: var(--kr-green-dark) !important;
+	color: var(--kr-green) !important;
+}
+
+/* Grid cards use different components from the working list view. */
+#nc-root [class*="CardsGrid" i],
+#nc-root [class*="CardsGrid" i] > *,
+#nc-root [class*="GridCard" i],
+#nc-root [class*="GridCard" i] > *,
+#nc-root [class*="CardGrid" i],
+#nc-root [class*="CardGrid" i] > * {
+	background-color: var(--kr-surface) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root [class*="CardsGrid" i] a,
+#nc-root [class*="GridCard" i] a,
+#nc-root [class*="CardGrid" i] a {
+	color: var(--kr-text) !important;
+}
+
+/* The media library is rendered in a React portal, outside #nc-root. */
+.ReactModalPortal,
+.ReactModalPortal > *,
+.ReactModalPortal .ReactModal__Content,
+.ReactModalPortal [role="dialog"],
+.ReactModalPortal [role="dialog"] * {
+	background-color: var(--kr-surface) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal [role="dialog"] input,
+.ReactModalPortal [role="dialog"] textarea,
+.ReactModalPortal [role="dialog"] select,
+.ReactModalPortal [role="dialog"] [role="textbox"] {
+	background-color: var(--kr-control) !important;
+	color: var(--kr-text) !important;
+	border-color: var(--kr-line) !important;
+}
+
+.ReactModalPortal [role="dialog"] button {
+	background-color: var(--kr-button) !important;
+	color: var(--kr-text) !important;
+	border-color: var(--kr-line) !important;
+}
+
+/* Do not colour actual uploaded previews; only their surrounding card changes. */
+.ReactModalPortal img,
+.ReactModalPortal svg,
+.ReactModalPortal canvas {
+	background-color: transparent !important;
+}

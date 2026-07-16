@@ -7,10 +7,11 @@
 		<meta name="robots" content="noindex,nofollow,noarchive" />
 		<meta name="referrer" content="no-referrer" />
 		<title>KraftRadar Administration</title>
-		<link rel="stylesheet" href="/admin/admin.css" />
 	</head>
 	<body class="notranslate" translate="no">
 		<!-- Official Decap CMS startup: no custom React mount or second initialization. -->
 		<script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
+		<!-- Loaded after Decap so the KraftRadar theme also wins against injected CMS styles. -->
+		<link rel="stylesheet" href="/admin/admin.css" />
 	</body>
 </html>
