@@ -1,5 +1,4 @@
 locale: de
-local_backend: true
 media_folder: public/uploads/articles
 public_folder: /uploads/articles
 
