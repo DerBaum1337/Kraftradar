@@ -445,3 +445,121 @@ html.kr-mobile-device .ReactModalPortal button {
 		transition: none !important;
 	}
 }
+
+
+/* =========================================================
+   Decap CMS 3.14.1 – gezielte Korrektur der hellen Editorfelder
+   Die Klassen wurden direkt im laufenden KraftRadar-Admin ausgelesen.
+   ========================================================= */
+
+/* Gesamter Formularbereich ohne Vorschau */
+#nc-root [class*="NoPreviewContainer"] {
+	background: var(--kr-bg) !important;
+	color: var(--kr-text) !important;
+}
+
+/* Auswahlfelder: Kategorie, Artikeltyp, Status, Autor */
+#nc-root .css-a8jran-container {
+	background: transparent !important;
+	color: var(--kr-text) !important;
+}
+
+#nc-root .css-ttryuq-control,
+#nc-root .css-ttryuq-control:hover,
+#nc-root .css-ttryuq-control:focus-within {
+	background: var(--kr-control) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	box-shadow: none !important;
+}
+
+/* Datumsfelder */
+#nc-root .css-ys2s0e-DateTimeControl,
+#nc-root .css-ys2s0e-DateTimeControl > div {
+	background: var(--kr-control) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	box-shadow: none !important;
+}
+
+/* Helle Feldrahmen bei Schaltern, Bildern und einzelnen Widgets */
+#nc-root .css-83wr9v {
+	background: var(--kr-surface) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	box-shadow: none !important;
+}
+
+/* Eingeklappte Objekte, Listen und deren Kopfzeilen */
+#nc-root .css-5hiu9n,
+#nc-root .css-1265b6l-TopBarContainer,
+#nc-root .css-1es1p1t {
+	background: var(--kr-surface) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	box-shadow: none !important;
+}
+
+/* Bild-Schaltflächen */
+#nc-root [class*="FileWidgetButton"] {
+	background: var(--kr-button) !important;
+	border: 1px solid var(--kr-line) !important;
+	color: var(--kr-text) !important;
+	box-shadow: none !important;
+}
+
+#nc-root [class*="FileWidgetButton"]:hover {
+	background: var(--kr-button-hover) !important;
+	border-color: var(--kr-line-strong) !important;
+}
+
+/* Schalter: dunkle Leiste, heller Griff */
+#nc-root [class*="ToggleBackground"] {
+	background: #263548 !important;
+	border-color: var(--kr-line) !important;
+}
+
+#nc-root [class*="ToggleBackground"][aria-checked="true"],
+#nc-root [class*="ToggleBackground"]:has(+ input:checked) {
+	background: var(--kr-green-dark) !important;
+}
+
+#nc-root [class*="ToggleHandle"] {
+	background: var(--kr-text) !important;
+	border-color: var(--kr-line) !important;
+}
+
+/* Medienbibliothek: dynamisch gerenderter Dialog */
+.ReactModalPortal [role="dialog"],
+.ReactModalPortal [role="dialog"] > div,
+.ReactModalPortal [role="dialog"] section,
+.ReactModalPortal [role="dialog"] aside,
+.ReactModalPortal [role="dialog"] header,
+.ReactModalPortal [role="dialog"] footer,
+.ReactModalPortal [role="dialog"] form,
+.ReactModalPortal [role="dialog"] fieldset,
+.ReactModalPortal [role="dialog"] ul,
+.ReactModalPortal [role="dialog"] li {
+	background-color: var(--kr-surface) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal [role="dialog"] input,
+.ReactModalPortal [role="dialog"] textarea,
+.ReactModalPortal [role="dialog"] select {
+	background: var(--kr-control) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal [role="dialog"] button {
+	background: var(--kr-button) !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal [role="dialog"] button:hover {
+	background: var(--kr-button-hover) !important;
+	border-color: var(--kr-line-strong) !important;
+}
