@@ -769,3 +769,89 @@ body [class*="-option" i][aria-selected="true"] {
 .ReactModalPortal canvas {
 	background-color: transparent !important;
 }
+
+/* -------------------------------------------------------------------------
+   Readability and Decap's grid view
+   ------------------------------------------------------------------------- */
+
+/* Decap's rich-text editor assigns its own muted colour to nested spans.
+   It is too dark on KraftRadar's dark surface, so all editable text gets
+   the same high-contrast foreground as ordinary form inputs. */
+#nc-root input,
+#nc-root textarea,
+#nc-root select,
+#nc-root option,
+#nc-root [contenteditable="true"],
+#nc-root [contenteditable="true"] *,
+#nc-root .DraftEditor-root,
+#nc-root .DraftEditor-root *,
+#nc-root .DraftEditor-editorContainer,
+#nc-root .DraftEditor-editorContainer *,
+#nc-root .public-DraftEditor-content,
+#nc-root .public-DraftEditor-content * {
+	color: #f4f7fb !important;
+	-webkit-text-fill-color: #f4f7fb !important;
+	text-shadow: none !important;
+}
+
+#nc-root [contenteditable="true"]::selection,
+#nc-root input::selection,
+#nc-root textarea::selection {
+	background: rgb(85 230 165 / 35%) !important;
+	color: #fff !important;
+}
+
+/* Decap displays labels as small chips in a few editor widgets. They must
+   stay transparent rather than inheriting a light widget background. */
+#nc-root [class*="FieldLabel"],
+#nc-root [class*="FieldLabel"] *,
+#nc-root [class*="ControlLabel"],
+#nc-root [class*="ControlLabel"] *,
+#nc-root .Pane1 label,
+#nc-root .Pane1 legend {
+	background: transparent !important;
+	background-image: none !important;
+	color: #d7dfeb !important;
+}
+
+/* A selected React Select control uses a new Emotion class at runtime. */
+#nc-root [class*="SelectControl"],
+#nc-root [class*="SelectControl"] *,
+#nc-root [class*="select-control" i],
+#nc-root [class*="select-control" i] *,
+#nc-root [role="combobox"],
+#nc-root [role="combobox"] * {
+	background-color: var(--kr-control) !important;
+	background-image: none !important;
+	border-color: var(--kr-line) !important;
+	color: #f4f7fb !important;
+	-webkit-text-fill-color: #f4f7fb !important;
+}
+
+/* The grid view uses a thumbnail overlay with a default white gradient.
+   KraftRadar has no thumbnails in this CMS view, so use a quiet card face. */
+#nc-root [class*="CardsGrid" i] [class*="GridCard" i],
+#nc-root [class*="CardsGrid" i] [class*="GridCard" i] *,
+#nc-root [class*="GridCard" i] [class*="CardBody" i],
+#nc-root [class*="GridCard" i] [class*="CardHeading" i],
+#nc-root [class*="GridCard" i] [class*="GridCardLink" i] {
+	background-color: var(--kr-surface) !important;
+	background-image: none !important;
+	border-color: var(--kr-line) !important;
+	color: #f4f7fb !important;
+}
+
+#nc-root [class*="GridCard" i]:hover,
+#nc-root [class*="GridCard" i]:hover * {
+	background-color: var(--kr-surface-raised) !important;
+	border-color: var(--kr-line-strong) !important;
+}
+
+/* Keep optional in-editor previews dark if Decap opens an iframe or pane. */
+#nc-root [class*="PreviewPane" i],
+#nc-root [class*="PreviewPane" i] *,
+#nc-root iframe {
+	background: var(--kr-bg) !important;
+	color: #f4f7fb !important;
+	border-color: var(--kr-line) !important;
+}

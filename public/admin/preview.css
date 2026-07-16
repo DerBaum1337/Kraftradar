@@ -1,74 +1,24 @@
+/* KraftRadar styling for Decap's optional preview iframe. */
 :root {
 	color-scheme: dark;
-	--color-background: #0b0f14;
-	--color-border: #2b3542;
-	--color-text: #f5f7fa;
-	--color-text-muted: #aeb8c5;
-	--color-accent: #55e6a5;
-}
-
-html {
-	background: var(--color-background);
-	color: var(--color-text);
+	background: #0b0f14;
+	color: #f4f7fb;
 	font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+html,
 body {
-	min-height: 100vh;
 	margin: 0;
-	background: radial-gradient(circle at 80% 8%, rgb(85 230 165 / 8%), transparent 25rem), var(--color-background);
-	color: var(--color-text);
-	line-height: 1.7;
+	min-height: 100%;
+	background: #0b0f14;
+	color: #f4f7fb;
 }
 
-.kr-preview {
-	width: min(100% - 2.5rem, 780px);
-	margin: 0 auto;
-	padding: 2.5rem 0 4rem;
+body {
+	padding: 2rem;
+	line-height: 1.65;
 }
 
-.kr-preview__eyebrow {
-	margin: 0 0 0.75rem;
-	color: var(--color-accent);
-	font-size: 0.78rem;
-	font-weight: 800;
-	letter-spacing: 0.11em;
-	text-transform: uppercase;
-}
-
-.kr-preview h1 {
-	margin: 0 0 1rem;
-	color: var(--color-text);
-	font-size: clamp(2rem, 7vw, 3.75rem);
-	letter-spacing: -0.045em;
-	line-height: 1.08;
-}
-
-.kr-preview__description {
-	max-width: 680px;
-	margin: 0;
-	color: var(--color-text-muted);
-	font-size: 1.08rem;
-}
-
-.kr-preview__meta {
-	margin: 1.35rem 0 2rem;
-	color: var(--color-text-muted);
-	font-size: 0.9rem;
-}
-
-.kr-preview hr {
-	margin: 0 0 2rem;
-	border: 0;
-	border-top: 1px solid var(--color-border);
-}
-
-.kr-preview__body { color: var(--color-text-muted); }
-.kr-preview__body h2,
-.kr-preview__body h3 { margin-top: 2.5rem; color: var(--color-text); line-height: 1.15; }
-.kr-preview__body h2 { font-size: 1.85rem; }
-.kr-preview__body h3 { font-size: 1.35rem; }
-.kr-preview__body p,
-.kr-preview__body li { font-size: 1.03rem; }
-.kr-preview__body a { color: var(--color-accent); }
-.kr-preview__empty { color: var(--color-text-muted); font-style: italic; }
+a { color: #55e6a5; }
+h1, h2, h3, h4 { color: #f4f7fb; line-height: 1.15; }
+img { display: block; max-width: 100%; height: auto; border-radius: 0.75rem; }

@@ -1,11 +1,15 @@
 locale: de
 media_folder: public/uploads/articles
 public_folder: /uploads/articles
+# "Entwurf speichern" schreibt nicht nach main. Decap legt einen eigenen
+# Git-Branch mit Pull Request an; erst "Veröffentlichen" führt nach main.
+publish_mode: editorial_workflow
 
 backend:
   name: github
   repo: DerBaum1337/Kraftradar
   branch: main
+  squash_merges: true
   base_url: https://auth.kraftradar.de
   auth_endpoint: auth
 
