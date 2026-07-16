@@ -8,11 +8,11 @@
 :root {
 	color-scheme: dark;
 	--kr-bg: #0b0f14;
-	--kr-surface: #111720;
-	--kr-surface-raised: #18212c;
-	--kr-control: #0d141d;
-	--kr-control-hover: #141f2c;
-	--kr-line: #2b3542;
+	--kr-surface: #141c27;
+	--kr-surface-raised: #1a2533;
+	--kr-control: #182330;
+	--kr-control-hover: #213043;
+	--kr-line: #344255;
 	--kr-line-strong: #53667b;
 	--kr-text: #f5f7fa;
 	--kr-muted: #aeb8c5;
@@ -140,16 +140,6 @@ body,
 	border-color: var(--kr-line-strong) !important;
 }
 
-/* Some Decap views use generated "Card" component names without the GridCard
- * fragment. Their default fallback thumbnail is a white gradient; suppress
- * that fallback while leaving real <img> thumbnails untouched. */
-#nc-root [class*="Card"]:not(img),
-#nc-root [class*="Card"]:not(img)::before,
-#nc-root [class*="Card"]:not(img)::after,
-#nc-root [class*="Card"]:not(img) :not(img) {
-	background-image: none !important;
-}
-
 #nc-root [class*="SidebarNavLink"]:is(:hover, .sidebar-active),
 #nc-root [aria-current="page"] {
 	background-color: var(--kr-accent-soft) !important;
@@ -190,32 +180,6 @@ body,
 	border: 1px solid var(--kr-line) !important;
 	border-radius: var(--kr-radius) !important;
 	box-shadow: none !important;
-	color: var(--kr-text) !important;
-	-webkit-text-fill-color: var(--kr-text) !important;
-}
-
-/* Decap's select, date, boolean and collapsed-object widgets are styled by
- * generated Emotion classes. Their names change between releases, but all
- * use the css-* prefix. Give the generated widget surface the KraftRadar
- * dark base; the rules above keep editable controls slightly darker. */
-#nc-root [class^="css-"],
-#nc-root [class*=" css-"] {
-	background-color: var(--kr-surface) !important;
-	background-image: none !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-}
-
-#nc-root [class^="css-"] :is(input, textarea, select, [role="combobox"], [contenteditable="true"]),
-#nc-root [class*=" css-"] :is(input, textarea, select, [role="combobox"], [contenteditable="true"]) {
-	background-color: var(--kr-control) !important;
-	border-color: var(--kr-line) !important;
-	color: var(--kr-text) !important;
-	-webkit-text-fill-color: var(--kr-text) !important;
-}
-
-#nc-root [class^="css-"] :is(label, legend, span, p, small),
-#nc-root [class*=" css-"] :is(label, legend, span, p, small) {
 	color: var(--kr-text) !important;
 	-webkit-text-fill-color: var(--kr-text) !important;
 }
@@ -295,9 +259,77 @@ body,
 	accent-color: var(--kr-accent);
 }
 
-#nc-root [class*="BooleanControl"] {
-	min-height: 3rem !important;
-	padding: 0.5rem 0.75rem !important;
+/* React Select: value, search field and indicator intentionally get their
+ * own rules. Styling every generated Emotion class made selected values and
+ * indicator icons disappear in closed selects. */
+#nc-root div:has(> div > [role="combobox"]) {
+	background-color: var(--kr-control) !important;
+	border: 1px solid var(--kr-line) !important;
+	border-radius: var(--kr-radius) !important;
+}
+
+#nc-root div:has(> div > [role="combobox"]) :is([class*="singleValue"], [class*="placeholder"], [role="combobox"], [class*="indicator"]) {
+	color: var(--kr-text) !important;
+	-webkit-text-fill-color: var(--kr-text) !important;
+	opacity: 1 !important;
+}
+
+#nc-root [role="combobox"] {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+/* Decap boolean widgets expose an accessible switch and aria-checked. Keep
+ * the visual track and thumb tied to that real state, without replacement JS. */
+#nc-root button[role="switch"][aria-checked] {
+	position: relative;
+	width: 2.875rem !important;
+	min-width: 2.875rem !important;
+	height: 1.75rem !important;
+	min-height: 1.75rem !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border: 0 !important;
+}
+
+#nc-root button[role="switch"][aria-checked] [class*="ToggleBackground"] {
+	position: absolute !important;
+	inset: 0 !important;
+	background-color: #344255 !important;
+	border: 1px solid var(--kr-line-strong) !important;
+	border-radius: 999px !important;
+}
+
+#nc-root button[role="switch"][aria-checked="true"] [class*="ToggleBackground"] {
+	background-color: var(--kr-accent-soft) !important;
+	border-color: var(--kr-accent) !important;
+}
+
+#nc-root button[role="switch"][aria-checked] [class*="ToggleHandle"] {
+	position: absolute !important;
+	top: 0.25rem !important;
+	left: 0.25rem !important;
+	width: 1.125rem !important;
+	height: 1.125rem !important;
+	margin: 0 !important;
+	background-color: var(--kr-text) !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	transform: none !important;
+	transition: transform 150ms ease !important;
+}
+
+#nc-root button[role="switch"][aria-checked="true"] [class*="ToggleHandle"] {
+	transform: translateX(1.125rem) !important;
+}
+
+#nc-root [class*="BooleanControl"]:has(button[role="switch"][aria-checked]) {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: flex-end !important;
+	min-height: 3.25rem !important;
+	padding: 0.75rem !important;
 	background-color: var(--kr-control) !important;
 	border: 1px solid var(--kr-line) !important;
 	border-radius: var(--kr-radius) !important;
@@ -317,7 +349,7 @@ body,
 }
 
 /* 4. Buttons: normal actions, primary actions and compact editor controls ---- */
-#nc-root button {
+#nc-root :is([class*="Button"], [class*="button"]) {
 	min-height: 2.5rem;
 	padding: 0.5rem 0.75rem;
 	background-color: #162334 !important;
@@ -328,7 +360,7 @@ body,
 	font-weight: 700 !important;
 }
 
-#nc-root button:hover {
+#nc-root :is([class*="Button"], [class*="button"]):hover {
 	background-color: var(--kr-control-hover) !important;
 	border-color: var(--kr-line-strong) !important;
 }
@@ -381,14 +413,22 @@ body :is([role="option"], [role="menuitem"], [class*="-option" i]):is(:hover, [a
 	color: var(--kr-accent) !important;
 }
 
-/* React Modal is used by the media library and confirmation dialogs. */
+/* React Modal is used by the media library and confirmation dialogs. Target
+ * dialog surfaces only: coloring every nested div hid media previews and
+ * created white fallback layers. */
 .ReactModal__Overlay {
 	background: rgb(3 7 11 / 78%) !important;
 }
 
-.ReactModalPortal :is(.ReactModal__Content, [role="dialog"], header, footer, section, aside, main, form, fieldset, ul, li, div) {
+.ReactModalPortal :is(.ReactModal__Content, [role="dialog"]) {
 	background-color: var(--kr-surface) !important;
 	background-image: none !important;
+	border-color: var(--kr-line) !important;
+	color: var(--kr-text) !important;
+}
+
+.ReactModalPortal :is([role="dialog"] header, [role="dialog"] footer, [role="dialog"] [class*="Media"], [role="dialog"] [class*="media"]) {
+	background-color: var(--kr-surface) !important;
 	border-color: var(--kr-line) !important;
 	color: var(--kr-text) !important;
 }
