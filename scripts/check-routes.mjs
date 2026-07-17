@@ -20,10 +20,18 @@ for (const route of snapshot.publicUrls) {
 
 try {
 	const admin = await readFile(path.join(root, 'dist', 'admin', 'index.html'), 'utf8');
-	if (!admin.includes('noindex,nofollow,noarchive')) failures.push('/admin/: noindex-Metatag fehlt.');
-	if (!admin.includes('decap-cms@3.11.0')) failures.push('/admin/: feste Decap-CMS-Version fehlt.');
+	if (!/name="robots"\s+content="noindex,\s*nofollow"/i.test(admin)) failures.push('/admin/: noindex-Metatag fehlt.');
+	if (!admin.includes('@sveltia/cms@0.171.0')) failures.push('/admin/: feste Sveltia-CMS-Version fehlt.');
+	if (admin.includes('decap-cms')) failures.push('/admin/: veraltetes Decap-Skript wird noch geladen.');
 } catch {
 	failures.push('/admin/: Build-Datei fehlt.');
+}
+
+try {
+	await stat(path.join(root, 'dist', 'admin-v2'));
+	failures.push('/admin-v2/: veralteter Admin-Build ist noch vorhanden.');
+} catch (error) {
+	if (error?.code !== 'ENOENT') failures.push('/admin-v2/: Abwesenheit konnte nicht geprüft werden.');
 }
 
 if (failures.length) {

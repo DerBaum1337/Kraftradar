@@ -7,10 +7,10 @@ KraftRadar ist eine statische Astro-Website für persönliche Trainingserfahrung
 - Astro 7 mit statischem Produktionsbuild
 - Astro Content Collections mit Zod-Validierung
 - Markdown für Artikel, Autoren und editierbare Seitendaten
-- Decap CMS unter `/admin/` (nicht in Navigation oder Sitemap)
+- Sveltia CMS unter `/admin/` (nicht in Navigation oder Sitemap)
 - GitHub als Inhaltsversionsspeicher
 - Cloudflare Pages für die öffentliche Auslieferung
-- vorbereiteter Cloudflare Worker für den GitHub-OAuth-Callback
+- produktiver Cloudflare Worker für den GitHub-OAuth-Callback
 
 ## Voraussetzungen
 
@@ -30,15 +30,10 @@ npm run test
 npm run test:routes
 npm run check:links
 npm run check:secrets
+npm run indexnow -- --sitemap
 ```
 
-Für den lokalen Decap-Editor in einem zweiten Terminal:
-
-```bash
-npm run cms:local
-```
-
-Danach `http://localhost:4321/admin/` öffnen. Der lokale Decap-Proxy arbeitet nur lokal; er veröffentlicht nichts bei GitHub. Der redaktionelle Workflow mit Pull Requests ist dabei laut Decap nicht verfügbar.
+`/admin/` ist über Cloudflare Access geschützt. Sveltia speichert Änderungen nach erfolgreichem GitHub-OAuth-Login direkt in `main`; die Sichtbarkeit steuert das Frontmatter-Feld `status`. Nur `published` wird öffentlich gebaut. Den IndexNow-Befehl nur bewusst nach einem erfolgreichen Produktionsdeployment ausführen; Details stehen in [INDEXNOW.md](INDEXNOW.md).
 
 ## Inhalt
 

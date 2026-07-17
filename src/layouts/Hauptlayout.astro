@@ -30,10 +30,10 @@ const {
 	articleModifiedTime,
 } = Astro.props;
 
-const pageTitle =
-	title === 'KraftRadar' || title.startsWith('KraftRadar –') || title.endsWith(' | KraftRadar')
-		? title
-		: `${title} | KraftRadar`;
+const formatPageTitle = (value: string) =>
+	value === 'KraftRadar' || value.startsWith('KraftRadar –') || value.endsWith(' | KraftRadar')
+		? value
+		: `${value} | KraftRadar`;
 
 // Redaktionsdaten für die öffentlichen Übersichtsseiten kommen aus der Collection.
 // Rechtsseiten werden absichtlich nicht automatisiert überschrieben.
@@ -51,10 +51,7 @@ const pageContent = pageContentId ? await getEntry('pages', pageContentId) : und
 const resolvedTitle = pageContent?.data.seoTitle || title;
 const resolvedDescription = pageContent?.data.seoDescription || description;
 const resolvedNoindex = pageContent?.data.noindex ?? noindex;
-const resolvedPageTitle =
-	resolvedTitle === 'KraftRadar' || resolvedTitle.endsWith(' | KraftRadar')
-		? resolvedTitle
-		: `${resolvedTitle} | KraftRadar`;
+const resolvedPageTitle = formatPageTitle(resolvedTitle);
 
 const siteURL = Astro.site ?? new URL('https://kraftradar.de');
 const canonicalURL = canonical ? new URL(canonical, siteURL) : new URL(Astro.url.pathname, siteURL);
@@ -62,8 +59,8 @@ const imageURL = new URL(image, siteURL);
 const defaultStructuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'WebPage',
-	name: pageTitle,
-	description,
+	name: resolvedPageTitle,
+	description: resolvedDescription,
 	url: canonicalURL.href,
 	inLanguage: 'de-DE',
 	isPartOf: {

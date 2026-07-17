@@ -1,8 +1,8 @@
 # Adminbereich
 
-## Vor dem ersten Einsatz
+## Produktiver Betrieb
 
-Der produktive Login funktioniert erst nach den manuellen GitHub-, Cloudflare-Worker- und Access-Schritten aus [DEPLOYMENT.md](DEPLOYMENT.md). Ohne diese Konfiguration ist `/admin/` bewusst nicht schreibfähig.
+Der produktive Sveltia-Admin läuft unter `/admin/`. Cloudflare Access schützt den Aufruf, GitHub OAuth die Schreibberechtigung. Die bestehende Konfiguration aus [DEPLOYMENT.md](DEPLOYMENT.md) muss erhalten bleiben.
 
 ## Artikel erstellen
 
@@ -11,11 +11,11 @@ Der produktive Login funktioniert erst nach den manuellen GitHub-, Cloudflare-Wo
 3. **Neuer Trainingsartikel**, **Neuer Supplement-Artikel**, **Neuer Zubehörartikel** oder **Neuer Mein-Weg-Beitrag** wählen.
 4. Titel, Artikeltyp, Status, Kurzbeschreibung und Text auf Übersichtsseiten ausfüllen. Kategorie und Autor werden automatisch gesetzt.
 5. Den Artikelinhalt ohne zusätzliche H1 schreiben. Zwischenüberschriften beginnen mit H2.
-6. Bei `Veröffentlicht` ein Veröffentlichungsdatum setzen. Das Aktualisierungsdatum wird beim späteren Veröffentlichen automatisch gepflegt.
+6. Bei `Veröffentlicht` kann ein Veröffentlichungsdatum gesetzt werden. Fehlt es, ergänzt der PreSave-Hook das Datum; das Aktualisierungsdatum wird bei jedem Speichern eines veröffentlichten Artikels gepflegt.
 7. Artikelbild, Quellen, verwandte Artikel und SEO-Einstellungen bei Bedarf in den eingeklappten Bereichen ergänzen.
 8. Zunächst als **Entwurf** oder **In Überprüfung** speichern.
-9. Die Vorschau-Deployment-URL prüfen. Unveröffentlichte persönliche Inhalte dürfen erst nach dem Access-Schutz für Vorschauen geprüft werden.
-10. Erst nach Prüfung Status auf **Veröffentlicht** setzen und den Git-Änderungsvorschlag zusammenführen.
+9. Änderungen speichern. Sveltia erstellt dabei direkt einen Git-Commit auf `main`; Cloudflare Pages baut anschließend die Website neu.
+10. Erst nach Prüfung Status auf **Veröffentlicht** setzen. Nur dieser Status wird öffentlich gebaut.
 
 Bei **Supplements** und **Gym-Zubehör** erscheinen zusätzlich die Bereiche für Transparenz, Produktdaten, Vor- und Nachteile, Zielgruppen und Preis-Leistung. Bei **Mein Weg** stehen stattdessen Zwischenfazit und Langzeitupdate bereit.
 
@@ -33,7 +33,7 @@ Bestehende Slugs veröffentlichter Artikel nicht ändern. Falls es unvermeidbar 
 
 ## Rückgängig machen
 
-Jede CMS-Speicherung erzeugt einen Git-Commit oder Pull Request. Einen älteren Zustand stellt man über GitHub **History** wieder her oder erstellt einen Revert-Commit. Keine Datei wird außerhalb der Git-Historie endgültig gelöscht.
+Jede CMS-Speicherung erzeugt einen Git-Commit auf `main`. Einen älteren Zustand stellt man über GitHub **History** wieder her oder erstellt einen Revert-Commit. Keine Datei wird außerhalb der Git-Historie endgültig gelöscht.
 
 ## Fehler
 

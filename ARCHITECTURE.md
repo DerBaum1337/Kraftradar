@@ -13,7 +13,7 @@ Astro erstellt ausschließlich statische öffentliche Dateien. Die Seiten laden 
 ## Datenfluss
 
 ```text
-Decap CMS -> GitHub-Commit oder Pull Request -> Cloudflare Pages Build -> statische Website
+Sveltia CMS -> GitHub-Commit auf main -> Cloudflare Pages Build -> statische Website
 Markdown -> Content Collection + Schema -> Artikel, Kategorien, Sitemap, RSS
 ```
 
@@ -21,9 +21,9 @@ Die Kategorie und der explizite `slug` bilden die URL: `/<category>/<slug>/`. De
 
 ## Admin und Sicherheit
 
-`/admin/` ist eine statische Decap-Oberfläche. Sie erhält keine Navigation, `robots.txt` verbietet Crawling und `_headers` setzt `X-Robots-Tag: noindex, nofollow`. Das ist kein Zugriffsschutz.
+`/admin/` ist eine statische Sveltia-Oberfläche. Sie erhält keine Navigation, `robots.txt` verbietet Crawling und `_headers` setzt `X-Robots-Tag: noindex, nofollow`. Das ist kein Zugriffsschutz.
 
-Cloudflare Access schützt später `/admin/*` für die explizit freigegebene E-Mail-Adresse. Für die GitHub-Schreibberechtigung nutzt Decap einen separaten OAuth-Worker. Der Worker speichert GitHub-Secret, OAuth-State-Secret und erlaubten Ursprung ausschließlich als Cloudflare-Secrets. Er nutzt signierten kurzlebigen State, PKCE, eine HttpOnly-Cookiebindung und eine feste `postMessage`-Zielorigin.
+Cloudflare Access schützt `/admin` und `/admin/*` für die explizit freigegebene E-Mail-Adresse. Für die GitHub-Schreibberechtigung nutzt Sveltia den vorhandenen OAuth-Worker. Der Worker speichert GitHub-Secret, OAuth-State-Secret und erlaubten Ursprung ausschließlich als Cloudflare-Secrets. Er nutzt signierten kurzlebigen State, PKCE, eine HttpOnly-Cookiebindung und eine feste `postMessage`-Zielorigin.
 
 Cloudflare Access und GitHub OAuth sind getrennte Schutzschichten: Access kontrolliert den Aufruf des Editors; GitHub entscheidet über Schreibrechte im Repository.
 

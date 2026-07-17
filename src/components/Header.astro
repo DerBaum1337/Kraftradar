@@ -74,6 +74,12 @@ const isActive = (href: string) =>
 	navigationLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
 	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape') closeMenu();
+		if (
+			event.key === 'Escape' &&
+			header?.classList.contains('site-header--menu-open')
+		) {
+			closeMenu();
+			toggle?.focus();
+		}
 	});
 </script>

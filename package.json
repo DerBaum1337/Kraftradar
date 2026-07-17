@@ -16,15 +16,13 @@
     "check:secrets": "node scripts/check-secrets.mjs",
     "test:routes": "node scripts/check-routes.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
-    "test": "node --test tests/content-validation.test.mjs",
-    "cms:local": "npx decap-server"
+    "test": "node --test tests/content-validation.test.mjs"
   },
   "dependencies": {
     "astro": "^7.0.9"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "decap-server": "3.9.1",
     "typescript": "^5.9.3"
   }
 }

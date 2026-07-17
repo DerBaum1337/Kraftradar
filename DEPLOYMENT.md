@@ -2,22 +2,22 @@
 
 ## Cloudflare Pages
 
-- Repository: `<DEIN_GITHUB_BENUTZERNAME>/<DEIN_REPOSITORY>`
+- Repository: `DerBaum1337/Kraftradar`
 - Produktionsbranch: `main`
 - Build-Befehl: `npm run build`
 - Ausgabeordner: `dist`
 - Node-Version: mindestens 22.12
 - Custom Domain: `kraftradar.de`
 
-Jeder Merge in `main` löst den normalen Produktionsbuild aus. Git-basierte CMS-Veröffentlichungen benötigen keine zweite Deploy-Technik.
+Jeder Commit auf `main` löst den normalen Produktionsbuild aus. Sveltia speichert nach erfolgreichem GitHub-OAuth-Login direkt nach `main`; eine zweite Deploy-Technik ist nicht nötig.
 
-## GitHub OAuth App
+## GitHub OAuth App prüfen oder neu einrichten
 
 1. GitHub: **Settings -> Developer settings -> OAuth Apps -> New OAuth App**.
 2. Homepage URL: `https://kraftradar.de`.
 3. Authorization callback URL: `https://auth.kraftradar.de/callback`.
 4. Client-ID notieren und Client-Secret erzeugen.
-5. Niemals Client-Secret in Git, Decap-Konfiguration oder Browser eintragen.
+5. Niemals Client-Secret in Git, Sveltia-Konfiguration oder Browser eintragen.
 
 ## OAuth Worker
 
@@ -37,27 +37,27 @@ wrangler secret put ALLOWED_ORIGIN
 4. In `public/admin/config.yml` `repo`, `base_url` und `auth_endpoint` nur dann auf die echte Domain setzen, wenn die Route funktioniert.
 5. Der Worker darf nur `/auth` und `/callback` bedienen. Keine Tokens loggen. Der Callback validiert State und PKCE serverseitig.
 
-## Cloudflare Access
+## Cloudflare Access prüfen oder neu einrichten
 
 1. Zero Trust -> Access -> Applications -> Add application -> Self-hosted.
 2. Domain: `kraftradar.de`, Pfad: `/admin`.
    Ein Wildcard-Pfad wie `/admin/*` schützt den übergeordneten Pfad `/admin` selbst nicht zuverlässig. Der Pfad ohne Wildcard deckt den Admin-Einstieg ab; falls die Access-Oberfläche eine getrennte Unterpfadregel verlangt, diese zusätzlich gezielt ergänzen.
-3. Policy: **Allow**, Include: die konkrete Adresse `<DEINE_ERLAUBTE_EMAIL>`.
+3. Policy: **Allow**, Include: ausschließlich die konkret freigegebene E-Mail-Adresse.
 4. Session-Dauer kurz und angemessen setzen; keine offene Registrierungsregel anlegen.
 5. `/callback` auf `auth.kraftradar.de` nicht pauschal unter diese Access-Regel legen. Falls er geschützt wird, muss nur diese Callback-Route gezielt ausgenommen werden, da GitHub den OAuth-Callback sonst nicht zustellen kann.
 6. Für Pages-Vorschau-Deployments eine gleich enge Access-Anwendung konfigurieren, bevor Entwürfe mit persönlichen Informationen dort geprüft werden.
 
 Access ist kein Ersatz für GitHub-Berechtigungen; der OAuth-Login benötigt weiterhin Schreibzugriff auf das Repository.
 
-## Security-Checkliste vor Go-live
+## Security-Checkliste
 
 - [ ] Keine `.env`, `.dev.vars` oder Secrets im Commit
 - [ ] `/admin/` nicht in Navigation, Sitemap oder RSS
 - [ ] `/admin/*` liefert `X-Robots-Tag: noindex, nofollow`
-- [ ] Access-Policy enthält nur `<DEINE_ERLAUBTE_EMAIL>`
+- [ ] Access-Policy enthält nur die konkret freigegebene E-Mail-Adresse
 - [ ] OAuth Callback stimmt exakt mit GitHub und Worker überein
 - [ ] Worker-Secrets gesetzt, nicht im Quellcode
-- [ ] Vorschau-Deployments geschützt
+- [ ] Vorschau-Deployments geschützt, sofern sie verwendet werden
 - [ ] `npm run validate:content && npm run typecheck && npm run build && npm run test && npm run test:routes && npm run check:links && npm run check:secrets` bestanden
 
 ## Datenschutz

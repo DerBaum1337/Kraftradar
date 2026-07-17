@@ -216,6 +216,7 @@ button {
 
 main {
 	width: min(var(--content-width), 90%);
+	min-width: 0;
 	margin: 0 auto;
 }
 
@@ -1083,6 +1084,7 @@ tbody tr:last-child td {
 
 .legal-page > * {
 	width: min(100%, 760px);
+	min-width: 0;
 }
 
 .legal-content {
@@ -1238,6 +1240,14 @@ tbody tr:last-child td {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+.breadcrumbs li {
+	min-width: 0;
+}
+
+.breadcrumbs li:last-child {
+	overflow-wrap: anywhere;
 }
 
 .breadcrumbs li:not(:last-child)::after {
@@ -1425,7 +1435,7 @@ tbody tr:last-child td {
    bleiben sie deshalb horizontal scrollbar, statt Spalten zu quetschen oder abzuschneiden. */
 .article-body > table {
 	display: block;
-	width: fit-content;
+	width: 100%;
 	max-width: 100%;
 	margin: 1.75rem 0;
 	overflow-x: auto;
@@ -1433,6 +1443,14 @@ tbody tr:last-child td {
 	white-space: nowrap;
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-medium);
+}
+
+.article-body > table > thead,
+.article-body > table > tbody,
+.article-body > table > tfoot {
+	display: table;
+	width: max-content;
+	min-width: 100%;
 }
 
 .article-body > table th:not(:first-child),
@@ -1823,6 +1841,11 @@ footer {
 }
 
 @media (max-width: 750px) {
+	.breadcrumbs li:last-child {
+		flex-basis: 100%;
+		white-space: normal;
+	}
+
 	.article-summary {
 		grid-template-columns: 1fr;
 	}

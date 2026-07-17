@@ -1,4 +1,6 @@
-# Implementierungsplan: KraftRadar-CMS und sichere Inhaltsverwaltung
+# Implementierungsplan: KraftRadar-CMS und sichere Inhaltsverwaltung (historisch)
+
+> Dieser Plan dokumentiert die ursprüngliche CMS-Migration. Der aktuelle Produktionsstand verwendet Sveltia CMS unter `/admin/`; maßgeblich sind `ADMIN.md`, `ARCHITECTURE.md`, `DEPLOYMENT.md` und `INDEXNOW.md`.
 
 Stand: 15. Juli 2026
 

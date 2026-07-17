@@ -148,4 +148,10 @@ const articleStructuredData = {
 			)
 		}
 	</article>
+
+	<script is:inline>
+		document.querySelectorAll('.article-body > table').forEach((table) => {
+			if (!table.hasAttribute('tabindex')) table.setAttribute('tabindex', '0');
+		});
+	</script>
 </Hauptlayout>

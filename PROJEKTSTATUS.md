@@ -1,6 +1,6 @@
 # KraftRadar – Projektakte für ChatGPT
 
-Stand: 14. Juli 2026  
+Stand: 17. Juli 2026
 Projektpfad: `C:\Users\User\kraftradar`  
 Live-Domain: https://kraftradar.de  
 GitHub: https://github.com/DerBaum1337/Kraftradar  
@@ -64,6 +64,10 @@ Das Grunddesign gilt als fertig. Künftige Arbeit soll sich auf Inhalte, Kompone
 - Cloudflare Pages für Deployment, CDN, HTTPS und DNS
 - GitHub-Repository für Versionsverwaltung und automatisierte Veröffentlichung
 - Markdown-basierte Astro Content Collections für neue Artikel
+- Sveltia CMS unter `/admin/`, fest gepinnt auf `@sveltia/cms@0.171.0`
+- Sveltia speichert nach erfolgreichem GitHub-OAuth-Login direkt nach `main`; `draft`, `review` und `ready` bleiben privat, nur `published` wird gebaut
+
+> **Aktueller Betriebshinweis:** Ältere Abschnitte dieses Dokuments beschreiben die ursprüngliche Decap-Migration. Der produktive Admin ist inzwischen vollständig auf Sveltia umgestellt; die aktuellen Arbeitsabläufe stehen in `ADMIN.md`, `ARCHITECTURE.md`, `DEPLOYMENT.md` und `INDEXNOW.md`.
 
 Wichtige Eigenschaften:
 
