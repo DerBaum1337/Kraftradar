@@ -141,9 +141,11 @@ Für diesen Artikel habe ich meine Erfahrungen bis zum **17. Juli 2026** zusamme
 
 ## So habe ich das Whey verwendet
 
-Meine Bewertung beruht auf der normalen Nutzung in meinem Alltag. Ich bereite das Pulver in einem **720°DGREE-Shaker mit Edelstahl-Mischkugel** zu und schüttele es kräftig. HSN nennt auf dem Beutel als Portion einen Messlöffel mit ungefähr 30 g Pulver und empfiehlt 200 bis 250 ml Wasser oder Magermilch.
+Meine Bewertung beruht auf der normalen Nutzung in meinem Alltag. Ich mische eine Portion von ungefähr 30 g Pulver mit 200 bis 250 ml haltbarer Vollmilch mit 3,5 % Fett. Dafür nutze ich einen **720°DGREE-Shaker mit Edelstahl-Mischkugel** und schüttele ihn kräftig.
 
-Die Löslichkeitsnote gilt ausdrücklich für mein übliches Shaker-Setup. Einen getrennten Labortest oder einen vollständig standardisierten Vergleich ohne Mischkugel habe ich nicht durchgeführt. Für spätere direkte Whey-Vergleiche werde ich dieselbe Pulvermenge, Flüssigkeitsmenge, Temperatur und Schütteldauer verwenden.
+Ich verwende bewusst Vollmilch, weil ich derzeit keine Kalorien einsparen muss und die zusätzlichen Kalorien sowie die cremigere Konsistenz für mich gut zu meinem Ziel Muskelaufbau passen. Das bedeutet nicht, dass Vollmilch für den Muskelaufbau notwendig ist. Das Whey kann ebenso mit Wasser oder einer fettärmeren Milch zubereitet werden.
+
+Die Löslichkeitsnote gilt ausdrücklich für diese Zubereitung mit 3,5-%-Milch, meinem Shaker und der Edelstahl-Mischkugel. Einen getrennten Test mit Wasser oder ohne Mischkugel habe ich bisher nicht durchgeführt. Für spätere direkte Whey-Vergleiche werde ich dieselbe Pulvermenge, Flüssigkeitsmenge, Temperatur und Schütteldauer verwenden.
 
 ## Geschmacks-Check: Vanille
 
