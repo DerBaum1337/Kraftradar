@@ -1433,26 +1433,24 @@ tbody tr:last-child td {
 
 /* Markdown-Tabellen haben keinen zusätzlichen Wrapper. Auf schmalen Bildschirmen
    bleiben sie deshalb horizontal scrollbar, statt Spalten zu quetschen oder abzuschneiden. */
+/* Responsive article tables */
 .article-body > table {
-	display: block;
+	display: table;
 	width: 100%;
 	max-width: 100%;
 	margin: 1.75rem 0;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	white-space: nowrap;
+	table-layout: auto;
+	white-space: normal;
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-medium);
+	overflow: hidden;
 }
 
-.article-body > table > thead,
-.article-body > table > tbody,
-.article-body > table > tfoot {
-	display: table;
-	width: max-content;
-	min-width: 100%;
+.article-body > table th,
+.article-body > table td {
+	overflow-wrap: anywhere;
+	word-break: normal;
 }
-
 .article-body > table th:not(:first-child),
 .article-body > table td:not(:first-child) {
 	font-variant-numeric: tabular-nums;
@@ -1841,6 +1839,23 @@ footer {
 }
 
 @media (max-width: 750px) {
+	.article-body > table {
+		table-layout: fixed;
+		font-size: 0.86rem;
+	}
+
+	.article-body > table th,
+	.article-body > table td {
+		padding: 0.65rem 0.55rem;
+		hyphens: auto;
+		line-height: 1.45;
+	}
+
+	.article-body > table th:first-child,
+	.article-body > table td:first-child {
+		width: 44%;
+	}
+
 	.breadcrumbs li:last-child {
 		flex-basis: 100%;
 		white-space: normal;
