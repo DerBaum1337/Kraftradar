@@ -55,15 +55,18 @@ const isActive = (href: string) =>
 	const header = document.querySelector<HTMLElement>('.site-header');
 	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
 	const navigationLinks = document.querySelectorAll<HTMLAnchorElement>('.site-header nav a');
+	const mobileNavigation = window.matchMedia('(max-width: 750px)');
 
 	const closeMenu = () => {
 		header?.classList.remove('site-header--menu-open');
+		document.body.classList.remove('site-menu-open');
 		toggle?.setAttribute('aria-expanded', 'false');
 		toggle?.setAttribute('aria-label', 'Hauptnavigation öffnen');
 	};
 
 	toggle?.addEventListener('click', () => {
 		const isOpen = header?.classList.toggle('site-header--menu-open') ?? false;
+		document.body.classList.toggle('site-menu-open', isOpen);
 		toggle.setAttribute('aria-expanded', String(isOpen));
 		toggle.setAttribute(
 			'aria-label',
@@ -72,6 +75,9 @@ const isActive = (href: string) =>
 	});
 
 	navigationLinks.forEach((link) => link.addEventListener('click', closeMenu));
+	mobileNavigation.addEventListener('change', (event) => {
+		if (!event.matches) closeMenu();
+	});
 
 	document.addEventListener('keydown', (event) => {
 		if (

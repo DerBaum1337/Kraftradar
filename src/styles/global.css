@@ -37,7 +37,6 @@ body {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	margin: 0;
-	min-width: 320px;
 	min-height: 100vh;
 	background:
 		radial-gradient(circle at 80% 10%, rgb(85 230 165 / 8%), transparent 28rem),
@@ -243,6 +242,8 @@ h2,
 h3 {
 	margin-top: 0;
 	color: var(--color-text);
+	overflow-wrap: anywhere;
+	hyphens: auto;
 	line-height: 1.12;
 	text-wrap: balance;
 }
@@ -1036,6 +1037,12 @@ tbody tr:last-child td {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1.25rem;
 	margin-top: 2rem;
+}
+
+/* Gewichtungstabellen dürfen das einspaltige Raster auf schmalen Displays
+   nicht durch ihre intrinsische Tabellenbreite verbreitern. */
+.method-grid > * {
+	min-width: 0;
 }
 
 .method-card .badge {
@@ -1983,6 +1990,12 @@ footer {
 
 	html.js .site-header--menu-open nav {
 		display: block;
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	html.js body.site-menu-open {
+		overflow: hidden;
 	}
 
 	.site-header nav ul {

@@ -8,11 +8,34 @@ import { getLatestArticles } from '../lib/artikel';
 import { lesezeitInMinuten } from '../lib/lesezeit';
 
 const neuesteInhalte = await getLatestArticles(3);
+const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': `${siteURL.href}#website`,
+			name: 'KraftRadar',
+			url: siteURL.href,
+			inLanguage: 'de-DE',
+		},
+		{
+			'@type': 'WebPage',
+			'@id': `${siteURL.href}#webpage`,
+			name: 'KraftRadar – EGYM, Training und Gym-Produkte ehrlich eingeordnet',
+			description: 'Persönliche EGYM-Erfahrungen, verständliche Trainingsartikel und transparente Einordnungen zu Supplements und Gym-Zubehör.',
+			url: siteURL.href,
+			isPartOf: { '@id': `${siteURL.href}#website` },
+			inLanguage: 'de-DE',
+		},
+	],
+};
 ---
 
 <Hauptlayout
 	title="KraftRadar – EGYM, Training und Gym-Produkte ehrlich eingeordnet"
 	description="Persönliche EGYM-Erfahrungen, verständliche Trainingsartikel und transparente Einordnungen zu Supplements und Gym-Zubehör."
+	structuredData={structuredData}
 >
 	<section class="hero">
 		<div class="hero-copy">

@@ -17,14 +17,27 @@ interface Props {
 const { author } = Astro.props;
 const articles = (await getPublishedArticles()).filter((article) => article.data.author === author.data.slug);
 const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const authorURL = new URL(`/autoren/${author.data.slug}/`, siteURL).href;
 const structuredData = {
 	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: author.data.name,
-	url: new URL(`/autoren/${author.data.slug}/`, siteURL).href,
-	description: author.data.bio,
-	jobTitle: author.data.role,
-	...(author.data.sameAs.length > 0 ? { sameAs: author.data.sameAs } : {}),
+	'@graph': [
+		{
+			'@type': 'ProfilePage',
+			url: authorURL,
+			name: `${author.data.name} | KraftRadar`,
+			mainEntity: { '@id': `${authorURL}#person` },
+			inLanguage: 'de-DE',
+		},
+		{
+			'@type': 'Person',
+			'@id': `${authorURL}#person`,
+			name: author.data.name,
+			url: authorURL,
+			description: author.data.bio,
+			jobTitle: author.data.role,
+			...(author.data.sameAs.length > 0 ? { sameAs: author.data.sameAs } : {}),
+		},
+	],
 };
 ---
 
