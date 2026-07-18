@@ -118,5 +118,21 @@ const pageStructuredData = structuredData ?? defaultStructuredData;
 		</main>
 
 		<Footer />
+
+		<script is:inline>
+			const kraftRadarHosts = new Set(['kraftradar.de', 'www.kraftradar.de']);
+
+			document.querySelectorAll('a[href]').forEach((link) => {
+				try {
+					const url = new URL(link.href);
+					if (!['http:', 'https:'].includes(url.protocol) || kraftRadarHosts.has(url.hostname)) return;
+
+					link.target = '_blank';
+					link.rel = 'noopener noreferrer external';
+				} catch {
+					// Ungültige oder nicht-webbasierte Links werden nicht verändert.
+				}
+			});
+		</script>
 	</body>
 </html>
