@@ -1,57 +1,11 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
-import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 import { getArticlesByCategory } from '../lib/artikel';
 
 const beitraege = await getArticlesByCategory('gym-zubehoer');
-
-const themen = [
-	{
-		bereich: 'Schuhe',
-		symbol: 'SH',
-		status: 'In Vorbereitung',
-		titel: 'Trainingsschuhe',
-		beschreibung: 'Halt, Komfort und Alltagstauglichkeit für verschiedene Arten von Training.',
-	},
-	{
-		bereich: 'Technik',
-		symbol: 'FU',
-		status: 'In Vorbereitung',
-		titel: 'Fitnessuhren',
-		beschreibung: 'Tracking-Funktionen und praktische Nutzung im Gym statt bloßer Datenblätter.',
-	},
-	{
-		bereich: 'Audio',
-		symbol: 'KH',
-		status: 'In Vorbereitung',
-		titel: 'Kopfhörer',
-		beschreibung: 'Sitz, Haltbarkeit und Bedienung unter echten Trainingsbedingungen.',
-	},
-	{
-		bereich: 'Organisation',
-		symbol: 'TS',
-		status: 'In Vorbereitung',
-		titel: 'Taschen und Rucksäcke',
-		beschreibung: 'Stauraum, Verarbeitung und sinnvolle Details für den Weg zum Training.',
-	},
-	{
-		bereich: 'Alltag',
-		symbol: 'ST',
-		status: 'In Vorbereitung',
-		titel: 'Shaker und Trinkflaschen',
-		beschreibung: 'Dichtigkeit, Reinigung und Nutzen im täglichen Einsatz.',
-	},
-	{
-		bereich: 'Griffkraft',
-		symbol: 'GH',
-		status: 'In Vorbereitung',
-		titel: 'Griffe und Zughilfen',
-		beschreibung: 'Komfort, Material und der tatsächliche Mehrwert bei Zugübungen.',
-	},
-];
 ---
 
 <Hauptlayout
@@ -66,19 +20,6 @@ const themen = [
 	/>
 
 	<Bereichsbeitraege category="gym-zubehoer" heading="Neu bei Gym-Zubehör" limit={3} />
-
-	<section class="section-alternate">
-		<p class="eyebrow">Themenübersicht</p>
-		<h2>Zubehör, das im Alltag bestehen muss.</h2>
-		<p class="section-intro">
-			KraftRadar befindet sich hier noch im Aufbau. Erste Praxistests erscheinen nach
-			einem nachvollziehbar dokumentierten Testzeitraum mit Preisstand und Nutzungserfahrung.
-		</p>
-
-		<div class="card-grid topic-grid">
-			{themen.map((thema) => <Themenkarte {...thema} />)}
-		</div>
-	</section>
 
 	<Beitragsuebersicht
 		category="gym-zubehoer"

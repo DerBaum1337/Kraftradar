@@ -1,54 +1,8 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
-import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
-
-const themen = [
-	{
-		bereich: 'Start',
-		symbol: '01',
-		status: 'In Vorbereitung',
-		titel: 'Meine Ausgangslage',
-		beschreibung: 'Wo der Weg begonnen hat und welche Veränderungen ich mit Training erreichen möchte.',
-	},
-	{
-		bereich: 'Ziele',
-		symbol: '02',
-		status: 'In Vorbereitung',
-		titel: 'Ziele und Fokus',
-		beschreibung: 'Welche Ziele aktuell im Vordergrund stehen und wie sie realistisch verfolgt werden.',
-	},
-	{
-		bereich: 'Training',
-		symbol: '03',
-		status: 'In Vorbereitung',
-		titel: 'Mein aktuelles Training',
-		beschreibung: 'Trainingsrhythmus, Geräteerfahrungen und Anpassungen im Laufe der Zeit.',
-	},
-	{
-		bereich: 'Fortschritt',
-		symbol: '04',
-		status: 'In Vorbereitung',
-		titel: 'Kraftwerte und Entwicklung',
-		beschreibung: 'Vergleichbare Werte und Veränderungen werden später mit Datum und Kontext dokumentiert.',
-	},
-	{
-		bereich: 'Erkenntnisse',
-		symbol: '05',
-		status: 'In Vorbereitung',
-		titel: 'Fehler und Zwischenstände',
-		beschreibung: 'Auch Rückschläge, Korrekturen und neue Erkenntnisse gehören zu einem ehrlichen Trainingsweg.',
-	},
-	{
-		bereich: 'Updates',
-		symbol: '06',
-		status: 'In Vorbereitung',
-		titel: 'Regelmäßige Updates',
-		beschreibung: 'Kurze Rückblicke sollen Fortschritt über mehrere Wochen und Monate sichtbar machen.',
-	},
-];
 ---
 
 <Hauptlayout
@@ -63,6 +17,12 @@ const themen = [
 
 	<Bereichsbeitraege category="mein-weg" heading="Neu bei meinem Weg" limit={3} />
 
+	<Beitragsuebersicht
+		category="mein-weg"
+		heading="Alle Beiträge zu meinem Weg"
+		description="Direkt zu meinen veröffentlichten Erfahrungsberichten, Fortschrittsdaten und späteren Updates."
+	/>
+
 	<section class="section-alternate">
 		<p class="eyebrow">Persönliche Dokumentation</p>
 		<h2>Was ich hier dokumentiere.</h2>
@@ -70,10 +30,6 @@ const themen = [
 			Dieser Bereich bleibt persönlich. Allgemeine Trainingsratgeber gehören zu Training;
 			hier geht es um meine Erfahrungen, Fortschritte und Lernmomente.
 		</p>
-
-		<div class="card-grid topic-grid">
-			{themen.map((thema) => <Themenkarte {...thema} />)}
-		</div>
 
 		<div class="notice notice--warning">
 			<strong>Privatsphäre bleibt wichtig</strong>
@@ -84,10 +40,4 @@ const themen = [
 			</p>
 		</div>
 	</section>
-
-	<Beitragsuebersicht
-		category="mein-weg"
-		heading="Alle Beiträge zu meinem Weg"
-		description="Direkt zu meinen veröffentlichten Erfahrungsberichten, Fortschrittsdaten und späteren Updates."
-	/>
 </Hauptlayout>

@@ -1,57 +1,11 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
-import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 import { getArticlesByCategory } from '../lib/artikel';
 
 const beitraege = await getArticlesByCategory('supplements');
-
-const themen = [
-	{
-		bereich: 'Protein',
-		symbol: 'PR',
-		status: 'In Vorbereitung',
-		titel: 'Whey und Proteinpulver',
-		beschreibung: 'Geschmack, Löslichkeit, Nährwerte und Preis pro Portion nachvollziehbar vergleichen.',
-	},
-	{
-		bereich: 'Kreatin',
-		symbol: 'KR',
-		status: 'In Vorbereitung',
-		titel: 'Kreatin im Überblick',
-		beschreibung: 'Formen, Dosierung und Preis-Leistung ohne übertriebene Versprechen einordnen.',
-	},
-	{
-		bereich: 'Omega-3',
-		symbol: 'O3',
-		status: 'In Vorbereitung',
-		titel: 'Omega-3',
-		beschreibung: 'Inhaltsstoffe, Dosierungen und praktische Unterschiede verschiedener Produkte prüfen.',
-	},
-	{
-		bereich: 'Mineralstoffe',
-		symbol: 'MG',
-		status: 'In Vorbereitung',
-		titel: 'Magnesium',
-		beschreibung: 'Welche Formen es gibt und worauf es bei Zusammensetzung und Preis ankommt.',
-	},
-	{
-		bereich: 'Vitamine',
-		symbol: 'VT',
-		status: 'In Vorbereitung',
-		titel: 'Vitamine',
-		beschreibung: 'Produktangaben verständlich einordnen – ohne daraus medizinische Empfehlungen abzuleiten.',
-	},
-	{
-		bereich: 'Vergleiche',
-		symbol: 'PV',
-		status: 'In Vorbereitung',
-		titel: 'Preis und Leistung vergleichen',
-		beschreibung: 'Spätere Vergleiche zeigen Preis pro Portion und bei Proteinprodukten auch Preis pro 25 Gramm Eiweiß.',
-	},
-];
 ---
 
 <Hauptlayout
@@ -66,19 +20,6 @@ const themen = [
 	/>
 
 	<Bereichsbeitraege category="supplements" heading="Neu bei Supplements" limit={3} />
-
-	<section class="section-alternate">
-		<p class="eyebrow">Themenübersicht</p>
-		<h2>Supplements nachvollziehbar einordnen.</h2>
-		<p class="section-intro">
-			KraftRadar befindet sich hier noch im Aufbau. Die ersten Produkttests erscheinen
-			erst, wenn Testzeitraum, Bewertung und Preisdaten einheitlich dokumentiert sind.
-		</p>
-
-		<div class="card-grid topic-grid">
-			{themen.map((thema) => <Themenkarte {...thema} />)}
-		</div>
-	</section>
 
 	<Beitragsuebersicht
 		category="supplements"

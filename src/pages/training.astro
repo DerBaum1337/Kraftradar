@@ -1,55 +1,8 @@
 ---
 import Hauptlayout from '../layouts/Hauptlayout.astro';
 import Seitenkopf from '../components/Seitenkopf.astro';
-import Themenkarte from '../components/Themenkarte.astro';
 import Bereichsbeitraege from '../components/Bereichsbeitraege.astro';
 import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
-
-const themen = [
-	{
-		bereich: 'Grundlagen',
-		symbol: 'GL',
-		status: 'In Vorbereitung',
-		titel: 'Trainingsgrundlagen',
-		beschreibung: 'Trainingspläne, Wiederholungen, Belastungssteuerung und die wichtigsten Begriffe verständlich erklärt.',
-	},
-	{
-		bereich: 'Krafttraining',
-		symbol: 'KT',
-		status: 'In Vorbereitung',
-		titel: 'Kraft gezielt aufbauen',
-		beschreibung: 'Übungen, saubere Ausführung und sinnvolle Prinzipien für langfristige Fortschritte.',
-	},
-	{
-		bereich: 'Geräte',
-		symbol: 'GT',
-		status: 'In Vorbereitung',
-		titel: 'Geräte und Technik',
-		beschreibung: 'Erfahrungen mit Einstellungen, Bewegungsabläufen und dem sinnvollen Einsatz von Trainingsgeräten.',
-	},
-	{
-		bereich: 'Ausdauer',
-		symbol: 'AU',
-		status: 'In Vorbereitung',
-		titel: 'Ausdauer ergänzen',
-		beschreibung: 'Wie Cardio neben Krafttraining sinnvoll eingesetzt werden kann, ohne den Fokus zu verlieren.',
-	},
-	{
-		bereich: 'Regeneration',
-		symbol: 'RG',
-		status: 'In Vorbereitung',
-		titel: 'Erholung ernst nehmen',
-		beschreibung: 'Pausen, Schlaf und Belastungsmanagement als Teil eines nachhaltigen Trainingsalltags.',
-	},
-	{
-		bereich: 'Dokumentation',
-		symbol: 'FD',
-		status: 'In Vorbereitung',
-		titel: 'Fortschritt festhalten',
-		beschreibung: 'Welche Angaben einen Trainingsverlauf wirklich vergleichbar und nachvollziehbar machen.',
-	},
-];
-
 ---
 
 <Hauptlayout
@@ -63,19 +16,6 @@ const themen = [
 	/>
 
 	<Bereichsbeitraege category="training" heading="Neu bei Training" limit={3} />
-
-	<section class="section-alternate">
-		<p class="eyebrow">Themenübersicht</p>
-		<h2>Training, das zu deinem Alltag passt.</h2>
-		<p class="section-intro">
-			Hier entstehen allgemeine Ratgeber und Erfahrungen. Persönliche Werte und
-			Zwischenstände findest du getrennt im Bereich „Mein Weg“.
-		</p>
-
-		<div class="card-grid topic-grid">
-			{themen.map((thema) => <Themenkarte {...thema} />)}
-		</div>
-	</section>
 
 	<Beitragsuebersicht
 		category="training"
