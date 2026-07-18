@@ -944,6 +944,7 @@ tbody tr:last-child td {
 
 .text-link,
 .prose-content a:not(.button),
+.article-body a:not(.button),
 .legal-content a {
 	color: var(--color-accent);
 	font-weight: 750;
@@ -954,6 +955,7 @@ tbody tr:last-child td {
 
 .text-link:hover,
 .prose-content a:hover,
+.article-body a:hover,
 .legal-content a:hover {
 	text-decoration-color: currentColor;
 }
@@ -1362,6 +1364,26 @@ tbody tr:last-child td {
 	color: var(--color-text-muted);
 	font-size: 1.05rem;
 	line-height: 1.85;
+}
+
+/* Markdown-Bilder bleiben im Original-Seitenverhältnis, erhalten aber eine
+   einheitliche, ruhige Einbettung. Dadurch wirken auch Hochformatfotos
+   zusammengehörig, ohne dass Produktdetails beschnitten werden. */
+.article-body > p:has(> img:only-child) {
+	width: min(100%, 640px);
+	margin: 2rem auto;
+	padding: 0.45rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: var(--color-surface);
+	box-shadow: var(--shadow-card);
+}
+
+.article-body > p:has(> img:only-child) img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: calc(var(--radius-medium) - 0.25rem);
 }
 
 .article-body > ul,
