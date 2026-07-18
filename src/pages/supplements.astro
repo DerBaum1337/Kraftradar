@@ -7,7 +7,6 @@ import Beitragsuebersicht from '../components/Beitragsuebersicht.astro';
 import { getArticlesByCategory } from '../lib/artikel';
 
 const beitraege = await getArticlesByCategory('supplements');
-const zeigtVollstaendigeUebersicht = beitraege.length >= 7;
 
 const themen = [
 	{
@@ -66,16 +65,7 @@ const themen = [
 		description="Verständliche Einordnungen zu Proteinpulver, Kreatin und weiteren Supplements – transparent, praxisnah und mit Blick auf Preis-Leistung."
 	/>
 
-	{
-		!zeigtVollstaendigeUebersicht && (
-			<Bereichsbeitraege category="supplements" heading="Beiträge zu Supplements" />
-		)
-	}
-	{
-		zeigtVollstaendigeUebersicht && (
-			<Bereichsbeitraege category="supplements" heading="Neu bei Supplements" limit={3} />
-		)
-	}
+	<Bereichsbeitraege category="supplements" heading="Neu bei Supplements" limit={3} />
 
 	<section class="section-alternate">
 		<p class="eyebrow">Themenübersicht</p>
@@ -90,13 +80,9 @@ const themen = [
 		</div>
 	</section>
 
-	{
-		zeigtVollstaendigeUebersicht && (
-			<Beitragsuebersicht
-				category="supplements"
-				heading="Alle Beiträge zu Supplements"
-				description="Alle veröffentlichten Tests, Erfahrungen und Vergleiche in einer kompakten Übersicht."
-			/>
-		)
-	}
+	<Beitragsuebersicht
+		category="supplements"
+		heading="Alle Beiträge zu Supplements"
+		description="Alle veröffentlichten Tests, Erfahrungen und Vergleiche in einer kompakten Übersicht."
+	/>
 </Hauptlayout>
