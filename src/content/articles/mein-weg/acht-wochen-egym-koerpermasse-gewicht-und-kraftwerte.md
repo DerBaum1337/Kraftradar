@@ -20,6 +20,7 @@ seo:
 relatedArticles:
   - vom-unsportlichen-raucher-zum-regelmaessigen-training
   - egym-gewichte-verstehen
+  - fortschritt-dokumentieren
 sources: []
 transparency:
   personalExperience: true
@@ -37,33 +38,39 @@ interimConclusion: ""
 longTermUpdate: ""
 ---
 
-Am 13. April 2026 habe ich mit regelmäßigem Training begonnen. Dieser Bericht betrachtet bewusst meine ersten acht Trainingswochen bis zum 10. Juni 2026. Meine Entwicklung habe ich anschließend weiter dokumentiert und werde sie in späteren Fortschrittsberichten ergänzen.
+Am 13. April 2026 habe ich mit regelmäßigem Training begonnen. Dieser Bericht betrachtet bewusst meine ersten acht Trainingswochen bis zum 10. Juni 2026. Meine Entwicklung habe ich danach weiter dokumentiert und werde sie in späteren Fortschrittsberichten ergänzen.
 
 In meinem [Hauptartikel über meinen Trainingsstart](/mein-weg/vom-unsportlichen-raucher-zum-regelmaessigen-training/) erzähle ich, warum ich nach dem Rauchstopp mit Sport begonnen habe. Dieser Beitrag konzentriert sich auf die Daten: Körpermaße, Gewicht, Körperanalyse und ausgewählte Trainingswerte.
 
-Wichtig ist mir dabei eine ehrliche Einordnung: Keine einzelne Zahl beschreibt meinen Fortschritt vollständig. Gerade in den ersten Wochen können Messzeitpunkt, Wasserhaushalt, unterschiedliche Waagen und die jeweilige Trainingsmethode einen großen Unterschied machen.
+Wichtig ist mir dabei eine ehrliche Einordnung: Keine einzelne Zahl beschreibt meinen Fortschritt vollständig. Messzeitpunkt, Wasserhaushalt, unterschiedliche Waagen, Tagesform und die jeweilige Trainingsmethode können die Ergebnisse beeinflussen.
 
 ## Ausgangslage und Messzeitraum
 
-Ich bin 1,92 Meter groß, hatte vor dem Trainingsstart aber kaum Sporterfahrung und wenig Kondition. Mit EGYM begann ich als kompletter Anfänger.
+Ich bin 1,90 Meter groß, hatte vor dem Trainingsstart aber kaum Sporterfahrung und wenig Kondition. Mit EGYM begann ich als kompletter Anfänger.
 
-Für diesen ersten Zwischenstand verwende ich Messwerte aus dem Zeitraum vom 13. April bis zum 10. Juni 2026. Spätere Trainings- und Fortschrittsdaten sind bewusst noch nicht Teil dieser Auswertung. Nur der Gewichtswert vom 15. Juni wird weiter unten ausdrücklich als späterer Zusatzwert gezeigt. Die Werte zeigen eine erste Entwicklung, sind aber keine medizinische Untersuchung und keine perfekte wissenschaftliche Vergleichsreihe.
+Für diesen ersten Zwischenstand verwende ich Messwerte aus dem Zeitraum vom 13. April bis zum 10. Juni 2026. Spätere Trainings- und Fortschrittsdaten sind bewusst noch nicht Teil dieser Auswertung. Nur der Gewichtswert vom 15. Juni wird weiter unten ausdrücklich als späterer Zusatzwert gezeigt.
+
+Die Werte zeigen eine erste Entwicklung. Sie sind aber keine medizinische Untersuchung und keine perfekte wissenschaftliche Vergleichsreihe.
 
 ## Wie ich meinen Fortschritt messe
 
-Ich bewerte meinen Fortschritt nicht nur nach der Zahl auf der Waage. Stattdessen betrachte ich mehrere Punkte gemeinsam:
+Ich bewerte meine Entwicklung nicht nur anhand meines Körpergewichts. Stattdessen betrachte ich mehrere Punkte gemeinsam:
 
 - Körpermaße
 - Körpergewicht
 - BIA-Körperanalyse
-- EGYM-Krafttests und Trainingsleistungen
-- Veränderungen bei Kondition, Kleidung, Haltung und Körpergefühl
+- EGYM-Kraftwerte und Trainingsleistungen
+- Kondition
+- Sitz meiner Kleidung
+- Haltung und Körpergefühl
 
-So kann eine einzelne ungenaue Messung weniger stark ins Gewicht fallen. Gleichzeitig wird sichtbar, ob sich mehrere Hinweise in dieselbe Richtung entwickeln.
+Dadurch fällt eine einzelne ungenaue oder ungewöhnliche Messung weniger stark ins Gewicht. Interessanter wird es, wenn mehrere dieser Hinweise über längere Zeit in dieselbe Richtung zeigen.
+
+Wie ich solche Werte und Trainingseindrücke festhalte und miteinander vergleiche, beschreibe ich ausführlicher im Artikel [„Trainingsfortschritt sinnvoll dokumentieren“](/training/fortschritt-dokumentieren/).
 
 ## Entwicklung meiner Körpermaße
 
-Die folgenden Maße wurden mit einem Maßband erfasst. Bei solchen Messungen können schon kleine Unterschiede bei Position, Spannung und Tageszeit entstehen. Deshalb sind vor allem größere Veränderungen über mehrere Wochen interessant.
+Die folgenden Maße wurden mit einem Maßband erfasst. Schon kleine Unterschiede bei Messposition, Spannung und Tageszeit können das Ergebnis verändern. Deshalb sind vor allem größere Veränderungen über mehrere Wochen interessant.
 
 | Messwert | Ausgangswert | Späterer Wert | Veränderung |
 | --- | ---: | ---: | ---: |
@@ -75,26 +82,30 @@ Die folgenden Maße wurden mit einem Maßband erfasst. Bei solchen Messungen kö
 | Linker Oberschenkel | — | 51 cm | kein Vergleich |
 | Handgelenk | 17 cm | 17 cm | unverändert |
 
-Für den linken Oberschenkel liegt kein Ausgangswert vor. Die Veränderung ist deshalb bewusst nicht berechnet.
+Für den linken Oberschenkel liegt kein Ausgangswert vor. Eine Veränderung kann ich deshalb nicht berechnen.
 
-Eine einzelne Brustmessung von 102 Zentimetern verwende ich bewusst nicht als Vergleichswert, weil offenbar an einer anderen Stelle gemessen wurde. Ein Wert ist nur dann hilfreich, wenn die Messung möglichst gleich durchgeführt wurde.
+Eine einzelne Brustmessung von 102 Zentimetern verwende ich ebenfalls nicht als Vergleichswert, weil dabei offenbar an einer anderen Stelle gemessen wurde. Ein Wert ist nur hilfreich, wenn die Messung möglichst gleich durchgeführt wird.
 
-Die auffälligste Veränderung ist für mich der Bauchumfang. Vier Zentimeter weniger sind keine komplette Verwandlung, aber eine messbare Entwicklung in relativ kurzer Zeit.
+Die auffälligste Veränderung ist für mich der Bauchumfang. Vier Zentimeter weniger sind keine vollständige körperliche Verwandlung, aber eine deutlich messbare Entwicklung in relativ kurzer Zeit.
 
 ## Warum die Waage allein wenig aussagt
 
-Beim Gewicht liegen mehrere Werte vor:
+Beim Körpergewicht liegen mehrere Werte vor:
 
 | Messzeitpunkt | Gewicht |
 | --- | ---: |
 | Früherer Ausgangswert | ungefähr 85,6 kg |
 | 13. April 2026 | 83,0 kg |
 | 14. April 2026 | 84,4 kg |
-| 15. Juni 2026 (Zusatzwert) | 87,1 kg |
+| 15. Juni 2026, späterer Zusatzwert | 87,1 kg |
 
-Der Wert vom 15. Juni liegt außerhalb des betrachteten Acht-Wochen-Zeitraums. Ich führe ihn nur als späteren Zusatzwert auf und rechne ihn nicht als regulären Endwert dieser Auswertung. Die Messungen stammen außerdem teilweise von unterschiedlichen Waagen und unter unterschiedlichen Bedingungen. Deshalb wäre die Aussage, ich hätte exakt 4,1 Kilogramm zugenommen, nicht sauber.
+Der Wert vom 15. Juni liegt außerhalb des eigentlichen Acht-Wochen-Zeitraums. Ich führe ihn nur als späteren Zusatzwert auf und rechne ihn nicht als regulären Endwert dieser Auswertung.
 
-Aussagekräftiger ist die Kombination: Das Gewicht schwankte beziehungsweise stieg, während der Bauchumfang gleichzeitig sank und sich meine Trainingsleistungen verbesserten. Gewicht allein kann nicht zeigen, wie sich Fettmasse, Wasser, Mageninhalt und fettfreie Masse zusammensetzen.
+Die Messungen stammen außerdem teilweise von unterschiedlichen Waagen und wurden nicht immer unter denselben Bedingungen durchgeführt. Deshalb wäre die Aussage, ich hätte exakt 4,1 Kilogramm zugenommen, nicht sauber.
+
+Aussagekräftiger ist für mich die gemeinsame Entwicklung: Das Körpergewicht schwankte beziehungsweise stieg, während der Bauchumfang sank und sich mehrere Trainingsleistungen verbesserten.
+
+Die Waage allein kann nicht zeigen, welchen Anteil Fettmasse, fettfreie Masse, Wasser, gefüllte Kohlenhydratspeicher oder Mageninhalt an einem bestimmten Gewicht haben.
 
 ## Einordnung der BIA-Körperanalyse
 
@@ -112,31 +123,27 @@ Die früheren Referenzwerte und die Messung vom 3. Juni stammen teilweise aus un
 
 Die frühere Referenz für den Körperfettanteil stammt aus RENPHO-Messungen.
 
-Eine BIA-Messung schätzt die Körperzusammensetzung über den elektrischen Widerstand des Körpers. Sie kann als Verlaufshinweis hilfreich sein, ist aber keine exakte Messung der tatsächlich aufgebauten Muskulatur.
+Eine BIA-Messung schätzt die Körperzusammensetzung anhand des elektrischen Widerstands des Körpers. Sie kann als Hinweis auf eine Entwicklung hilfreich sein, misst die tatsächlich aufgebaute Muskulatur aber nicht exakt.
 
-Die Bedingungen waren nicht vollständig identisch. Wasserhaushalt, gefüllte Kohlenhydratspeicher, Essen, Uhrzeit und Kreatin können die Ergebnisse beeinflussen. Die angezeigte Steigerung der fettfreien Masse bedeutet daher nicht automatisch, dass ich 4,4 Kilogramm neue Muskeln aufgebaut habe.
+Die Bedingungen waren nicht vollständig identisch. Wasserhaushalt, Essen, Uhrzeit, gefüllte Kohlenhydratspeicher und die Einnahme von Kreatin können solche Ergebnisse beeinflussen.
 
-Trotzdem passt die Richtung der Werte zu den anderen Beobachtungen: Der Bauchumfang ging zurück, einige Kleidungsstücke sitzen an Schultern und Oberarmen enger und mehrere Trainingsleistungen stiegen.
+Die angezeigte Steigerung der fettfreien Masse bedeutet daher nicht automatisch, dass ich innerhalb weniger Wochen 4,4 Kilogramm neue Muskulatur aufgebaut habe.
 
-## Warum EGYM-Gewichte nicht direkt vergleichbar sind
+Trotzdem passt die Richtung zu meinen anderen Beobachtungen: Der Bauchumfang ging zurück, einige Kleidungsstücke sitzen an Schultern und Oberarmen enger und mehrere Trainingsleistungen stiegen.
 
-Die bei EGYM angezeigten Kilogramm lassen sich nicht eins zu eins mit freien Gewichten oder den Gewichtsangaben anderer Kraftgeräte vergleichen. Wie schwer sich eine Übung tatsächlich anfühlt, hängt unter anderem von der Bauweise und Übersetzung des Geräts, dem eingestellten Bewegungsbereich, der Sitzposition, der Bewegungsgeschwindigkeit und der jeweiligen EGYM-Trainingsmethode ab.
+## Warum ich EGYM-Werte nur eingeschränkt vergleiche
 
-Selbst zwei verschiedene Beinpressen können bei derselben Kilogrammangabe unterschiedlich schwer sein. Ein Wert von beispielsweise 100 Kilogramm bei EGYM bedeutet deshalb nicht automatisch, dass dieselbe Leistung auch an einer klassischen Beinpresse oder mit freien Gewichten möglich wäre.
+Die bei EGYM angezeigten Kilogramm lassen sich nicht direkt mit freien Gewichten, klassischen Kraftgeräten oder anderen EGYM-Trainingsmethoden vergleichen.
 
-Zusätzlich können die angezeigten Trainingsgewichte je nach Methode deutlich schwanken. Beim regulären Training bleibt die Belastung während der Wiederholung weitgehend gleich. Beim adaptiven Training kann das System die Belastung innerhalb eines Satzes anpassen. Beim Negativtraining ist die Belastung in der nachgebenden Bewegung höher; ein scheinbar niedrigerer Ausgangswert kann dadurch trotzdem sehr anstrengend sein.
+Der Widerstand kann abhängig von Gerät, Bewegungsbereich, Einstellung und Trainingsmethode unterschiedlich gesteuert werden. Auch ein Krafttestwert ist nicht dasselbe wie das Gewicht eines normalen Trainingssatzes.
 
-Auch die von EGYM angezeigten Kraftwerte sind keine normalen Trainingssätze. Sie dienen innerhalb des Systems dazu, die persönliche Leistung einzuordnen und die künftige Belastung festzulegen. Für meinen Fortschritt vergleiche ich deshalb möglichst nur dasselbe Gerät, dieselbe Trainingsmethode, eine ähnliche Wiederholungszahl, denselben Bewegungsbereich und eine vergleichbare Ausführung.
-
-Die Werte eignen sich gut, um meine eigene Entwicklung innerhalb von EGYM zu verfolgen. Sie sind aber nicht als direkter Vergleich mit anderen Geräten, Studios oder freien Gewichten gedacht.
-
-Die Unterschiede zwischen Krafttest, Trainingsgewicht und den einzelnen Methoden erkläre ich ausführlicher im Artikel [„EGYM-Gewichte verstehen: Warum die Zahlen nicht direkt vergleichbar sind“](/training/egym-gewichte-verstehen/).
+Für diesen Bericht vergleiche ich deshalb möglichst nur Werte vom selben Gerät unter ähnlichen Bedingungen. Die genauen Unterschiede zwischen Kraftwert, Trainingsgewicht und den einzelnen Methoden erkläre ich im Artikel [„EGYM-Gewichte verstehen: Warum die Zahlen nicht direkt vergleichbar sind“](/training/egym-gewichte-verstehen/).
 
 ## Entwicklung der in der EGYM-App dokumentierten Kraftwerte
 
-EGYM zeigt für die einzelnen Geräte eigene Kraftwerte an. Diese Werte sind nicht mit den Gewichten gleichzusetzen, die ich während meiner normalen Arbeitssätze verwende.
+EGYM zeigt für die einzelnen Geräte eigene Kraftwerte an. Diese Werte entsprechen nicht automatisch den Gewichten, mit denen ich während meiner normalen Arbeitssätze trainiert habe.
 
-In meinen aktuellen Trainingsaufzeichnungen sind für den Unterkörper folgende Verläufe dokumentiert:
+In meinen Trainingsaufzeichnungen sind für den Unterkörper folgende Verläufe dokumentiert:
 
 | Gerät | Erster dokumentierter Wert | Weiterer Wert | Letzter Wert |
 | --- | --- | --- | --- |
@@ -144,13 +151,17 @@ In meinen aktuellen Trainingsaufzeichnungen sind für den Unterkörper folgende 
 | Beinstrecker | 130 kg am 4. Mai | 139 kg am 18. Mai | 159 kg am 25. Mai |
 | Beinbeuger | 86 kg am 4. Mai | 91 kg am 18. Mai | 96 kg am 25. Mai |
 
-Die Werte zeigen innerhalb der EGYM-Aufzeichnungen eine deutliche Entwicklung. Sie bedeuten aber nicht, dass ich beispielsweise 236 Kilogramm in normalen Trainingssätzen bewegt habe. Kraftwerte, Trainingsgewichte und verschiedene EGYM-Methoden müssen deshalb getrennt betrachtet werden.
+Die Werte zeigen innerhalb meiner EGYM-Aufzeichnungen eine deutliche Entwicklung. Sie bedeuten aber nicht, dass ich beispielsweise 236 Kilogramm in normalen Trainingssätzen bewegt habe.
+
+Kraftwerte, Trainingsgewichte und verschiedene Trainingsmethoden müssen getrennt betrachtet werden.
 
 ## Ausgewählte Trainingsleistungen
 
-Neben den von EGYM dokumentierten Kraftwerten zeigen auch meine normalen Arbeitssätze, wie sich mein Training entwickelt. Die folgenden Werte sind keine Rekorde und dürfen weder direkt mit den Kraftwerten noch untereinander verglichen werden, wenn unterschiedliche Trainingsmethoden verwendet wurden. Sie zeigen lediglich ausgewählte Leistungen innerhalb des jeweiligen EGYM-Programms.
+Neben den EGYM-Kraftwerten zeigen auch meine normalen Arbeitssätze, wie sich mein Training entwickelt hat.
 
-| Übung und Methode | Bisher dokumentierte Leistung |
+Die folgenden Werte sind keine persönlichen Rekorde im klassischen Sinn. Sie dürfen außerdem nicht direkt miteinander verglichen werden, wenn unterschiedliche Trainingsmethoden verwendet wurden.
+
+| Übung und Methode | Dokumentierte Leistung |
 | --- | --- |
 | Beinpresse, negativ | von 79 kg über 99 kg auf später kontrolliertere 90 kg |
 | Beinpresse, adaptiv | bis 150 kg dokumentiert |
@@ -162,34 +173,49 @@ Neben den von EGYM dokumentierten Kraftwerten zeigen auch meine normalen Arbeits
 | Latzug, adaptiv | bis 70 kg |
 | Bauchtrainer, adaptiv | bis 70 kg |
 
-Bei der adaptiven Beinpresse gab es am 8. Juni einen Satz mit 152 Kilogramm. Diesen Wert werte ich ausdrücklich nicht als Fortschrittsrekord: Es waren nur zwei Wiederholungen möglich und mein linkes Knie wurde gereizt. Aussagekräftiger sind die später reduzierten Sätze mit 125 und 110 Kilogramm.
+Bei der adaptiven Beinpresse gab es am 8. Juni einen Satz mit 152 Kilogramm. Diesen Wert werte ich ausdrücklich nicht als Fortschrittsrekord.
 
-Diese Erfahrung war eine wichtige Erinnerung daran, dass kontrollierte Technik und eine sinnvolle Belastung wichtiger sind als eine möglichst hohe Zahl auf dem Display.
+Ich konnte nur zwei Wiederholungen ausführen und mein linkes Knie wurde dabei gereizt. Aussagekräftiger waren für mich die anschließend reduzierten Sätze mit 125 und 110 Kilogramm.
+
+Diese Erfahrung hat mir gezeigt, dass ein hoher Wert auf dem Display nicht automatisch eine gute Trainingsleistung ist. Eine kontrollierte Bewegung und eine passende Belastung sind wichtiger als eine möglichst große Zahl.
 
 ## Sichtbare und praktische Veränderungen
 
-Nicht alles lässt sich in Tabellen ausdrücken. Im Alltag merke ich inzwischen, dass Treppen leichter fallen und meine Kondition besser geworden ist. Meine Haltung fühlt sich stabiler an, meine Beine wirken fester und Arme sowie Schultern etwas voller.
+Nicht alle Veränderungen lassen sich in Tabellen ausdrücken.
 
-Einige Shirts spannen stärker an den Schultern und Oberarmen. Der Unterbauch verändert sich aus meiner Sicht langsamer als andere Bereiche, was für mich ein Grund mehr ist, nicht nur nach dem Spiegelbild zu urteilen.
+Im Alltag merke ich, dass mir Treppen leichter fallen und meine Kondition besser geworden ist. Meine Haltung fühlt sich stabiler an, meine Beine wirken fester und meine Arme sowie Schultern etwas voller.
 
-Auch die entstandene Trainingsroutine ist ein Fortschritt. Für jemanden, der vorher kaum Sport gemacht hat, ist es bereits eine große Veränderung, regelmäßig ins Studio zu gehen und das Training als festen Bestandteil des Alltags zu sehen.
+Einige Shirts sitzen inzwischen enger an Schultern und Oberarmen. Auch im oberen Brustbereich erkenne ich langsam erste Veränderungen.
 
-## Fehler und Grenzen der Dokumentation
+Der Unterbauch verändert sich aus meiner Sicht langsamer als andere Bereiche. Das ist für mich ein weiterer Grund, meinen Fortschritt nicht nur anhand des Spiegelbilds zu beurteilen.
+
+Auch die entstandene Trainingsroutine ist ein wichtiger Fortschritt. Für jemanden, der vorher praktisch keinen Sport gemacht hat, ist es bereits eine große Veränderung, regelmäßig ins Fitnessstudio zu gehen und das Training als festen Bestandteil des Alltags zu betrachten.
+
+## Fehler und Grenzen meiner Dokumentation
 
 Dieser Bericht hat klare Grenzen:
 
-- Die Gewichte stammen nicht immer von derselben Waage.
+- Die Gewichtswerte stammen nicht immer von derselben Waage.
+- Die Messbedingungen waren nicht vollständig identisch.
 - Eine Brustmessung ist wegen einer abweichenden Messstelle nicht vergleichbar.
 - Unterschiedliche EGYM-Methoden liefern Werte, die nicht einfach gegeneinander aufgerechnet werden können.
-- BIA-Körperanalysen sind Schätzungen und reagieren auf Messbedingungen.
-- Ein zu schwerer Satz an der Beinpresse war kein echter Rekord, sondern ein Fehler, aus dem ich gelernt habe.
+- BIA-Körperanalysen sind Schätzungen und reagieren auf Wasserhaushalt und andere Messbedingungen.
+- Ein zu schwerer Satz an der Beinpresse war kein Fortschrittsrekord, sondern ein Fehler, aus dem ich gelernt habe.
+- Sichtbare Veränderungen lassen sich ohne vergleichbare Fotos nur eingeschränkt objektiv bewerten.
 
-Ich möchte die Daten deshalb nicht größer machen, als sie sind. Sie zeigen eine positive Entwicklung, aber keine perfekte oder abgeschlossene Geschichte.
+Ich möchte die Daten deshalb nicht größer machen, als sie sind. Sie zeigen eine positive Entwicklung, aber keine perfekte oder abgeschlossene Vorher-Nachher-Geschichte.
 
 ## Ehrliches Zwischenfazit
 
-Nach den ersten acht Wochen sehe ich mehrere positive Signale gleichzeitig: weniger Bauchumfang, bessere Kondition, steigende Trainingsleistungen und erste sichtbare Veränderungen an Haltung, Armen und Schultern.
+Nach meinen ersten acht Trainingswochen sehe ich mehrere positive Signale gleichzeitig:
 
-Die Daten beweisen nicht, dass jede Veränderung exakt auf eine einzelne Ursache zurückgeht. Sie zeigen aber, dass sich mein Alltag, mein Training und mehrere Messwerte in eine positive Richtung entwickeln.
+- Der Bauchumfang ist gesunken.
+- Meine Kondition hat sich verbessert.
+- Mehrere Trainings- und Kraftwerte sind gestiegen.
+- Meine Haltung fühlt sich stabiler an.
+- Arme, Schultern und Brust zeigen erste Veränderungen.
+- Regelmäßiges Training ist zu einem festen Teil meines Alltags geworden.
 
-Ich stehe noch am Anfang. Gerade deshalb möchte ich diesen Weg weiter dokumentieren – mit nachvollziehbaren Daten, ehrlichen Fehlern und ohne daraus eine perfekte Vorher-Nachher-Geschichte zu machen.
+Die Daten beweisen nicht, dass jede Veränderung exakt auf eine einzelne Ursache zurückgeht. Sie zeigen aber, dass sich mein Alltag, mein Training und mehrere Messwerte gleichzeitig in eine positive Richtung entwickelt haben.
+
+Ich stehe weiterhin am Anfang. Gerade deshalb möchte ich meinen Weg weiter dokumentieren – mit nachvollziehbaren Daten, ehrlichen Fehlern und ohne eine perfekte Veränderung vorzutäuschen.
