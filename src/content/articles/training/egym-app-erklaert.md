@@ -4,9 +4,10 @@ slug: egym-app-erklaert
 category: training
 categoryLabel: "Training"
 articleType: guide
-status: ready
+status: published
 description: "So nutze ich die EGYM-App für meinen automatischen Trainingsplan, Krafttests, Fortschritt und Health Connect – mit Stärken, Fehlern und eigenen Erfahrungen."
 excerpt: "Automatischer Trainingsplan, Übungswechsel, Krafttests und Health Connect: So funktioniert die EGYM-App bei mir im Trainingsalltag."
+publishedAt: 2026-07-21T06:32:12+02:00
 author: basti
 featured: false
 noindex: false

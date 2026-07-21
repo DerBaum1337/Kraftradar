@@ -4,9 +4,10 @@ slug: egym-bioage-erklaert
 category: training
 categoryLabel: "Training"
 articleType: guide
-status: ready
+status: published
 description: "Was das EGYM BioAge aus Kraft, Kardio, Stoffwechsel und Flexibilität zeigt, warum Werte schwanken und wie ich meine eigenen Ergebnisse einordne."
 excerpt: "Mein EGYM BioAge schwankte deutlich. Ich zeige, welche Messwerte einfließen, wie die vier Bereiche funktionieren und wo die Grenzen liegen."
+publishedAt: 2026-07-21T06:32:12+02:00
 author: basti
 featured: false
 noindex: false
