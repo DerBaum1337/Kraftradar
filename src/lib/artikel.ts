@@ -36,11 +36,7 @@ export async function getArticlesByCategory(category: ArtikelKategorie): Promise
 }
 
 export async function getLatestArticles(limit = 3): Promise<Artikel[]> {
-	const articles = await getPublishedArticles();
-	return [
-		...articles.filter((article) => article.data.featured),
-		...articles.filter((article) => !article.data.featured),
-	].slice(0, limit);
+	return (await getPublishedArticles()).slice(0, limit);
 }
 
 export async function getArticleBySlug(slug: string): Promise<Artikel | undefined> {
