@@ -8,6 +8,12 @@ const fixedRoutes = [
 	'mein-weg/',
 	'ueber-kraftradar/',
 	'testmethode/',
+	'tools/',
+	'tools/proteinbedarf-rechner/',
+	'tools/whey-preisvergleich/',
+	'tools/egym-fortschrittsrechner/',
+	'tools/aufbau-shake-rechner/',
+	'tools/koerperfortschritt-auswerten/',
 ];
 
 export const GET: APIRoute = async ({ site }) => {

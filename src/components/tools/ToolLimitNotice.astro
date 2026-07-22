@@ -1,0 +1,13 @@
+---
+interface Props {
+	title?: string;
+	children?: unknown;
+}
+
+const { title = 'Grenzen des Rechners' } = Astro.props;
+---
+
+<aside class="tool-limit-notice">
+	<strong>{title}</strong>
+	<div><slot /></div>
+</aside>

@@ -1,0 +1,23 @@
+---
+import ToolCard from './ToolCard.astro';
+import { getRelatedTools } from '../../data/tools.mjs';
+
+interface Props {
+	toolId: string;
+}
+
+const { toolId } = Astro.props;
+const relatedTools = getRelatedTools(toolId);
+---
+
+{
+	relatedTools.length > 0 && (
+		<section class="tool-related" aria-labelledby="weitere-tools">
+			<p class="eyebrow">Weitere Rechner</p>
+			<h2 id="weitere-tools">Passende KraftRadar Tools</h2>
+			<div class="tool-card-grid">
+				{relatedTools.map((tool) => <ToolCard tool={tool} compact={true} />)}
+			</div>
+		</section>
+	)
+}

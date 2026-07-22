@@ -1,0 +1,138 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolIntro from '../../components/tools/ToolIntro.astro';
+import ToolPrivacyNotice from '../../components/tools/ToolPrivacyNotice.astro';
+import ToolLimitNotice from '../../components/tools/ToolLimitNotice.astro';
+import ToolNoScript from '../../components/tools/ToolNoScript.astro';
+import ToolSources from '../../components/tools/ToolSources.astro';
+import RelatedTools from '../../components/tools/RelatedTools.astro';
+import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import { getTool } from '../../data/tools.mjs';
+import { getToolSources } from '../../data/tool-sources.mjs';
+
+const tool = getTool('egym-fortschritt');
+const sources = getToolSources(['egymStrength', 'egymMethods', 'egymAdaptive', 'egymIsokinetic', 'egymNegative', 'egymBioAge', 'oneRmReliability', 'oneRmFamiliarisation', 'waiForms']);
+---
+
+<ToolLayout
+	tool={tool}
+	title="EGYM-Fortschrittsrechner: Krafttest vergleichen"
+	description="Vergleiche zwei EGYM-Krafttestwerte und berechne absolute, prozentuale und relative Veränderungen – lokal und ohne Anmeldung."
+>
+	<ToolIntro
+		title="EGYM-Krafttest und Kraftfortschritt berechnen"
+		description="Vergleiche zwei Krafttest- oder Maximalkraftwerte derselben EGYM-Übung. Der Rechner beschreibt die Veränderung neutral und macht keine Prognose."
+	/>
+
+	<section class="tool-calculator-section">
+		<ToolLimitNotice title="Unabhängiges Werkzeug">
+			<p>Dieser Rechner ist ein Angebot von KraftRadar und kein offizielles Tool von EGYM. Er verwendet ausschließlich die Werte, die du selbst eingibst.</p>
+			<p>EGYM hat die BioAge-Referenzwerte im Juli 2026 aktualisiert. Frühere Verlaufswerte bleiben bestehen, während neue Tests die aktualisierte Vergleichsbasis verwenden. KraftRadar kennt die vollständigen internen Referenzformeln nicht und berechnet das BioAge deshalb nicht nach. Siehe dazu das <a href="https://de.egym.com/de-de/bioage-update-2026">EGYM-BioAge-Update vom Juli 2026</a>.</p>
+		</ToolLimitNotice>
+
+		<form id="egym-fortschritt-form" class="tool-form" novalidate>
+			<div class="tool-error-summary" data-error-summary hidden tabindex="-1" aria-labelledby="egym-error-heading">
+				<h2 id="egym-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
+				<ul data-error-list></ul>
+			</div>
+			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+
+			<fieldset>
+				<legend>Vergleich derselben Krafttestmessung</legend>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="egym-exercise">Übung oder Gerät <span aria-hidden="true">*</span></label>
+						<input id="egym-exercise" name="exercise" type="text" maxlength="60" autocomplete="off" required aria-describedby="egym-exercise-help egym-exercise-error" />
+						<p id="egym-exercise-help" class="tool-help">Zum Beispiel Beinpresse. Der Rechner behauptet keine vollständige Geräteliste.</p>
+						<p id="egym-exercise-error" class="tool-inline-error" data-error-for="egym-exercise"></p>
+					</div>
+					<div class="tool-field">
+						<label for="egym-side">Seite</label>
+						<select id="egym-side" name="side">
+							<option value="Beidseitig oder nicht getrennt">Beidseitig oder nicht getrennt</option>
+							<option value="Links">Links</option>
+							<option value="Rechts">Rechts</option>
+						</select>
+					</div>
+					<div class="tool-field">
+						<label for="egym-first-date">Erstes Datum <span aria-hidden="true">*</span></label>
+						<input id="egym-first-date" name="firstDate" type="date" required aria-describedby="egym-first-date-error" />
+						<p id="egym-first-date-error" class="tool-inline-error" data-error-for="egym-first-date"></p>
+					</div>
+					<div class="tool-field">
+						<label for="egym-first-value">Erster Krafttestwert <span aria-hidden="true">*</span></label>
+						<div class="tool-input-with-unit"><input id="egym-first-value" name="firstValue" type="text" inputmode="decimal" autocomplete="off" required aria-describedby="egym-first-value-error" /><span>kg</span></div>
+						<p id="egym-first-value-error" class="tool-inline-error" data-error-for="egym-first-value"></p>
+					</div>
+					<div class="tool-field">
+						<label for="egym-second-date">Zweites Datum <span aria-hidden="true">*</span></label>
+						<input id="egym-second-date" name="secondDate" type="date" required aria-describedby="egym-second-date-error" />
+						<p id="egym-second-date-error" class="tool-inline-error" data-error-for="egym-second-date"></p>
+					</div>
+					<div class="tool-field">
+						<label for="egym-second-value">Zweiter Krafttestwert <span aria-hidden="true">*</span></label>
+						<div class="tool-input-with-unit"><input id="egym-second-value" name="secondValue" type="text" inputmode="decimal" autocomplete="off" required aria-describedby="egym-second-value-error" /><span>kg</span></div>
+						<p id="egym-second-value-error" class="tool-inline-error" data-error-for="egym-second-value"></p>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Körpergewicht <span class="tool-optional">(optional, nur gemeinsam)</span></legend>
+				<p class="tool-help">Trage beide Gewichte ein, wenn du den Krafttest zusätzlich relativ zum Körpergewicht vergleichen möchtest.</p>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="egym-first-body">Körpergewicht beim ersten Test</label>
+						<div class="tool-input-with-unit"><input id="egym-first-body" name="firstBodyWeight" type="text" inputmode="decimal" autocomplete="off" aria-describedby="egym-first-body-error" /><span>kg</span></div>
+						<p id="egym-first-body-error" class="tool-inline-error" data-error-for="egym-first-body"></p>
+					</div>
+					<div class="tool-field">
+						<label for="egym-second-body">Körpergewicht beim zweiten Test</label>
+						<div class="tool-input-with-unit"><input id="egym-second-body" name="secondBodyWeight" type="text" inputmode="decimal" autocomplete="off" aria-describedby="egym-second-body-error" /><span>kg</span></div>
+						<p id="egym-second-body-error" class="tool-inline-error" data-error-for="egym-second-body"></p>
+					</div>
+				</div>
+			</fieldset>
+
+			<label class="tool-confirmation">
+				<input id="egym-confirmed" type="checkbox" name="confirmed" required aria-describedby="egym-confirmed-error" />
+				<span>Ich vergleiche dieselbe EGYM-Übung, dieselbe Seite und zweimal denselben angezeigten Krafttest- beziehungsweise Maximalkraftwert.</span>
+			</label>
+			<p id="egym-confirmed-error" class="tool-inline-error" data-error-for="egym-confirmed"></p>
+
+			<div class="tool-form-actions">
+				<button type="submit" data-calculate disabled>EGYM-Fortschritt auswerten</button>
+				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+			</div>
+			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
+		</form>
+		<ToolNoScript />
+		<section class="tool-result" data-result hidden aria-live="polite" aria-labelledby="egym-result-heading">
+			<h2 id="egym-result-heading" tabindex="-1">Dein Krafttestvergleich</h2>
+			<div data-result-content></div>
+		</section>
+	</section>
+
+	<section class="tool-explanation">
+		<h2>Was berechnet dieses Tool?</h2>
+		<p>Der Rechner vergleicht zwei Werte derselben Übung auf absolute Kilogramm, prozentuale Veränderung und – wenn beide Körpergewichte vorhanden sind – die Veränderung relativ zum Körpergewicht.</p>
+		<h2>Wie entsteht das Ergebnis?</h2>
+		<p>Die Prozentänderung ist die Kilogrammdifferenz geteilt durch den ersten Krafttestwert. Ab einem Zeitraum von mindestens 28 Tagen wird die gesamte Veränderung zusätzlich rein rechnerisch auf vier Wochen verteilt.</p>
+		<h2>Welche Eingaben werden verwendet?</h2>
+		<p>Verwendet werden Übungsname, Seite, zwei nicht zukünftige Tage, zwei Krafttestwerte und optional zwei Körpergewichte. Normale Trainingsgewichte, adaptive Gewichte, negatives Gewicht, isokinetischer Widerstand, Wiederholungen, Aktivitätspunkte, Kalorien, BioAge und Cardio gehören nicht in diesen Rechner. EGYM beschreibt den Krafttest und die Trainingsmethoden in den verlinkten <a href="https://de.egym.com/de-de/strength-test">Informationen zum Krafttest</a> und im <a href="https://help.egym.com/de/articles/9817092-welche-egym-trainingsmethoden-gibt-es">Help Center zu Trainingsmethoden</a>.</p>
+		<h2>Welche Grenzen besitzt das Ergebnis?</h2>
+		<p>Allgemeine Forschung zur 1RM-Testwiederholung ist nicht EGYM-spezifisch. Der Rechner beschreibt weder die Messgenauigkeit eines EGYM-Tests noch einen gleichmäßigen Verlauf. Tagesform, Erholung und Testgewöhnung können einen einzelnen Wert beeinflussen.</p>
+		<h2>Was darf daraus nicht abgeleitet werden?</h2>
+		<p>Der Rechner beschreibt die Veränderung dieser einen Übung. Er kann nicht bestimmen, welcher Anteil durch Training, Tagesform, Erholung, Testgewöhnung oder andere Einflüsse entstanden ist. Er macht keine Aussage über Muskelmasse oder Körperfett.</p>
+	</section>
+
+	<ToolPrivacyNotice />
+	<ToolSources sources={sources} />
+	<ToolRelatedArticles toolId="egym-fortschritt" />
+	<RelatedTools toolId="egym-fortschritt" />
+</ToolLayout>
+
+<script>
+	import { initEgymFortschrittUi } from '../../scripts/tools/egym-fortschritt-ui.mjs';
+	initEgymFortschrittUi();
+</script>

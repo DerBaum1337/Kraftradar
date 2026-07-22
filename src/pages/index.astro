@@ -23,7 +23,7 @@ const structuredData = {
 			'@type': 'WebPage',
 			'@id': `${siteURL.href}#webpage`,
 			name: 'KraftRadar – EGYM, Training und Gym-Produkte ehrlich eingeordnet',
-			description: 'Persönliche EGYM-Erfahrungen, verständliche Trainingsartikel und transparente Einordnungen zu Supplements und Gym-Zubehör.',
+			description: 'Persönliche EGYM-Erfahrungen, verständliche Trainingsartikel, transparente Produkttests und kostenlose Rechner für den Gym-Alltag.',
 			url: siteURL.href,
 			isPartOf: { '@id': `${siteURL.href}#website` },
 			inLanguage: 'de-DE',
@@ -34,7 +34,7 @@ const structuredData = {
 
 <Hauptlayout
 	title="KraftRadar – EGYM, Training und Gym-Produkte ehrlich eingeordnet"
-	description="Persönliche EGYM-Erfahrungen, verständliche Trainingsartikel und transparente Einordnungen zu Supplements und Gym-Zubehör."
+	description="Persönliche EGYM-Erfahrungen, verständliche Trainingsartikel, transparente Produkttests und kostenlose Rechner für den Gym-Alltag."
 	structuredData={structuredData}
 >
 	<section class="hero">
@@ -63,7 +63,7 @@ const structuredData = {
 		<p>Bereiche</p>
 		<h2>Was du bei KraftRadar findest</h2>
 		<p class="section-intro">
-			Persönliche Erfahrungen, verständliche Einordnungen und ehrliche Praxistests –
+			Persönliche Erfahrungen, verständliche Einordnungen, ehrliche Praxistests und praktische Rechner –
 			ohne unnötigen Hype.
 		</p>
 
@@ -105,6 +105,19 @@ const structuredData = {
 					Preis-Leistung im Trainingsalltag.
 				</p>
 				<span class="card-link">Gym-Zubehör entdecken <span aria-hidden="true">→</span></span>
+			</a>
+
+			<a class="card category-card" href="/tools">
+				<div class="category-card-header">
+					<KategorieIcon type="tools" />
+					<span class="badge">Tools</span>
+				</div>
+				<h3>Eigene Werte nachvollziehbar berechnen</h3>
+				<p>
+					Rechner für Proteinbedarf, Whey-Preise, EGYM-Krafttests, Aufbau-Shakes und
+					Körpermaße.
+				</p>
+				<span class="card-link">Tools entdecken <span aria-hidden="true">→</span></span>
 			</a>
 		</div>
 	</section>

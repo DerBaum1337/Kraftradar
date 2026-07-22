@@ -1840,7 +1840,603 @@ footer {
 	font-size: 1rem;
 }
 
+/* KraftRadar Tools */
+.tool-page {
+	min-width: 0;
+}
+
+.tool-page .tool-breadcrumbs {
+	margin-top: 1.5rem;
+}
+
+.tool-hero {
+	max-width: 780px;
+	padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.tool-hero h1 {
+	max-width: 760px;
+}
+
+.tool-hero > p:last-child {
+	max-width: 700px;
+	margin-bottom: 0;
+	color: var(--color-text-muted);
+	font-size: 1.1rem;
+	line-height: 1.75;
+}
+
+.tool-trust-section {
+	padding-block: 2rem;
+}
+
+.tool-trust-list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.tool-trust-list li {
+	display: grid;
+	gap: 0.25rem;
+	padding: 1rem;
+	border-left: 2px solid var(--color-accent-dark);
+	background: rgb(17 23 32 / 50%);
+}
+
+.tool-trust-list strong {
+	color: var(--color-text);
+}
+
+.tool-trust-list span,
+.tool-help,
+.tool-optional,
+.tool-recalculate-note,
+.tool-result-note,
+.tool-source-list span {
+	color: var(--color-text-muted);
+	font-size: 0.94rem;
+	line-height: 1.55;
+}
+
+.tool-card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+	gap: 1.25rem;
+}
+
+.tool-card {
+	display: flex;
+	min-width: 0;
+	min-height: 100%;
+	flex-direction: column;
+}
+
+.tool-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.8rem;
+	margin-bottom: 1.25rem;
+}
+
+.tool-icon {
+	display: inline-grid;
+	width: 2.7rem;
+	height: 2.7rem;
+	place-items: center;
+	border: 1px solid rgb(85 230 165 / 28%);
+	border-radius: 50%;
+	background: var(--color-accent-soft);
+	color: var(--color-accent);
+}
+
+.tool-icon svg {
+	width: 1.35rem;
+	height: 1.35rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.tool-card h3 {
+	font-size: 1.25rem;
+}
+
+.tool-card p {
+	color: var(--color-text-muted);
+}
+
+.tool-card ul {
+	display: grid;
+	gap: 0.35rem;
+	margin: 0 0 1.25rem;
+	padding-left: 1.1rem;
+	color: var(--color-text-muted);
+	font-size: 0.92rem;
+}
+
+.tool-card .card-link {
+	margin-top: auto;
+}
+
+.tool-card--compact {
+	min-height: 0;
+}
+
+.tool-card--compact p {
+	margin-bottom: 1rem;
+}
+
+.tool-information {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: clamp(2rem, 5vw, 5rem);
+}
+
+.tool-information h2 {
+	font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.tool-information p {
+	max-width: 37rem;
+	color: var(--color-text-muted);
+}
+
+.tool-calculator-section {
+	max-width: 900px;
+}
+
+.tool-limit-notice,
+.tool-privacy-notice,
+.tool-noscript {
+	max-width: 900px;
+	margin-bottom: 1.25rem;
+	padding: 1rem 1.15rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+	background: rgb(17 23 32 / 78%);
+}
+
+.tool-limit-notice {
+	border-left: 3px solid var(--color-accent-dark);
+}
+
+.tool-limit-notice h2,
+.tool-privacy-notice h2 {
+	margin-bottom: 0.5rem;
+	font-size: 1.15rem;
+	letter-spacing: 0;
+}
+
+.tool-limit-notice p:last-child,
+.tool-privacy-notice p:last-child,
+.tool-noscript:last-child {
+	margin-bottom: 0;
+}
+
+.tool-form {
+	display: grid;
+	gap: 1.25rem;
+	padding: clamp(1.25rem, 3vw, 2rem);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: linear-gradient(145deg, var(--color-surface-light), var(--color-surface));
+	box-shadow: var(--shadow-card);
+}
+
+.tool-form > fieldset,
+.tool-dynamic-card,
+.tool-measurement-card,
+.tool-form .tool-choice-group {
+	min-width: 0;
+	margin: 0;
+	padding: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+}
+
+.tool-form > fieldset > legend,
+.tool-dynamic-card > legend,
+.tool-measurement-card > legend,
+.tool-choice-group > legend {
+	max-width: 100%;
+	padding: 0 0.35rem;
+	color: var(--color-text);
+	font-weight: 800;
+	overflow-wrap: anywhere;
+}
+
+.tool-form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.tool-field {
+	min-width: 0;
+}
+
+.tool-field > label,
+.tool-choice-group > legend,
+.tool-confirmation {
+	font-weight: 700;
+}
+
+.tool-field > label {
+	display: block;
+	margin-bottom: 0.4rem;
+}
+
+.tool-field input,
+.tool-field select {
+	width: 100%;
+	min-height: 2.85rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+	background: rgb(11 15 20 / 85%);
+	color: var(--color-text);
+	padding: 0.6rem 0.75rem;
+}
+
+.tool-field select {
+	cursor: pointer;
+}
+
+.tool-field input:focus,
+.tool-field select:focus {
+	border-color: var(--color-accent);
+	outline: 3px solid rgb(85 230 165 / 28%);
+	outline-offset: 1px;
+}
+
+.tool-field-error input,
+.tool-field-error select,
+.tool-field input[aria-invalid="true"],
+.tool-field select[aria-invalid="true"] {
+	border-color: var(--color-danger);
+}
+
+.tool-input-with-unit {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: stretch;
+	min-width: 0;
+}
+
+.tool-input-with-unit input {
+	min-width: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.tool-input-with-unit span {
+	display: inline-flex;
+	align-items: center;
+	min-width: fit-content;
+	padding: 0.55rem 0.7rem;
+	border: 1px solid var(--color-border);
+	border-left: 0;
+	border-radius: 0 var(--radius-small) var(--radius-small) 0;
+	background: rgb(43 53 66 / 45%);
+	color: var(--color-text-muted);
+	font-size: 0.87rem;
+	white-space: nowrap;
+}
+
+.tool-help {
+	margin: 0.45rem 0 0;
+}
+
+.tool-inline-error {
+	min-height: 1.25rem;
+	margin: 0.4rem 0 0;
+	color: var(--color-danger);
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.tool-error-summary {
+	padding: 1rem 1.15rem;
+	border: 1px solid var(--color-danger);
+	border-radius: var(--radius-small);
+	background: rgb(255 123 123 / 10%);
+}
+
+.tool-error-summary h2 {
+	margin-bottom: 0.5rem;
+	font-size: 1.2rem;
+	letter-spacing: 0;
+}
+
+.tool-error-summary ul {
+	margin: 0;
+	padding-left: 1.2rem;
+}
+
+.tool-error-summary a {
+	color: var(--color-text);
+	text-decoration: underline;
+	text-decoration-color: rgb(255 123 123 / 75%);
+	text-underline-offset: 0.16em;
+}
+
+.tool-choice-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.75rem;
+	margin-top: 0.85rem;
+}
+
+.tool-choice-card {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	align-items: start;
+	gap: 0.7rem;
+	min-height: 100%;
+	padding: 0.85rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+	cursor: pointer;
+}
+
+.tool-choice-card:hover {
+	border-color: var(--color-accent-dark);
+}
+
+.tool-choice-card:has(input:checked) {
+	border-color: var(--color-accent);
+	background: var(--color-accent-soft);
+}
+
+.tool-choice-card input,
+.tool-confirmation input {
+	width: 1.15rem;
+	height: 1.15rem;
+	margin-top: 0.2rem;
+	accent-color: var(--color-accent-dark);
+}
+
+.tool-choice-card strong,
+.tool-choice-card small {
+	display: block;
+}
+
+.tool-choice-card small {
+	margin-top: 0.25rem;
+	color: var(--color-text-muted);
+	font-size: 0.9rem;
+	line-height: 1.5;
+}
+
+.tool-confirmation {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.7rem;
+	padding: 0.35rem 0;
+}
+
+.tool-dynamic-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.tool-dynamic-card,
+.tool-measurement-card {
+	background: rgb(11 15 20 / 34%);
+}
+
+.tool-remove-button {
+	min-height: 2.25rem;
+	margin-left: 0.5rem;
+	padding: 0.3rem 0.55rem;
+	border-color: var(--color-border);
+	background: transparent;
+	color: var(--color-text-muted);
+	font-size: 0.85rem;
+}
+
+.tool-remove-button:hover {
+	border-color: var(--color-danger);
+	background: rgb(255 123 123 / 10%);
+	color: var(--color-text);
+}
+
+.tool-form-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.tool-form-actions button[disabled] {
+	border-color: var(--color-border);
+	background: var(--color-border);
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+	transform: none;
+}
+
+.tool-result {
+	margin-top: 1.25rem;
+	padding: clamp(1.25rem, 3vw, 2rem);
+	border: 1px solid rgb(85 230 165 / 42%);
+	border-radius: var(--radius-medium);
+	background: linear-gradient(145deg, rgb(85 230 165 / 10%), var(--color-surface));
+	box-shadow: var(--shadow-card);
+}
+
+.tool-result h2 {
+	font-size: clamp(1.6rem, 3vw, 2.15rem);
+}
+
+.tool-result-summary {
+	margin-bottom: 1rem;
+	font-size: 1.12rem;
+	font-weight: 750;
+}
+
+.tool-result-grid,
+.tool-ingredient-breakdown,
+.tool-measurement-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+	gap: 0.85rem;
+}
+
+.tool-result-grid {
+	margin: 1rem 0;
+}
+
+.tool-result-card,
+.tool-ingredient-card {
+	min-width: 0;
+	padding: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+	background: rgb(11 15 20 / 62%);
+}
+
+.tool-result-card h3,
+.tool-ingredient-card h3 {
+	margin-bottom: 0.55rem;
+	font-size: 1.05rem;
+}
+
+.tool-result-card p,
+.tool-ingredient-card p {
+	margin: 0.32rem 0;
+	overflow-wrap: anywhere;
+}
+
+.tool-result-card p span:first-child {
+	color: var(--color-text-muted);
+}
+
+.tool-result-emphasis,
+.tool-result-label {
+	color: var(--color-accent);
+	font-weight: 800;
+}
+
+.tool-result-warnings {
+	margin: 1rem 0 0;
+	padding: 0.8rem 1rem 0.8rem 2rem;
+	border-left: 3px solid #d9bf63;
+	background: rgb(217 191 99 / 10%);
+	color: var(--color-text-muted);
+}
+
+.tool-comparison-bars {
+	display: grid;
+	gap: 0.75rem;
+	margin: 1.25rem 0;
+}
+
+.tool-comparison-bar {
+	display: grid;
+	grid-template-columns: minmax(7rem, 0.4fr) minmax(0, 1fr) auto;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.tool-comparison-track {
+	display: block;
+	overflow: hidden;
+	border-radius: 999px;
+	background: rgb(43 53 66 / 75%);
+}
+
+.tool-comparison-fill {
+	display: block;
+	min-width: 0.35rem;
+	height: 0.7rem;
+	border-radius: inherit;
+	background: var(--color-accent);
+}
+
+.tool-more-measures {
+	margin: 1rem 0;
+	padding: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+}
+
+.tool-more-measures summary {
+	cursor: pointer;
+	font-weight: 800;
+}
+
+.tool-explanation,
+.tool-sources,
+.tool-related,
+.tool-privacy-section {
+	max-width: 900px;
+}
+
+.tool-explanation h2,
+.tool-sources h2,
+.tool-related h2 {
+	font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.tool-explanation h2:not(:first-child) {
+	margin-top: 2.5rem;
+}
+
+.tool-explanation p {
+	max-width: 760px;
+	color: var(--color-text-muted);
+}
+
+.tool-source-list,
+.tool-article-links {
+	display: grid;
+	gap: 0.7rem;
+	margin: 0;
+	padding-left: 1.2rem;
+}
+
+.tool-source-list li,
+.tool-article-links li {
+	padding-left: 0.15rem;
+	overflow-wrap: anywhere;
+}
+
+.tool-source-list a,
+.tool-article-links a {
+	color: var(--color-accent);
+	font-weight: 700;
+	text-decoration: underline;
+	text-decoration-color: rgb(85 230 165 / 56%);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.16em;
+}
+
+.tool-source-list a:hover,
+.tool-article-links a:hover {
+	color: #8bf0be;
+	text-decoration-color: currentColor;
+}
+
+.article-tool-links {
+	max-width: 780px;
+}
+
 @media (max-width: 900px) {
+	.tool-trust-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.tool-information {
+		grid-template-columns: 1fr;
+	}
+
 	.hero {
 		grid-template-columns: 1fr;
 		gap: 3.5rem;
@@ -1869,6 +2465,28 @@ footer {
 }
 
 @media (max-width: 750px) {
+	.tool-form-grid,
+	.tool-choice-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-measurement-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-comparison-bar {
+		grid-template-columns: 1fr;
+		gap: 0.35rem;
+	}
+
+	.tool-comparison-bar > :last-child {
+		justify-self: start;
+	}
+
+	.tool-page .tool-breadcrumbs {
+		margin-top: 1rem;
+	}
+
 	.article-body > table {
 		table-layout: fixed;
 		font-size: 0.86rem;
@@ -2069,6 +2687,39 @@ footer {
 }
 
 @media (max-width: 430px) {
+	.tool-trust-list,
+	.tool-card-grid,
+	.tool-result-grid,
+	.tool-ingredient-breakdown {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-form,
+	.tool-result {
+		padding: 1rem;
+	}
+
+	.tool-form > fieldset,
+	.tool-dynamic-card,
+	.tool-measurement-card,
+	.tool-form .tool-choice-group {
+		padding: 0.8rem;
+	}
+
+	.tool-form-actions {
+		align-items: stretch;
+	}
+
+	.tool-form-actions button {
+		flex: 1 1 100%;
+	}
+
+	.tool-input-with-unit span {
+		max-width: 45%;
+		overflow-wrap: anywhere;
+		white-space: normal;
+	}
+
 	.site-header nav a {
 		width: 100%;
 	}

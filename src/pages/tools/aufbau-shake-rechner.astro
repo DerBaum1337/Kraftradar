@@ -1,0 +1,166 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolIntro from '../../components/tools/ToolIntro.astro';
+import ToolPrivacyNotice from '../../components/tools/ToolPrivacyNotice.astro';
+import ToolLimitNotice from '../../components/tools/ToolLimitNotice.astro';
+import ToolNoScript from '../../components/tools/ToolNoScript.astro';
+import ToolSources from '../../components/tools/ToolSources.astro';
+import RelatedTools from '../../components/tools/RelatedTools.astro';
+import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import { getTool } from '../../data/tools.mjs';
+import { getToolSources } from '../../data/tool-sources.mjs';
+
+const tool = getTool('aufbau-shake');
+const sources = getToolSources(['euNutrition', 'dgeEnergySport', 'waiForms']);
+---
+
+<ToolLayout
+	tool={tool}
+	title="Aufbau-Shake-Rechner: Kalorien und Kosten berechnen"
+	description="Berechne Kalorien, Protein, Kohlenhydrate, Fett und Kosten deines selbst zusammengestellten Aufbau-Shakes."
+>
+	<ToolIntro
+		title="Aufbau-Shake: Kalorien, Makros und Kosten berechnen"
+		description="Trage die Nährwerte und Preise deiner eigenen Zutaten ein. Der Rechner addiert sie, ohne auf eine Produkt- oder Lebensmitteldatenbank zuzugreifen."
+	/>
+
+	<section class="tool-calculator-section">
+		<ToolLimitNotice>
+			<p>Verwende möglichst die Nährwerte des konkreten Produkts. Bei verpackten Lebensmitteln findest du sie normalerweise als Angaben pro 100 g oder pro 100 ml auf der Verpackung.</p>
+			<p>Der Rechner addiert die von dir eingetragenen Nährwerte und Preise. Er beurteilt nicht, ob der Shake zu deinem persönlichen Energiebedarf, deiner Gesundheit oder deinem Trainingsziel passt. Ein kalorienreicher Shake kann die Energiezufuhr erhöhen. Er garantiert weder Muskelaufbau noch eine bestimmte Gewichtsentwicklung.</p>
+		</ToolLimitNotice>
+
+		<form id="aufbau-shake-form" class="tool-form" novalidate>
+			<div class="tool-error-summary" data-error-summary hidden tabindex="-1" aria-labelledby="shake-error-heading">
+				<h2 id="shake-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
+				<ul data-error-list></ul>
+			</div>
+			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+
+			<fieldset>
+				<legend>Rezept</legend>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="shake-name">Rezeptname <span class="tool-optional">(optional)</span></label>
+						<input id="shake-name" name="recipeName" type="text" maxlength="60" autocomplete="off" />
+					</div>
+					<div class="tool-field">
+						<label for="shake-portions">Anzahl Portionen <span aria-hidden="true">*</span></label>
+						<input id="shake-portions" name="portions" type="text" inputmode="numeric" value="1" autocomplete="off" required aria-describedby="shake-portions-help shake-portions-error" />
+						<p id="shake-portions-help" class="tool-help">Wähle 1, wenn du die gesamte Mischung als einen Shake trinkst.</p>
+						<p id="shake-portions-error" class="tool-inline-error" data-error-for="shake-portions"></p>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset aria-required="true">
+				<legend>Zutaten <span aria-hidden="true">*</span></legend>
+				<div class="tool-dynamic-list" data-ingredient-list aria-live="polite">
+					<fieldset class="tool-dynamic-card" data-ingredient-card data-card-id="1">
+						<legend><span data-ingredient-number>Zutat 1</span></legend>
+						<div class="tool-form-grid">
+							<div class="tool-field">
+								<label for="shake-ingredient-1-name">Name <span aria-hidden="true">*</span></label>
+								<input id="shake-ingredient-1-name" data-field="name" type="text" maxlength="60" autocomplete="off" required />
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-basis">Bezugsart <span aria-hidden="true">*</span></label>
+								<select id="shake-ingredient-1-basis" data-field="basis" required>
+									<option value="">Bitte wählen</option>
+									<option value="g">pro 100 g</option>
+									<option value="ml">pro 100 ml</option>
+								</select>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-amount">Verwendete Menge <span aria-hidden="true">*</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-amount" data-field="amount" type="text" inputmode="decimal" autocomplete="off" required /><span data-unit-label>g/ml</span></div>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-kcal">Energie <span aria-hidden="true">*</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-kcal" data-field="caloriesPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>kcal pro 100</span></div>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-protein">Protein <span aria-hidden="true">*</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-protein" data-field="proteinPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g pro 100</span></div>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-carbs">Kohlenhydrate <span aria-hidden="true">*</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-carbs" data-field="carbsPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g pro 100</span></div>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-fat">Fett <span aria-hidden="true">*</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-fat" data-field="fatPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g pro 100</span></div>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-price">Tatsächlich gezahlter Preis <span class="tool-optional">(optional)</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-price" data-field="price" type="text" inputmode="decimal" autocomplete="off" /><span>€</span></div>
+							</div>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-purchased">Gekaufte Gesamtmenge <span class="tool-optional">(optional)</span></label>
+								<div class="tool-input-with-unit"><input id="shake-ingredient-1-purchased" data-field="purchasedAmount" type="text" inputmode="decimal" autocomplete="off" /><span data-purchased-unit>g/ml</span></div>
+							</div>
+						</div>
+						<p class="tool-help">Preis und gekaufte Gesamtmenge entweder beide leer lassen oder beide vollständig ausfüllen. Versandkosten kannst du bei Bedarf vorher anteilig in den Produktpreis einrechnen.</p>
+					</fieldset>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Optionale Vergleiche</legend>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="shake-target">Selbst gewähltes Kalorienziel pro Portion <span class="tool-optional">(optional)</span></label>
+						<div class="tool-input-with-unit"><input id="shake-target" name="calorieTarget" type="text" inputmode="decimal" autocomplete="off" /><span>kcal</span></div>
+						<p class="tool-help">Dieses Feld bewertet nicht deinen persönlichen Bedarf. Es vergleicht das Ergebnis nur mit einer Zahl, die du selbst festgelegt hast.</p>
+					</div>
+					<div class="tool-field">
+						<label for="shake-weekly">Geplante Portionen pro Woche <span class="tool-optional">(optional)</span></label>
+						<div class="tool-input-with-unit"><input id="shake-weekly" name="portionsPerWeek" type="text" inputmode="decimal" autocomplete="off" /><span>Portionen</span></div>
+						<p class="tool-help">Nur für die Kostenschätzung.</p>
+					</div>
+					<div class="tool-field">
+						<label for="shake-volume">Gemessenes Endvolumen <span class="tool-optional">(optional)</span></label>
+						<div class="tool-input-with-unit"><input id="shake-volume" name="endVolume" type="text" inputmode="decimal" autocomplete="off" /><span>ml</span></div>
+						<p class="tool-help">Trage das tatsächliche Volumen nach dem Mixen ein. Gramm und Milliliter werden nicht addiert.</p>
+					</div>
+				</div>
+			</fieldset>
+
+			<div class="tool-form-actions">
+				<button type="button" class="button button--secondary" data-add-ingredient>Weitere Zutat hinzufügen</button>
+				<button type="submit" data-calculate disabled>Shake berechnen</button>
+				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+			</div>
+			<p class="tool-help">Bis zu 15 Zutaten. Für eine vollständig leere Zusatzkarte erfolgt keine Berechnung; bei teilweise ausgefüllten Zutaten zeigt der Rechner konkrete Fehler.</p>
+			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
+		</form>
+		<ToolNoScript />
+		<section class="tool-result" data-result hidden aria-live="polite" aria-labelledby="shake-result-heading">
+			<h2 id="shake-result-heading" tabindex="-1">Deine Shake-Berechnung</h2>
+			<div data-result-content></div>
+		</section>
+	</section>
+
+	<section class="tool-explanation">
+		<h2>Was berechnet dieses Tool?</h2>
+		<p>Für jede Zutat multipliziert der Rechner die eingetragenen Werte pro 100 g oder 100 ml mit der verwendeten Menge. Danach addiert er Kalorien, Protein, Kohlenhydrate, Fett und – wenn vollständig vorhanden – die Kosten.</p>
+		<h2>Wie entsteht das Ergebnis?</h2>
+		<p>Der eingetragene Kilokalorienwert ist maßgeblich. Der Rechner leitet Kalorien bewusst nicht nur aus Makronährstoffen ab, weil Ballaststoffe, Polyole, organische Säuren und Rundungen der Deklaration eine Rolle spielen können. Die Eingabefelder folgen den üblichen Angaben der <a href="https://eur-lex.europa.eu/eli/reg/2011/1169/oj/">EU-Lebensmittelinformationsverordnung</a>.</p>
+		<h2>Welche Eingaben werden verwendet?</h2>
+		<p>Verwendet werden nur deine Zutaten, Bezugsart, Menge, Nährwerte und optionale Preisangaben. Es gibt keine eingebaute Lebensmitteldatenbank und keine automatische Zutatenempfehlung.</p>
+		<h2>Welche Grenzen besitzt das Ergebnis?</h2>
+		<p>Bei teilweise erfassten Preisen zeigt der Rechner nur bekannte Mindestkosten. Wochen- und Monatskosten sowie Kostenkennzahlen erscheinen erst, wenn für alle Zutaten Preis und gekaufte Gesamtmenge vorhanden sind.</p>
+		<h2>Was darf daraus nicht abgeleitet werden?</h2>
+		<p>Der Rechner macht keine Aussage darüber, ob ein Shake zu deinem Energiebedarf, deiner Gesundheit oder deinem Trainingsziel passt. Er bewertet weder Proteinqualität noch eine bestimmte Gewichtsentwicklung.</p>
+	</section>
+
+	<ToolPrivacyNotice />
+	<ToolSources sources={sources} />
+	<ToolRelatedArticles toolId="aufbau-shake" />
+	<RelatedTools toolId="aufbau-shake" />
+</ToolLayout>
+
+<script>
+	import { initAufbauShakeUi } from '../../scripts/tools/aufbau-shake-ui.mjs';
+	initAufbauShakeUi();
+</script>

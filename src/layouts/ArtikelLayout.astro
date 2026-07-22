@@ -6,6 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Hauptlayout from './Hauptlayout.astro';
 import Inhaltsverzeichnis from '../components/Inhaltsverzeichnis.astro';
 import Quellenliste from '../components/Quellenliste.astro';
+import ArticleToolLinks from '../components/tools/ArticleToolLinks.astro';
 import { lesezeitInMinuten } from '../lib/lesezeit';
 
 interface Props {
@@ -147,6 +148,7 @@ const articleStructuredData = {
 				</section>
 			)
 		}
+		<ArticleToolLinks articleSlug={data.slug} />
 	</article>
 
 	<script is:inline>

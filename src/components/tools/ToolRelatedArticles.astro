@@ -1,0 +1,32 @@
+---
+import { toolArticleLinks } from '../../data/tools.mjs';
+import { getPublishedArticles } from '../../lib/artikel';
+
+interface Props {
+	toolId: string;
+}
+
+const { toolId } = Astro.props;
+const publishedArticles = await getPublishedArticles();
+const articles: typeof publishedArticles = [];
+for (const slug of toolArticleLinks[toolId] ?? []) {
+	const article = publishedArticles.find((entry) => entry.data.slug === slug && !entry.data.noindex);
+	if (article) articles.push(article);
+}
+---
+
+{
+	articles.length > 0 && (
+		<section class="tool-related tool-related--articles" aria-labelledby="passende-beitraege">
+			<p class="eyebrow">Weiterlesen</p>
+			<h2 id="passende-beitraege">Passende KraftRadar-Inhalte</h2>
+			<ul class="tool-article-links">
+				{articles.map((article) => (
+					<li>
+						<a href={'/' + article.data.category + '/' + article.data.slug + '/'}>{article.data.title}</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}

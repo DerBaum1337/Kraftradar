@@ -1,0 +1,125 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolIntro from '../../components/tools/ToolIntro.astro';
+import ToolPrivacyNotice from '../../components/tools/ToolPrivacyNotice.astro';
+import ToolLimitNotice from '../../components/tools/ToolLimitNotice.astro';
+import ToolNoScript from '../../components/tools/ToolNoScript.astro';
+import ToolSources from '../../components/tools/ToolSources.astro';
+import RelatedTools from '../../components/tools/RelatedTools.astro';
+import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import { getTool } from '../../data/tools.mjs';
+import { getToolSources } from '../../data/tool-sources.mjs';
+
+const tool = getTool('proteinbedarf');
+const sources = getToolSources(['dgeProtein', 'dgeProteinFaq', 'dgeProteinSport', 'issnProtein', 'mortonProtein', 'waiForms']);
+---
+
+<ToolLayout
+	tool={tool}
+	title="Proteinbedarf-Rechner: Eiweiß und Whey berechnen"
+	description="Berechne deinen täglichen Proteinbereich und wie viel Whey dir bis zum Ziel fehlt – kostenlos, ohne Anmeldung und lokal im Browser."
+>
+	<ToolIntro
+		title="Proteinbedarf und benötigte Whey-Menge berechnen"
+		description="Der Rechner zeigt einen Protein-Orientierungsbereich nach Körpergewicht und Trainingssituation. Optional berechnet er die fehlende Menge bis zur unteren Grenze."
+	/>
+
+	<section class="tool-calculator-section">
+		<ToolLimitNotice title="Wichtiger Hinweis">
+			<p>Der Rechner bietet eine allgemeine Orientierung für gesunde Erwachsene von 19 bis unter 65 Jahren. Bei Nieren- oder Lebererkrankungen, Schwangerschaft, Stillzeit, ärztlich verordneten Diäten oder anderen besonderen gesundheitlichen Situationen solltest du deine Proteinzufuhr fachlich abklären lassen.</p>
+			<p>Die einfache Berechnung nach Körpergewicht kann bei Untergewicht, Übergewicht oder ungewöhnlich hoher Muskelmasse ungenauer sein. Der DGE-Referenzwert von 0,8 g/kg bezieht sich auf Normalgewicht. Der Rechner bestimmt bewusst kein angebliches Ideal- oder Normalgewicht.</p>
+		</ToolLimitNotice>
+
+		<form id="proteinbedarf-form" class="tool-form" novalidate>
+			<div class="tool-error-summary" data-error-summary hidden tabindex="-1" aria-labelledby="protein-error-heading">
+				<h2 id="protein-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
+				<ul data-error-list></ul>
+			</div>
+			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+
+			<fieldset>
+				<legend>Grundlage der Berechnung</legend>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="protein-weight">Körpergewicht <span aria-hidden="true">*</span></label>
+						<div class="tool-input-with-unit"><input id="protein-weight" name="weight" type="text" inputmode="decimal" autocomplete="off" required aria-describedby="protein-weight-help protein-weight-error" /><span>kg</span></div>
+						<p id="protein-weight-help" class="tool-help">Zum Beispiel 87,1 kg. Erlaubt sind 30 bis 300 kg.</p>
+						<p id="protein-weight-error" class="tool-inline-error" data-error-for="protein-weight"></p>
+					</div>
+				</div>
+				<fieldset id="protein-goal-group" class="tool-choice-group" tabindex="-1" aria-required="true">
+					<legend>Ziel oder Trainingssituation <span aria-hidden="true">*</span></legend>
+					<p class="tool-help">Die Aufteilung ist eine KraftRadar-Orientierung aus breiteren Fachbereichen, keine wörtliche Einzelvorgabe einer Organisation.</p>
+					<div class="tool-choice-grid">
+						<label class="tool-choice-card"><input type="radio" name="goal" value="alltag" required aria-describedby="protein-goal-error" /><span><strong>Alltag ohne gezielten Muskelaufbau</strong><small>0,8 g/kg · Allgemeine Orientierung ohne ambitioniertes Training oder gezielten Muskelaufbau.</small></span></label>
+						<label class="tool-choice-card"><input type="radio" name="goal" value="training" aria-describedby="protein-goal-error" /><span><strong>Ambitioniertes regelmäßiges Training</strong><small>1,2–1,6 g/kg · Orientierung für umfangreicheres regelmäßiges Training, insbesondere bei ungefähr fünf oder mehr Trainingsstunden pro Woche.</small></span></label>
+						<label class="tool-choice-card"><input type="radio" name="goal" value="muskelaufbau" aria-describedby="protein-goal-error" /><span><strong>Muskelaufbau mit Krafttraining</strong><small>1,6–2,0 g/kg · Orientierung für regelmäßiges Krafttraining mit dem Ziel, Muskelmasse aufzubauen.</small></span></label>
+						<label class="tool-choice-card"><input type="radio" name="goal" value="defizit" aria-describedby="protein-goal-error" /><span><strong>Muskelerhalt im Kaloriendefizit</strong><small>1,6–2,0 g/kg · Vorsichtiger Orientierungsbereich für Gewichtsabnahme bei gleichzeitig regelmäßigem Krafttraining.</small></span></label>
+					</div>
+					<p id="protein-goal-error" class="tool-inline-error" data-error-for="protein-goal-group"></p>
+					<p class="tool-help">Nicht für extreme Diäten, Wettkampfvorbereitungen oder medizinische Gewichtsreduktionen.</p>
+				</fieldset>
+			</fieldset>
+
+			<fieldset>
+				<legend>Optionale Ergänzung für die Whey-Menge</legend>
+				<p class="tool-help">Lasse Felder frei, wenn du nur deinen Proteinbereich sehen möchtest.</p>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="protein-existing">Bisherige tägliche Proteinmenge <span class="tool-optional">(optional)</span></label>
+						<div class="tool-input-with-unit"><input id="protein-existing" name="existingProtein" type="text" inputmode="decimal" autocomplete="off" aria-describedby="protein-existing-help protein-existing-error" /><span>g</span></div>
+						<p id="protein-existing-help" class="tool-help">Protein aus Essen, Getränken und bereits getrunkenen Shakes pro Tag.</p>
+						<p id="protein-existing-error" class="tool-inline-error" data-error-for="protein-existing"></p>
+					</div>
+					<div class="tool-field">
+						<label for="protein-whey">Protein im Whey <span class="tool-optional">(optional)</span></label>
+						<div class="tool-input-with-unit"><input id="protein-whey" name="wheyProteinPer100" type="text" inputmode="decimal" autocomplete="off" aria-describedby="protein-whey-help protein-whey-error" /><span>g pro 100 g Pulver</span></div>
+						<p id="protein-whey-help" class="tool-help">Zum Beispiel 75 g pro 100 g Pulver.</p>
+						<p id="protein-whey-error" class="tool-inline-error" data-error-for="protein-whey"></p>
+					</div>
+					<div class="tool-field">
+						<label for="protein-serving">Portionsgröße <span class="tool-optional">(optional)</span></label>
+						<div class="tool-input-with-unit"><input id="protein-serving" name="servingSize" type="text" inputmode="decimal" value="30" autocomplete="off" aria-describedby="protein-serving-help protein-serving-error" /><span>g Pulver</span></div>
+						<p id="protein-serving-help" class="tool-help">Standard: 30 g. Nur erforderlich, wenn du auch Whey-Angaben einträgst.</p>
+						<p id="protein-serving-error" class="tool-inline-error" data-error-for="protein-serving"></p>
+					</div>
+				</div>
+			</fieldset>
+
+			<div class="tool-form-actions">
+				<button type="submit" data-calculate disabled>Proteinbedarf berechnen</button>
+				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+			</div>
+			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
+		</form>
+		<ToolNoScript />
+		<section class="tool-result" data-result hidden aria-live="polite" aria-labelledby="protein-result-heading">
+			<h2 id="protein-result-heading" tabindex="-1">Dein Protein-Orientierungsbereich</h2>
+			<div data-result-content></div>
+		</section>
+	</section>
+
+	<section class="tool-explanation">
+		<h2>Was berechnet dieses Tool?</h2>
+		<p>Der Rechner multipliziert dein eingegebenes Körpergewicht mit dem zur gewählten Situation passenden Faktor. Das Ergebnis ist ein Bereich in Gramm Protein pro Tag. Wenn du deine bisherige Proteinmenge einträgst, wird nur die Menge bis zur Untergrenze berechnet.</p>
+		<h2>Wie entsteht das Ergebnis?</h2>
+		<p>Für Alltag ohne gezielten Muskelaufbau verwendet der Rechner 0,8 g Protein pro kg Körpergewicht. Für regelmäßiges Training und Muskelaufbau nutzt er bewusst einen moderaten Orientierungsbereich. Mit ungerundeten Werten wird bis zur sichtbaren Ausgabe weitergerechnet. Grundlage sind der <a href="https://www.dge.de/wissenschaft/referenzwerte/protein/">DGE-Referenzwert für Protein</a> und die <a href="https://www.dge.de/wissenschaft/stellungnahmen-und-positionspapiere/positionen/proteinzufuhr-im-sport/">DGE-Einordnung zur Proteinzufuhr im Sport</a>.</p>
+		<h2>Welche Eingaben werden verwendet?</h2>
+		<p>Verwendet werden nur dein Körpergewicht, die gewählte Trainingssituation und optional deine bisherige Proteinmenge, der Proteingehalt eines Wheys und dessen Portionsgröße.</p>
+		<h2>Welche Grenzen besitzt das Ergebnis?</h2>
+		<p>Der Rechner kennt weder deinen gesamten Energiebedarf noch Trainingsumfang, Erkrankungen, Körperzusammensetzung oder ärztliche Vorgaben. Whey ist kein Pflichtprodukt, sondern nur eine praktische Proteinquelle.</p>
+		<h2>Was darf daraus nicht abgeleitet werden?</h2>
+		<p>Protein allein baut keine Muskeln auf. Regelmäßiges Krafttraining, Energiezufuhr und langfristige Trainingssteigerung bleiben entscheidend. Eine höhere Proteinmenge bedeutet nicht automatisch mehr Muskelaufbau.</p>
+		<p>Bereitest du Whey mit Milch zu, zählt auch das Protein der Milch zu deiner bisherigen täglichen Proteinmenge.</p>
+	</section>
+
+	<ToolPrivacyNotice />
+	<ToolSources sources={sources} />
+	<ToolRelatedArticles toolId="proteinbedarf" />
+	<RelatedTools toolId="proteinbedarf" />
+</ToolLayout>
+
+<script>
+	import { initProteinbedarfUi } from '../../scripts/tools/proteinbedarf-ui.mjs';
+	initProteinbedarfUi();
+</script>

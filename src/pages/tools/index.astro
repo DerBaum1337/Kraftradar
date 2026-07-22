@@ -1,0 +1,51 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolIntro from '../../components/tools/ToolIntro.astro';
+import ToolCard from '../../components/tools/ToolCard.astro';
+import ToolPrivacyNotice from '../../components/tools/ToolPrivacyNotice.astro';
+import { tools } from '../../data/tools.mjs';
+---
+
+<ToolLayout
+	overview={true}
+	title="KraftRadar Tools: Rechner für Training und Ernährung"
+	description="Kostenlose Rechner für Proteinbedarf, Whey-Preise, EGYM-Krafttests, Aufbau-Shakes und Körpermaße – ohne Anmeldung."
+>
+	<ToolIntro
+		title="Kostenlose Rechner für Training und Ernährung"
+		description="Berechne deinen Proteinbedarf, vergleiche Whey-Preise und werte eigene Trainings-, Shake- und Körperdaten nachvollziehbar aus. Alle Rechner arbeiten nur mit deinen Eingaben und benötigen keine Anmeldung."
+	/>
+
+	<section class="tool-trust-section" aria-label="Grundsätze der Tools">
+		<ul class="tool-trust-list">
+			<li><strong>Keine Anmeldung</strong><span>Die Rechner benötigen kein Benutzerkonto.</span></li>
+			<li><strong>Lokale Berechnung</strong><span>Die Eingaben werden direkt im Browser verarbeitet.</span></li>
+			<li><strong>Rechenweg erklärt</strong><span>Jede Toolseite zeigt Formel, Grenzen und Quellen.</span></li>
+		</ul>
+	</section>
+
+	<section class="tool-overview">
+		<p class="eyebrow">Alle Rechner</p>
+		<h2>Werkzeuge für den Gym-Alltag</h2>
+		<div class="tool-card-grid">
+			{tools.map((tool) => <ToolCard tool={tool} />)}
+		</div>
+	</section>
+
+	<section class="tool-information section-alternate">
+		<div>
+			<p class="eyebrow">So funktionieren die Rechner</p>
+			<h2>Eigene Werte, nachvollziehbar gerechnet</h2>
+			<p>Du trägst deine Werte selbst ein. KraftRadar verarbeitet sie direkt in deinem Browser und zeigt den verwendeten Rechenweg auf der jeweiligen Toolseite.</p>
+		</div>
+		<div>
+			<p class="eyebrow">Was die Rechner nicht leisten</p>
+			<h2>Orientierung statt Diagnose</h2>
+			<p>Die Ergebnisse sind rechnerische Orientierungen. Sie ersetzen keine medizinische Diagnose, Ernährungsberatung oder individuelle Trainingsbetreuung.</p>
+		</div>
+	</section>
+
+	<section class="tool-privacy-section">
+		<ToolPrivacyNotice />
+	</section>
+</ToolLayout>

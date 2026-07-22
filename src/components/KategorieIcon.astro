@@ -1,6 +1,6 @@
 ---
 interface Props {
-	type: 'training' | 'supplements' | 'zubehoer';
+	type: 'training' | 'supplements' | 'zubehoer' | 'tools';
 }
 
 const { type } = Astro.props;
@@ -27,6 +27,13 @@ const { type } = Astro.props;
 			<svg viewBox="0 0 48 48" focusable="false">
 				<path d="M9 19h30v19H9zM17 19v-4c0-3 2-5 5-5h4c3 0 5 2 5 5v4" />
 				<path d="M9 27h30M21 27v4h6v-4" />
+			</svg>
+		)
+	}
+	{
+		type === 'tools' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M12 12h24v24H12zM17 18h4M27 18h4M17 26h4M27 26h4M17 34h14" />
 			</svg>
 		)
 	}

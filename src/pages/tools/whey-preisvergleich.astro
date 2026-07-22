@@ -1,0 +1,123 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolIntro from '../../components/tools/ToolIntro.astro';
+import ToolPrivacyNotice from '../../components/tools/ToolPrivacyNotice.astro';
+import ToolLimitNotice from '../../components/tools/ToolLimitNotice.astro';
+import ToolNoScript from '../../components/tools/ToolNoScript.astro';
+import ToolSources from '../../components/tools/ToolSources.astro';
+import RelatedTools from '../../components/tools/RelatedTools.astro';
+import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import { getTool } from '../../data/tools.mjs';
+import { getToolSources } from '../../data/tool-sources.mjs';
+
+const tool = getTool('whey-preisvergleich');
+const sources = getToolSources(['euNutrition', 'waiForms']);
+---
+
+<ToolLayout
+	tool={tool}
+	title="Whey-Preisvergleich: Preis pro Protein berechnen"
+	description="Vergleiche Whey nach Endpreis, Proteingehalt, Portionen und Preis pro 25 g Protein – inklusive Rabatt und Versandkosten."
+>
+	<ToolIntro
+		title="Whey-Preise und Preis-Leistung vergleichen"
+		description="Vergleiche bis zu vier Angebote anhand deiner eigenen Preis- und Nährwertangaben. Die Kennzeichnung bezieht sich nur auf die berechneten Preise."
+	/>
+
+	<section class="tool-calculator-section">
+		<ToolLimitNotice>
+			<p>Der Rechner bewertet ausschließlich Preis, Pulvermenge, angegebenen Proteingehalt, Portionen und Ergiebigkeit. Er bewertet weder Geschmack, Löslichkeit, Zutatenqualität, Aminosäureprofil, Verträglichkeit, Laborqualität, Herstellervertrauen noch Verpackung.</p>
+		</ToolLimitNotice>
+
+		<form id="whey-preisvergleich-form" class="tool-form" novalidate>
+			<div class="tool-error-summary" data-error-summary hidden tabindex="-1" aria-labelledby="whey-error-heading">
+				<h2 id="whey-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
+				<ul data-error-list></ul>
+			</div>
+			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+
+			<div class="tool-dynamic-list" data-product-list aria-live="polite">
+				<fieldset class="tool-dynamic-card" data-product-card data-card-id="1">
+					<legend><span data-product-number>Produkt 1</span></legend>
+					<div class="tool-form-grid">
+						<div class="tool-field">
+							<label for="whey-product-1-name">Produktname <span class="tool-optional">(optional)</span></label>
+							<input id="whey-product-1-name" data-field="name" type="text" maxlength="60" autocomplete="off" />
+						</div>
+						<div class="tool-field">
+							<label for="whey-product-1-powder">Gesamtmenge Pulver <span aria-hidden="true">*</span></label>
+							<div class="tool-input-with-unit"><input id="whey-product-1-powder" data-field="powderGrams" type="text" inputmode="decimal" autocomplete="off" required /><span>g</span></div>
+						</div>
+						<div class="tool-field">
+							<label for="whey-product-1-protein">Protein pro 100 g <span aria-hidden="true">*</span></label>
+							<div class="tool-input-with-unit"><input id="whey-product-1-protein" data-field="proteinPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g</span></div>
+						</div>
+						<div class="tool-field">
+							<label for="whey-product-1-serving">Portionsgröße <span aria-hidden="true">*</span></label>
+							<div class="tool-input-with-unit"><input id="whey-product-1-serving" data-field="servingGrams" type="text" inputmode="decimal" value="30" autocomplete="off" required /><span>g Pulver</span></div>
+						</div>
+						<div class="tool-field">
+							<label for="whey-product-1-price">Produktpreis <span aria-hidden="true">*</span></label>
+							<div class="tool-input-with-unit"><input id="whey-product-1-price" data-field="price" type="text" inputmode="decimal" autocomplete="off" required /><span>€</span></div>
+							<p class="tool-help">Gesamter Preis des Angebots. 0 € ist zulässig.</p>
+						</div>
+						<div class="tool-field">
+							<label for="whey-product-1-discount-type">Zusätzlicher Rabatt</label>
+							<select id="whey-product-1-discount-type" data-field="discountType">
+								<option value="none">Kein zusätzlicher Rabatt</option>
+								<option value="percent">Prozent</option>
+								<option value="fixed">Fester Betrag</option>
+							</select>
+							<p class="tool-help">Hast du bereits den tatsächlich bezahlten Endpreis eingetragen, wähle keinen zusätzlichen Rabatt.</p>
+						</div>
+						<div class="tool-field" data-discount-value-wrap hidden>
+							<label for="whey-product-1-discount-value" data-discount-label>Rabattwert</label>
+							<div class="tool-input-with-unit"><input id="whey-product-1-discount-value" data-field="discountValue" type="text" inputmode="decimal" autocomplete="off" /><span data-discount-unit>%</span></div>
+						</div>
+						<div class="tool-field">
+							<label for="whey-product-1-shipping">Versand <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit"><input id="whey-product-1-shipping" data-field="shipping" type="text" inputmode="decimal" autocomplete="off" /><span>€</span></div>
+							<p class="tool-help">Trage nur Versandkosten ein, die du diesem Angebot zurechnen möchtest.</p>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="tool-form-actions">
+				<button type="button" class="button button--secondary" data-add-product>Weiteres Produkt hinzufügen</button>
+				<button type="submit" data-calculate disabled>Whey vergleichen</button>
+				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+			</div>
+			<p class="tool-help">Bis zu vier Produkte. Vollständig leere Zusatzkarten werden ignoriert; teilweise ausgefüllte Karten werden als Fehler angezeigt.</p>
+			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
+		</form>
+		<ToolNoScript />
+		<section class="tool-result" data-result hidden aria-live="polite" aria-labelledby="whey-result-heading">
+			<h2 id="whey-result-heading" tabindex="-1">Dein Preisvergleich</h2>
+			<div data-result-content></div>
+		</section>
+	</section>
+
+	<section class="tool-explanation">
+		<h2>Was berechnet dieses Tool?</h2>
+		<p>Der Rechner berechnet pro Produkt den effektiven Gesamtpreis, Preis pro Kilogramm Pulver, Gesamtprotein, Portionen, Protein pro Portion und Preis pro 25 g Protein.</p>
+		<h2>Wie entsteht das Ergebnis?</h2>
+		<p>Ein optionaler Rabatt wird zuerst vom Produktpreis abgezogen. Danach addiert der Rechner die zugeordneten Versandkosten. Der Vergleichswert „Niedrigster Preis pro 25 g Protein“ verwendet die sichtbaren auf Cent gerundeten Werte.</p>
+		<h2>Welche Eingaben werden verwendet?</h2>
+		<p>Du gibst Menge, Proteingehalt, Portionsgröße, Preis, optionalen Rabatt und Versand selbst ein. Preise und Nährwerte werden nicht automatisch vom Anbieter abgerufen. Für die Angaben pro 100 g und die Energie- beziehungsweise Nährwertdeklaration gilt die <a href="https://eur-lex.europa.eu/eli/reg/2011/1169/oj/">EU-Verordnung über Lebensmittelinformationen</a>.</p>
+		<h2>Welche Grenzen besitzt das Ergebnis?</h2>
+		<p>Prüfe Preis und Nährwerte vor dem Kauf beim jeweiligen Anbieter. KraftRadar aktualisiert die eingegebenen Angaben nicht automatisch.</p>
+		<h2>Was darf daraus nicht abgeleitet werden?</h2>
+		<p>Ein niedriger Preis pro 25 g Protein sagt nichts über Geschmack, Löslichkeit, Zutaten, Herkunft, Aminosäureprofil, Laborprüfung oder Verträglichkeit aus. Der Rechner vergibt keine Kaufempfehlung und keinen Testsieger.</p>
+	</section>
+
+	<ToolPrivacyNotice />
+	<ToolSources sources={sources} />
+	<ToolRelatedArticles toolId="whey-preisvergleich" />
+	<RelatedTools toolId="whey-preisvergleich" />
+</ToolLayout>
+
+<script>
+	import { initWheyPreisvergleichUi } from '../../scripts/tools/whey-preisvergleich-ui.mjs';
+	initWheyPreisvergleichUi();
+</script>

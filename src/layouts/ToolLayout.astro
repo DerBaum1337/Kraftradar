@@ -1,0 +1,78 @@
+---
+import Hauptlayout from './Hauptlayout.astro';
+import ToolBreadcrumbs from '../components/tools/ToolBreadcrumbs.astro';
+import { tools } from '../data/tools.mjs';
+
+interface Tool {
+	id: string;
+	href: string;
+	title: string;
+}
+
+interface Props {
+	tool?: Tool;
+	title: string;
+	description: string;
+	overview?: boolean;
+}
+
+const { tool, title, description, overview = false } = Astro.props;
+const siteURL = Astro.site ?? new URL('https://kraftradar.de');
+const pageHref = overview ? '/tools/' : tool?.href;
+const pageURL = new URL(pageHref ?? '/tools/', siteURL).href;
+const breadcrumbItems = overview
+	? [
+		{ '@type': 'ListItem', position: 1, name: 'Start', item: siteURL.href },
+		{ '@type': 'ListItem', position: 2, name: 'Tools', item: pageURL },
+	]
+	: [
+		{ '@type': 'ListItem', position: 1, name: 'Start', item: siteURL.href },
+		{ '@type': 'ListItem', position: 2, name: 'Tools', item: new URL('/tools/', siteURL).href },
+		{ '@type': 'ListItem', position: 3, name: tool?.title ?? 'Tools', item: pageURL },
+	];
+const pageType = overview ? 'CollectionPage' : 'WebPage';
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': siteURL.href + '#website',
+			name: 'KraftRadar',
+			url: siteURL.href,
+			inLanguage: 'de-DE',
+		},
+		{
+			'@type': pageType,
+			'@id': pageURL + '#webpage',
+			name: title + ' | KraftRadar',
+			description,
+			url: pageURL,
+			inLanguage: 'de-DE',
+			isPartOf: { '@id': siteURL.href + '#website' },
+			breadcrumb: { '@id': pageURL + '#breadcrumb' },
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': pageURL + '#breadcrumb',
+			itemListElement: breadcrumbItems,
+		},
+		...(overview ? [{
+			'@type': 'ItemList',
+			'@id': pageURL + '#tools',
+			itemListElement: tools.map((item, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name: item.title,
+				url: new URL(item.href, siteURL).href,
+			})),
+		}] : []),
+	],
+};
+---
+
+<Hauptlayout title={title} description={description} canonical={pageHref} structuredData={structuredData}>
+	<div class="tool-page">
+		<ToolBreadcrumbs current={overview ? undefined : tool?.title} />
+		<slot />
+	</div>
+</Hauptlayout>

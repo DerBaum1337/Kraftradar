@@ -1,0 +1,37 @@
+---
+import ToolIcon from './ToolIcon.astro';
+
+interface Tool {
+	id: string;
+	href: string;
+	title: string;
+	shortTitle: string;
+	description: string;
+	resultItems: string[];
+	icon: string;
+}
+
+interface Props {
+	tool: Tool;
+	compact?: boolean;
+}
+
+const { tool, compact = false } = Astro.props;
+---
+
+<a class:list={['card', 'tool-card', compact && 'tool-card--compact']} href={tool.href}>
+	<div class="tool-card-header">
+		<ToolIcon type={tool.icon} />
+		<span class="badge">Tools</span>
+	</div>
+	<h3>{tool.title}</h3>
+	<p>{tool.description}</p>
+	{
+		!compact && (
+			<ul>
+				{tool.resultItems.map((item) => <li>{item}</li>)}
+			</ul>
+		)
+	}
+	<span class="card-link">{tool.shortTitle} <span aria-hidden="true">→</span></span>
+</a>

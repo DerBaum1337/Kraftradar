@@ -1,0 +1,53 @@
+---
+interface Props {
+	type: string;
+}
+
+const { type } = Astro.props;
+---
+
+<span class="tool-icon" aria-hidden="true">
+	{
+		type === 'protein' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M14 18h20l2 6v13H12V24l2-6Z" />
+				<path d="M17 12h14v6H17zM12 27h24M20 32h8" />
+			</svg>
+		)
+	}
+	{
+		type === 'whey' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M13 11h22v27H13zM17 11V8h14v3M18 22h12M18 28h8" />
+				<path d="m29 31 2 2 5-6" />
+			</svg>
+		)
+	}
+	{
+		type === 'egym' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M9 34h30M13 29l8-8 6 5 8-12" />
+				<path d="M31 14h4v4" />
+				<circle cx="13" cy="29" r="2" />
+				<circle cx="21" cy="21" r="2" />
+				<circle cx="27" cy="26" r="2" />
+			</svg>
+		)
+	}
+	{
+		type === 'shake' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<path d="M16 10h16l-2 28H18L16 10Z" />
+				<path d="M14 10h20M20 16h8M20 23h8M21 30h6" />
+			</svg>
+		)
+	}
+	{
+		type === 'body' && (
+			<svg viewBox="0 0 48 48" focusable="false">
+				<circle cx="24" cy="11" r="4" />
+				<path d="M17 38v-9l3-9h8l3 9v9M20 22l-5 5M28 22l5 5M21 38l-2 6M27 38l2 6" />
+			</svg>
+		)
+	}
+</span>

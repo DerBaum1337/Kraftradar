@@ -1,0 +1,28 @@
+---
+import { articleToolLinks, getTool } from '../../data/tools.mjs';
+
+interface Props {
+	articleSlug: string;
+}
+
+const { articleSlug } = Astro.props;
+const linkedTools: NonNullable<ReturnType<typeof getTool>>[] = [];
+for (const toolId of articleToolLinks[articleSlug] ?? []) {
+	const tool = getTool(toolId);
+	if (tool) linkedTools.push(tool);
+}
+---
+
+{
+	linkedTools.length > 0 && (
+		<section class="article-related article-tool-links" aria-labelledby="passende-rechner">
+			<p class="eyebrow">Praktische Rechner</p>
+			<h2 id="passende-rechner">Passende KraftRadar Tools</h2>
+			<ul class="tool-article-links">
+				{linkedTools.map((tool) => (
+					<li><a href={tool.href}>{tool.title}</a></li>
+				))}
+			</ul>
+		</section>
+	)
+}

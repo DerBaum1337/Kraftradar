@@ -1,0 +1,15 @@
+---
+interface Props {
+	current?: string;
+}
+
+const { current } = Astro.props;
+---
+
+<nav class="breadcrumbs tool-breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		<li><a href="/">Start</a></li>
+		{current ? <li><a href="/tools/">Tools</a></li> : <li aria-current="page">Tools</li>}
+		{current && <li aria-current="page">{current}</li>}
+	</ol>
+</nav>

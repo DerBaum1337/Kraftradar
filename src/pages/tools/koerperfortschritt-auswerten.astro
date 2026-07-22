@@ -1,0 +1,168 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolIntro from '../../components/tools/ToolIntro.astro';
+import ToolPrivacyNotice from '../../components/tools/ToolPrivacyNotice.astro';
+import ToolLimitNotice from '../../components/tools/ToolLimitNotice.astro';
+import ToolNoScript from '../../components/tools/ToolNoScript.astro';
+import ToolSources from '../../components/tools/ToolSources.astro';
+import RelatedTools from '../../components/tools/RelatedTools.astro';
+import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import { getTool } from '../../data/tools.mjs';
+import { getToolSources } from '../../data/tool-sources.mjs';
+
+const tool = getTool('koerperfortschritt');
+const sources = getToolSources(['cdcAnthropometry', 'whoWaist', 'selfMeasurements', 'waistUncertainty', 'weightFluctuation', 'waiForms']);
+const initialMeasurements = [
+	{ key: 'weight', label: 'Gewicht', unit: 'kg' },
+	{ key: 'bauch', label: 'Bauchumfang', unit: 'cm' },
+	{ key: 'taille', label: 'Taillenumfang', unit: 'cm' },
+	{ key: 'huefte', label: 'Hüftumfang', unit: 'cm' },
+	{ key: 'brust', label: 'Brustumfang', unit: 'cm' },
+];
+const furtherMeasurements = [
+	{ key: 'hals', label: 'Halsumfang' },
+	{ key: 'oberarm-links-entspannt', label: 'Oberarm links entspannt' },
+	{ key: 'oberarm-rechts-entspannt', label: 'Oberarm rechts entspannt' },
+	{ key: 'oberarm-links-angespannt', label: 'Oberarm links angespannt' },
+	{ key: 'oberarm-rechts-angespannt', label: 'Oberarm rechts angespannt' },
+	{ key: 'unterarm-links', label: 'Unterarm links' },
+	{ key: 'unterarm-rechts', label: 'Unterarm rechts' },
+	{ key: 'oberschenkel-links', label: 'Oberschenkel links' },
+	{ key: 'oberschenkel-rechts', label: 'Oberschenkel rechts' },
+	{ key: 'wade-links', label: 'Wade links' },
+	{ key: 'wade-rechts', label: 'Wade rechts' },
+];
+---
+
+<ToolLayout
+	tool={tool}
+	title="Körpermaße vergleichen: Gewicht und Umfang auswerten"
+	description="Vergleiche Gewicht, Bauchumfang, Brust, Hüfte, Arme und weitere Körpermaße zwischen zwei Messzeitpunkten."
+>
+	<ToolIntro
+		title="Körpermaße und Gewicht vergleichen"
+		description="Vergleiche zwei Messzeitpunkte neutral. Der Rechner beschreibt nur deine Werte und leitet weder Muskelaufbau noch Fettverlust automatisch daraus ab."
+	/>
+
+	<section class="tool-calculator-section">
+		<ToolLimitNotice title="Wichtige Grenze">
+			<p>Der Rechner beschreibt nur die von dir eingegebenen Messwerte. Aus Gewicht und Körperumfängen allein lässt sich nicht sicher ableiten, ob sich Muskelmasse, Körperfett oder Körperwasser verändert haben.</p>
+			<p>Er berechnet keinen BMI, kein Taille-Größe-Verhältnis, kein Taille-Hüft-Verhältnis, keinen Körperfettanteil und keine Gesundheitskategorien.</p>
+		</ToolLimitNotice>
+
+		<form id="koerperfortschritt-form" class="tool-form" novalidate>
+			<div class="tool-error-summary" data-error-summary hidden tabindex="-1" aria-labelledby="body-error-heading">
+				<h2 id="body-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
+				<ul data-error-list></ul>
+			</div>
+			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+
+			<fieldset>
+				<legend>Messzeitpunkte</legend>
+				<div class="tool-form-grid">
+					<div class="tool-field">
+						<label for="body-first-date">Erstes Datum <span aria-hidden="true">*</span></label>
+						<input id="body-first-date" name="firstDate" type="date" required aria-describedby="body-first-date-error" />
+						<p id="body-first-date-error" class="tool-inline-error" data-error-for="body-first-date"></p>
+					</div>
+					<div class="tool-field">
+						<label for="body-second-date">Späteres Datum <span aria-hidden="true">*</span></label>
+						<input id="body-second-date" name="secondDate" type="date" required aria-describedby="body-second-date-error" />
+						<p id="body-second-date-error" class="tool-inline-error" data-error-for="body-second-date"></p>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id="body-measurement-group" aria-required="true" tabindex="-1">
+				<legend>Häufig verglichene Werte</legend>
+				<p class="tool-help">Für jedes Maß trägst du entweder beide Messungen ein oder lässt beide Felder leer.</p>
+				<div class="tool-measurement-grid">
+					{
+						initialMeasurements.map((measurement) => (
+							<fieldset class="tool-measurement-card" data-measurement-card data-key={measurement.key} data-label={measurement.label} data-unit={measurement.unit}>
+								<legend>{measurement.label}</legend>
+								<div class="tool-field">
+									<label for={'body-' + measurement.key + '-first'}>Erste Messung</label>
+									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-first'} data-field="first" type="text" inputmode="decimal" autocomplete="off" /><span>{measurement.unit}</span></div>
+								</div>
+								<div class="tool-field">
+									<label for={'body-' + measurement.key + '-second'}>Spätere Messung</label>
+									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-second'} data-field="second" type="text" inputmode="decimal" autocomplete="off" /><span>{measurement.unit}</span></div>
+								</div>
+							</fieldset>
+						))
+					}
+				</div>
+			</fieldset>
+
+			<details class="tool-more-measures">
+				<summary>Weitere Standardmaße hinzufügen</summary>
+				<p class="tool-help">Bauch und Taille bleiben getrennte Maße. Entscheidend ist, dass du zwischen den Terminen nicht die Messmethode wechselst.</p>
+				<div class="tool-measurement-grid">
+					{
+						furtherMeasurements.map((measurement) => (
+							<fieldset class="tool-measurement-card" data-measurement-card data-key={measurement.key} data-label={measurement.label} data-unit="cm">
+								<legend>{measurement.label}</legend>
+								<div class="tool-field">
+									<label for={'body-' + measurement.key + '-first'}>Erste Messung</label>
+									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-first'} data-field="first" type="text" inputmode="decimal" autocomplete="off" /><span>cm</span></div>
+								</div>
+								<div class="tool-field">
+									<label for={'body-' + measurement.key + '-second'}>Spätere Messung</label>
+									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-second'} data-field="second" type="text" inputmode="decimal" autocomplete="off" /><span>cm</span></div>
+								</div>
+							</fieldset>
+						))
+					}
+				</div>
+			</details>
+
+			<fieldset>
+				<legend>Eigene Maße <span class="tool-optional">(optional)</span></legend>
+				<div class="tool-dynamic-list" data-custom-measurement-list aria-live="polite"></div>
+				<button type="button" class="button button--secondary" data-add-custom-measurement>Eigenes Maß hinzufügen</button>
+				<p class="tool-help">Maximal fünf eigene Maße. Die Einheit ist immer cm.</p>
+			</fieldset>
+
+			<label class="tool-confirmation">
+				<input id="body-confirmed" type="checkbox" name="confirmed" required aria-describedby="body-confirmed-error" />
+				<span>Ich vergleiche bei jedem eingetragenen Maß dieselbe Messstelle, Körperseite und Messweise.</span>
+			</label>
+			<p id="body-confirmed-error" class="tool-inline-error" data-error-for="body-confirmed"></p>
+
+			<div class="tool-form-actions">
+				<button type="submit" data-calculate disabled>Körpermaße vergleichen</button>
+				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+			</div>
+			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
+		</form>
+		<ToolNoScript />
+		<section class="tool-result" data-result hidden aria-live="polite" aria-labelledby="body-result-heading">
+			<h2 id="body-result-heading" tabindex="-1">Dein Vergleich</h2>
+			<div data-result-content></div>
+		</section>
+	</section>
+
+	<section class="tool-explanation">
+		<h2>Was berechnet dieses Tool?</h2>
+		<p>Der Rechner vergleicht je vollständig eingetragenem Wert die absolute und prozentuale Veränderung zwischen zwei Kalendertagen. Es gibt keine Summe aller Zentimeter, keinen Symmetrie-Score und keine Rangliste.</p>
+		<h2>Wie entsteht das Ergebnis?</h2>
+		<p>Die Differenz ist spätere minus erste Messung. Für die Bezeichnung größer, kleiner oder gerundet unverändert verwendet der Rechner die auf eine Nachkommastelle gerundete Differenz.</p>
+		<h2>Welche Eingaben werden verwendet?</h2>
+		<p>Verwendet werden zwei Messdaten und mindestens ein vollständiges Wertepaar. Gewicht wird in kg und Umfänge in cm behandelt. Bauch und Taille sind bewusst getrennte Felder.</p>
+		<h2>Welche Grenzen besitzt das Ergebnis?</h2>
+		<p>Kleine Unterschiede können sowohl eine tatsächliche Veränderung als auch normale Messabweichung enthalten. Der Rechner kann beides nicht voneinander trennen. Hinweise zu standardisierten Körpermessungen und Messunsicherheit liefern das <a href="https://stacks.cdc.gov/view/cdc/127207">CDC-Anthropometriehandbuch</a> sowie die Forschung zu <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10271771/">Messfehlern beim Taillenumfang</a>.</p>
+		<h2>Was darf daraus nicht abgeleitet werden?</h2>
+		<p>Vergleiche möglichst Messungen mit derselben Messstelle, Körperhaltung, Muskelspannung, Bandposition und ähnlichen Bedingungen. Der Rechner bewertet keine Veränderung als gut oder schlecht und berechnet keine Gesundheitsrisiken.</p>
+	</section>
+
+	<ToolPrivacyNotice />
+	<ToolSources sources={sources} />
+	<ToolRelatedArticles toolId="koerperfortschritt" />
+	<RelatedTools toolId="koerperfortschritt" />
+</ToolLayout>
+
+<script>
+	import { initKoerperfortschrittUi } from '../../scripts/tools/koerperfortschritt-ui.mjs';
+	initKoerperfortschrittUi();
+</script>
