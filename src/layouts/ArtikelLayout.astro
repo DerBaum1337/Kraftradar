@@ -7,6 +7,7 @@ import Hauptlayout from './Hauptlayout.astro';
 import Inhaltsverzeichnis from '../components/Inhaltsverzeichnis.astro';
 import Quellenliste from '../components/Quellenliste.astro';
 import ArticleToolLinks from '../components/tools/ArticleToolLinks.astro';
+import AffiliateProduktbox from '../components/AffiliateProduktbox.astro';
 import { lesezeitInMinuten } from '../lib/lesezeit';
 
 interface Props {
@@ -119,6 +120,9 @@ const articleStructuredData = {
 					</figure>
 				)
 			}
+			{data.product?.affiliateLinks && data.product.affiliateUrl && (
+				<AffiliateProduktbox url={data.product.affiliateUrl} productName={`${data.product.brand} ${data.product.name}`} />
+			)}
 			<slot />
 			<Quellenliste sources={data.sources} />
 		</div>

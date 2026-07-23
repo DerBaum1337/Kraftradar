@@ -8,7 +8,7 @@ status: published
 description: "Ich nehme HSN Multivitamine für Männer seit Mai 2026 täglich. Mein Test zu Zusammensetzung, halber Tablette, starkem Geruch, Teilbarkeit und Preis."
 excerpt: "Mehrmonatiger Praxistest des HSN Multivitamins für Männer: breite Nährstoffauswahl, sehr niedrige Tageskosten, aber große Tabletten ohne Bruchrille und intensiver Geruch."
 publishedAt: "2026-07-18T08:10:00+02:00"
-updatedAt: "2026-07-18T08:10:00+02:00"
+updatedAt: "2026-07-23T12:00:00+02:00"
 author: basti
 featured: true
 noindex: false
@@ -45,14 +45,15 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Die ursprüngliche Produktverpackung ist nicht mehr vorhanden, weil sie beschädigt wurde. Die Tabletten werden inzwischen in einem separaten Behälter mit Klickdeckel gelagert."
+  affiliateLinks: true
+  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die ursprüngliche Produktverpackung ist nicht mehr vorhanden, weil sie beschädigt wurde. Die Tabletten werden inzwischen in einem separaten Behälter mit Klickdeckel gelagert."
 product:
   name: "Multivitamine für Männer"
   brand: "HSN"
   model: "Essential Series"
   variant: "120 Tabletten / 240 Tagesportionen"
   manufacturerUrl: "https://www.hsnstore.de/marken/essential-series/multivitamine-fuer-maenner-120-tabletten"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNORS1VTU18fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL2Vzc2VudGlhbC1zZXJpZXMvbXVsdGl2aXRhbWluZS1mdWVyLW1hZW5uZXI%3D"
   purchaseDate: "2026-05-19"
   purchasePrice: 17.48
   currentReferencePrice: null
@@ -61,7 +62,7 @@ product:
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-05-19"
   testEndedAt: "2026-07-18"
   usageCount: 61
@@ -144,11 +145,7 @@ Ich habe **HSN Multivitamine für Männer mit 120 Tabletten** am **19. Mai 2026 
 | Gesamtnote | **8,0 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Multivitamine für Männer direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/essential-series/multivitamine-fuer-maenner-120-tabletten)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ## Warum ich das Multivitamin gekauft habe
 
@@ -363,7 +360,7 @@ Weniger passend ist es für Menschen, die:
 
 ## Transparenz
 
-Ich habe die 120 Tabletten am 19. Mai 2026 selbst für 17,48 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Ich habe die 120 Tabletten am 19. Mai 2026 selbst für 17,48 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Die Fotos zeigen meine eigenen ganzen und geteilten Tabletten. Die Originalverpackung ist nicht mehr vorhanden. Nährstoffmengen, Zutaten und Herstellerportion stammen deshalb aus der offiziellen HSN-Produktseite und den von mir beim Kauf dokumentierten Angaben.
 

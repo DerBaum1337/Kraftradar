@@ -8,7 +8,7 @@ status: published
 description: "Ich nehme HSN Ultra Omega-3 TG seit Mai 2026 täglich. Mein Praxistest zu EPA und DHA, TG-Form, Kapselgröße, fischigem Aufstoßen und Preis."
 excerpt: "Mehrmonatiger Praxistest des HSN Ultra Omega-3 TG: 600 mg EPA und DHA in einer Kapsel, einfache Tagesroutine und gelegentliches fischiges Aufstoßen."
 publishedAt: "2026-07-18T08:20:00+02:00"
-updatedAt: "2026-07-18T08:20:00+02:00"
+updatedAt: "2026-07-23T12:00:00+02:00"
 author: basti
 featured: true
 noindex: false
@@ -48,14 +48,15 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Die Bewertung verwendet den tatsächlich bezahlten Preis vom 19. Mai 2026 nach 3 Prozent Sparplanrabatt."
+  affiliateLinks: true
+  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die Bewertung verwendet den tatsächlich bezahlten Preis vom 19. Mai 2026 nach 3 Prozent Sparplanrabatt."
 product:
   name: "Ultra Omega-3 TG (IFOS) 1000 mg"
   brand: "HSN"
   model: "Essential Series"
   variant: "120 Weichkapseln"
   manufacturerUrl: "https://www.hsnstore.de/marken/essential-series/ultra-omega-3-tg-ifos-1000-mg-120-softgels"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNORS1VTzN8fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL2Vzc2VudGlhbC1zZXJpZXMvdWx0cmEtb21lZ2EtMy10Zy1pZm9zLTEwMDAtbWc%3D"
   purchaseDate: "2026-05-19"
   purchasePrice: 14.77
   currentReferencePrice: null
@@ -64,7 +65,7 @@ product:
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-05-19"
   testEndedAt: "2026-07-18"
   usageCount: 61
@@ -150,11 +151,7 @@ Ich habe mich für dieses Produkt entschieden, weil ich im Alltag praktisch kein
 | Gesamtnote | **8,6 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Ultra Omega-3 TG mit 120 Weichkapseln direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/essential-series/ultra-omega-3-tg-ifos-1000-mg-120-softgels)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ![HSN Ultra Omega-3 TG Dose mit mehreren Weichkapseln](/uploads/articles/hsn-ultra-omega3-tg-flasche-und-kapseln.webp)
 
@@ -355,7 +352,7 @@ Bei Fischallergie, gerinnungshemmenden Medikamenten, Blutungsstörungen, Schwang
 
 ## Transparenz
 
-Ich habe die 120er-Dose am 19. Mai 2026 selbst für 14,77 Euro bei HSN gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Ich habe die 120er-Dose am 19. Mai 2026 selbst für 14,77 Euro bei HSN gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Die Bilder sind eigene Fotos. Produktdaten zu EPA, DHA, Fischöl, Vitamin E, TG-Form und Lagerung stammen vom Etikett und von HSN. Die IFOS-Angabe wurde als externe Zertifizierungsinformation behandelt. KraftRadar hat weder Reinheit noch Oxidation oder tatsächliche Aufnahme im Labor geprüft.
 

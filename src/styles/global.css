@@ -1594,6 +1594,40 @@ tbody tr:last-child td {
 	background: var(--color-surface);
 }
 
+.affiliate-product-box {
+	margin: 2.5rem 0;
+	padding: clamp(1.25rem, 3vw, 1.75rem);
+	border: 1px solid rgb(85 230 165 / 48%);
+	border-left: 3px solid var(--color-accent);
+	border-radius: var(--radius-medium);
+	background: linear-gradient(135deg, rgb(85 230 165 / 12%), var(--color-surface));
+	box-shadow: var(--shadow-card);
+}
+
+.affiliate-product-box__label {
+	margin: 0 0 0.65rem;
+	color: var(--color-accent);
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.affiliate-product-box h2 {
+	margin-bottom: 0.65rem;
+	font-size: clamp(1.3rem, 3vw, 1.65rem);
+}
+
+.affiliate-product-box p:not(.affiliate-product-box__label) {
+	max-width: 62ch;
+	margin-bottom: 1.1rem;
+	color: var(--color-text-muted);
+}
+
+.affiliate-product-box__button {
+	text-decoration: none;
+}
+
 .transparency-note {
 	border-left: 3px solid var(--color-accent);
 }

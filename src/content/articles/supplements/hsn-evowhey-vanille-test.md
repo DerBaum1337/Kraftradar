@@ -8,7 +8,7 @@ status: published
 description: "Ich nutze HSN Evowhey Vanille seit April 2026 regelmäßig. Mein Praxistest zu Geschmack, Löslichkeit, Nährwerten, Verpackung und Preis."
 excerpt: "Mehrmonatiger Praxistest von HSN Evowhey Vanille mit Nährwerten, Preisrechnung, Stärken, Schwächen und transparenter Bewertung."
 publishedAt: 2026-07-17T15:30:00+02:00
-updatedAt: 2026-07-17T15:30:00+02:00
+updatedAt: 2026-07-23T12:00:00+02:00
 author: basti
 featured: true
 noindex: false
@@ -43,21 +43,22 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Alle getesteten Beutel wurden selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Der genannte Sparplanrabatt war ein regulärer Rabatt meiner Bestellung."
+  affiliateLinks: true
+  note: "Alle getesteten Beutel wurden selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Der genannte Sparplanrabatt war ein regulärer Rabatt meiner Bestellung."
 product:
   name: "Evowhey Protein"
   brand: "HSN"
   model: "Evowhey"
   variant: "Vanille, 500 g und 2 kg"
   manufacturerUrl: "https://www.hsnstore.de/marken/sport-series/evowhey-protein"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNOUy1FVzJ8fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL3Nwb3J0LXNlcmllcy9ldm93aGV5LXByb3RlaW4%3D"
   purchaseDate: "2026-05-19"
   purchasePrice: 37.03
   currency: EUR
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-04-13"
   testEndedAt: "2026-07-17"
   testStatus: completed
@@ -133,11 +134,7 @@ Für diesen Artikel habe ich meine Erfahrungen bis zum **17. Juli 2026** zusamme
 | Gesamtnote | **8,1 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Evowhey Protein direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/sport-series/evowhey-protein)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ## So habe ich das Whey verwendet
 
@@ -290,7 +287,7 @@ Weniger passend ist es für Menschen mit einer Milchallergie, für Nutzer, die S
 
 ## Transparenz
 
-Alle für diesen Test verwendeten Beutel wurden von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Alle für diesen Test verwendeten Beutel wurden von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Der Sparplanrabatt von 3 Prozent war ein regulärer Rabatt meiner Bestellung und keine Vergütung. Herstellerangaben zu Zusammensetzung, Aminogramm und Laboranalysen sind als solche gekennzeichnet. KraftRadar hat keine eigene Laboranalyse durchgeführt.
 

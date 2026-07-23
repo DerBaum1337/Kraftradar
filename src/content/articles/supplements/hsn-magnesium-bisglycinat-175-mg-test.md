@@ -8,7 +8,7 @@ status: published
 description: "Ich nehme HSN Magnesiumbisglycinat 175 mg seit Mai 2026 täglich. Mein Test zu Dosierung, Kapselgröße, Deklaration, Einnahme und Preis."
 excerpt: "Mehrmonatiger Praxistest des HSN Magnesiumbisglycinats: 175 mg Magnesium pro Kapsel, einfache Abendroutine und eine wichtige Abweichung zwischen meiner Dose und der aktuellen Produktseite."
 publishedAt: "2026-07-18T08:00:00+02:00"
-updatedAt: "2026-07-18T08:00:00+02:00"
+updatedAt: "2026-07-23T12:00:00+02:00"
 author: basti
 featured: true
 noindex: false
@@ -45,14 +45,15 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Die getestete Dose wurde am 19. Mai 2026 gekauft. Ihre Deklaration unterscheidet sich von der aktuell verlinkten HSN-Produktseite."
+  affiliateLinks: true
+  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die getestete Dose wurde am 19. Mai 2026 gekauft. Ihre Deklaration unterscheidet sich von der aktuell verlinkten HSN-Produktseite."
 product:
   name: "Magnesiumbisglycinat 175 mg Magnesium"
   brand: "HSN"
   model: "Essential Series"
   variant: "120 pflanzliche Kapseln, getestete Dose mit Chelated-Magnesium-Deklaration"
   manufacturerUrl: "https://www.hsnstore.de/marken/essential-series/gepuffertes-magnesiumbisglycinat-175-mg-magnesium-120-veg-caps"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNORS1CTUd8fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL2Vzc2VudGlhbC1zZXJpZXMvbWFnbmVzaXVtYmlzZ2x5Y2luYXQtMTc1LW1nLW1hZ25lc2l1bQ%3D%3D"
   purchaseDate: "2026-05-19"
   purchasePrice: 9.89
   currentReferencePrice: null
@@ -61,7 +62,7 @@ product:
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-05-19"
   testEndedAt: "2026-07-18"
   usageCount: 61
@@ -141,11 +142,7 @@ Ich habe die 120er-Dose **HSN Magnesiumbisglycinat mit 175 mg Magnesium pro Kaps
 | Gesamtnote | **8,3 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Magnesiumbisglycinat mit 120 Kapseln direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/essential-series/gepuffertes-magnesiumbisglycinat-175-mg-magnesium-120-veg-caps)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ![HSN Magnesiumbisglycinat Dose mit drei weißen Kapseln](/uploads/articles/hsn-magnesium-bisglycinat-flasche-und-kapseln.webp)
 
@@ -306,7 +303,7 @@ Bei Nierenerkrankungen, regelmäßiger Medikamenteneinnahme oder Unsicherheit ü
 
 ## Transparenz
 
-Ich habe die getestete Dose am 19. Mai 2026 selbst für 9,89 Euro gekauft. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Ich habe die getestete Dose am 19. Mai 2026 selbst für 9,89 Euro gekauft. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Die Bilder sind eigene Fotos. Die Deklaration meiner Dose wurde direkt fotografiert. Aktuelle Angaben zur gepufferten Rezeptur stammen von der verlinkten HSN-Seite. KraftRadar hat die Zusammensetzung und Aufnahme nicht im Labor überprüft.
 

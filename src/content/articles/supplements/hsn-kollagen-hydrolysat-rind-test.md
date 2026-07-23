@@ -8,7 +8,7 @@ status: published
 description: "Ich nutze HSN Kollagen-Hydrolysat vom Rind seit Mai 2026 täglich. Mein Test zu 10-g-Portion, Löslichkeit, neutralem Geschmack, Mundgefühl und Preis."
 excerpt: "Praxistest des HSN Kollagen-Hydrolysats: nur eine Zutat, sehr gute Löslichkeit und neutraler Geschmack – mit leicht sandigem Mundgefühl in einzelnen Getränken."
 publishedAt: "2026-07-18T08:40:00+02:00"
-updatedAt: "2026-07-18T08:40:00+02:00"
+updatedAt: "2026-07-23T12:00:00+02:00"
 author: basti
 featured: true
 noindex: false
@@ -45,14 +45,15 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Eine Wirkung auf Gelenke, Sehnen oder Regeneration wurde nicht als Produkteigenschaft bewertet."
+  affiliateLinks: true
+  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Eine Wirkung auf Gelenke, Sehnen oder Regeneration wurde nicht als Produkteigenschaft bewertet."
 product:
   name: "Kollagen-Hydrolysat (Rind) Pulver"
   brand: "HSN"
   model: "Raw Series"
   variant: "500 g"
   manufacturerUrl: "https://www.hsnstore.de/marken/raw-series/kollagen-hydrolysat-rind-pulver-500-g"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLUhDfHxTVFJPU1R8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmRlL21hcmtlbi9yYXctc2VyaWVzL2tvbGxhZ2VuLWh5ZHJvbHlzYXQtcmluZC1wdWx2ZXI%3D"
   purchaseDate: "2026-05-19"
   purchasePrice: 11.13
   currentReferencePrice: null
@@ -61,7 +62,7 @@ product:
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-05-19"
   testEndedAt: "2026-07-18"
   testStatus: completed
@@ -142,11 +143,7 @@ Ich habe **HSN Kollagen-Hydrolysat vom Rind mit 500 g** am **19. Mai 2026 für 1
 | Gesamtnote | **8,8 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Kollagen-Hydrolysat vom Rind mit 500 g direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/raw-series/kollagen-hydrolysat-rind-pulver-500-g)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ![HSN Kollagen-Hydrolysat vom Rind mit gefülltem Messlöffel](/uploads/articles/hsn-kollagen-hydrolysat-rind-vorderseite-messloeffel.webp)
 
@@ -312,7 +309,7 @@ Weniger passend ist es für Menschen, die:
 
 ## Transparenz
 
-Ich habe die 500-g-Packung am 19. Mai 2026 selbst für 11,13 Euro gekauft. Der Preis enthält meinen damaligen Sparplanrabatt von 2 Prozent. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Ich habe die 500-g-Packung am 19. Mai 2026 selbst für 11,13 Euro gekauft. Der Preis enthält meinen damaligen Sparplanrabatt von 2 Prozent. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Die Bilder sind eigene Fotos. Zutaten, Dosierung und Anwendung stammen von der Produktverpackung und der offiziellen HSN-Seite. KraftRadar hat weder die Zusammensetzung noch eine Wirkung auf Gelenke, Sehnen oder Regeneration im Labor beziehungsweise medizinisch geprüft.
 

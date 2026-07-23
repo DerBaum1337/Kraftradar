@@ -8,7 +8,7 @@ status: published
 description: "Ich nutze HSN Maltodextrin Pulver seit Mai 2026 nach dem Training. Mein Test zu 50-g-Portion, Löslichkeit, Klumpen, Geschmack, Mundgefühl und Preis."
 excerpt: "Praxistest des HSN Maltodextrins: sehr günstige Kohlenhydratquelle für meinen After-Workout-Shake, leicht süß und gut kombinierbar, aber nicht vollständig klumpenfrei."
 publishedAt: "2026-07-18T08:30:00+02:00"
-updatedAt: "2026-07-18T08:30:00+02:00"
+updatedAt: "2026-07-23T12:00:00+02:00"
 author: basti
 featured: true
 noindex: false
@@ -41,14 +41,15 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Die Preisbewertung beruht auf dem tatsächlich bezahlten Preis vom 19. Mai 2026 mit 3 Prozent Sparplanrabatt."
+  affiliateLinks: true
+  note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die Preisbewertung beruht auf dem tatsächlich bezahlten Preis vom 19. Mai 2026 mit 3 Prozent Sparplanrabatt."
 product:
   name: "Maltodextrin Pulver"
   brand: "HSN"
   model: "Raw Series"
   variant: "3 kg"
   manufacturerUrl: "https://www.hsnstore.de/marken/raw-series/maltodextrin-pulver-3-kg"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLU1BfHxTVFJPU1R8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmRlL21hcmtlbi9yYXctc2VyaWVzL21hbHRvZGV4dHJpbi1wdWx2ZXI%3D"
   purchaseDate: "2026-05-19"
   purchasePrice: 10.37
   currentReferencePrice: null
@@ -57,7 +58,7 @@ product:
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-05-19"
   testEndedAt: "2026-07-18"
   testStatus: completed
@@ -138,11 +139,7 @@ Ich habe den **3-kg-Beutel HSN Maltodextrin Pulver aus der Raw Series** am **19.
 | Gesamtnote | **8,5 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Maltodextrin Pulver mit 3 kg direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/raw-series/maltodextrin-pulver-3-kg)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ![Silberner 3-kg-Beutel HSN Maltodextrin Pulver](/uploads/articles/hsn-maltodextrin-pulver-3kg-verpackung.webp)
 
@@ -308,7 +305,7 @@ Weniger passend ist es für Menschen, die:
 
 ## Transparenz
 
-Ich habe den 3-kg-Beutel am 19. Mai 2026 selbst für 10,37 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Ich habe den 3-kg-Beutel am 19. Mai 2026 selbst für 10,37 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Die Bilder sind eigene Fotos. Zutaten, Nährwerte und Herstellerportion stammen von der offiziellen HSN-Produktseite. KraftRadar hat weder die tatsächliche Zusammensetzung noch Blutzucker, Glykogenspeicher oder sportliche Wirkung im Labor gemessen.
 

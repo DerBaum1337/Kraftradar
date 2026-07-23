@@ -49,6 +49,7 @@ const productSchema = z.object({
 	model: z.string().default(''),
 	variant: z.string().default(''),
 	manufacturerUrl: z.url().optional().or(z.literal('')),
+	affiliateUrl: z.url().optional().or(z.literal('')),
 	purchaseDate: isoDate.optional().or(z.literal('')),
 	purchasePrice: z.number().nonnegative().nullable().default(null),
 	currentReferencePrice: z.number().nonnegative().nullable().default(null),

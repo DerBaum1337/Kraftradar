@@ -8,7 +8,7 @@ status: published
 description: "Ich nutze das HSN Creatin-Monohydrat 200 Mesh seit April 2026 täglich. Mein Praxistest zu Zusammensetzung, Mischbarkeit, Dosierung und Preis."
 excerpt: "Mehrmonatiger Praxistest des HSN Creatin-Monohydrats 200 Mesh: 100 Prozent Monohydrat, günstiger Kaufpreis und gute Mischbarkeit mit leicht sandigem Mundgefühl."
 publishedAt: 2026-07-17T18:30:00+02:00
-updatedAt: 2026-07-17T18:30:00+02:00
+updatedAt: 2026-07-23T12:00:00+02:00
 author: basti
 featured: true
 noindex: false
@@ -44,21 +44,22 @@ transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
-  affiliateLinks: false
-  note: "Der getestete Beutel wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Die Bewertung verwendet den tatsächlich bezahlten Preis vom 13. April 2026."
+  affiliateLinks: true
+  note: "Der getestete Beutel wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält klar gekennzeichnete Affiliate-Links zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die Bewertung verwendet den tatsächlich bezahlten Preis vom 13. April 2026."
 product:
   name: "Creatin-Monohydrat-Pulver 200 Mesh"
   brand: "HSN"
   model: "Raw Series"
   variant: "Geschmacksneutral, 1 kg"
   manufacturerUrl: "https://www.hsnstore.de/marken/raw-series/mikronisiertes-creatin-monohydrat-pulver-200-mesh-1-kg"
+  affiliateUrl: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLU1DfHxTVFJPU1R8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmRlL21hcmtlbi9yYXctc2VyaWVzL2NyZWF0aW4tbW9ub2h5ZHJhdC1wdWx2ZXItMjAwLW1lc2g%3D"
   purchaseDate: "2026-04-13"
   purchasePrice: 13.62
   currency: EUR
   selfPurchased: true
   providedFree: false
   sponsored: false
-  affiliateLinks: false
+  affiliateLinks: true
   testStartedAt: "2026-04-13"
   testEndedAt: "2026-07-17"
   testStatus: completed
@@ -132,11 +133,7 @@ Ich habe den **1-kg-Beutel HSN Creatin-Monohydrat-Pulver 200 Mesh am 13. April 2
 | Gesamtnote | **8,7 von 10 Punkten** |
 | Selbst gekauft | Ja |
 | Kooperation | Nein |
-| Affiliate-Link | Nein |
-
-**Produktlink:** [HSN Creatin-Monohydrat-Pulver 200 Mesh direkt beim Hersteller ansehen](https://www.hsnstore.de/marken/raw-series/mikronisiertes-creatin-monohydrat-pulver-200-mesh-1-kg)
-
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Herstellerlink und kein Affiliate-Link.*
+| Affiliate-Link | Ja, klar gekennzeichnet |
 
 ## So nutze ich das Kreatin
 
@@ -189,6 +186,19 @@ Trotzdem ist das Kreatin beim Trinken nicht vollständig unauffällig. Ich spür
 Deshalb spreche ich lieber von guter **Mischbarkeit beziehungsweise Suspendierbarkeit** als von einer vollkommenen Auflösung. Die Bewertung bezieht sich auf meine Zubereitung im Proteinshake mit Vollmilch. Einen getrennten Vergleich in Wasser habe ich für diesen Test nicht dokumentiert.
 
 Für praktische Mischbarkeit und Rückstände vergebe ich **7,0 von 10 Punkten**.
+
+## Feinere Alternative: HSN Creatin 500 Mesh
+
+HSN bietet außerdem ein ultrafeines Creatin-Monohydrat-Pulver mit 500 Mesh an. Laut Hersteller soll die feinere Körnung sich besser in Getränken verteilen, länger in Schwebe bleiben und auf der Zunge weniger auffallen.
+
+**Ich habe die 500-Mesh-Variante nicht selbst getestet.** Deshalb ist das keine eigene Bewertung und kein Vergleich mit meinem getesteten 200-Mesh-Beutel. Wer das leicht sandige Mundgefühl stärker stört, kann sie als mögliche Alternative prüfen. Ob sich ein möglicher Aufpreis lohnt, hängt vom aktuellen Preis und von der persönlichen Wahrnehmung ab.
+
+<aside class="affiliate-product-box" aria-label="Werbung: HSN Creatin-Monohydrat 500 Mesh">
+  <p class="affiliate-product-box__label">Werbung / Affiliate-Link</p>
+  <h3>HSN Creatin-Monohydrat 500 Mesh bei HSN</h3>
+  <p>Ich habe diese Variante nicht selbst getestet. Wenn du über diesen Link kaufst, erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.</p>
+  <a class="button affiliate-product-box__button" href="https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLUNSTXx8U1RST1NUfHxodHRwczovL3d3dy5oc25zdG9yZS5kZS9tYXJrZW4vcmF3LXNlcmllcy91bHRyYWZlaW5lcy1jcmVhdGluLW1vbm9oeWRyYXQtcHVsdmVyLTUwMC1tZXNo" target="_blank" rel="sponsored noopener noreferrer">Bei HSN ansehen <span aria-hidden="true">→</span><span class="sr-only"> (öffnet in einem neuen Tab)</span></a>
+</aside>
 
 ![Gefüllter Messlöffel mit ungefähr 5 g HSN Kreatin-Monohydrat-Pulver](/uploads/articles/hsn-creatin-monohydrat-5g-portion.webp)
 
@@ -273,7 +283,7 @@ Bei bekannten Erkrankungen, Unsicherheit zur Einnahme oder einer ärztlich gepla
 
 ## Transparenz
 
-Der getestete 1-kg-Beutel wurde von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. In diesem Artikel befindet sich zum Veröffentlichungszeitpunkt kein Affiliate-Link.
+Der getestete 1-kg-Beutel wurde von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. Die Affiliate-Links in diesem Artikel sind sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
 
 Der Preis von 13,62 Euro stammt aus meiner Bestellung vom 13. April 2026. Herstellerangaben zu Reinheit, Körnung und Zusammensetzung sind als solche gekennzeichnet. KraftRadar hat keine eigene Laboranalyse durchgeführt.
 
