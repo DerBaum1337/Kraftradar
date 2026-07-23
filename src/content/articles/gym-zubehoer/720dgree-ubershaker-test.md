@@ -1,113 +1,111 @@
 ---
-title: "720°DGREE uberShaker im Test: Dichtigkeit, Pulverfach und Reinigung"
+title: '720°DGREE uberShaker im Test: Dichtigkeit, Pulverfach und Reinigung'
 slug: 720dgree-ubershaker-test
-category: gym-zubehoer
-categoryLabel: "Gym-Zubehör"
 articleType: product-test
 status: published
-description: "Ich nutze den 720°DGREE uberShaker mit 550 ml und Pulverfach seit Juni 2026 täglich. Mein Praxistest zu Dichtigkeit, Mischkugel, Reinigung und Preis."
-excerpt: "Praxistest des 720°DGREE uberShakers mit Pulverfach: dichtes Exemplar, praktische Edelstahl-Mischkugel und ehrliche Erfahrungen zur Reinigung."
+description: Ich nutze den 720°DGREE uberShaker mit 550 ml und Pulverfach seit Juni 2026 täglich. Mein Praxistest zu Dichtigkeit, Mischkugel, Reinigung und Preis.
+excerpt: 'Praxistest des 720°DGREE uberShakers mit Pulverfach: dichtes Exemplar, praktische Edelstahl-Mischkugel und ehrliche Erfahrungen zur Reinigung.'
 publishedAt: 2026-07-18T10:00:00+02:00
-updatedAt: 2026-07-18T10:00:00+02:00
+updatedAt: 2026-07-23T11:49:05.055Z
 author: basti
 featured: true
 noindex: false
 toc: true
 heroImage:
   src: /uploads/articles/720dgree-ubershaker-stone-gray-mit-pulverfach.webp
-  alt: "Grauer 720°DGREE uberShaker mit angeschraubtem Pulverfach"
-  caption: "Mein 720°DGREE uberShaker in Stone Gray mit angebautem Pulverfach."
-  credit: "Eigenes Foto"
-  creditUrl: ""
-seo:
-  title: "720°DGREE uberShaker im Praxistest"
-  description: "720°DGREE uberShaker mit 550 ml und Pulverfach im Test: Dichtigkeit, Edelstahl-Mischkugel, Reinigung, Haltbarkeit und Preis-Leistung."
-  canonical: ""
-  ogImage: /uploads/articles/720dgree-ubershaker-stone-gray-mit-pulverfach.webp
+  alt: Grauer 720°DGREE uberShaker mit angeschraubtem Pulverfach
+  caption: Mein 720°DGREE uberShaker in Stone Gray mit angebautem Pulverfach.
+  credit: Eigenes Foto
+sources:
+  - title: 720°DGREE uberShaker mit Pulverfach – Produktinformationen
+    url: https://www.amazon.de/720%C2%B0DGREE-Protein-Shaker-Pulverfach-uberShaker/dp/B0FWKFHF7Y
+    publisher: Amazon / 720°DGREE
+    accessedAt: 2026-07-18
+  - title: ProStak – Produktinformationen
+    url: https://www.blenderbottle.com/products/prostak
+    publisher: BlenderBottle
+    accessedAt: 2026-07-18
 relatedArticles:
   - hsn-evowhey-vanille-test
   - hsn-creatin-monohydrat-200-mesh-test
-sources:
-  - title: "720°DGREE uberShaker mit Pulverfach – Produktinformationen"
-    url: "https://www.amazon.de/720%C2%B0DGREE-Protein-Shaker-Pulverfach-uberShaker/dp/B0FWKFHF7Y"
-    publisher: "Amazon / 720°DGREE"
-    accessedAt: "2026-07-18"
-  - title: "ProStak – Produktinformationen"
-    url: "https://www.blenderbottle.com/products/prostak"
-    publisher: "BlenderBottle"
-    accessedAt: "2026-07-18"
+seo:
+  title: 720°DGREE uberShaker im Praxistest
+  description: '720°DGREE uberShaker mit 550 ml und Pulverfach im Test: Dichtigkeit, Edelstahl-Mischkugel, Reinigung, Haltbarkeit und Preis-Leistung.'
+  ogImage: /uploads/articles/720dgree-ubershaker-stone-gray-mit-pulverfach.webp
 transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
   affiliateLinks: false
-  note: "Der getestete Shaker wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch 720°DGREE oder Amazon. Die Erfahrung mit dem umgetauschten Exemplar meiner Freundin wird getrennt von der Bewertung meines eigenen Shakers beschrieben."
+  note: Der getestete Shaker wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch 720°DGREE oder Amazon. Die Erfahrung mit dem umgetauschten Exemplar meiner Freundin wird getrennt von der Bewertung meines eigenen Shakers beschrieben.
 product:
-  name: "uberShaker mit Pulverfach"
-  brand: "720°DGREE"
-  model: "uberShaker"
-  variant: "Stone Gray, 550 ml, inklusive Container"
-  manufacturerUrl: "https://www.amazon.de/720%C2%B0DGREE-Protein-Shaker-Pulverfach-uberShaker/dp/B0FWKFHF7Y"
-  purchaseDate: "2026-06-10"
+  name: uberShaker mit Pulverfach
+  brand: 720°DGREE
+  model: uberShaker
+  variant: Stone Gray, 550 ml, inklusive Container
+  manufacturerUrl: https://www.amazon.de/720%C2%B0DGREE-Protein-Shaker-Pulverfach-uberShaker/dp/B0FWKFHF7Y
+  purchaseDate: 2026-06-10
   purchasePrice: 24.97
-  currency: EUR
-  selfPurchased: true
-  providedFree: false
-  sponsored: false
-  affiliateLinks: false
-  testStartedAt: "2026-06-10"
-  testEndedAt: "2026-07-18"
+  testStartedAt: 2026-06-10
+  testEndedAt: 2026-07-18
   testStatus: completed
+  sponsored: false
+  selfPurchased: true
+  currency: EUR
+  providedFree: false
+  affiliateLinks: false
+pros:
+  - Mein Exemplar ist bei normaler Nutzung bisher dicht
+  - Abschraubbares Pulverfach für eine Portion Whey unterwegs
+  - Zusätzlicher kleiner Einsatz im Pulverfach
+  - Edelstahl-Mischkugel unterstützt eine gleichmäßige Mischung
+  - Bislang keine dauerhaften Gerüche oder Verfärbungen
+  - Alle wichtigen Teile lassen sich einzeln von Hand reinigen
+cons:
+  - Mit angebautem Pulverfach relativ hoch
+  - Deutlich teurer als einfache Kunststoffshaker
+  - Milchreste müssen zeitnah entfernt werden, damit keine Gerüche entstehen
+  - Kunststoffoberfläche zeigt bei täglicher Nutzung sichtbare Gebrauchsspuren
+  - Bei einem zweiten Exemplar sprang der Trinkdeckel wiederholt auf; mein eigener Shaker ist davon bisher nicht betroffen
+bestFor:
+  - Menschen, die Whey oder andere Pulver getrennt für unterwegs mitnehmen möchten
+  - Nutzer, die einen Shaker mit Sicherheitsbügel und Mischkugel suchen
+  - Personen, die den Shaker nach Milchshakes noch am selben Tag reinigen
+lessSuitableFor:
+  - Menschen, die einen besonders kleinen oder leichten Shaker möchten
+  - Nutzer, die möglichst wenig für einen einfachen Shaker ausgeben möchten
+  - Personen, die ausschließlich Edelstahl statt Kunststoff verwenden möchten
+shortConclusion: Mein 720°DGREE uberShaker ist nach mehr als fünf Wochen täglicher Nutzung dicht, praktisch und geruchsneutral geblieben. Das Pulverfach ist der größte Mehrwert, der Preis und die nötige zeitnahe Reinigung sind die wichtigsten Einschränkungen.
+valueAssessment: Der Kaufpreis von 24,97 Euro liegt über einfachen Kunststoffshakern. Für mich rechtfertigen das abschraubbare Pulverfach, der kleine Einsatz, die Edelstahl-Mischkugel und die bisher zuverlässige Dichtigkeit einen großen Teil des Aufpreises.
+category: gym-zubehoer
+categoryLabel: Gym-Zubehör
+interimConclusion: Die Haltbarkeitsbewertung ist nach rund fünf Wochen noch vorläufig. Ein späteres Update nach mehreren Monaten ist vorgesehen.
+longTermUpdate: ''
 rating:
   enabled: true
   total: 8.4
   maximum: 10
   criteria:
-    - name: "Verarbeitung"
+    - name: Verarbeitung
       score: 8
       weight: 25
-      note: "Mein Exemplar wirkt stabil, die Gewinde greifen sauber und Deckel, Dichtungen sowie Pulverfach funktionieren bisher ohne Defekt."
-    - name: "Komfort und Handhabung"
+      note: Mein Exemplar wirkt stabil, die Gewinde greifen sauber und Deckel, Dichtungen sowie Pulverfach funktionieren bisher ohne Defekt.
+    - name: Komfort und Handhabung
       score: 9
       weight: 20
-      note: "Trinkverschluss, Sicherheitsbügel, Edelstahl-Mischkugel und abschraubbares Pulverfach sind im Alltag leicht nutzbar."
-    - name: "Vorläufige Haltbarkeit"
+      note: Trinkverschluss, Sicherheitsbügel, Edelstahl-Mischkugel und abschraubbares Pulverfach sind im Alltag leicht nutzbar.
+    - name: Vorläufige Haltbarkeit
       score: 8
       weight: 20
-      note: "Nach mehr als fünf Wochen täglicher Nutzung keine Undichtigkeit, Gerüche oder Verfärbungen. Die Haltbarkeitsnote bleibt bis zu späteren Updates vorläufig."
-    - name: "Nutzen im Alltag"
+      note: Nach mehr als fünf Wochen täglicher Nutzung keine Undichtigkeit, Gerüche oder Verfärbungen. Die Haltbarkeitsnote bleibt bis zu späteren Updates vorläufig.
+    - name: Nutzen im Alltag
       score: 9.5
       weight: 20
-      note: "Der Shaker verbindet Getränk, Mischkugel, Pulverfach und kleinen Einsatz in einem System und wird von mir täglich genutzt."
-    - name: "Preis-Leistung"
+      note: Der Shaker verbindet Getränk, Mischkugel, Pulverfach und kleinen Einsatz in einem System und wird von mir täglich genutzt.
+    - name: Preis-Leistung
       score: 7.5
       weight: 15
-      note: "24,97 Euro sind deutlich mehr als bei einfachen Kunststoffshakern. Für die Kombination aus dichtem Deckel und abnehmbarem Fach ist der Preis für mich dennoch vertretbar."
-pros:
-  - "Mein Exemplar ist bei normaler Nutzung bisher dicht"
-  - "Abschraubbares Pulverfach für eine Portion Whey unterwegs"
-  - "Zusätzlicher kleiner Einsatz im Pulverfach"
-  - "Edelstahl-Mischkugel unterstützt eine gleichmäßige Mischung"
-  - "Bislang keine dauerhaften Gerüche oder Verfärbungen"
-  - "Alle wichtigen Teile lassen sich einzeln von Hand reinigen"
-cons:
-  - "Mit angebautem Pulverfach relativ hoch"
-  - "Deutlich teurer als einfache Kunststoffshaker"
-  - "Milchreste müssen zeitnah entfernt werden, damit keine Gerüche entstehen"
-  - "Kunststoffoberfläche zeigt bei täglicher Nutzung sichtbare Gebrauchsspuren"
-  - "Bei einem zweiten Exemplar sprang der Trinkdeckel wiederholt auf; mein eigener Shaker ist davon bisher nicht betroffen"
-bestFor:
-  - "Menschen, die Whey oder andere Pulver getrennt für unterwegs mitnehmen möchten"
-  - "Nutzer, die einen Shaker mit Sicherheitsbügel und Mischkugel suchen"
-  - "Personen, die den Shaker nach Milchshakes noch am selben Tag reinigen"
-lessSuitableFor:
-  - "Menschen, die einen besonders kleinen oder leichten Shaker möchten"
-  - "Nutzer, die möglichst wenig für einen einfachen Shaker ausgeben möchten"
-  - "Personen, die ausschließlich Edelstahl statt Kunststoff verwenden möchten"
-shortConclusion: "Mein 720°DGREE uberShaker ist nach mehr als fünf Wochen täglicher Nutzung dicht, praktisch und geruchsneutral geblieben. Das Pulverfach ist der größte Mehrwert, der Preis und die nötige zeitnahe Reinigung sind die wichtigsten Einschränkungen."
-valueAssessment: "Der Kaufpreis von 24,97 Euro liegt über einfachen Kunststoffshakern. Für mich rechtfertigen das abschraubbare Pulverfach, der kleine Einsatz, die Edelstahl-Mischkugel und die bisher zuverlässige Dichtigkeit einen großen Teil des Aufpreises."
-interimConclusion: "Die Haltbarkeitsbewertung ist nach rund fünf Wochen noch vorläufig. Ein späteres Update nach mehreren Monaten ist vorgesehen."
-longTermUpdate: ""
+      note: 24,97 Euro sind deutlich mehr als bei einfachen Kunststoffshakern. Für die Kombination aus dichtem Deckel und abnehmbarem Fach ist der Preis für mich dennoch vertretbar.
 ---
 
 Ein Shaker ist grundsätzlich kein kompliziertes Produkt. Trotzdem fallen Unterschiede im Alltag schnell auf: Hält der Deckel wirklich dicht? Lässt sich das Pulver unterwegs getrennt mitnehmen? Bleiben nach Milchshakes Gerüche zurück? Und ist ein Preis von fast 25 Euro für einen Kunststoffshaker gerechtfertigt?
@@ -132,9 +130,10 @@ Ich habe den **720°DGREE uberShaker mit 550 ml und Pulverfach** am **10. Juni 2
 | Kooperation | Nein |
 | Affiliate-Link | Nein |
 
-**Produktlink:** [720°DGREE uberShaker mit Pulverfach bei Amazon ansehen](https://www.amazon.de/720%C2%B0DGREE-Protein-Shaker-Pulverfach-uberShaker/dp/B0FWKFHF7Y)
+**Produktlink:** [720°DGREE uberShaker mit Pulverfach bei Amazon ansehen](https://amzn.to/4fALWsN)
 
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Produktlink und kein Affiliate-Link.*
+Werbung / Affiliate-Link 
+Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.
 
 ## Warum ich bewusst einen Shaker mit Pulverfach gesucht habe
 
@@ -144,15 +143,15 @@ Das Pulver bleibt unterwegs trocken und wird erst dann in den Shaker gegeben, we
 
 ![Geschlossenes Pulverfach des 720°DGREE uberShakers](/uploads/articles/720dgree-ubershaker-pulverfach-geschlossen.webp)
 
-*Das geschlossene, abschraubbare Pulverfach. Eigenes Foto.*
+_Das geschlossene, abschraubbare Pulverfach. Eigenes Foto._
 
 ![Geöffnetes Pulverfach mit eingesetztem kleinen Fach](/uploads/articles/720dgree-ubershaker-pulverfach-mit-einsatz.webp)
 
-*Das große Pulverfach mit dem zusätzlichen herausnehmbaren Einsatz. Eigenes Foto.*
+_Das große Pulverfach mit dem zusätzlichen herausnehmbaren Einsatz. Eigenes Foto._
 
 ![Pulverfach, Einsatz und Schraubdeckel einzeln nebeneinander](/uploads/articles/720dgree-ubershaker-pulverfach-einzelteile.webp)
 
-*Pulverfach, kleiner Einsatz und Schraubdeckel lassen sich für die Reinigung voneinander trennen. Eigenes Foto.*
+_Pulverfach, kleiner Einsatz und Schraubdeckel lassen sich für die Reinigung voneinander trennen. Eigenes Foto._
 
 Der Shaker wird mit angebautem Fach deutlich höher. Für mich ist das in Ordnung, weil genau diese Zusatzfunktion der Kaufgrund war. Wer nur zu Hause mischt und kein Pulver mitnehmen möchte, braucht das Fach wahrscheinlich nicht.
 
@@ -162,7 +161,7 @@ Mein eigenes Exemplar ist bei normaler Nutzung bisher dicht geblieben. Der Decke
 
 ![Geöffnete Trinköffnung mit Klappdeckel und Dichtung](/uploads/articles/720dgree-ubershaker-trinkdeckel.webp)
 
-*Trinköffnung, Klappdeckel und sichtbare Dichtung meines Shakers. Eigenes Foto.*
+_Trinköffnung, Klappdeckel und sichtbare Dichtung meines Shakers. Eigenes Foto._
 
 Bei einem zweiten Shaker desselben Modells, den meine Freundin verwendete, trat dagegen ein Problem auf: Der Trinkdeckel sprang wiederholt schnell auf. Dieses Exemplar wurde deshalb umgetauscht.
 
@@ -174,7 +173,7 @@ In meinem Shaker befindet sich eine **Edelstahl-Mischkugel**. Sie bewegt sich be
 
 ![Edelstahl-Mischkugel des 720°DGREE uberShakers](/uploads/articles/720dgree-ubershaker-edelstahl-mischkugel.webp)
 
-*Die mitgelieferte Edelstahl-Mischkugel. Eigenes Foto.*
+_Die mitgelieferte Edelstahl-Mischkugel. Eigenes Foto._
 
 Ich nutze sie auch bei meinem [HSN Evowhey Vanille](/supplements/hsn-evowhey-vanille-test/) und beim täglichen [HSN Creatin-Monohydrat](/supplements/hsn-creatin-monohydrat-200-mesh-test/). In diesem Setup entstehen beim Whey keine störenden größeren Klumpen.
 
@@ -226,7 +225,7 @@ Für das Preis-Leistungs-Verhältnis vergebe ich **7,5 von 10 Punkten**.
 Die Bewertung verwendet die veröffentlichte Gewichtung für Gym-Zubehör. Da der Testzeitraum erst etwas mehr als fünf Wochen umfasst, bleibt die Haltbarkeitsnote ausdrücklich vorläufig.
 
 | Kriterium | Punkte | Gewichtung | Gewichteter Anteil |
-| --- | ---: | ---: | ---: |
+| --- | --- | --- | --- |
 | Verarbeitung | 8,0 | 25 % | 2,000 |
 | Komfort und Handhabung | 9,0 | 20 % | 1,800 |
 | Vorläufige Haltbarkeit | 8,0 | 20 % | 1,600 |
