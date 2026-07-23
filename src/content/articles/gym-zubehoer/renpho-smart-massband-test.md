@@ -1,119 +1,117 @@
 ---
-title: "RENPHO Smart Maßband im Test: Körpermaße einfacher dokumentieren"
+title: 'RENPHO Smart Maßband im Test: Körpermaße einfacher dokumentieren'
 slug: renpho-smart-massband-test
-category: gym-zubehoer
-categoryLabel: "Gym-Zubehör"
 articleType: product-test
 status: draft
-description: "Ich nutze das RENPHO Smart Maßband RF-BMF01 einmal pro Woche zur Dokumentation meiner Körpermaße. Mein laufender Test zu Bedienung, App, Bluetooth und Messpraxis."
-excerpt: "Laufender Praxistest des RENPHO Smart Maßbands: alleine gut bedienbar, automatische App-Übertragung und hilfreiche Trends – mit einer empfindlichen Bestätigungstaste."
+description: Ich nutze das RENPHO Smart Maßband RF-BMF01 einmal pro Woche zur Dokumentation meiner Körpermaße. Mein laufender Test zu Bedienung, App, Bluetooth und Messpraxis.
+excerpt: 'Laufender Praxistest des RENPHO Smart Maßbands: alleine gut bedienbar, automatische App-Übertragung und hilfreiche Trends – mit einer empfindlichen Bestätigungstaste.'
 author: basti
 featured: false
 noindex: true
 toc: true
 heroImage:
   src: /uploads/articles/renpho-smart-massband-test-titelbild.webp
-  alt: "Weißes RENPHO Smart Maßband RF-BMF01 mit ausgezogenem Band vor der Produktverpackung"
-  caption: "Das RENPHO Smart Maßband RF-BMF01 mit Verpackung und ausgezogenem Maßband."
-  credit: "Eigenes Foto"
-  creditUrl: ""
-seo:
-  title: "RENPHO Smart Maßband im Test: App und Bedienung"
-  description: "Laufender Test des RENPHO Smart Maßbands RF-BMF01: Bedienung alleine, Bluetooth, RENPHO-Health-App, Trenddiagramme und erste Alltagserfahrungen."
-  canonical: ""
-  ogImage: /uploads/articles/renpho-smart-massband-test-titelbild.webp
+  alt: Weißes RENPHO Smart Maßband RF-BMF01 mit ausgezogenem Band vor der Produktverpackung
+  caption: Das RENPHO Smart Maßband RF-BMF01 mit Verpackung und ausgezogenem Maßband.
+  credit: Eigenes Foto
+affiliate:
+  partner: amazon
+  url: https://amzn.to/4pxnUmN
+  linkText: RENPHO Smart Maßband
+sources:
+  - title: Smart Body Tape Measure – Bedienungsanleitung RF-BMF01
+    url: https://renpho.com/pages/005
+    publisher: RENPHO
+    accessedAt: 2026-07-18
+  - title: Smart Tape Measure Base – Produktinformationen
+    url: https://renpho.com/products/smart-tape-measure-bmf01
+    publisher: RENPHO
+    accessedAt: 2026-07-18
+  - title: RENPHO Smart Maßband RF-BMF01
+    url: https://www.amazon.de/dp/B082W886W9
+    publisher: Amazon
+    accessedAt: 2026-07-18
 relatedArticles:
   - fortschritt-dokumentieren
   - acht-wochen-egym-koerpermasse-gewicht-und-kraftwerte
-sources:
-  - title: "Smart Body Tape Measure – Bedienungsanleitung RF-BMF01"
-    url: "https://renpho.com/pages/005"
-    publisher: "RENPHO"
-    accessedAt: "2026-07-18"
-  - title: "Smart Tape Measure Base – Produktinformationen"
-    url: "https://renpho.com/products/smart-tape-measure-bmf01"
-    publisher: "RENPHO"
-    accessedAt: "2026-07-18"
-  - title: "RENPHO Smart Maßband RF-BMF01"
-    url: "https://www.amazon.de/dp/B082W886W9"
-    publisher: "Amazon"
-    accessedAt: "2026-07-18"
+seo:
+  title: 'RENPHO Smart Maßband im Test: App und Bedienung'
+  description: 'Laufender Test des RENPHO Smart Maßbands RF-BMF01: Bedienung alleine, Bluetooth, RENPHO-Health-App, Trenddiagramme und erste Alltagserfahrungen.'
+  ogImage: /uploads/articles/renpho-smart-massband-test-titelbild.webp
 transparency:
   personalExperience: true
   selfPurchased: true
   sponsored: false
   affiliateLinks: false
-  note: "Das Maßband wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch RENPHO oder Amazon. Der Test läuft noch; deshalb werden noch keine endgültige Gesamtnote und keine abschließende Empfehlung vergeben."
+  note: Das Maßband wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch RENPHO oder Amazon. Der Test läuft noch; deshalb werden noch keine endgültige Gesamtnote und keine abschließende Empfehlung vergeben.
 product:
-  name: "Smart Tape Measure"
-  brand: "RENPHO"
-  model: "RF-BMF01"
-  variant: "Weiß, 150 cm, Bluetooth"
-  manufacturerUrl: "https://www.amazon.de/dp/B082W886W9"
-  purchaseDate: "2026-07-02"
-  purchasePrice: 29.99
-  currentReferencePrice: null
-  priceCheckedAt: ""
-  currency: EUR
-  selfPurchased: true
-  providedFree: false
-  sponsored: false
+  name: Smart Tape Measure
+  brand: RENPHO
+  model: RF-BMF01
+  variant: Weiß, 150 cm, Bluetooth
+  manufacturerUrl: https://www.amazon.de/dp/B082W886W9
   affiliateLinks: false
-  testStartedAt: "2026-07-02"
-  testEndedAt: ""
-  usageCount: null
+  purchaseDate: 2026-07-02
+  purchasePrice: 29.99
+  testStartedAt: 2026-07-02
   testStatus: ongoing
+  sponsored: false
+  selfPurchased: true
+  currency: EUR
+  providedFree: false
+pros:
+  - Körperumfänge lassen sich ohne zweite Person messen
+  - Bluetooth-Verbindung funktionierte bislang zuverlässig
+  - Messwerte werden nach Bestätigung direkt an die App übertragen
+  - Übersichtliche Darstellung der gespeicherten Körperstellen
+  - Trenddiagramme machen Veränderungen über längere Zeit sichtbar
+  - Bis zu sechs eigene Messpunkte können ergänzt werden
+  - Easy-Lock-Haken erleichtert Umfangsmessungen
+cons:
+  - Bestätigungstaste reagiert teilweise so empfindlich, dass zwei Eingaben ausgelöst werden
+  - Eine Körperstelle kann dadurch versehentlich übersprungen werden
+  - Das Band muss besonders am Rücken gerade anliegen, sonst entstehen abweichende Werte
+  - Noch keine belastbare Langzeitbewertung zu Batterie und Einzugsmechanismus
+  - Messkonstanz wurde noch nicht mit einem dokumentierten Wiederholungstest geprüft
+bestFor:
+  - Sportler, die Körperumfänge regelmäßig dokumentieren möchten
+  - Menschen, die sich ohne Hilfe einer zweiten Person messen wollen
+  - Nutzer, die Messwerte und Veränderungen in einer App sammeln möchten
+lessSuitableFor:
+  - Menschen, die nur gelegentlich einen einzelnen Umfang messen
+  - Nutzer, die bewusst auf Bluetooth und eine begleitende App verzichten möchten
+  - Personen, die eine unabhängig geprüfte medizinische Messgenauigkeit erwarten
+shortConclusion: Das RENPHO Smart Maßband erleichtert mir die wöchentliche Messung und automatische Dokumentation deutlich. Besonders gut gefallen mir die alleinige Bedienung, die App-Übersicht und die Trends. Die empfindliche Bestätigungstaste ist bisher der größte Kritikpunkt.
+valueAssessment: Der Kaufpreis von 29,99 Euro liegt deutlich über einem einfachen Maßband. Der Mehrwert entsteht durch Display, Easy-Lock-Haken, Bluetooth-Übertragung, gespeicherte Körperstellen und Trenddiagramme.
+category: gym-zubehoer
+categoryLabel: Gym-Zubehör
+interimConclusion: Der erste Eindruck ist positiv, aber noch nicht abschließend. Der Artikel bleibt bis zum Erreichen der KraftRadar-Mindesttestdauer oder zwölf dokumentierten Einsätzen ein Entwurf ohne Gesamtnote.
+longTermUpdate: ''
 rating:
   enabled: false
   total: null
   maximum: 10
   criteria:
-    - name: "Verarbeitung"
+    - name: Verarbeitung
       score: null
       weight: 25
-      note: "Das Gehäuse und der Einzugsmechanismus wirken bislang solide. Eine längerfristige Haltbarkeitsbewertung steht noch aus."
-    - name: "Komfort und Handhabung"
+      note: Das Gehäuse und der Einzugsmechanismus wirken bislang solide. Eine längerfristige Haltbarkeitsbewertung steht noch aus.
+    - name: Komfort und Handhabung
       score: null
       weight: 20
-      note: "Alleinige Messungen und der Easy-Lock-Haken funktionieren gut. Die Bestätigungstaste reagiert teilweise zu empfindlich."
-    - name: "Vorläufige Haltbarkeit"
+      note: Alleinige Messungen und der Easy-Lock-Haken funktionieren gut. Die Bestätigungstaste reagiert teilweise zu empfindlich.
+    - name: Vorläufige Haltbarkeit
       score: null
       weight: 20
-      note: "Die erste CR2032-Batterie läuft noch. Für eine belastbare Haltbarkeitsnote ist der Testzeitraum zu kurz."
-    - name: "Nutzen im Alltag"
+      note: Die erste CR2032-Batterie läuft noch. Für eine belastbare Haltbarkeitsnote ist der Testzeitraum zu kurz.
+    - name: Nutzen im Alltag
       score: null
       weight: 20
-      note: "Die wöchentliche Messroutine, automatische Übertragung und Trendansicht sind praktisch für die Fortschrittsdokumentation."
-    - name: "Preis-Leistung"
+      note: Die wöchentliche Messroutine, automatische Übertragung und Trendansicht sind praktisch für die Fortschrittsdokumentation.
+    - name: Preis-Leistung
       score: null
       weight: 15
-      note: "Der Kaufpreis betrug 29,99 Euro. Eine endgültige Einordnung erfolgt nach Abschluss des Mindesttestzeitraums."
-pros:
-  - "Körperumfänge lassen sich ohne zweite Person messen"
-  - "Bluetooth-Verbindung funktionierte bislang zuverlässig"
-  - "Messwerte werden nach Bestätigung direkt an die App übertragen"
-  - "Übersichtliche Darstellung der gespeicherten Körperstellen"
-  - "Trenddiagramme machen Veränderungen über längere Zeit sichtbar"
-  - "Bis zu sechs eigene Messpunkte können ergänzt werden"
-  - "Easy-Lock-Haken erleichtert Umfangsmessungen"
-cons:
-  - "Bestätigungstaste reagiert teilweise so empfindlich, dass zwei Eingaben ausgelöst werden"
-  - "Eine Körperstelle kann dadurch versehentlich übersprungen werden"
-  - "Das Band muss besonders am Rücken gerade anliegen, sonst entstehen abweichende Werte"
-  - "Noch keine belastbare Langzeitbewertung zu Batterie und Einzugsmechanismus"
-  - "Messkonstanz wurde noch nicht mit einem dokumentierten Wiederholungstest geprüft"
-bestFor:
-  - "Sportler, die Körperumfänge regelmäßig dokumentieren möchten"
-  - "Menschen, die sich ohne Hilfe einer zweiten Person messen wollen"
-  - "Nutzer, die Messwerte und Veränderungen in einer App sammeln möchten"
-lessSuitableFor:
-  - "Menschen, die nur gelegentlich einen einzelnen Umfang messen"
-  - "Nutzer, die bewusst auf Bluetooth und eine begleitende App verzichten möchten"
-  - "Personen, die eine unabhängig geprüfte medizinische Messgenauigkeit erwarten"
-shortConclusion: "Das RENPHO Smart Maßband erleichtert mir die wöchentliche Messung und automatische Dokumentation deutlich. Besonders gut gefallen mir die alleinige Bedienung, die App-Übersicht und die Trends. Die empfindliche Bestätigungstaste ist bisher der größte Kritikpunkt."
-valueAssessment: "Der Kaufpreis von 29,99 Euro liegt deutlich über einem einfachen Maßband. Der Mehrwert entsteht durch Display, Easy-Lock-Haken, Bluetooth-Übertragung, gespeicherte Körperstellen und Trenddiagramme."
-interimConclusion: "Der erste Eindruck ist positiv, aber noch nicht abschließend. Der Artikel bleibt bis zum Erreichen der KraftRadar-Mindesttestdauer oder zwölf dokumentierten Einsätzen ein Entwurf ohne Gesamtnote."
-longTermUpdate: ""
+      note: Der Kaufpreis betrug 29,99 Euro. Eine endgültige Einordnung erfolgt nach Abschluss des Mindesttestzeitraums.
 ---
 
 Körpergewicht allein zeigt beim Krafttraining nur einen Teil der Entwicklung. Veränderungen an Bauch, Brust, Armen oder Beinen können sichtbar werden, obwohl die Zahl auf der Waage kaum sinkt oder sogar steigt. Deshalb dokumentiere ich meine Körperumfänge zusätzlich zu Gewicht, Trainingswerten und Fotos.
@@ -143,7 +141,7 @@ Seit dem **2. Juli 2026** nutze ich dafür das **RENPHO Smart Tape Measure RF-BM
 
 **Produktlink:** [RENPHO Smart Maßband bei Amazon ansehen](https://www.amazon.de/dp/B082W886W9)
 
-*Das ist zum Veröffentlichungszeitpunkt ein normaler Produktlink und kein Affiliate-Link.*
+_Das ist zum Veröffentlichungszeitpunkt ein normaler Produktlink und kein Affiliate-Link._
 
 ## Verpackung und Lieferumfang
 
@@ -151,11 +149,11 @@ Mein Exemplar wurde mit eingelegter beziehungsweise beiliegender CR2032-Knopfzel
 
 ![Vorderseite der Verpackung des RENPHO Smart Tape Measure](/uploads/articles/renpho-smart-massband-verpackung-vorne.webp)
 
-*Vorderseite der Verpackung. Eigenes Foto.*
+_Vorderseite der Verpackung. Eigenes Foto._
 
 ![Rückseite der Verpackung mit Körperstellen, Bluetooth und App-Hinweisen](/uploads/articles/renpho-smart-massband-verpackung-hinten.webp)
 
-*Die Rückseite nennt zwölf Körperstellen, benutzerdefinierte Messungen und die RENPHO-Health-App. Eigenes Foto.*
+_Die Rückseite nennt zwölf Körperstellen, benutzerdefinierte Messungen und die RENPHO-Health-App. Eigenes Foto._
 
 RENPHO nennt für das Modell RF-BMF01 einen Messbereich bis 150 cm, eine Anzeige in Zentimetern oder Zoll und eine CR2032-Batterie. Die Bedienungsanleitung beschreibt außerdem einen Längen- und einen Umfangsmodus.
 
@@ -167,7 +165,7 @@ Der **Easy-Lock-Haken** funktioniert in meinem Alltag gut. Das Aus- und erneute 
 
 ![RENPHO Smart Maßband von vorne mit Display und drei Tasten](/uploads/articles/renpho-smart-massband-vorderseite.webp)
 
-*Display, Ein-/Ausschalter, Bestätigungstaste und Modustaste. Eigenes Foto.*
+_Display, Ein-/Ausschalter, Bestätigungstaste und Modustaste. Eigenes Foto._
 
 Trotzdem misst sich das Gerät nicht von allein korrekt. Das Band muss an der gewünschten Körperstelle gerade und mit vergleichbarer Spannung anliegen. Besonders am Rücken sollte ich kontrollieren, dass das Band nicht schräg nach oben oder unten verläuft. Sonst kann sich der Messwert verändern, obwohl der Körperumfang gleich geblieben ist.
 
@@ -191,7 +189,7 @@ Damit kann ich lockere Oberarmmessungen und den angespannten Bizeps getrennt spe
 
 ![RENPHO Smart Maßband vor der Verpackung mit ausgezogenem Band](/uploads/articles/renpho-smart-massband-mit-verpackung-und-ausgezogenem-band.webp)
 
-*Maßband, Display und ausgezogenes Messband im Überblick. Eigenes Foto.*
+_Maßband, Display und ausgezogenes Messband im Überblick. Eigenes Foto._
 
 ## Bluetooth und automatische Übertragung
 
@@ -215,7 +213,7 @@ Die App stellt alle gespeicherten Körperstellen auf einer gemeinsamen Übersich
 
 ![Übersicht der Körpermaße in der RENPHO-Health-App](/uploads/articles/renpho-health-app-koerpermasse-uebersicht.webp)
 
-*Meine Messübersicht in der RENPHO-Health-App. Neben den vorgegebenen Stellen sind auch eigene Kategorien für den angespannten Bizeps angelegt.*
+_Meine Messübersicht in der RENPHO-Health-App. Neben den vorgegebenen Stellen sind auch eigene Kategorien für den angespannten Bizeps angelegt._
 
 Die Übersicht empfinde ich grundsätzlich als klar. Die Körperstellen sind einzeln benannt und die Werte werden gut lesbar in Zentimetern angezeigt.
 
@@ -227,7 +225,7 @@ Für jede Körperstelle lässt sich eine Trendansicht öffnen. Dort zeigt die Ap
 
 ![Trenddiagramm für den Halsumfang in der RENPHO-Health-App](/uploads/articles/renpho-health-app-trenddiagramm.webp)
 
-*Die Trendansicht stellt die Entwicklung einer ausgewählten Körperstelle als Diagramm dar.*
+_Die Trendansicht stellt die Entwicklung einer ausgewählten Körperstelle als Diagramm dar._
 
 Diese Darstellung ist für mich einer der wichtigsten Vorteile gegenüber einem normalen Maßband. Ein einzelner Messwert sagt wenig aus. Erst mehrere Messungen unter möglichst ähnlichen Bedingungen zeigen, ob sich ein Umfang dauerhaft verändert oder ob nur eine einzelne Messung abweicht.
 
