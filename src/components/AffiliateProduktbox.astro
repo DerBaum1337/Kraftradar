@@ -9,8 +9,8 @@ const { partner, url, linkText } = Astro.props;
 const partnerName = partner === 'amazon' ? 'Amazon' : 'HSN';
 const disclosure =
 	partner === 'amazon'
-		? 'Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Für dich ändert sich der Preis nicht.'
-		: 'Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.';
+		? 'Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Die mögliche Provision wird von Amazon gezahlt; durch die Nutzung des Links entstehen dir keine zusätzlichen Kosten.'
+		: 'Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Die mögliche Provision wird von HSN gezahlt; durch die Nutzung des Links entstehen dir keine zusätzlichen Kosten.';
 ---
 
 <aside class="affiliate-product-box" aria-label={`Werbung: ${linkText} bei ${partnerName}`}>

@@ -313,7 +313,7 @@ Weniger passend ist es für Menschen, die:
 
 ## Transparenz
 
-Ich habe die 500-g-Packung am 19. Mai 2026 selbst für 11,13 Euro gekauft. Der Preis enthält meinen damaligen Sparplanrabatt von 2 Prozent. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Ich habe die 500-g-Packung am 19. Mai 2026 selbst für 11,13 Euro gekauft. Der Preis enthält meinen damaligen Sparplanrabatt von 2 Prozent. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Die Bilder sind eigene Fotos. Zutaten, Dosierung und Anwendung stammen von der Produktverpackung und der offiziellen HSN-Seite. KraftRadar hat weder die Zusammensetzung noch eine Wirkung auf Gelenke, Sehnen oder Regeneration im Labor beziehungsweise medizinisch geprüft.
 

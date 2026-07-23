@@ -307,7 +307,7 @@ Bei Nierenerkrankungen, regelmäßiger Medikamenteneinnahme oder Unsicherheit ü
 
 ## Transparenz
 
-Ich habe die getestete Dose am 19. Mai 2026 selbst für 9,89 Euro gekauft. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Ich habe die getestete Dose am 19. Mai 2026 selbst für 9,89 Euro gekauft. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Die Bilder sind eigene Fotos. Die Deklaration meiner Dose wurde direkt fotografiert. Aktuelle Angaben zur gepufferten Rezeptur stammen von der verlinkten HSN-Seite. KraftRadar hat die Zusammensetzung und Aufnahme nicht im Labor überprüft.
 

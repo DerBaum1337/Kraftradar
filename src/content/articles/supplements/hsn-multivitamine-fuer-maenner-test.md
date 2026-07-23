@@ -364,7 +364,7 @@ Weniger passend ist es für Menschen, die:
 
 ## Transparenz
 
-Ich habe die 120 Tabletten am 19. Mai 2026 selbst für 17,48 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Ich habe die 120 Tabletten am 19. Mai 2026 selbst für 17,48 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Die Fotos zeigen meine eigenen ganzen und geteilten Tabletten. Die Originalverpackung ist nicht mehr vorhanden. Nährstoffmengen, Zutaten und Herstellerportion stammen deshalb aus der offiziellen HSN-Produktseite und den von mir beim Kauf dokumentierten Angaben.
 

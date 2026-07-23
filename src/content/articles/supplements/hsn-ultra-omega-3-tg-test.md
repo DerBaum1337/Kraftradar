@@ -356,7 +356,7 @@ Bei Fischallergie, gerinnungshemmenden Medikamenten, Blutungsstörungen, Schwang
 
 ## Transparenz
 
-Ich habe die 120er-Dose am 19. Mai 2026 selbst für 14,77 Euro bei HSN gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Ich habe die 120er-Dose am 19. Mai 2026 selbst für 14,77 Euro bei HSN gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Die Bilder sind eigene Fotos. Produktdaten zu EPA, DHA, Fischöl, Vitamin E, TG-Form und Lagerung stammen vom Etikett und von HSN. Die IFOS-Angabe wurde als externe Zertifizierungsinformation behandelt. KraftRadar hat weder Reinheit noch Oxidation oder tatsächliche Aufnahme im Labor geprüft.
 

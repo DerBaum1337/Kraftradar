@@ -200,7 +200,7 @@ HSN bietet außerdem ein ultrafeines Creatin-Monohydrat-Pulver mit 500 Mesh an. 
 <aside class="affiliate-product-box" aria-label="Werbung: HSN Creatin-Monohydrat 500 Mesh">
   <p class="affiliate-product-box__label">Werbung / Affiliate-Link</p>
   <h3>HSN Creatin-Monohydrat 500 Mesh bei HSN</h3>
-  <p>Ich habe diese Variante nicht selbst getestet. Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.</p>
+  <p>Ich habe diese Variante nicht selbst getestet. Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.</p>
   <a class="button affiliate-product-box__button" href="https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLUNSTXx8U1RST1NUfHxodHRwczovL3d3dy5oc25zdG9yZS5kZS9tYXJrZW4vcmF3LXNlcmllcy91bHRyYWZlaW5lcy1jcmVhdGluLW1vbm9oeWRyYXQtcHVsdmVyLTUwMC1tZXNo" target="_blank" rel="sponsored noopener noreferrer" aria-label="HSN Creatin-Monohydrat 500 Mesh bei HSN ansehen (öffnet in einem neuen Tab)">Bei HSN ansehen <span aria-hidden="true">↗</span></a>
 </aside>
 
@@ -287,7 +287,7 @@ Bei bekannten Erkrankungen, Unsicherheit zur Einnahme oder einer ärztlich gepla
 
 ## Transparenz
 
-Der getestete 1-kg-Beutel wurde von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. Die Affiliate-Links in diesem Artikel sind sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Der getestete 1-kg-Beutel wurde von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. Die Affiliate-Links in diesem Artikel sind sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Der Preis von 13,62 Euro stammt aus meiner Bestellung vom 13. April 2026. Herstellerangaben zu Reinheit, Körnung und Zusammensetzung sind als solche gekennzeichnet. KraftRadar hat keine eigene Laboranalyse durchgeführt.
 

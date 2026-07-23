@@ -291,7 +291,7 @@ Weniger passend ist es für Menschen mit einer Milchallergie, für Nutzer, die S
 
 ## Transparenz
 
-Alle für diesen Test verwendeten Beutel wurden von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Alle für diesen Test verwendeten Beutel wurden von mir selbst gekauft. Es gab keine kostenlose Bereitstellung, keine Kooperation und keine Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Der Sparplanrabatt von 3 Prozent war ein regulärer Rabatt meiner Bestellung und keine Vergütung. Herstellerangaben zu Zusammensetzung, Aminogramm und Laboranalysen sind als solche gekennzeichnet. KraftRadar hat keine eigene Laboranalyse durchgeführt.
 

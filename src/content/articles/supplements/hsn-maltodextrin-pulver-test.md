@@ -309,7 +309,7 @@ Weniger passend ist es für Menschen, die:
 
 ## Transparenz
 
-Ich habe den 3-kg-Beutel am 19. Mai 2026 selbst für 10,37 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+Ich habe den 3-kg-Beutel am 19. Mai 2026 selbst für 10,37 Euro gekauft. Der Preis enthält meinen 3-%-Sparplanrabatt. Es gab keine kostenlose Bereitstellung, Kooperation oder Einflussnahme durch HSN. Der Affiliate-Link in diesem Artikel ist sichtbar als Werbung gekennzeichnet; bei einem Kauf erhalte ich möglicherweise eine Provision. Durch die Nutzung des Affiliate-Links entstehen dir keine zusätzlichen Kosten.
 
 Die Bilder sind eigene Fotos. Zutaten, Nährwerte und Herstellerportion stammen von der offiziellen HSN-Produktseite. KraftRadar hat weder die tatsächliche Zusammensetzung noch Blutzucker, Glykogenspeicher oder sportliche Wirkung im Labor gemessen.
 
