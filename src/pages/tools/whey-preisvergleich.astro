@@ -7,6 +7,7 @@ import ToolNoScript from '../../components/tools/ToolNoScript.astro';
 import ToolSources from '../../components/tools/ToolSources.astro';
 import RelatedTools from '../../components/tools/RelatedTools.astro';
 import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import ToolFormHeader from '../../components/tools/ToolFormHeader.astro';
 import { getTool } from '../../data/tools.mjs';
 import { getToolSources } from '../../data/tool-sources.mjs';
 
@@ -34,13 +35,13 @@ const sources = getToolSources(['euNutrition', 'waiForms']);
 				<h2 id="whey-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
 				<ul data-error-list></ul>
 			</div>
-			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+			<ToolFormHeader title="Dein Vergleich" description="Trage die Daten des ersten Wheys ein und ergänze bei Bedarf bis zu drei weitere Produkte." />
 
 			<div class="tool-dynamic-list" data-product-list aria-live="polite">
 				<fieldset class="tool-dynamic-card" data-product-card data-card-id="1">
 					<legend><span data-product-number>Produkt 1</span></legend>
-					<div class="tool-form-grid">
-						<div class="tool-field">
+					<div class="tool-grid tool-product-grid">
+						<div class="tool-field tool-field--wide">
 							<label for="whey-product-1-name">Produktname <span class="tool-optional">(optional)</span></label>
 							<input id="whey-product-1-name" data-field="name" type="text" maxlength="60" autocomplete="off" />
 						</div>
@@ -54,13 +55,14 @@ const sources = getToolSources(['euNutrition', 'waiForms']);
 						</div>
 						<div class="tool-field">
 							<label for="whey-product-1-serving">Portionsgröße <span aria-hidden="true">*</span></label>
-							<div class="tool-input-with-unit"><input id="whey-product-1-serving" data-field="servingGrams" type="text" inputmode="decimal" value="30" autocomplete="off" required /><span>g Pulver</span></div>
+							<div class="tool-input-with-unit"><input id="whey-product-1-serving" data-field="servingGrams" type="text" inputmode="decimal" value="30" autocomplete="off" required /><span>g</span></div>
 						</div>
 						<div class="tool-field">
 							<label for="whey-product-1-price">Produktpreis <span aria-hidden="true">*</span></label>
 							<div class="tool-input-with-unit"><input id="whey-product-1-price" data-field="price" type="text" inputmode="decimal" autocomplete="off" required /><span>€</span></div>
 							<p class="tool-help">Gesamter Preis des Angebots. 0 € ist zulässig.</p>
 						</div>
+						<p class="tool-subsection-title tool-field--wide">Preisdetails</p>
 						<div class="tool-field">
 							<label for="whey-product-1-discount-type">Zusätzlicher Rabatt</label>
 							<select id="whey-product-1-discount-type" data-field="discountType">
@@ -84,9 +86,9 @@ const sources = getToolSources(['euNutrition', 'waiForms']);
 			</div>
 
 			<div class="tool-form-actions">
-				<button type="button" class="button button--secondary" data-add-product>Weiteres Produkt hinzufügen</button>
-				<button type="submit" data-calculate disabled>Whey vergleichen</button>
-				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+				<button type="button" class="tool-action-add" data-add-product>＋ Weiteres Whey vergleichen</button>
+				<button type="submit" class="tool-action-primary" data-calculate disabled>Whey vergleichen</button>
+				<button type="button" class="tool-action-reset" data-reset>Eingaben zurücksetzen</button>
 			</div>
 			<p class="tool-help">Bis zu vier Produkte. Vollständig leere Zusatzkarten werden ignoriert; teilweise ausgefüllte Karten werden als Fehler angezeigt.</p>
 			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>

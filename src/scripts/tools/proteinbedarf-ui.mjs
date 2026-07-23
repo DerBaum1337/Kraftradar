@@ -4,6 +4,7 @@ import {
 	appendHeading,
 	appendParagraph,
 	appendResultCards,
+	appendResultHero,
 	clearFormErrors,
 	clearChildren,
 	enableCalculator,
@@ -39,6 +40,7 @@ function renderResult(container, result, goal) {
 	const target = isRange
 		? whole(result.minimum) + '–' + whole(result.maximum) + ' g Protein pro Tag'
 		: whole(result.minimum) + ' g Protein pro Tag';
+	appendResultHero(container, isRange ? whole(result.minimum) + '–' + whole(result.maximum) + ' g' : whole(result.minimum) + ' g', 'Protein pro Tag');
 	appendResultCards(container, [{
 		title: 'Deine Orientierung',
 		items: [

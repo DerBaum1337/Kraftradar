@@ -6,6 +6,7 @@ import {
 	appendHeading,
 	appendParagraph,
 	appendResultCards,
+	appendResultHero,
 	clearFormErrors,
 	clearChildren,
 	enableCalculator,
@@ -59,7 +60,7 @@ function parseMeasurement(card, errors) {
 
 function createCustomMeasurement(serial) {
 	const card = makeElement('fieldset', {
-		className: 'tool-measurement-card',
+		className: 'tool-dynamic-card tool-custom-measurement-card',
 		attributes: {
 			'data-custom-card': '',
 			'data-measurement-card': '',
@@ -80,14 +81,14 @@ function createCustomMeasurement(serial) {
 	});
 	legend.append(number, document.createTextNode(' '), remove);
 	card.append(legend);
-	const grid = makeElement('div', { className: 'tool-form-grid' });
+	const grid = makeElement('div', { className: 'tool-grid' });
 	const fields = [
 		['name', 'Bezeichnung', 'text', ''],
 		['first', 'Erste Messung', 'text', 'cm'],
 		['second', 'Spätere Messung', 'text', 'cm'],
 	];
 	fields.forEach(([field, label, type, unit]) => {
-		const wrapper = makeElement('div', { className: 'tool-field' });
+		const wrapper = makeElement('div', { className: field === 'name' ? 'tool-field tool-field--wide' : 'tool-field' });
 		const id = 'body-custom-' + serial + '-' + field;
 		wrapper.append(makeElement('label', { text: label, attributes: { for: id } }));
 		const attributes = {
@@ -160,6 +161,14 @@ function statusText(status) {
 	return status === 'larger' ? 'größer' : status === 'smaller' ? 'kleiner' : 'gerundet unverändert';
 }
 
+export function getKoerperfortschrittHeroText(counts) {
+	return [
+		counts.larger > 0 ? counts.larger + ' größer' : '',
+		counts.smaller > 0 ? counts.smaller + ' kleiner' : '',
+		counts.same > 0 ? counts.same + ' unverändert' : '',
+	].filter(Boolean).join(' · ');
+}
+
 export function getKoerperfortschrittCombinationText(result) {
 	if (!result.weight || !result.waist) return null;
 	const weightText = result.weight.status === 'same'
@@ -174,19 +183,18 @@ export function getKoerperfortschrittCombinationText(result) {
 
 function renderResult(container, result) {
 	clearChildren(container);
+	appendResultHero(container, getKoerperfortschrittHeroText(result.counts), 'Verglichene Messwerte', result.days + ' Tage · ' + formatNumber(roundForDisplay(result.weeks, 1), { maximumFractionDigits: 1 }) + ' Wochen');
 	appendParagraph(container, 'Dein Vergleich über ' + result.days + ' Tage · ' + formatNumber(roundForDisplay(result.weeks, 1), { maximumFractionDigits: 1 }) + ' Wochen', 'tool-result-summary');
 	appendParagraph(container, result.counts.larger + ' Werte größer, ' + result.counts.smaller + ' kleiner und ' + result.counts.same + ' gerundet unverändert.', 'tool-result-note');
-	result.measurements.forEach((measurement) => {
-		appendResultCards(container, [{
-			title: measurement.label,
-			items: [
-				{ label: 'Erste Messung', value: formatNumber(measurement.first, { maximumFractionDigits: 2 }) + ' ' + measurement.unit },
-				{ label: 'Spätere Messung', value: formatNumber(measurement.second, { maximumFractionDigits: 2 }) + ' ' + measurement.unit },
-				{ label: 'Veränderung', value: signed(measurement.difference) + ' ' + measurement.unit + ' · ' + signed(measurement.differencePercent) + ' %', emphasis: true },
-				{ label: 'Einordnung', value: statusText(measurement.status) },
-			],
-		}]);
-	});
+	appendResultCards(container, result.measurements.map((measurement) => ({
+		title: measurement.label,
+		items: [
+			{ label: 'Erste Messung', value: formatNumber(measurement.first, { maximumFractionDigits: 2 }) + ' ' + measurement.unit },
+			{ label: 'Spätere Messung', value: formatNumber(measurement.second, { maximumFractionDigits: 2 }) + ' ' + measurement.unit },
+			{ label: 'Veränderung', value: signed(measurement.difference) + ' ' + measurement.unit + ' · ' + signed(measurement.differencePercent) + ' %', emphasis: true },
+			{ label: 'Einordnung', value: statusText(measurement.status) },
+		],
+	})));
 	const combination = getKoerperfortschrittCombinationText(result);
 	if (combination) {
 		appendHeading(container, 'Gewicht und Umfang');

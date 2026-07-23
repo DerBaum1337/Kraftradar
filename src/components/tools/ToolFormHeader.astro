@@ -1,0 +1,14 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<header class="tool-form-header">
+	<h2 class="tool-form-title">{title}</h2>
+	<p class="tool-form-description">{description}</p>
+	<p class="tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+</header>

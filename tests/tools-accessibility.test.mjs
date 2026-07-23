@@ -18,9 +18,11 @@ function pageSource(file) {
 }
 
 test('jede Toolseite erklärt sichtbare Pflichtfelder und markiert statische Pflichtfelder programmatisch', () => {
+	const formHeader = readFileSync(path.join(root, 'src', 'components', 'tools', 'ToolFormHeader.astro'), 'utf8');
+	assert.match(formHeader, /Mit <span aria-hidden="true">\*<\/span> gekennzeichnete Felder sind Pflichtfelder\./);
 	for (const file of toolPages) {
 		const source = pageSource(file);
-		assert.match(source, /Mit <span aria-hidden="true">\*<\/span> gekennzeichnete Felder sind Pflichtfelder\./, file);
+		assert.match(source, /<ToolFormHeader/, file);
 	}
 	for (const [file, ids] of Object.entries({
 		'proteinbedarf-rechner.astro': ['protein-weight'],
@@ -81,6 +83,33 @@ test('alle Erfolgswege bereinigen alte Fehler vor der Ergebnisausgabe', () => {
 		const source = readFileSync(path.join(root, 'src', 'scripts', 'tools', file), 'utf8');
 		assert.match(source, /clearFormErrors\(form\);\s*const container = showResult\(form\);/, file);
 	}
+});
+
+test('optionale Bereiche bleiben auffindbar, öffnen bei Fehlern und schließen beim Reset', () => {
+	const commonForm = readFileSync(path.join(root, 'src', 'scripts', 'tools', 'common-form.mjs'), 'utf8');
+	assert.match(commonForm, /current\.closest\('details'\)/);
+	assert.match(commonForm, /revealErrorTarget\(target\)/);
+	assert.match(commonForm, /details\[data-reset-closed\]/);
+	assert.match(commonForm, /details\.open = false/);
+
+	for (const file of ['proteinbedarf-rechner.astro', 'egym-fortschrittsrechner.astro', 'aufbau-shake-rechner.astro', 'koerperfortschritt-auswerten.astro']) {
+		const source = pageSource(file);
+		assert.match(source, /<details class="tool-disclosure/,
+			file + ': optionale Angaben verwenden ein sichtbares Details-Element');
+		assert.match(source, /<summary>/, file + ': Details besitzt eine sichtbare Zusammenfassung');
+	}
+});
+
+test('dynamische Preisbereiche und Messkarten behalten ihre zugänglichen Datenziele', () => {
+	const shakePage = pageSource('aufbau-shake-rechner.astro');
+	const shakeUi = readFileSync(path.join(root, 'src', 'scripts', 'tools', 'aufbau-shake-ui.mjs'), 'utf8');
+	const bodyPage = pageSource('koerperfortschritt-auswerten.astro');
+	assert.match(shakePage, /data-price-disclosure/);
+	assert.match(shakePage, /data-reset-closed/);
+	assert.match(shakeUi, /details\[data-reset-closed\]/);
+	assert.match(bodyPage, /data-measurement-card/);
+	assert.match(bodyPage, /data-field="first"/);
+	assert.match(bodyPage, /data-field="second"/);
 });
 
 test('dynamische Toolkarten begrenzen ihre Anzahl und behandeln leere Zusatzkarten gesondert', () => {

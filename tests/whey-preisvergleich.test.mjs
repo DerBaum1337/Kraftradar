@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { calculateWheyPreisvergleich } from '../src/lib/tools/whey-preisvergleich.mjs';
+import { getWheyResultHero } from '../src/scripts/tools/whey-preisvergleich-ui.mjs';
 
 const productA = {
 	name: 'Produkt A', powderGrams: 900, proteinPer100: 75, servingGrams: 30,
@@ -68,4 +69,21 @@ test('sichtbar gleiche Centwerte teilen sich die günstigste Protein-Kennzeichnu
 	const afterRemoval = calculateWheyPreisvergleich([productB]);
 	assert.equal(afterRemoval.length, 1);
 	assert.equal(afterRemoval[0].name, 'Produkt B');
+});
+
+
+test('Whey-Ergebnis-Hero unterscheidet eindeutigen Bestwert und Gleichstand', () => {
+	const unique = calculateWheyPreisvergleich([productA, productB]);
+	assert.deepEqual(getWheyResultHero(unique), {
+		value: '1,01 €',
+		unit: 'Niedrigster Preis pro 25 g Protein',
+		meta: 'Produkt B',
+	});
+
+	const ties = calculateWheyPreisvergleich([productA, { ...productA, name: 'Produkt C' }]);
+	assert.deepEqual(getWheyResultHero(ties), {
+		value: '1,04 €',
+		unit: 'Niedrigster Preis pro 25 g Protein',
+		meta: 'Gleichstand zwischen 2 Produkten',
+	});
 });

@@ -6,6 +6,7 @@ import {
 	appendHeading,
 	appendParagraph,
 	appendResultCards,
+	appendResultHero,
 	clearFormErrors,
 	clearChildren,
 	enableCalculator,
@@ -82,6 +83,7 @@ function appendBars(container, result) {
 function renderResult(container, result) {
 	clearChildren(container);
 	const summary = getEgymSummary(result);
+	appendResultHero(container, signed(result.differenceKg) + ' kg', signed(result.differencePercent) + ' % Veränderung', result.days + ' Tage · ' + formatNumber(roundForDisplay(result.weeks, 1), { maximumFractionDigits: 1 }) + ' Wochen');
 	appendParagraph(container, summary, 'tool-result-summary');
 	appendResultCards(container, [{
 		title: result.exercise + ' · ' + result.side,
@@ -203,5 +205,8 @@ export function initEgymFortschrittUi() {
 	form.querySelector('[data-reset]')?.addEventListener('click', () => {
 		resetToolForm(form);
 		syncBodyweightRequiredState();
+		form.closest('.tool-calculator-section')?.querySelectorAll('details[data-reset-closed]').forEach((details) => {
+			if (details instanceof HTMLDetailsElement) details.open = false;
+		});
 	});
 }

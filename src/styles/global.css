@@ -2088,12 +2088,6 @@ footer {
 	overflow-wrap: anywhere;
 }
 
-.tool-form-grid {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1rem;
-}
-
 .tool-field {
 	min-width: 0;
 }
@@ -2267,29 +2261,6 @@ footer {
 	background: rgb(11 15 20 / 34%);
 }
 
-.tool-remove-button {
-	min-height: 2.25rem;
-	margin-left: 0.5rem;
-	padding: 0.3rem 0.55rem;
-	border-color: var(--color-border);
-	background: transparent;
-	color: var(--color-text-muted);
-	font-size: 0.85rem;
-}
-
-.tool-remove-button:hover {
-	border-color: var(--color-danger);
-	background: rgb(255 123 123 / 10%);
-	color: var(--color-text);
-}
-
-.tool-form-actions {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.75rem;
-	align-items: center;
-}
-
 .tool-form-actions button[disabled] {
 	border-color: var(--color-border);
 	background: var(--color-border);
@@ -2317,16 +2288,10 @@ footer {
 	font-weight: 750;
 }
 
-.tool-result-grid,
-.tool-ingredient-breakdown,
-.tool-measurement-grid {
+.tool-ingredient-breakdown {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
 	gap: 0.85rem;
-}
-
-.tool-result-grid {
-	margin: 1rem 0;
 }
 
 .tool-result-card,
@@ -2394,18 +2359,6 @@ footer {
 	height: 0.7rem;
 	border-radius: inherit;
 	background: var(--color-accent);
-}
-
-.tool-more-measures {
-	margin: 1rem 0;
-	padding: 1rem;
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-small);
-}
-
-.tool-more-measures summary {
-	cursor: pointer;
-	font-weight: 800;
 }
 
 .tool-explanation,
@@ -2501,15 +2454,6 @@ footer {
 }
 
 @media (max-width: 750px) {
-	.tool-form-grid,
-	.tool-choice-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.tool-measurement-grid {
-		grid-template-columns: 1fr;
-	}
-
 	.tool-comparison-bar {
 		grid-template-columns: 1fr;
 		gap: 0.35rem;
@@ -2725,36 +2669,10 @@ footer {
 @media (max-width: 430px) {
 	.tool-trust-list,
 	.tool-card-grid,
-	.tool-result-grid,
 	.tool-ingredient-breakdown {
 		grid-template-columns: 1fr;
 	}
 
-	.tool-form,
-	.tool-result {
-		padding: 1rem;
-	}
-
-	.tool-form > fieldset,
-	.tool-dynamic-card,
-	.tool-measurement-card,
-	.tool-form .tool-choice-group {
-		padding: 0.8rem;
-	}
-
-	.tool-form-actions {
-		align-items: stretch;
-	}
-
-	.tool-form-actions button {
-		flex: 1 1 100%;
-	}
-
-	.tool-input-with-unit span {
-		max-width: 45%;
-		overflow-wrap: anywhere;
-		white-space: normal;
-	}
 
 	.site-header nav a {
 		width: 100%;
@@ -2832,5 +2750,535 @@ footer {
 	.radar-scan,
 	.radar-dot {
 		animation: none;
+	}
+}
+
+/* KraftRadar Tools: leichte Formularabschnitte, Karten nur für wiederholbare Daten. */
+.tool-form {
+	gap: 1.5rem;
+	padding: 1.75rem;
+	border-radius: var(--radius-large);
+	background: linear-gradient(145deg, rgb(24 33 44 / 96%), var(--color-surface));
+}
+
+.tool-form-header {
+	display: grid;
+	gap: 0.35rem;
+	padding-bottom: 0.1rem;
+}
+
+.tool-form-title {
+	margin: 0;
+	font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+	letter-spacing: -0.025em;
+}
+
+.tool-form-description {
+	max-width: 50rem;
+	margin: 0;
+	color: var(--color-text-muted);
+}
+
+.tool-required-note {
+	margin: 0.25rem 0 0;
+	color: var(--color-text-muted);
+	font-size: 0.84rem;
+	line-height: 1.45;
+}
+
+.tool-required-note span {
+	color: var(--color-accent);
+	font-weight: 800;
+}
+
+.tool-form > .tool-section,
+.tool-form > fieldset.tool-section,
+.tool-form > .tool-choice-group {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+}
+
+.tool-form > .tool-section + .tool-section,
+.tool-form > .tool-section + .tool-disclosure,
+.tool-form > .tool-disclosure + .tool-section,
+.tool-form > .tool-disclosure + .tool-confirmation,
+.tool-form > .tool-section + .tool-confirmation {
+	padding-top: 1.5rem;
+	border-top: 1px solid rgb(43 53 66 / 75%);
+}
+
+.tool-section > legend,
+.tool-choice-group > legend {
+	padding: 0;
+	color: var(--color-text);
+	font-weight: 800;
+}
+
+.tool-section > legend {
+	margin-bottom: 0.8rem;
+	font-size: 1.05rem;
+}
+
+.tool-choice-group {
+	min-width: 0;
+	margin: 1.35rem 0 0;
+	padding: 0;
+	border: 0;
+}
+
+.tool-choice-group > legend {
+	font-size: 1rem;
+}
+
+.tool-form .tool-choice-group {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+}
+
+.tool-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.tool-field--wide,
+.tool-subsection-title {
+	grid-column: 1 / -1;
+}
+
+.tool-subsection-title {
+	margin: 0.25rem 0 -0.2rem;
+	color: var(--color-text);
+	font-size: 0.92rem;
+	font-weight: 800;
+}
+
+.tool-field > label {
+	margin-bottom: 0.45rem;
+}
+
+.tool-field input,
+.tool-field select {
+	min-height: 3rem;
+	font-size: 1rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.tool-input-with-unit span {
+	min-width: 2.75rem;
+	max-width: none;
+	padding-inline: 0.65rem;
+	font-size: 0.86rem;
+	overflow-wrap: normal;
+	white-space: nowrap;
+}
+
+.tool-help {
+	margin-top: 0.35rem;
+	font-size: 0.88rem;
+}
+
+.tool-dynamic-list {
+	gap: 1rem;
+}
+
+.tool-dynamic-card,
+.tool-form .tool-dynamic-card {
+	padding: 1.2rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-medium);
+	background: rgb(11 15 20 / 42%);
+}
+
+.tool-dynamic-card > legend {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0;
+	font-size: 1rem;
+}
+
+.tool-product-grid,
+.tool-ingredient-grid {
+	gap: 1rem;
+}
+
+.tool-remove-button {
+	width: auto;
+	max-width: 100%;
+	min-height: 2.5rem;
+	flex: 0 0 auto;
+	margin-left: auto;
+	padding: 0.35rem 0.55rem;
+	border: 0;
+	background: transparent;
+	color: var(--color-text-muted);
+	font-weight: 700;
+	text-decoration: underline;
+	text-decoration-color: rgb(174 184 197 / 40%);
+	text-underline-offset: 0.18em;
+	white-space: nowrap;
+}
+
+.tool-remove-button:hover {
+	border: 0;
+	background: transparent;
+	color: var(--color-danger);
+	transform: none;
+}
+
+.tool-disclosure,
+.tool-more-measures {
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid rgb(43 53 66 / 75%);
+	border-bottom: 1px solid rgb(43 53 66 / 75%);
+	border-radius: 0;
+	background: transparent;
+}
+
+.tool-disclosure--outside {
+	max-width: 900px;
+	margin: -0.4rem 0 1.25rem;
+}
+
+.tool-disclosure--card {
+	margin-top: 1.1rem;
+}
+
+.tool-disclosure summary,
+.tool-more-measures summary {
+	display: flex;
+	align-items: center;
+	min-height: 2.75rem;
+	padding: 0.45rem 0;
+	color: var(--color-text);
+	cursor: pointer;
+	font-weight: 800;
+	list-style: none;
+}
+
+.tool-disclosure summary::-webkit-details-marker,
+.tool-more-measures summary::-webkit-details-marker {
+	display: none;
+}
+
+.tool-disclosure summary::after,
+.tool-more-measures summary::after {
+	margin-left: auto;
+	color: var(--color-accent);
+	content: "+";
+	font-size: 1.25rem;
+	line-height: 1;
+}
+
+.tool-disclosure[open] summary::after,
+.tool-more-measures[open] summary::after {
+	content: "–";
+}
+
+.tool-disclosure summary:focus-visible,
+.tool-more-measures summary:focus-visible {
+	border-radius: var(--radius-small);
+	outline: 3px solid rgb(85 230 165 / 28%);
+	outline-offset: 2px;
+}
+
+.tool-disclosure-content {
+	padding: 0.25rem 0 1rem;
+}
+
+.tool-disclosure-content > .tool-help:first-child,
+.tool-disclosure-content > p:first-child {
+	margin-top: 0;
+}
+
+.tool-confirmation--panel {
+	padding: 0.9rem 1rem;
+	border-left: 3px solid rgb(85 230 165 / 62%);
+	border-radius: var(--radius-small);
+	background: rgb(85 230 165 / 6%);
+}
+
+.tool-choice-factor {
+	display: inline-flex;
+	width: fit-content;
+	margin-top: 0.45rem;
+	padding: 0.14rem 0.42rem;
+	border-radius: 999px;
+	background: rgb(85 230 165 / 12%);
+	color: var(--color-accent);
+	font-size: 0.8rem;
+}
+
+.tool-test-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+	margin-top: 1.25rem;
+}
+
+.tool-test-card {
+	min-width: 0;
+	margin: 0;
+	padding: 1rem;
+	border: 1px solid rgb(43 53 66 / 88%);
+	border-radius: var(--radius-small);
+	background: rgb(11 15 20 / 28%);
+}
+
+.tool-test-card > legend {
+	padding: 0;
+	font-size: 0.95rem;
+	font-weight: 800;
+}
+
+.tool-test-card .tool-field + .tool-field {
+	margin-top: 0.85rem;
+}
+
+.tool-measurement-list {
+	display: grid;
+	margin: 0;
+	border-top: 1px solid rgb(43 53 66 / 70%);
+}
+
+.tool-measurement-row,
+.tool-form .tool-measurement-row {
+	min-width: 0;
+	margin: 0;
+	padding: 0.85rem 0;
+	border: 0;
+	border-bottom: 1px solid rgb(43 53 66 / 70%);
+	border-radius: 0;
+	background: transparent;
+}
+
+.tool-measurement-row > legend {
+	padding: 0;
+	font-size: 0.95rem;
+	font-weight: 800;
+}
+
+.tool-measurement-values {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.8rem;
+	margin-top: 0.55rem;
+}
+
+.tool-measurement-values .tool-field > label {
+	color: var(--color-text-muted);
+	font-size: 0.84rem;
+}
+
+.tool-custom-measurement-card {
+	margin-top: 0.8rem;
+}
+
+.tool-form-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem;
+	padding-top: 0.2rem;
+}
+
+.tool-action-primary,
+.tool-action-add,
+.tool-action-reset {
+	min-height: 3rem;
+	border-radius: var(--radius-small);
+	font-weight: 800;
+}
+
+.tool-action-primary {
+	border: 1px solid var(--color-accent);
+	background: var(--color-accent);
+	color: #06130d;
+}
+
+.tool-action-add {
+	border: 1px solid rgb(85 230 165 / 62%);
+	background: rgb(85 230 165 / 7%);
+	color: var(--color-accent);
+}
+
+.tool-action-reset {
+	border: 0;
+	background: transparent;
+	color: var(--color-text-muted);
+	text-decoration: underline;
+	text-decoration-color: rgb(174 184 197 / 45%);
+	text-underline-offset: 0.2em;
+}
+
+.tool-action-reset:hover {
+	border: 0;
+	background: transparent;
+	color: var(--color-text);
+	transform: none;
+}
+
+.tool-action-primary[disabled] {
+	border-color: var(--color-border);
+	background: var(--color-border);
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+	transform: none;
+}
+
+.tool-limit-notice,
+.tool-privacy-notice,
+.tool-noscript {
+	padding: 0.9rem 1rem;
+	box-shadow: none;
+}
+
+.tool-notice-header {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin-bottom: 0.5rem;
+}
+
+.tool-notice-header svg {
+	width: 1.05rem;
+	height: 1.05rem;
+	flex: 0 0 auto;
+	fill: none;
+	stroke: var(--color-accent);
+	stroke-linecap: round;
+	stroke-width: 1.8;
+}
+
+.tool-notice-header h2 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.tool-result {
+	padding: 1.5rem;
+	border-radius: var(--radius-large);
+}
+
+.tool-result-kicker {
+	margin: 0 0 0.35rem;
+	color: var(--color-accent);
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.tool-result-hero {
+	display: grid;
+	gap: 0.15rem;
+	margin: 0 0 1.25rem;
+}
+
+.tool-result-value {
+	font-size: clamp(2rem, 6vw, 3.2rem);
+	font-weight: 850;
+	letter-spacing: -0.05em;
+	line-height: 1;
+	font-variant-numeric: tabular-nums;
+}
+
+.tool-result-unit,
+.tool-result-meta {
+	color: var(--color-text-muted);
+}
+
+.tool-result-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+	gap: 0.8rem;
+	margin: 1rem 0;
+}
+
+@media (max-width: 899px) {
+	.tool-form {
+		padding: 1.25rem;
+	}
+
+	.tool-result {
+		padding: 1.25rem;
+	}
+}
+
+@media (max-width: 599px) {
+	.tool-grid,
+	.tool-test-grid,
+	.tool-choice-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-form {
+		gap: 1.1rem;
+		padding: 1rem;
+	}
+
+	.tool-form > .tool-section + .tool-section,
+	.tool-form > .tool-section + .tool-disclosure,
+	.tool-form > .tool-disclosure + .tool-section,
+	.tool-form > .tool-disclosure + .tool-confirmation,
+	.tool-form > .tool-section + .tool-confirmation {
+		padding-top: 1.1rem;
+	}
+
+	.tool-dynamic-card,
+	.tool-form .tool-dynamic-card,
+	.tool-test-card {
+		padding: 0.85rem;
+	}
+
+	.tool-form-actions {
+		align-items: stretch;
+	}
+
+	.tool-action-primary,
+	.tool-action-add {
+		width: 100%;
+	}
+
+	.tool-action-reset {
+		width: 100%;
+		justify-content: flex-start;
+		padding-inline: 0;
+	}
+}
+
+@media (min-width: 360px) and (max-width: 599px) {
+	.tool-ingredient-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.tool-ingredient-grid .tool-field--wide,
+	.tool-ingredient-grid .tool-subsection-title {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 359px) {
+	.tool-measurement-values {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-dynamic-card > legend {
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.tool-remove-button {
+		margin-left: 0;
 	}
 }

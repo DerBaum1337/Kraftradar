@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { calculateKoerperfortschritt } from '../src/lib/tools/koerperfortschritt.mjs';
-import { getKoerperfortschrittCombinationText } from '../src/scripts/tools/koerperfortschritt-ui.mjs';
+import { getKoerperfortschrittCombinationText, getKoerperfortschrittHeroText } from '../src/scripts/tools/koerperfortschritt-ui.mjs';
 
 test('Körpervergleich beschreibt zwei Messzeitpunkte neutral', () => {
 	const result = calculateKoerperfortschritt({
@@ -126,4 +126,11 @@ test('gerichtete Körperfortschrittssätze verwenden Beträge, während Differen
 	assert.equal(weightDownBauchUp.weight.difference, -2);
 	assert.match(getKoerperfortschrittCombinationText(weightDownBauchUp), /um 2,0 kg gesunken, während dein Bauchumfang um 4,0 cm größer gemessen wurde/);
 	assert.doesNotMatch(getKoerperfortschrittCombinationText(weightDownBauchUp), /um -2,0 kg gesunken/);
+});
+
+
+test('Körper-Ergebnis-Hero nennt größere, kleinere und unveränderte Werte vollständig', () => {
+	assert.equal(getKoerperfortschrittHeroText({ larger: 3, smaller: 2, same: 1 }), '3 größer · 2 kleiner · 1 unverändert');
+	assert.equal(getKoerperfortschrittHeroText({ larger: 2, smaller: 0, same: 0 }), '2 größer');
+	assert.equal(getKoerperfortschrittHeroText({ larger: 0, smaller: 0, same: 1 }), '1 unverändert');
 });

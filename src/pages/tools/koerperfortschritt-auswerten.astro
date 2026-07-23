@@ -7,6 +7,7 @@ import ToolNoScript from '../../components/tools/ToolNoScript.astro';
 import ToolSources from '../../components/tools/ToolSources.astro';
 import RelatedTools from '../../components/tools/RelatedTools.astro';
 import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import ToolFormHeader from '../../components/tools/ToolFormHeader.astro';
 import { getTool } from '../../data/tools.mjs';
 import { getToolSources } from '../../data/tool-sources.mjs';
 
@@ -55,11 +56,11 @@ const furtherMeasurements = [
 				<h2 id="body-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
 				<ul data-error-list></ul>
 			</div>
-			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+			<ToolFormHeader title="Deine Messwerte" description="Wähle zwei Messzeitpunkte und trage mindestens ein vollständiges Wertepaar ein." />
 
-			<fieldset>
+			<fieldset class="tool-section">
 				<legend>Messzeitpunkte</legend>
-				<div class="tool-form-grid">
+				<div class="tool-grid">
 					<div class="tool-field">
 						<label for="body-first-date">Erstes Datum <span aria-hidden="true">*</span></label>
 						<input id="body-first-date" name="firstDate" type="date" required aria-describedby="body-first-date-error" />
@@ -73,21 +74,23 @@ const furtherMeasurements = [
 				</div>
 			</fieldset>
 
-			<fieldset id="body-measurement-group" aria-required="true" tabindex="-1">
+			<fieldset id="body-measurement-group" class="tool-section" aria-required="true" tabindex="-1">
 				<legend>Häufig verglichene Werte</legend>
 				<p class="tool-help">Für jedes Maß trägst du entweder beide Messungen ein oder lässt beide Felder leer.</p>
-				<div class="tool-measurement-grid">
+				<div class="tool-measurement-list">
 					{
 						initialMeasurements.map((measurement) => (
-							<fieldset class="tool-measurement-card" data-measurement-card data-key={measurement.key} data-label={measurement.label} data-unit={measurement.unit}>
+							<fieldset class="tool-measurement-card tool-measurement-row" data-measurement-card data-key={measurement.key} data-label={measurement.label} data-unit={measurement.unit}>
 								<legend>{measurement.label}</legend>
-								<div class="tool-field">
-									<label for={'body-' + measurement.key + '-first'}>Erste Messung</label>
-									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-first'} data-field="first" type="text" inputmode="decimal" autocomplete="off" /><span>{measurement.unit}</span></div>
-								</div>
-								<div class="tool-field">
-									<label for={'body-' + measurement.key + '-second'}>Spätere Messung</label>
-									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-second'} data-field="second" type="text" inputmode="decimal" autocomplete="off" /><span>{measurement.unit}</span></div>
+								<div class="tool-measurement-values">
+									<div class="tool-field">
+										<label for={'body-' + measurement.key + '-first'}>Erste Messung</label>
+										<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-first'} data-field="first" type="text" inputmode="decimal" autocomplete="off" /><span>{measurement.unit}</span></div>
+									</div>
+									<div class="tool-field">
+										<label for={'body-' + measurement.key + '-second'}>Spätere Messung</label>
+										<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-second'} data-field="second" type="text" inputmode="decimal" autocomplete="off" /><span>{measurement.unit}</span></div>
+									</div>
 								</div>
 							</fieldset>
 						))
@@ -95,44 +98,48 @@ const furtherMeasurements = [
 				</div>
 			</fieldset>
 
-			<details class="tool-more-measures">
-				<summary>Weitere Standardmaße hinzufügen</summary>
-				<p class="tool-help">Bauch und Taille bleiben getrennte Maße. Entscheidend ist, dass du zwischen den Terminen nicht die Messmethode wechselst.</p>
-				<div class="tool-measurement-grid">
-					{
-						furtherMeasurements.map((measurement) => (
-							<fieldset class="tool-measurement-card" data-measurement-card data-key={measurement.key} data-label={measurement.label} data-unit="cm">
-								<legend>{measurement.label}</legend>
-								<div class="tool-field">
-									<label for={'body-' + measurement.key + '-first'}>Erste Messung</label>
-									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-first'} data-field="first" type="text" inputmode="decimal" autocomplete="off" /><span>cm</span></div>
-								</div>
-								<div class="tool-field">
-									<label for={'body-' + measurement.key + '-second'}>Spätere Messung</label>
-									<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-second'} data-field="second" type="text" inputmode="decimal" autocomplete="off" /><span>cm</span></div>
-								</div>
-							</fieldset>
-						))
-					}
+			<details class="tool-disclosure tool-more-measures" data-reset-closed>
+				<summary>Weitere Standardmaße</summary>
+				<div class="tool-disclosure-content">
+					<p class="tool-help">Bauch und Taille bleiben getrennte Maße. Entscheidend ist, dass du zwischen den Terminen nicht die Messmethode wechselst.</p>
+					<div class="tool-measurement-list">
+						{
+							furtherMeasurements.map((measurement) => (
+								<fieldset class="tool-measurement-card tool-measurement-row" data-measurement-card data-key={measurement.key} data-label={measurement.label} data-unit="cm">
+									<legend>{measurement.label}</legend>
+									<div class="tool-measurement-values">
+										<div class="tool-field">
+											<label for={'body-' + measurement.key + '-first'}>Erste Messung</label>
+											<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-first'} data-field="first" type="text" inputmode="decimal" autocomplete="off" /><span>cm</span></div>
+										</div>
+										<div class="tool-field">
+											<label for={'body-' + measurement.key + '-second'}>Spätere Messung</label>
+											<div class="tool-input-with-unit"><input id={'body-' + measurement.key + '-second'} data-field="second" type="text" inputmode="decimal" autocomplete="off" /><span>cm</span></div>
+										</div>
+									</div>
+								</fieldset>
+							))
+						}
+					</div>
 				</div>
 			</details>
 
-			<fieldset>
+			<fieldset class="tool-section">
 				<legend>Eigene Maße <span class="tool-optional">(optional)</span></legend>
 				<div class="tool-dynamic-list" data-custom-measurement-list aria-live="polite"></div>
-				<button type="button" class="button button--secondary" data-add-custom-measurement>Eigenes Maß hinzufügen</button>
+				<button type="button" class="tool-action-add" data-add-custom-measurement>＋ Eigenes Maß</button>
 				<p class="tool-help">Maximal fünf eigene Maße. Die Einheit ist immer cm.</p>
 			</fieldset>
 
-			<label class="tool-confirmation">
+			<label class="tool-confirmation tool-confirmation--panel">
 				<input id="body-confirmed" type="checkbox" name="confirmed" required aria-describedby="body-confirmed-error" />
 				<span>Ich vergleiche bei jedem eingetragenen Maß dieselbe Messstelle, Körperseite und Messweise.</span>
 			</label>
 			<p id="body-confirmed-error" class="tool-inline-error" data-error-for="body-confirmed"></p>
 
 			<div class="tool-form-actions">
-				<button type="submit" data-calculate disabled>Körpermaße vergleichen</button>
-				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+				<button type="submit" class="tool-action-primary" data-calculate disabled>Körpermaße vergleichen</button>
+				<button type="button" class="tool-action-reset" data-reset>Eingaben zurücksetzen</button>
 			</div>
 			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
 		</form>

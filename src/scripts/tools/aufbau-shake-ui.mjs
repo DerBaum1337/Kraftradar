@@ -6,6 +6,7 @@ import {
 	appendList,
 	appendParagraph,
 	appendResultCards,
+	appendResultHero,
 	clearFormErrors,
 	clearChildren,
 	enableCalculator,
@@ -78,8 +79,22 @@ function syncIngredientRequiredState(card, index) {
 function updateUnits(card) {
 	const basis = raw(card, 'basis');
 	const unit = basis === 'ml' ? 'ml' : basis === 'g' ? 'g' : 'g/ml';
+	const perHundred = basis === 'ml' ? '100 ml' : basis === 'g' ? '100 g' : '100 g/ml';
 	card.querySelectorAll('[data-unit-label], [data-purchased-unit]').forEach((element) => {
 		element.textContent = unit;
+	});
+	card.querySelectorAll('[data-nutrition-heading]').forEach((element) => {
+		element.textContent = 'Nährwerte pro ' + perHundred;
+	});
+	const nutrientLabels = {
+		energy: 'Energie',
+		protein: 'Protein',
+		carbs: 'Kohlenhydrate',
+		fat: 'Fett',
+	};
+	card.querySelectorAll('[data-nutrient-label]').forEach((element) => {
+		const label = nutrientLabels[element.dataset.nutrientLabel];
+		if (label) element.textContent = label + ' pro ' + perHundred;
 	});
 }
 
@@ -115,6 +130,9 @@ function cloneIngredientCard(list, serial) {
 		label.htmlFor = label.htmlFor.replace(/-\d+-/, '-' + serial + '-');
 	});
 	clone.querySelectorAll('[data-remove-ingredient]').forEach((button) => button.remove());
+	clone.querySelectorAll('details[data-reset-closed]').forEach((details) => {
+		if (details instanceof HTMLDetailsElement) details.open = false;
+	});
 	addRemoveButton(clone);
 	updateUnits(clone);
 	return clone;
@@ -194,6 +212,8 @@ function renderIngredients(container, result) {
 
 function renderResult(container, result, warnings) {
 	clearChildren(container);
+	const mainCalories = result.portions === 1 ? result.totals.calories : result.perPortion.calories;
+	appendResultHero(container, displayNumber(mainCalories, ' kcal'), result.portions === 1 ? 'Gesamte Mischung' : 'Kalorien pro Portion');
 	appendHeading(container, result.recipeName);
 	appendResultCards(container, [
 		{

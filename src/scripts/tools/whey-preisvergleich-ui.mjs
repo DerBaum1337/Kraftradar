@@ -6,6 +6,7 @@ import {
 	appendHeading,
 	appendParagraph,
 	appendResultCards,
+	appendResultHero,
 	clearFormErrors,
 	clearChildren,
 	enableCalculator,
@@ -162,23 +163,39 @@ function parseCard(card, index, errors) {
 	return { name, powderGrams, proteinPer100, servingGrams, priceCents, discountType, discountValue, shippingCents };
 }
 
+export function getWheyResultHero(products) {
+	const cheapestProducts = products.filter((product) => product.flags.cheapestProtein);
+	const cheapest = cheapestProducts[0];
+	if (!cheapest) return null;
+	return {
+		value: formatEuro(cheapest.pricePer25ProteinCents),
+		unit: 'Niedrigster Preis pro 25 g Protein',
+		meta: cheapestProducts.length > 1
+			? 'Gleichstand zwischen ' + cheapestProducts.length + ' Produkten'
+			: cheapest.name,
+	};
+}
+
 function renderResult(container, products) {
 	clearChildren(container);
 	const cheapestCount = products.filter((product) => product.flags.cheapestProtein).length;
+	const hero = getWheyResultHero(products);
+	if (hero) appendResultHero(container, hero.value, hero.unit, hero.meta);
+	appendResultCards(container, products.map((product) => ({
+		title: product.name,
+		items: [
+			{ label: 'Effektiver Gesamtpreis', value: formatEuro(product.totalCents), emphasis: true },
+			{ label: 'Preis pro kg', value: formatEuro(product.pricePerKgCents) },
+			{ label: 'Gesamtprotein', value: formatNumber(roundForDisplay(product.totalProtein, 1), { maximumFractionDigits: 1 }) + ' g' },
+			{ label: 'Portionen', value: formatNumber(roundForDisplay(product.portions, 1), { maximumFractionDigits: 1 }) },
+			{ label: 'Protein pro Portion', value: formatNumber(roundForDisplay(product.proteinPerServing, 1), { maximumFractionDigits: 1 }) + ' g' },
+			{ label: 'Preis pro Portion', value: formatEuro(product.pricePerServingCents) },
+			{ label: 'Pulver für 25 g Protein', value: formatNumber(roundForDisplay(product.powderFor25Protein, 1), { maximumFractionDigits: 1 }) + ' g' },
+			{ label: 'Preis pro 25 g Protein', value: formatEuro(product.pricePer25ProteinCents), emphasis: true },
+		],
+	})));
+	appendHeading(container, 'Einordnung des Preisvergleichs');
 	products.forEach((product) => {
-		appendResultCards(container, [{
-			title: product.name,
-			items: [
-				{ label: 'Effektiver Gesamtpreis', value: formatEuro(product.totalCents), emphasis: true },
-				{ label: 'Preis pro kg', value: formatEuro(product.pricePerKgCents) },
-				{ label: 'Gesamtprotein', value: formatNumber(roundForDisplay(product.totalProtein, 1), { maximumFractionDigits: 1 }) + ' g' },
-				{ label: 'Portionen', value: formatNumber(roundForDisplay(product.portions, 1), { maximumFractionDigits: 1 }) },
-				{ label: 'Protein pro Portion', value: formatNumber(roundForDisplay(product.proteinPerServing, 1), { maximumFractionDigits: 1 }) + ' g' },
-				{ label: 'Preis pro Portion', value: formatEuro(product.pricePerServingCents) },
-				{ label: 'Pulver für 25 g Protein', value: formatNumber(roundForDisplay(product.powderFor25Protein, 1), { maximumFractionDigits: 1 }) + ' g' },
-				{ label: 'Preis pro 25 g Protein', value: formatEuro(product.pricePer25ProteinCents), emphasis: true },
-			],
-		}]);
 		if (product.flags.cheapestProtein) {
 			appendParagraph(container, cheapestCount > 1 ? product.name + ' liegt beim Preis pro 25 g Protein gleichauf.' : product.name + ' hat im Vergleich den niedrigsten Preis pro 25 g Protein.', 'tool-result-note');
 		} else if (product.moreCostCents > 0) {
@@ -188,7 +205,7 @@ function renderResult(container, products) {
 		const labels = [];
 		if (product.flags.cheapestKilogram) labels.push('Niedrigster Kilopreis');
 		if (product.flags.cheapestServing) labels.push('Günstigste Portion');
-		if (labels.length > 0) appendParagraph(container, labels.join(' · '), 'tool-result-label');
+		if (labels.length > 0) appendParagraph(container, product.name + ': ' + labels.join(' · '), 'tool-result-label');
 	});
 	appendHeading(container, 'Grenze des Vergleichs');
 	appendParagraph(container, 'Was der Vergleich nicht bewertet: Ein niedriger Preis pro 25 g Protein sagt nichts über Geschmack, Löslichkeit, Zutaten, Herkunft, Aminosäureprofil, Laborprüfung oder Verträglichkeit aus. Die Berechnung verwendet ausschließlich deine Eingaben und den angegebenen Proteinwert des Herstellers.', 'tool-result-note');

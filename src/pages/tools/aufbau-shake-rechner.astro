@@ -7,6 +7,7 @@ import ToolNoScript from '../../components/tools/ToolNoScript.astro';
 import ToolSources from '../../components/tools/ToolSources.astro';
 import RelatedTools from '../../components/tools/RelatedTools.astro';
 import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import ToolFormHeader from '../../components/tools/ToolFormHeader.astro';
 import { getTool } from '../../data/tools.mjs';
 import { getToolSources } from '../../data/tool-sources.mjs';
 
@@ -35,11 +36,11 @@ const sources = getToolSources(['euNutrition', 'dgeEnergySport', 'waiForms']);
 				<h2 id="shake-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
 				<ul data-error-list></ul>
 			</div>
-			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+			<ToolFormHeader title="Dein Rezept" description="Beginne mit einer Zutat und ergänze weitere Zutaten nach Bedarf." />
 
-			<fieldset>
+			<fieldset class="tool-section">
 				<legend>Rezept</legend>
-				<div class="tool-form-grid">
+				<div class="tool-grid">
 					<div class="tool-field">
 						<label for="shake-name">Rezeptname <span class="tool-optional">(optional)</span></label>
 						<input id="shake-name" name="recipeName" type="text" maxlength="60" autocomplete="off" />
@@ -53,13 +54,13 @@ const sources = getToolSources(['euNutrition', 'dgeEnergySport', 'waiForms']);
 				</div>
 			</fieldset>
 
-			<fieldset aria-required="true">
+			<fieldset class="tool-section" aria-required="true">
 				<legend>Zutaten <span aria-hidden="true">*</span></legend>
 				<div class="tool-dynamic-list" data-ingredient-list aria-live="polite">
 					<fieldset class="tool-dynamic-card" data-ingredient-card data-card-id="1">
 						<legend><span data-ingredient-number>Zutat 1</span></legend>
-						<div class="tool-form-grid">
-							<div class="tool-field">
+						<div class="tool-grid tool-ingredient-grid">
+							<div class="tool-field tool-field--wide">
 								<label for="shake-ingredient-1-name">Name <span aria-hidden="true">*</span></label>
 								<input id="shake-ingredient-1-name" data-field="name" type="text" maxlength="60" autocomplete="off" required />
 							</div>
@@ -73,63 +74,116 @@ const sources = getToolSources(['euNutrition', 'dgeEnergySport', 'waiForms']);
 							</div>
 							<div class="tool-field">
 								<label for="shake-ingredient-1-amount">Verwendete Menge <span aria-hidden="true">*</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-amount" data-field="amount" type="text" inputmode="decimal" autocomplete="off" required /><span data-unit-label>g/ml</span></div>
+								<div class="tool-input-with-unit">
+									<input id="shake-ingredient-1-amount" data-field="amount" type="text" inputmode="decimal" autocomplete="off" required />
+									<span data-unit-label>g/ml</span>
+								</div>
+							</div>
+							<p class="tool-subsection-title tool-field--wide" data-nutrition-heading>Nährwerte pro 100 g/ml</p>
+							<div class="tool-field">
+								<label for="shake-ingredient-1-kcal">
+									<span data-nutrient-label="energy">Energie pro 100 g/ml</span>
+									<span aria-hidden="true">*</span>
+								</label>
+								<div class="tool-input-with-unit">
+									<input id="shake-ingredient-1-kcal" data-field="caloriesPer100" type="text" inputmode="decimal" autocomplete="off" required />
+									<span>kcal</span>
+								</div>
 							</div>
 							<div class="tool-field">
-								<label for="shake-ingredient-1-kcal">Energie <span aria-hidden="true">*</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-kcal" data-field="caloriesPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>kcal pro 100</span></div>
+								<label for="shake-ingredient-1-protein">
+									<span data-nutrient-label="protein">Protein pro 100 g/ml</span>
+									<span aria-hidden="true">*</span>
+								</label>
+								<div class="tool-input-with-unit">
+									<input id="shake-ingredient-1-protein" data-field="proteinPer100" type="text" inputmode="decimal" autocomplete="off" required />
+									<span>g</span>
+								</div>
 							</div>
 							<div class="tool-field">
-								<label for="shake-ingredient-1-protein">Protein <span aria-hidden="true">*</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-protein" data-field="proteinPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g pro 100</span></div>
+								<label for="shake-ingredient-1-carbs">
+									<span data-nutrient-label="carbs">Kohlenhydrate pro 100 g/ml</span>
+									<span aria-hidden="true">*</span>
+								</label>
+								<div class="tool-input-with-unit">
+									<input id="shake-ingredient-1-carbs" data-field="carbsPer100" type="text" inputmode="decimal" autocomplete="off" required />
+									<span>g</span>
+								</div>
 							</div>
 							<div class="tool-field">
-								<label for="shake-ingredient-1-carbs">Kohlenhydrate <span aria-hidden="true">*</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-carbs" data-field="carbsPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g pro 100</span></div>
-							</div>
-							<div class="tool-field">
-								<label for="shake-ingredient-1-fat">Fett <span aria-hidden="true">*</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-fat" data-field="fatPer100" type="text" inputmode="decimal" autocomplete="off" required /><span>g pro 100</span></div>
-							</div>
-							<div class="tool-field">
-								<label for="shake-ingredient-1-price">Tatsächlich gezahlter Preis <span class="tool-optional">(optional)</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-price" data-field="price" type="text" inputmode="decimal" autocomplete="off" /><span>€</span></div>
-							</div>
-							<div class="tool-field">
-								<label for="shake-ingredient-1-purchased">Gekaufte Gesamtmenge <span class="tool-optional">(optional)</span></label>
-								<div class="tool-input-with-unit"><input id="shake-ingredient-1-purchased" data-field="purchasedAmount" type="text" inputmode="decimal" autocomplete="off" /><span data-purchased-unit>g/ml</span></div>
+								<label for="shake-ingredient-1-fat">
+									<span data-nutrient-label="fat">Fett pro 100 g/ml</span>
+									<span aria-hidden="true">*</span>
+								</label>
+								<div class="tool-input-with-unit">
+									<input id="shake-ingredient-1-fat" data-field="fatPer100" type="text" inputmode="decimal" autocomplete="off" required />
+									<span>g</span>
+								</div>
 							</div>
 						</div>
-						<p class="tool-help">Preis und gekaufte Gesamtmenge entweder beide leer lassen oder beide vollständig ausfüllen. Versandkosten kannst du bei Bedarf vorher anteilig in den Produktpreis einrechnen.</p>
+						<details class="tool-disclosure tool-disclosure--card" data-price-disclosure data-reset-closed>
+							<summary>Preis dieser Zutat ergänzen</summary>
+							<div class="tool-disclosure-content">
+								<div class="tool-grid">
+									<div class="tool-field">
+										<label for="shake-ingredient-1-price">Tatsächlich gezahlter Preis <span class="tool-optional">(optional)</span></label>
+										<div class="tool-input-with-unit">
+											<input id="shake-ingredient-1-price" data-field="price" type="text" inputmode="decimal" autocomplete="off" />
+											<span>€</span>
+										</div>
+									</div>
+									<div class="tool-field">
+										<label for="shake-ingredient-1-purchased">Gekaufte Gesamtmenge <span class="tool-optional">(optional)</span></label>
+										<div class="tool-input-with-unit">
+											<input id="shake-ingredient-1-purchased" data-field="purchasedAmount" type="text" inputmode="decimal" autocomplete="off" />
+											<span data-purchased-unit>g/ml</span>
+										</div>
+									</div>
+								</div>
+								<p class="tool-help">Preis und Packungsmenge entweder beide vollständig ausfüllen oder beide leer lassen. Versandkosten kannst du bei Bedarf vorher anteilig in den Preis einrechnen.</p>
+							</div>
+						</details>
 					</fieldset>
 				</div>
 			</fieldset>
 
-			<fieldset>
-				<legend>Optionale Vergleiche</legend>
-				<div class="tool-form-grid">
-					<div class="tool-field">
-						<label for="shake-target">Selbst gewähltes Kalorienziel pro Portion <span class="tool-optional">(optional)</span></label>
-						<div class="tool-input-with-unit"><input id="shake-target" name="calorieTarget" type="text" inputmode="decimal" autocomplete="off" /><span>kcal</span></div>
-						<p class="tool-help">Dieses Feld bewertet nicht deinen persönlichen Bedarf. Es vergleicht das Ergebnis nur mit einer Zahl, die du selbst festgelegt hast.</p>
-					</div>
-					<div class="tool-field">
-						<label for="shake-weekly">Geplante Portionen pro Woche <span class="tool-optional">(optional)</span></label>
-						<div class="tool-input-with-unit"><input id="shake-weekly" name="portionsPerWeek" type="text" inputmode="decimal" autocomplete="off" /><span>Portionen</span></div>
-						<p class="tool-help">Nur für die Kostenschätzung.</p>
-					</div>
-					<div class="tool-field">
-						<label for="shake-volume">Gemessenes Endvolumen <span class="tool-optional">(optional)</span></label>
-						<div class="tool-input-with-unit"><input id="shake-volume" name="endVolume" type="text" inputmode="decimal" autocomplete="off" /><span>ml</span></div>
-						<p class="tool-help">Trage das tatsächliche Volumen nach dem Mixen ein. Gramm und Milliliter werden nicht addiert.</p>
+			<details class="tool-disclosure" data-reset-closed>
+				<summary>Zusätzliche Auswertungen</summary>
+				<div class="tool-disclosure-content">
+					<p class="tool-help">Diese Angaben verändern die Grundberechnung nicht. Sie ergänzen nur zusätzliche Vergleiche und Kostenschätzungen.</p>
+					<div class="tool-grid">
+						<div class="tool-field">
+							<label for="shake-target">Selbst gewähltes Kalorienziel pro Portion <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit">
+								<input id="shake-target" name="calorieTarget" type="text" inputmode="decimal" autocomplete="off" />
+								<span>kcal</span>
+							</div>
+							<p class="tool-help">Dieses Feld bewertet nicht deinen persönlichen Bedarf. Es vergleicht das Ergebnis nur mit einer Zahl, die du selbst festgelegt hast.</p>
+						</div>
+						<div class="tool-field">
+							<label for="shake-weekly">Geplante Portionen pro Woche <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit">
+								<input id="shake-weekly" name="portionsPerWeek" type="text" inputmode="decimal" autocomplete="off" />
+								<span>Portionen</span>
+							</div>
+							<p class="tool-help">Nur für die Kostenschätzung.</p>
+						</div>
+						<div class="tool-field">
+							<label for="shake-volume">Gemessenes Endvolumen <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit">
+								<input id="shake-volume" name="endVolume" type="text" inputmode="decimal" autocomplete="off" />
+								<span>ml</span>
+							</div>
+							<p class="tool-help">Trage das tatsächliche Volumen nach dem Mixen ein. Gramm und Milliliter werden nicht addiert.</p>
+						</div>
 					</div>
 				</div>
-			</fieldset>
+			</details>
 
 			<div class="tool-form-actions">
-				<button type="button" class="button button--secondary" data-add-ingredient>Weitere Zutat hinzufügen</button>
-				<button type="submit" data-calculate disabled>Shake berechnen</button>
-				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+				<button type="button" class="tool-action-add" data-add-ingredient>＋ Weitere Zutat</button>
+				<button type="submit" class="tool-action-primary" data-calculate disabled>Shake berechnen</button>
+				<button type="button" class="tool-action-reset" data-reset>Eingaben zurücksetzen</button>
 			</div>
 			<p class="tool-help">Bis zu 15 Zutaten. Für eine vollständig leere Zusatzkarte erfolgt keine Berechnung; bei teilweise ausgefüllten Zutaten zeigt der Rechner konkrete Fehler.</p>
 			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>

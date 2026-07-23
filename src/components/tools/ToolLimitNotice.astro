@@ -8,6 +8,12 @@ const { title = 'Grenzen des Rechners' } = Astro.props;
 ---
 
 <aside class="tool-limit-notice">
-	<strong>{title}</strong>
+	<div class="tool-notice-header">
+		<svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+			<circle cx="12" cy="12" r="9" />
+			<path d="M12 10v5m0-8v.1" />
+		</svg>
+		<h2>{title}</h2>
+	</div>
 	<div><slot /></div>
 </aside>

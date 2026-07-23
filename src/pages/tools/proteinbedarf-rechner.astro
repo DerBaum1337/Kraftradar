@@ -7,6 +7,7 @@ import ToolNoScript from '../../components/tools/ToolNoScript.astro';
 import ToolSources from '../../components/tools/ToolSources.astro';
 import RelatedTools from '../../components/tools/RelatedTools.astro';
 import ToolRelatedArticles from '../../components/tools/ToolRelatedArticles.astro';
+import ToolFormHeader from '../../components/tools/ToolFormHeader.astro';
 import { getTool } from '../../data/tools.mjs';
 import { getToolSources } from '../../data/tool-sources.mjs';
 
@@ -35,11 +36,11 @@ const sources = getToolSources(['dgeProtein', 'dgeProteinFaq', 'dgeProteinSport'
 				<h2 id="protein-error-heading" tabindex="-1">Bitte prüfe deine Eingaben</h2>
 				<ul data-error-list></ul>
 			</div>
-			<p class="tool-help tool-required-note">Mit <span aria-hidden="true">*</span> gekennzeichnete Felder sind Pflichtfelder.</p>
+			<ToolFormHeader title="Deine Angaben" description="Trage dein Körpergewicht ein und wähle die Situation, die am besten zu dir passt." />
 
-			<fieldset>
+			<fieldset class="tool-section">
 				<legend>Grundlage der Berechnung</legend>
-				<div class="tool-form-grid">
+				<div class="tool-grid">
 					<div class="tool-field">
 						<label for="protein-weight">Körpergewicht <span aria-hidden="true">*</span></label>
 						<div class="tool-input-with-unit"><input id="protein-weight" name="weight" type="text" inputmode="decimal" autocomplete="off" required aria-describedby="protein-weight-help protein-weight-error" /><span>kg</span></div>
@@ -51,44 +52,74 @@ const sources = getToolSources(['dgeProtein', 'dgeProteinFaq', 'dgeProteinSport'
 					<legend>Ziel oder Trainingssituation <span aria-hidden="true">*</span></legend>
 					<p class="tool-help">Die Aufteilung ist eine KraftRadar-Orientierung aus breiteren Fachbereichen, keine wörtliche Einzelvorgabe einer Organisation.</p>
 					<div class="tool-choice-grid">
-						<label class="tool-choice-card"><input type="radio" name="goal" value="alltag" required aria-describedby="protein-goal-error" /><span><strong>Alltag ohne gezielten Muskelaufbau</strong><small>0,8 g/kg · Allgemeine Orientierung ohne ambitioniertes Training oder gezielten Muskelaufbau.</small></span></label>
-						<label class="tool-choice-card"><input type="radio" name="goal" value="training" aria-describedby="protein-goal-error" /><span><strong>Ambitioniertes regelmäßiges Training</strong><small>1,2–1,6 g/kg · Orientierung für umfangreicheres regelmäßiges Training, insbesondere bei ungefähr fünf oder mehr Trainingsstunden pro Woche.</small></span></label>
-						<label class="tool-choice-card"><input type="radio" name="goal" value="muskelaufbau" aria-describedby="protein-goal-error" /><span><strong>Muskelaufbau mit Krafttraining</strong><small>1,6–2,0 g/kg · Orientierung für regelmäßiges Krafttraining mit dem Ziel, Muskelmasse aufzubauen.</small></span></label>
-						<label class="tool-choice-card"><input type="radio" name="goal" value="defizit" aria-describedby="protein-goal-error" /><span><strong>Muskelerhalt im Kaloriendefizit</strong><small>1,6–2,0 g/kg · Vorsichtiger Orientierungsbereich für Gewichtsabnahme bei gleichzeitig regelmäßigem Krafttraining.</small></span></label>
+						<label class="tool-choice-card">
+							<input type="radio" name="goal" value="alltag" required aria-describedby="protein-goal-error" />
+							<span>
+								<strong>Alltag ohne gezielten Muskelaufbau</strong>
+								<span class="tool-choice-factor">0,8 g/kg</span>
+								<small>Allgemeine Orientierung ohne gezielten Muskelaufbau.</small>
+							</span>
+						</label>
+						<label class="tool-choice-card">
+							<input type="radio" name="goal" value="training" aria-describedby="protein-goal-error" />
+							<span>
+								<strong>Ambitioniertes regelmäßiges Training</strong>
+								<span class="tool-choice-factor">1,2–1,6 g/kg</span>
+								<small>Orientierung für umfangreicheres regelmäßiges Training.</small>
+							</span>
+						</label>
+						<label class="tool-choice-card">
+							<input type="radio" name="goal" value="muskelaufbau" aria-describedby="protein-goal-error" />
+							<span>
+								<strong>Muskelaufbau mit Krafttraining</strong>
+								<span class="tool-choice-factor">1,6–2,0 g/kg</span>
+								<small>Orientierung für regelmäßiges Krafttraining mit Muskelaufbauziel.</small>
+							</span>
+						</label>
+						<label class="tool-choice-card">
+							<input type="radio" name="goal" value="defizit" aria-describedby="protein-goal-error" />
+							<span>
+								<strong>Muskelerhalt im Kaloriendefizit</strong>
+								<span class="tool-choice-factor">1,6–2,0 g/kg</span>
+								<small>Orientierung für Krafttraining während einer Gewichtsabnahme.</small>
+							</span>
+						</label>
 					</div>
 					<p id="protein-goal-error" class="tool-inline-error" data-error-for="protein-goal-group"></p>
 					<p class="tool-help">Nicht für extreme Diäten, Wettkampfvorbereitungen oder medizinische Gewichtsreduktionen.</p>
 				</fieldset>
 			</fieldset>
 
-			<fieldset>
-				<legend>Optionale Ergänzung für die Whey-Menge</legend>
-				<p class="tool-help">Lasse Felder frei, wenn du nur deinen Proteinbereich sehen möchtest.</p>
-				<div class="tool-form-grid">
-					<div class="tool-field">
-						<label for="protein-existing">Bisherige tägliche Proteinmenge <span class="tool-optional">(optional)</span></label>
-						<div class="tool-input-with-unit"><input id="protein-existing" name="existingProtein" type="text" inputmode="decimal" autocomplete="off" aria-describedby="protein-existing-help protein-existing-error" /><span>g</span></div>
-						<p id="protein-existing-help" class="tool-help">Protein aus Essen, Getränken und bereits getrunkenen Shakes pro Tag.</p>
-						<p id="protein-existing-error" class="tool-inline-error" data-error-for="protein-existing"></p>
-					</div>
-					<div class="tool-field">
-						<label for="protein-whey">Protein im Whey <span class="tool-optional">(optional)</span></label>
-						<div class="tool-input-with-unit"><input id="protein-whey" name="wheyProteinPer100" type="text" inputmode="decimal" autocomplete="off" aria-describedby="protein-whey-help protein-whey-error" /><span>g pro 100 g Pulver</span></div>
-						<p id="protein-whey-help" class="tool-help">Zum Beispiel 75 g pro 100 g Pulver.</p>
-						<p id="protein-whey-error" class="tool-inline-error" data-error-for="protein-whey"></p>
-					</div>
-					<div class="tool-field">
-						<label for="protein-serving">Portionsgröße <span class="tool-optional">(optional)</span></label>
-						<div class="tool-input-with-unit"><input id="protein-serving" name="servingSize" type="text" inputmode="decimal" value="30" autocomplete="off" aria-describedby="protein-serving-help protein-serving-error" /><span>g Pulver</span></div>
-						<p id="protein-serving-help" class="tool-help">Standard: 30 g. Nur erforderlich, wenn du auch Whey-Angaben einträgst.</p>
-						<p id="protein-serving-error" class="tool-inline-error" data-error-for="protein-serving"></p>
+			<details class="tool-disclosure" data-reset-closed>
+				<summary>Whey-Menge zusätzlich berechnen</summary>
+				<div class="tool-disclosure-content">
+					<p class="tool-help">Ergänze diese Angaben nur, wenn du die fehlende Menge bis zur Untergrenze auch als Whey-Pulver berechnen möchtest.</p>
+					<div class="tool-grid">
+						<div class="tool-field">
+							<label for="protein-existing">Bisherige tägliche Proteinmenge <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit"><input id="protein-existing" name="existingProtein" type="text" inputmode="decimal" autocomplete="off" aria-describedby="protein-existing-help protein-existing-error" /><span>g</span></div>
+							<p id="protein-existing-help" class="tool-help">Protein aus Essen, Getränken und bereits getrunkenen Shakes pro Tag.</p>
+							<p id="protein-existing-error" class="tool-inline-error" data-error-for="protein-existing"></p>
+						</div>
+						<div class="tool-field">
+							<label for="protein-whey">Protein pro 100 g Whey <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit"><input id="protein-whey" name="wheyProteinPer100" type="text" inputmode="decimal" autocomplete="off" aria-describedby="protein-whey-help protein-whey-error" /><span>g</span></div>
+							<p id="protein-whey-help" class="tool-help">Zum Beispiel 75 g.</p>
+							<p id="protein-whey-error" class="tool-inline-error" data-error-for="protein-whey"></p>
+						</div>
+						<div class="tool-field">
+							<label for="protein-serving">Portionsgröße <span class="tool-optional">(optional)</span></label>
+							<div class="tool-input-with-unit"><input id="protein-serving" name="servingSize" type="text" inputmode="decimal" value="30" autocomplete="off" aria-describedby="protein-serving-help protein-serving-error" /><span>g</span></div>
+							<p id="protein-serving-help" class="tool-help">Standard: 30 g. Nur erforderlich, wenn du auch Whey-Angaben einträgst.</p>
+							<p id="protein-serving-error" class="tool-inline-error" data-error-for="protein-serving"></p>
+						</div>
 					</div>
 				</div>
-			</fieldset>
+			</details>
 
 			<div class="tool-form-actions">
-				<button type="submit" data-calculate disabled>Proteinbedarf berechnen</button>
-				<button type="button" class="button button--secondary" data-reset>Zurücksetzen</button>
+				<button type="submit" class="tool-action-primary" data-calculate disabled>Proteinbedarf berechnen</button>
+				<button type="button" class="tool-action-reset" data-reset>Eingaben zurücksetzen</button>
 			</div>
 			<p class="tool-recalculate-note" data-recalculate-note hidden aria-live="polite">Eingaben geändert. Berechne das Ergebnis erneut.</p>
 		</form>

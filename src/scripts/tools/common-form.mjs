@@ -44,6 +44,20 @@ function findErrorTarget(form, targetId) {
 	return [...form.querySelectorAll('[id]')].find((element) => element.id === targetId) ?? null;
 }
 
+export function revealErrorTarget(target) {
+	const disclosures = [];
+	let current = target;
+	while (current instanceof HTMLElement) {
+		const disclosure = current.closest('details');
+		if (!(disclosure instanceof HTMLDetailsElement) || disclosures.includes(disclosure)) break;
+		disclosures.push(disclosure);
+		current = disclosure.parentElement;
+	}
+	disclosures.reverse().forEach((disclosure) => {
+		disclosure.open = true;
+	});
+}
+
 function getErrorElement(form, targetId, field) {
 	const existing = form.querySelector('[data-error-for="' + targetId + '"]');
 	if (existing instanceof HTMLElement) return existing;
@@ -73,14 +87,18 @@ export function showErrors(form, errors) {
 			text: error.message,
 			attributes: { href: '#' + error.targetId },
 		});
-		link.addEventListener('click', () => {
+		link.addEventListener('click', (event) => {
+			event.preventDefault();
 			const target = findErrorTarget(form, error.targetId);
-			if (target instanceof HTMLElement) target.focus();
+			if (!(target instanceof HTMLElement)) return;
+			revealErrorTarget(target);
+			target.focus();
 		});
 		item.append(link);
 		list.append(item);
 		const target = findErrorTarget(form, error.targetId);
 		if (!(target instanceof HTMLElement)) return;
+		revealErrorTarget(target);
 		target.setAttribute('aria-invalid', 'true');
 		const errorElement = getErrorElement(form, error.targetId, target);
 		errorElement.textContent = error.message;
@@ -121,6 +139,9 @@ export function showResult(form) {
 export function resetToolForm(form, cleanup = () => {}) {
 	form.reset();
 	cleanup();
+	form.querySelectorAll('details[data-reset-closed]').forEach((details) => {
+		if (details instanceof HTMLDetailsElement) details.open = false;
+	});
 	clearFormErrors(form);
 	const result = form.parentElement?.querySelector('[data-result]');
 	const note = form.querySelector('[data-recalculate-note]');
@@ -187,6 +208,15 @@ export function appendResultCards(container, cards) {
 		grid.append(article);
 	});
 	container.append(grid);
+}
+
+export function appendResultHero(container, value, unit, meta = '') {
+	const hero = makeElement('div', { className: 'tool-result-hero' });
+	hero.append(makeElement('p', { className: 'tool-result-kicker', text: 'Dein Ergebnis' }));
+	hero.append(makeElement('strong', { className: 'tool-result-value', text: value }));
+	if (unit) hero.append(makeElement('span', { className: 'tool-result-unit', text: unit }));
+	if (meta) hero.append(makeElement('span', { className: 'tool-result-meta', text: meta }));
+	container.append(hero);
 }
 
 export function appendParagraph(container, text, className = '') {
