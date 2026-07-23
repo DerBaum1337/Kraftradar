@@ -14,7 +14,10 @@ export const articleTypes = [
 ] as const;
 export const articleStatuses = ['draft', 'review', 'ready', 'published'] as const;
 
-const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Bitte YYYY-MM-DD verwenden.');
+const isoDate = z.preprocess(
+	(value) => (value instanceof Date ? value.toISOString().slice(0, 10) : value),
+	z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Bitte YYYY-MM-DD verwenden.'),
+);
 const slug = z
 	.string()
 	.min(1)
@@ -43,6 +46,11 @@ const transparencySchema = z.object({
 	note: z.string().default(''),
 });
 
+const affiliateSchema = z.object({
+	partner: z.enum(['amazon', 'hsn']),
+	url: z.url(),
+	linkText: z.string().min(1),
+});
 const productSchema = z.object({
 	name: z.string().default(''),
 	brand: z.string().default(''),
@@ -110,6 +118,7 @@ const articles = defineCollection({
 			affiliateLinks: false,
 			note: '',
 		}),
+		affiliate: affiliateSchema.optional(),
 		product: productSchema.optional(),
 		rating: ratingSchema.optional(),
 		pros: z.array(z.string()).default([]),

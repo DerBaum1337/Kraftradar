@@ -43,6 +43,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die Preisbewertung beruht auf dem tatsächlich bezahlten Preis vom 19. Mai 2026 mit 3 Prozent Sparplanrabatt."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLU1BfHxTVFJPU1R8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmRlL21hcmtlbi9yYXctc2VyaWVzL21hbHRvZGV4dHJpbi1wdWx2ZXI%3D"
+  linkText: "HSN Maltodextrin Pulver"
 product:
   name: "Maltodextrin Pulver"
   brand: "HSN"

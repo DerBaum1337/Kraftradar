@@ -120,8 +120,12 @@ const articleStructuredData = {
 					</figure>
 				)
 			}
-			{data.product?.affiliateLinks && data.product.affiliateUrl && (
-				<AffiliateProduktbox url={data.product.affiliateUrl} productName={`${data.product.brand} ${data.product.name}`} />
+			{data.affiliate && (
+				<AffiliateProduktbox
+					partner={data.affiliate.partner}
+					url={data.affiliate.url}
+					linkText={data.affiliate.linkText}
+				/>
 			)}
 			<slot />
 			<Quellenliste sources={data.sources} />

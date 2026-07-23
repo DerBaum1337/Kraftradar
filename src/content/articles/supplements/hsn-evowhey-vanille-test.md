@@ -45,6 +45,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Alle getesteten Beutel wurden selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Der genannte Sparplanrabatt war ein regulärer Rabatt meiner Bestellung."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNOUy1FVzJ8fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL3Nwb3J0LXNlcmllcy9ldm93aGV5LXByb3RlaW4%3D"
+  linkText: "HSN Evowhey Protein"
 product:
   name: "Evowhey Protein"
   brand: "HSN"

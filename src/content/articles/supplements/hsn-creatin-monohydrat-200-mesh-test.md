@@ -46,6 +46,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Der getestete Beutel wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält klar gekennzeichnete Affiliate-Links zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die Bewertung verwendet den tatsächlich bezahlten Preis vom 13. April 2026."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLU1DfHxTVFJPU1R8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmRlL21hcmtlbi9yYXctc2VyaWVzL2NyZWF0aW4tbW9ub2h5ZHJhdC1wdWx2ZXItMjAwLW1lc2g%3D"
+  linkText: "HSN Creatin-Monohydrat-Pulver 200 Mesh"
 product:
   name: "Creatin-Monohydrat-Pulver 200 Mesh"
   brand: "HSN"

@@ -47,6 +47,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Eine Wirkung auf Gelenke, Sehnen oder Regeneration wurde nicht als Produkteigenschaft bewertet."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLUhDfHxTVFJPU1R8fGh0dHBzOi8vd3d3LmhzbnN0b3JlLmRlL21hcmtlbi9yYXctc2VyaWVzL2tvbGxhZ2VuLWh5ZHJvbHlzYXQtcmluZC1wdWx2ZXI%3D"
+  linkText: "HSN Kollagen-Hydrolysat (Rind) Pulver"
 product:
   name: "Kollagen-Hydrolysat (Rind) Pulver"
   brand: "HSN"

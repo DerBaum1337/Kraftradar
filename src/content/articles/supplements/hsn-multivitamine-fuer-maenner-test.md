@@ -47,6 +47,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die ursprüngliche Produktverpackung ist nicht mehr vorhanden, weil sie beschädigt wurde. Die Tabletten werden inzwischen in einem separaten Behälter mit Klickdeckel gelagert."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNORS1VTU18fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL2Vzc2VudGlhbC1zZXJpZXMvbXVsdGl2aXRhbWluZS1mdWVyLW1hZW5uZXI%3D"
+  linkText: "HSN Multivitamine für Männer"
 product:
   name: "Multivitamine für Männer"
   brand: "HSN"

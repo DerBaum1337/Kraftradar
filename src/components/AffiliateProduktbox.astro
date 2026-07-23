@@ -1,19 +1,29 @@
 ---
 interface Props {
+	partner: 'amazon' | 'hsn';
 	url: string;
-	productName: string;
+	linkText: string;
 }
 
-const { url, productName } = Astro.props;
+const { partner, url, linkText } = Astro.props;
+const partnerName = partner === 'amazon' ? 'Amazon' : 'HSN';
+const disclosure =
+	partner === 'amazon'
+		? 'Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Für dich ändert sich der Preis nicht.'
+		: 'Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.';
 ---
 
-<aside class="affiliate-product-box" aria-label={`Werbung: ${productName}`}>
+<aside class="affiliate-product-box" aria-label={`Werbung: ${linkText} bei ${partnerName}`}>
 	<p class="affiliate-product-box__label">Werbung / Affiliate-Link</p>
-	<h2>{productName} bei HSN</h2>
-	<p>
-		Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.
-	</p>
-	<a class="button affiliate-product-box__button" href={url} target="_blank" rel="sponsored noopener noreferrer" aria-label={`${productName} bei HSN ansehen (öffnet in einem neuen Tab)`}>
-		Bei HSN ansehen <span aria-hidden="true">↗</span>
+	<h2>{linkText} bei {partnerName}</h2>
+	<p>{disclosure}</p>
+	<a
+		class="button affiliate-product-box__button"
+		href={url}
+		target="_blank"
+		rel="sponsored noopener noreferrer"
+		aria-label={`${linkText} bei ${partnerName} ansehen (öffnet in einem neuen Tab)`}
+	>
+		Bei {partnerName} ansehen <span aria-hidden="true">↗</span>
 	</a>
 </aside>

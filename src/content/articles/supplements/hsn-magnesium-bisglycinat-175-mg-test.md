@@ -47,6 +47,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die getestete Dose wurde am 19. Mai 2026 gekauft. Ihre Deklaration unterscheidet sich von der aktuell verlinkten HSN-Produktseite."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNORS1CTUd8fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL2Vzc2VudGlhbC1zZXJpZXMvbWFnbmVzaXVtYmlzZ2x5Y2luYXQtMTc1LW1nLW1hZ25lc2l1bQ%3D%3D"
+  linkText: "HSN Magnesiumbisglycinat 175 mg Magnesium"
 product:
   name: "Magnesiumbisglycinat 175 mg Magnesium"
   brand: "HSN"

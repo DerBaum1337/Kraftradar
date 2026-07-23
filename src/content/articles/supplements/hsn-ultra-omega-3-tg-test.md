@@ -50,6 +50,10 @@ transparency:
   sponsored: false
   affiliateLinks: true
   note: "Das Produkt wurde selbst gekauft. Es gab keine Kooperation, kostenlose Bereitstellung oder Einflussnahme durch HSN. Dieser Artikel enthält einen klar gekennzeichneten Affiliate-Link zu HSN; bei einem Kauf erhalte ich möglicherweise eine Provision. Die Bewertung verwendet den tatsächlich bezahlten Preis vom 19. Mai 2026 nach 3 Prozent Sparplanrabatt."
+affiliate:
+  partner: hsn
+  url: "https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFNORS1VTzN8fFNUUk9TVHx8aHR0cHM6Ly93d3cuaHNuc3RvcmUuZGUvbWFya2VuL2Vzc2VudGlhbC1zZXJpZXMvdWx0cmEtb21lZ2EtMy10Zy1pZm9zLTEwMDAtbWc%3D"
+  linkText: "HSN Ultra Omega-3 TG (IFOS) 1000 mg"
 product:
   name: "Ultra Omega-3 TG (IFOS) 1000 mg"
   brand: "HSN"

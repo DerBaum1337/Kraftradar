@@ -49,7 +49,7 @@ collections:
         modes: [rich_text, raw]
         buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
         editor_components: [image]
-      - &article_published_at { label: Veröffentlichungsdatum, name: publishedAt, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm" }
+      - &article_published_at { label: Veröffentlichungsdatum, name: publishedAt, widget: hidden, required: false }
       - &article_updated_at { label: Aktualisierungsdatum, name: updatedAt, widget: hidden, required: false }
       - &article_author { label: Autor, name: author, widget: hidden, default: basti }
       - &article_featured { label: Auf der Startseite hervorheben, name: featured, widget: boolean, default: false, required: false }
@@ -130,6 +130,28 @@ collections:
       - *article_noindex
       - *article_toc
       - *article_hero_image
+      - &article_affiliate
+        label: Affiliate-Box anzeigen
+        name: affiliate
+        widget: object
+        required: false
+        collapsed: auto
+        typeKey: partner
+        summary: '{{partner}} · {{linkText}}'
+        hint: "Haken setzen, Partner auswählen, Link und sichtbaren Linktext eintragen. Werbekennzeichnung und Standardtext entstehen automatisch."
+        types:
+          - label: Amazon
+            name: amazon
+            widget: object
+            fields:
+              - { label: Amazon-Affiliate-Link, name: url, widget: string, pattern: ["^https://", "Bitte einen vollständigen https-Link eingeben."] }
+              - { label: Linktext, name: linkText, widget: string, hint: "Nur Produktname, zum Beispiel: 720°DGREE uberShaker mit Pulverfach." }
+          - label: HSN
+            name: hsn
+            widget: object
+            fields:
+              - { label: HSN-Affiliate-Link, name: url, widget: string, pattern: ["^https://", "Bitte einen vollständigen https-Link eingeben."] }
+              - { label: Linktext, name: linkText, widget: string, hint: "Nur Produktname, zum Beispiel: HSN Evowhey Protein." }
       - *article_sources
       - *article_related
       - *article_seo
@@ -143,14 +165,14 @@ collections:
           - { label: Eigene Erfahrung, name: personalExperience, widget: boolean, default: false }
           - { label: Selbst gekauft, name: selfPurchased, widget: boolean, default: false, required: false }
           - { label: Gesponsert, name: sponsored, widget: boolean, default: false }
-          - { label: Affiliate-Links, name: affiliateLinks, widget: boolean, default: false }
+          - { name: affiliateLinks, widget: hidden, default: false }
           - { label: Hinweis, name: note, widget: text, required: false }
       - &product_details
-        label: Produktdaten
+        label: Produkt- und Testdaten
         name: product
         widget: object
         required: false
-        collapsed: true
+        collapsed: false
         summary: '{{fields.brand}} {{fields.name}}'
         fields:
           - { label: Produktname, name: name, widget: string, required: false }
@@ -158,6 +180,8 @@ collections:
           - { label: Modell, name: model, widget: string, required: false }
           - { label: Variante, name: variant, widget: string, required: false }
           - { label: Hersteller-URL, name: manufacturerUrl, widget: string, required: false }
+          - { name: affiliateUrl, widget: hidden, required: false }
+          - { name: affiliateLinks, widget: hidden, default: false }
           - { label: Kaufdatum, name: purchaseDate, widget: datetime, type: date, required: false, date_format: "YYYY-MM-DD", time_format: false }
           - { label: Kaufpreis in EUR, name: purchasePrice, widget: number, required: false, value_type: float }
           - { label: Referenzpreis in EUR, name: currentReferencePrice, widget: number, required: false, value_type: float }
@@ -199,6 +223,7 @@ collections:
       - *article_noindex
       - *article_toc
       - *article_hero_image
+      - *article_affiliate
       - *article_sources
       - *article_related
       - *article_seo
