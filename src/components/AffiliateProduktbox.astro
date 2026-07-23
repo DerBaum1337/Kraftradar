@@ -11,10 +11,9 @@ const { url, productName } = Astro.props;
 	<p class="affiliate-product-box__label">Werbung / Affiliate-Link</p>
 	<h2>{productName} bei HSN</h2>
 	<p>
-		Wenn du über diesen Link kaufst, erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.
+		Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.
 	</p>
-	<a class="button affiliate-product-box__button" href={url} target="_blank" rel="sponsored noopener noreferrer">
-		Bei HSN ansehen <span aria-hidden="true">→</span>
-		<span class="sr-only"> (öffnet in einem neuen Tab)</span>
+	<a class="button affiliate-product-box__button" href={url} target="_blank" rel="sponsored noopener noreferrer" aria-label={`${productName} bei HSN ansehen (öffnet in einem neuen Tab)`}>
+		Bei HSN ansehen <span aria-hidden="true">↗</span>
 	</a>
 </aside>

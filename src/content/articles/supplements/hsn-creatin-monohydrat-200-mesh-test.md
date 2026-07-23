@@ -196,8 +196,8 @@ HSN bietet außerdem ein ultrafeines Creatin-Monohydrat-Pulver mit 500 Mesh an. 
 <aside class="affiliate-product-box" aria-label="Werbung: HSN Creatin-Monohydrat 500 Mesh">
   <p class="affiliate-product-box__label">Werbung / Affiliate-Link</p>
   <h3>HSN Creatin-Monohydrat 500 Mesh bei HSN</h3>
-  <p>Ich habe diese Variante nicht selbst getestet. Wenn du über diesen Link kaufst, erhalte ich möglicherweise eine Provision. Für dich bleibt der Preis gleich.</p>
-  <a class="button affiliate-product-box__button" href="https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLUNSTXx8U1RST1NUfHxodHRwczovL3d3dy5oc25zdG9yZS5kZS9tYXJrZW4vcmF3LXNlcmllcy91bHRyYWZlaW5lcy1jcmVhdGluLW1vbm9oeWRyYXQtcHVsdmVyLTUwMC1tZXNo" target="_blank" rel="sponsored noopener noreferrer">Bei HSN ansehen <span aria-hidden="true">→</span><span class="sr-only"> (öffnet in einem neuen Tab)</span></a>
+  <p>Ich habe diese Variante nicht selbst getestet. Wenn du über diesen Link kaufst, kann ich eine Provision erhalten. Für dich bleibt der Preis gleich.</p>
+  <a class="button affiliate-product-box__button" href="https://www.hsnstore.de/affiliate/click/index?linkid=cHJvZHVjdHx8SFJTLUNSTXx8U1RST1NUfHxodHRwczovL3d3dy5oc25zdG9yZS5kZS9tYXJrZW4vcmF3LXNlcmllcy91bHRyYWZlaW5lcy1jcmVhdGluLW1vbm9oeWRyYXQtcHVsdmVyLTUwMC1tZXNo" target="_blank" rel="sponsored noopener noreferrer" aria-label="HSN Creatin-Monohydrat 500 Mesh bei HSN ansehen (öffnet in einem neuen Tab)">Bei HSN ansehen <span aria-hidden="true">↗</span></a>
 </aside>
 
 ![Gefüllter Messlöffel mit ungefähr 5 g HSN Kreatin-Monohydrat-Pulver](/uploads/articles/hsn-creatin-monohydrat-5g-portion.webp)
